@@ -1,4 +1,4 @@
-import { IStore } from 'redux/IStore';
+import { IStore } from 'core/redux/IStore';
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import * as serialize from 'serialize-javascript';

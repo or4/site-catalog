@@ -11,7 +11,7 @@ import { Provider } from 'react-redux';
 import { createMemoryHistory, match } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 const { ReduxAsyncConnect, loadOnServer } = require('redux-connect');
-import { configureStore } from './app/redux/store';
+import { configureStore } from './app/core/redux/store';
 import routes from './app/routes';
 
 import { Html } from './app/containers';
@@ -96,8 +96,7 @@ function renderHTML(markup: string, store: any) {
 
   const htmlContent = `<!doctype html> ${html}`
 
-  console.log('sadf', htmlContent);
-
+  // console.log(htmlContent);
 
   return htmlContent;
 }
