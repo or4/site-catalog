@@ -5,7 +5,7 @@ import preset from 'jss-preset-default';
 jss.setup(preset());
 
 type Props = {
-  children: any
+  children: any;
 };
 type State = {
 };
@@ -18,15 +18,15 @@ class MainLayout extends React.PureComponent<Props, State> {
 
     return {
       container,
-    }
+    };
   }
   render() {
     const { children } = this.props;
 
-  const sheet = jss.createStyleSheet(this.getStyle()).attach();
-  const { classes } = sheet;
+    const sheet = jss.createStyleSheet(this.getStyle()).attach();
+    const { classes } = sheet;
 
-  return (
+    return (
       <div className={classes.container}>
         {children}
       </div>

@@ -1,3 +1,3 @@
-import Main from "scenes/Main";
+import Main from 'scenes/Main';
 
-export default { Main }
+export default { Main };
