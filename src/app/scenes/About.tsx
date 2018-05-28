@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './About.css';
 
 type IProps = {};
 interface IState {}
@@ -7,10 +8,20 @@ class About extends React.Component<IProps, IState> {
   componentDidMount() {
     console.log('About componentDidMount');
   }
+  getStyle = () => {
+    const container = {
+      background: 'green',
+    };
+
+    return {
+      container,
+    };
+  }
   public render() {
+    const style = this.getStyle();
     return (
-      <div>
-          About
+      <div style={style.container}>
+        About
       </div>
     );
   }
