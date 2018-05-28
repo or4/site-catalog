@@ -73,4 +73,4 @@ class Html extends React.Component<IHtmlProps, {}> {
   }
 }
 
-export { Html };
+export default Html;

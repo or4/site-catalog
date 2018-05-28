@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { IndexRoute, Route } from 'react-router';
-import { App } from 'containers';
-import Main from 'scenes/Main';
-import About from 'scenes/About';
+import { App, Main, About } from 'scenes';
 
 export default (
   <Route path="/" component={App}>

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import './About.css';
 
 type IProps = {};
 interface IState {}

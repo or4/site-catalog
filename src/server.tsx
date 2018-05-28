@@ -14,7 +14,7 @@ const { ReduxAsyncConnect, loadOnServer } = require('redux-connect');
 import { configureStore } from './app/core/redux/store';
 import routes from './app/routes';
 
-import { Html } from './app/containers';
+import { Html } from './app/scenes';
 const manifest = require('../build/manifest.json');
 
 const express = require('express');
