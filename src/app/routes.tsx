@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { IndexRoute, Route } from 'react-router';
 import { About, Contacts, News, Production, Products } from 'scenes';
-import MainLayout from 'components/MainLayout';
+import { MainLayout } from 'components';
 
 export default (
   <Route path="/" component={MainLayout}>

@@ -6,9 +6,9 @@ type Props = {
 type State = {
 };
 
-class Header extends React.PureComponent<Props, State> {
+class Navigation extends React.PureComponent<Props, State> {
   componentDidMount() {
-    console.log('Header componentDidMount');
+    console.log('Navigation componentDidMount');
   }
   render() {
     //const {  } = this.props;
@@ -25,5 +25,4 @@ class Header extends React.PureComponent<Props, State> {
     );
   }
 }
-
-export default Header;
+export default Navigation;
