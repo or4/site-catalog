@@ -31,6 +31,13 @@ class Html extends React.Component<IHtmlProps, {}> {
         charSet="UTF-8"
       />
     );
+    const getInlineStyles = () => {
+      return `
+      * {
+        margin: 0;
+        padding: 0;
+      }`;
+    };
 
     return (
       <html>
@@ -43,6 +50,9 @@ class Html extends React.Component<IHtmlProps, {}> {
 
           {renderStyles}
           <link rel="shortcut icon" href="/favicon.ico" />
+          <style>
+            {getInlineStyles()}
+          </style>
         </head>
         <body>
           <main id="app" dangerouslySetInnerHTML={{ __html: markup }} />
