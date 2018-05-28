@@ -11,6 +11,9 @@ type State = {
 };
 
 class MainLayout extends React.PureComponent<Props, State> {
+  componentDidMount() {
+    console.log('MainLayout componentDidMount');
+  }
   getStyle = () => {
     const container = {
       background: '#ccc',

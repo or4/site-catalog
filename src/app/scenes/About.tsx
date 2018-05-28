@@ -1,17 +1,17 @@
 import * as React from 'react';
-import MainLayout from 'components/MainLayout';
 
 type IProps = {};
 interface IState {}
 
 class About extends React.Component<IProps, IState> {
+  componentDidMount() {
+    console.log('About componentDidMount');
+  }
   public render() {
     return (
-      <MainLayout>
-        <div>
+      <div>
           About
-        </div>
-      </MainLayout>
+      </div>
     );
   }
 }

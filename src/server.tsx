@@ -94,7 +94,7 @@ function renderHTML(markup: string, store: any) {
     <Html markup={markup} manifest={manifest} store={store} />,
   );
 
-  const htmlContent = `<!doctype html> ${html}`
+  const htmlContent = `<!doctype html> ${html}`;
 
   // console.log(htmlContent);
 

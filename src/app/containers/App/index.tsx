@@ -6,6 +6,9 @@ import { Header } from 'components';
 import MainLayout from 'components/MainLayout';
 
 class App extends React.Component<any, any> {
+  componentDidMount() {
+    console.log('App componentDidMount');
+  }
   public render() {
     return (
       <MainLayout>
