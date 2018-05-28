@@ -1,12 +1,10 @@
+const appConfig = require('../../../config/main');
+
 import * as React from 'react';
+import { Helmet } from 'react-helmet';
+import { Header } from 'components';
 
-type Props = {
-  children: any;
-};
-type State = {
-};
-
-class MainLayout extends React.PureComponent<Props, State> {
+class MainLayout extends React.Component<any, any> {
   componentDidMount() {
     console.log('MainLayout componentDidMount');
   }
@@ -19,15 +17,16 @@ class MainLayout extends React.PureComponent<Props, State> {
       container,
     };
   }
-  render() {
-    const { children } = this.props;
+  public render() {
     const style = this.getStyle();
-
     return (
       <div style={style.container}>
-        {children}
+        <Helmet {...appConfig.app} {...appConfig.app.head} />
+        <Header />
+        {this.props.children}
       </div>
     );
   }
 }
+
 export default MainLayout;

@@ -1,6 +1,8 @@
 import About from './About';
-import App from './App';
-import Html from './Html';
 import Main from './Main';
+import Contacts from 'scenes/Contacts';
+import News from 'scenes/News';
+import Production from 'scenes/Production';
+import Products from 'scenes/Products';
 
-export { About, App, Html, Main };
+export { About, Contacts, Main, News, Production, Products };

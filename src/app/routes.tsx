@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { IndexRoute, Route } from 'react-router';
-import { App, Main, About } from 'scenes';
+import { Main, About } from 'scenes';
+import MainLayout from 'components/MainLayout';
 
 export default (
-  <Route path="/" component={App}>
+  <Route path="/" component={MainLayout}>
     <IndexRoute component={Main} />
     <Route path="/" component={Main} />
     <Route path="main" component={Main} />
