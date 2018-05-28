@@ -33,8 +33,10 @@ class Html extends React.Component<IHtmlProps, {}> {
 
     // tslint:disable-next-line:max-line-length
     const initialState = (
-      <script dangerouslySetInnerHTML={{ __html: `window.__INITIAL_STATE__=${serialize(store.getState(), { isJSON: true })};` }}
-              charSet="UTF-8" />
+      <script
+        dangerouslySetInnerHTML={{ __html: `window.__INITIAL_STATE__=${serialize(store.getState(), { isJSON: true })};` }}
+        charSet="UTF-8"
+      />
     );
 
     return (

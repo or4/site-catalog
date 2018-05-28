@@ -27,8 +27,7 @@ class MainLayout extends React.PureComponent<Props, State> {
   const { classes } = sheet;
 
   return (
-    <div className={classes.container}>
-    asdfasd
+      <div className={classes.container}>
         {children}
       </div>
     );

@@ -4,6 +4,8 @@ import { App } from 'containers';
 import AboutScene from 'scenes/About';
 import MainScene from 'scenes/Main';
 
+import './index.css';
+
 type Props = {
 };
 type State = {
