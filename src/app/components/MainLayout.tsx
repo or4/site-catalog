@@ -2,7 +2,7 @@ const appConfig = require('../../../config/main');
 
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
-import { Header } from 'components';
+import { Header, Navigation } from 'components';
 
 type Props = {
 };
@@ -29,6 +29,7 @@ class MainLayout extends React.Component<Props, State> {
       <div style={style.container}>
         <Helmet {...appConfig.app} {...appConfig.app.head} />
         <Header />
+        <Navigation />
         {this.props.children}
       </div>
     );
