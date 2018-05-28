@@ -15,8 +15,11 @@ export class Header extends React.PureComponent<Props, State> {
     return (
       <nav>
         <ul>
-          <li><Link to="main">Main</Link></li>
           <li><Link to="about">About</Link></li>
+          <li><Link to="production">Production</Link></li>
+          <li><Link to="products">Products</Link></li>
+          <li><Link to="news">News</Link></li>
+          <li><Link to="contacts">Contacts</Link></li>
         </ul>
       </nav>
     );

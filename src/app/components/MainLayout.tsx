@@ -4,13 +4,19 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import { Header } from 'components';
 
-class MainLayout extends React.Component<any, any> {
+type Props = {
+};
+type State = {
+};
+
+class MainLayout extends React.Component<Props, State> {
   componentDidMount() {
     console.log('MainLayout componentDidMount');
   }
   getStyle = () => {
     const container = {
       background: '#ccc',
+      height: '100vh',
     };
 
     return {
