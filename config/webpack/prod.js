@@ -1,13 +1,13 @@
-var fs = require('fs');
-var path = require('path');
-var webpack = require('webpack');
-var postcssAssets = require('postcss-assets');
-var postcssNext = require('postcss-cssnext');
-var stylelint = require('stylelint');
-var ManifestPlugin = require('webpack-manifest-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+let fs = require('fs');
+let path = require('path');
+let webpack = require('webpack');
+let postcssAssets = require('postcss-assets');
+let postcssNext = require('postcss-cssnext');
+let stylelint = require('stylelint');
+let ManifestPlugin = require('webpack-manifest-plugin');
+let ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-var config = {
+let config = {
   bail: true,
 
   resolve: {
@@ -39,63 +39,63 @@ var config = {
 
   module: {
     rules: [{
-        enforce: 'pre',
-        test: /\.tsx?$/,
-        loader: 'tslint-loader'
-      },
-      {
-        test: /\.tsx?$/,
-        loader: 'awesome-typescript-loader'
-      },
-      {
-        test: /\.jsx$/,
-        loader: 'babel-loader'
-      },
-      {
-        test: /\.json$/,
-        loader: 'json-loader'
-      },
-      {
-        test: /\.css$/,
-        include: path.resolve('./src/app'),
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            'css-loader?modules&importLoaders=2&localIdentName=[local]___[hash:base64:5]',
-            'postcss-loader'
-          ]
-        })
-      },
-      {
-        test: /\.css$/,
-        exclude: path.resolve('./src/app'),
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            'css-loader',
-          ]
-        })
-      },
-      {
-        test: /\.eot(\?.*)?$/,
-        loader: 'file-loader?name=fonts/[hash].[ext]'
-      },
-      {
-        test: /\.(woff|woff2)(\?.*)?$/,
-        loader: 'file-loader?name=fonts/[hash].[ext]'
-      },
-      {
-        test: /\.ttf(\?.*)?$/,
-        loader: 'url-loader?limit=10000&mimetype=application/octet-stream&name=fonts/[hash].[ext]'
-      },
-      {
-        test: /\.svg(\?.*)?$/,
-        loader: 'url-loader?limit=10000&mimetype=image/svg+xml&name=fonts/[hash].[ext]'
-      },
-      {
-        test: /\.(jpe?g|png|gif)$/i,
-        loader: 'url-loader?limit=1000&name=images/[hash].[ext]'
-      }
+      enforce: 'pre',
+      test: /\.tsx?$/,
+      loader: 'tslint-loader'
+    },
+    {
+      test: /\.tsx?$/,
+      loader: 'awesome-typescript-loader'
+    },
+    {
+      test: /\.jsx$/,
+      loader: 'babel-loader'
+    },
+    {
+      test: /\.json$/,
+      loader: 'json-loader'
+    },
+    {
+      test: /\.css$/,
+      include: path.resolve('./src/app'),
+      loader: ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: [
+          'css-loader?modules&importLoaders=2&localIdentName=[local]___[hash:base64:5]',
+          'postcss-loader'
+        ]
+      })
+    },
+    {
+      test: /\.css$/,
+      exclude: path.resolve('./src/app'),
+      loader: ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: [
+          'css-loader',
+        ]
+      })
+    },
+    {
+      test: /\.eot(\?.*)?$/,
+      loader: 'file-loader?name=fonts/[hash].[ext]'
+    },
+    {
+      test: /\.(woff|woff2)(\?.*)?$/,
+      loader: 'file-loader?name=fonts/[hash].[ext]'
+    },
+    {
+      test: /\.ttf(\?.*)?$/,
+      loader: 'url-loader?limit=10000&mimetype=application/octet-stream&name=fonts/[hash].[ext]'
+    },
+    {
+      test: /\.svg(\?.*)?$/,
+      loader: 'url-loader?limit=10000&mimetype=image/svg+xml&name=fonts/[hash].[ext]'
+    },
+    {
+      test: /\.(jpe?g|png|gif)$/i,
+      loader: 'url-loader?limit=1000&name=images/[hash].[ext]'
+    }
     ]
   },
 
@@ -125,11 +125,11 @@ var config = {
       filename: 'js/[name].[chunkhash].js',
       minChunks: Infinity
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress: {
+    //     warnings: false
+    //   }
+    // }),
     new ExtractTextPlugin('css/[name].[hash].css'),
     new ManifestPlugin({
       fileName: '../manifest.json'
@@ -149,13 +149,13 @@ const copySync = (src, dest, overwrite) => {
   }
   const data = fs.readFileSync(src);
   fs.writeFileSync(dest, data);
-}
+};
 
 const createIfDoesntExist = dest => {
   if (!fs.existsSync(dest)) {
     fs.mkdirSync(dest);
   }
-}
+};
 
 createIfDoesntExist('./build');
 createIfDoesntExist('./build/public');

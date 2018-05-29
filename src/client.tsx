@@ -16,7 +16,7 @@ const store = configureStore(
   window.__INITIAL_STATE__,
 );
 const history = syncHistoryWithStore(browserHistory, store);
-const connectedCmp = (props) => <ReduxAsyncConnect {...props} />;
+const connectedCmp = (props: any) => <ReduxAsyncConnect {...props} />;
 
 ReactDOM.hydrate(
   <Provider store={store} key="provider">

@@ -38,7 +38,7 @@ export function starsReducer(state = initialState, action: IStarsAction) {
 
 /** Async Action Creator */
 export function getStars() {
-  return (dispatch) => {
+  return (dispatch: any) => {
     dispatch(starsRequest());
 
     return fetch('https://api.github.com/repos/barbar/vortigern')

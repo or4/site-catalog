@@ -9,8 +9,12 @@
     "inlineSourceMap": false,
     "inlineSources": false,
     "jsx": "react",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noImplicitAny": true,
     "outDir": "build",
     "paths": {
       "*": [
@@ -18,8 +22,6 @@
         "src/app/redux/*"
       ]
     },
-    "module": "commonjs",
-    "moduleResolution": "node",
     "sourceMap": true,
     "target": "es6"
   },

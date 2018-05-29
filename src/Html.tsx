@@ -1,7 +1,7 @@
 import { IStore } from 'core/redux/IStore';
-import * as React from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
-import * as serialize from 'serialize-javascript';
+import serialize from 'serialize-javascript';
 
 interface IHtmlProps {
   manifest?: any;
@@ -15,12 +15,12 @@ class Html extends React.Component<IHtmlProps, {}> {
     const { markup, store } = this.props;
 
     const styles = this.resolve(['vendor.css', 'app.css']);
-    const renderStyles = styles.map((src, i) =>
+    const renderStyles = styles.map((src: any, i: any) =>
       <link key={i} rel="stylesheet" type="text/css" href={src} />,
     );
 
     const scripts = this.resolve(['vendor.js', 'app.js']);
-    const renderScripts = scripts.map((src, i) =>
+    const renderScripts = scripts.map((src: any, i: any) =>
       <script src={src} key={i} />,
     );
 
@@ -66,13 +66,13 @@ class Html extends React.Component<IHtmlProps, {}> {
     );
   }
 
-  private resolve(files) {
-    return files.map((src) => {
+  private resolve(files: any) {
+    return files.map((src: any) => {
       if (this.props.manifest[src]) {
         return '/public/' + this.props.manifest[src];
       }
       return null;
-    }).filter((file) => typeof file !== 'undefined' && file !== null);
+    }).filter((file: any) => typeof file !== 'undefined' && file !== null);
   }
 }
 

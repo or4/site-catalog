@@ -49,7 +49,7 @@ app.use(favicon(path.join(__dirname, 'public/favicon.ico')));
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
-app.get('*', (req, res) => {
+app.get('*', (req: any, res: any) => {
   const location = req.url;
   const memoryHistory = createMemoryHistory(req.originalUrl);
   const store = configureStore(memoryHistory);
@@ -78,7 +78,7 @@ app.get('*', (req, res) => {
     });
 });
 
-app.listen(appConfig.port, appConfig.host, (err) => {
+app.listen(appConfig.port, appConfig.host, (err: any) => {
   if (err) {
     console.error(Chalk.bgRed(err));
   } else {
