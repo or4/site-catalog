@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "allowJs": true,
+    "allowJs": false,
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "downlevelIteration": true,
@@ -32,7 +32,7 @@
     "typings/main.d.ts"
   ],
   "awesomeTypescriptLoaderOptions": {
-    "useCache": true,
+    "useCache": false,
     "useBabel": true
   }
 }
