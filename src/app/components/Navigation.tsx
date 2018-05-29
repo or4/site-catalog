@@ -1,6 +1,11 @@
 import * as React from 'react';
 import { Link } from 'react-router';
 import { theme } from 'ui/theme';
+import createJss from 'util/createJss';
+
+// import jss from 'jss';
+// import preset from 'jss-preset-default';
+// jss.setup(preset());
 
 type Props = {
 };
@@ -8,6 +13,14 @@ type State = {
 };
 
 class Navigation extends React.PureComponent<Props, State> {
+  classes: any;
+  constructor(props: Props) {
+    super(props);
+    const jss = createJss();
+    const sheet = jss.createStyleSheet(this.getStyle()).attach();
+    const { classes } = sheet;
+    this.classes = classes;
+  }
   getStyle() {
     const container = {
       alignItems: 'center' as 'center',
@@ -31,15 +44,17 @@ class Navigation extends React.PureComponent<Props, State> {
     console.log('Navigation componentDidMount');
   }
   render() {
-    const style = this.getStyle();
+    // const { classes } = sheet;
+
+    // const style = this.getStyle();
     //const {  } = this.props;
     return (
-      <div style={style.container}>
-        <Link style={style.item} to="about">About</Link>
-        <Link style={style.item} to="production">Production</Link>
-        <Link style={style.item} to="products">Products</Link>
-        <Link style={style.item} to="news">News</Link>
-        <Link style={style.item} to="contacts">Contacts</Link>
+      <div className={this.classes.container}>
+        <Link to="about">About</Link>
+        <Link to="production">Production</Link>
+        <Link to="products">Products</Link>
+        <Link to="news">News</Link>
+        <Link to="contacts">Contacts</Link>
       </div>
     );
   }
