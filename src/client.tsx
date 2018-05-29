@@ -1,31 +1,16 @@
-import * as e6p from 'es6-promise';
-(e6p as any).polyfill();
-import 'isomorphic-fetch';
-import * as React from 'react';
+// import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-const { Router, browserHistory } = require('react-router');
-import { syncHistoryWithStore } from 'react-router-redux';
-const { ReduxAsyncConnect } = require('redux-connect');
-import { configureStore } from './app/core/redux/store';
-import routes from './app/routes';
-// import Main from './app/Main';
 
-const store = configureStore(
-  browserHistory,
-  window.__INITIAL_STATE__,
-);
-const history = syncHistoryWithStore(browserHistory, store);
-const connectedCmp = (props: any) => <ReduxAsyncConnect {...props} />;
+import { Main } from './Main';
 
-ReactDOM.hydrate(
-  <Provider store={store} key="provider">
-    <Router
-      history={history}
-      render={connectedCmp}
-    >
-      {routes}
-    </Router>
-  </Provider>,
+ReactDOM.hydrate(Main,
   document.getElementById('app'),
 );
+
+// if (process.env.NODE_ENV === 'development' && (module as any).hot) {
+// (module as any).hot.accept('./Main', () => {
+//   const NewApp = require('./Main').default;
+//   console.log('rerender');
+//   ReactDOM.hydrate(<NewApp />, document.getElementById('app'));
+// });
+// }

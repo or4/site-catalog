@@ -27,6 +27,7 @@ class Header extends React.PureComponent<Props, State> {
   render() {
     //const {  } = this.props;
     const style = this.getStyle();
+    console.log('style', style);
     return (
       <div style={style.container}>
         <Logo />

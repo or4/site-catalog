@@ -9,6 +9,8 @@ type State = {
 class Logo extends React.PureComponent<Props, State> {
   getStyle() {
     const container = {
+      marginLeft: '40px',
+      width: '245px',
       textAlign: 'center' as 'center',
       ...theme.header.logo,
     };

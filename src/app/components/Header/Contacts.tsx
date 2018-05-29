@@ -9,6 +9,8 @@ type State = {
 class Contacts extends React.PureComponent<Props, State> {
   getStyle() {
     const container = {
+      marginRight: '40px',
+      width: '200px',
       ...theme.header.contacts,
     };
     const caption = {

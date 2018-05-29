@@ -1,11 +1,13 @@
 const colors = {
   black: '#000',
+  darkBlue: '#476687',
   grey1: '#333',
-  darkBlue: '#476687'
+  grey2: '#676767',
+  white: '#fff',
 };
 
 const fonts = {
-  fontFamily: 'Tahoma, Verdana',
+  fontFamily: 'Tahoma, Verdana, sans-serif',
   fontFamilySecond: 'Verdana',
   size1: '25px',
   size2: '11px',
@@ -28,11 +30,21 @@ export const theme = {
     },
     contacts: {
       color: colors.darkBlue,
-      font: fonts.fontFamily,
+      fontFamily: fonts.fontFamily,
       fontSize: fonts.size2,
       fontStyle: 'italic' as 'italic',
       lineHeight: '13px',
     },
+  },
+  navigation: {
+    container: {
+      background: colors.grey2,
+    },
+    item: {
+      color: colors.white,
+      fontFamily: fonts.fontFamily,
+      fontSize: '14px',
+    }
   }
 };
 
