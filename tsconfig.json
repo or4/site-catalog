@@ -1,23 +1,27 @@
 {
   "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "inlineSourceMap": false,
+    "inlineSources": false,
+    "jsx": "react",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "build",
     "paths": {
       "*": [
         "src/app/*",
         "src/app/redux/*"
       ]
     },
-    "outDir": "build",
     "module": "commonjs",
-    "target": "es6",
+    "moduleResolution": "node",
     "sourceMap": true,
-    "inlineSourceMap": false,
-    "inlineSources": false,
-    "experimentalDecorators": true,
-    "noUnusedParameters": true,
-    "noUnusedLocals": true,
-    "jsx": "react",
-    "moduleResolution": "node"
+    "target": "es6"
   },
   "exclude": [
     "node_modules",

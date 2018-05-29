@@ -13,20 +13,17 @@ import { syncHistoryWithStore } from 'react-router-redux';
 const { ReduxAsyncConnect, loadOnServer } = require('redux-connect');
 import { configureStore } from './app/core/redux/store';
 import routes from './app/routes';
-
 import Html from './Html';
-
-
-const manifest = require('../build/manifest.json');
 
 const express = require('express');
 const path = require('path');
-// const compression = require('compression');
 const Chalk = require('chalk');
 const favicon = require('serve-favicon');
+const manifest = require('../build/manifest.json');
 
 const app = express();
 
+// const compression = require('compression');
 // app.use(compression());
 
 if (process.env.NODE_ENV !== 'production') {
