@@ -50,12 +50,20 @@ let config = {
       loader: 'json-loader'
     },
     {
-      test: /\.css$/,
+      test: /\.scss$/,
       include: path.resolve('./src/app'),
       loaders: [
         'style-loader',
         'css-loader?modules&importLoaders=2&localIdentName=[local]___[hash:base64:5]',
         'postcss-loader'
+      ]
+    },
+    {
+      test: /\.scss$/,
+      exclude: path.resolve('./src/app'),
+      loaders: [
+        'style-loader',
+        'css-loader'
       ]
     },
     {

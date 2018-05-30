@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link } from 'react-router';
 import { theme } from 'ui/theme';
 
-const mycss = require('./Navigation.css');
+const mycss = require('./Navigation.scss');
 
 type Props = {
 };
