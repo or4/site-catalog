@@ -2,8 +2,6 @@ import * as React from 'react';
 import { theme } from 'ui/theme';
 import NavigationItem from 'components/NavigationItem';
 
-const mycss = require('./Navigation.scss');
-
 type Props = {
 };
 type State = {
@@ -12,15 +10,16 @@ type State = {
 class Navigation extends React.PureComponent<Props, State> {
   getStyle() {
     const container = {
+      alignItems: 'center' as 'center',
+      display: 'flex',
+      height: '36px',
+      justifyContent: 'center' as 'center',
+      maxHeight: '36px',
+
       ...theme.navigation.container,
-    };
-    const item = {
-      margin: '0 30px',
-      ...theme.navigation.item,
     };
     return {
       container,
-      item,
     };
   }
   componentDidMount() {
@@ -28,14 +27,15 @@ class Navigation extends React.PureComponent<Props, State> {
   }
   render() {
     const style = this.getStyle();
+    console.log('style', style);
 
     return (
-      <div style={style.container} className={mycss.navigation}>
-        <NavigationItem to="about" text="About" />
-        <NavigationItem to="production" text="Production" />
-        <NavigationItem to="products" text="Products" />
-        <NavigationItem to="news" text="News<" />
-        <NavigationItem to="contacts" text="Contacts" />
+      <div style={style.container}>
+        <NavigationItem to="about" text="О нас" />
+        <NavigationItem to="production" text="Производство" />
+        <NavigationItem to="products" text="Продукция" />
+        <NavigationItem to="news" text="Новости" />
+        <NavigationItem to="contacts" text="Контакты" />
       </div>
     );
   }

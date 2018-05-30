@@ -16,9 +16,23 @@ class Header extends React.PureComponent<Props, State> {
       justifyContent: 'space-between' as 'space-between',
       maxHeight: '140px',
       minHeight: '140px',
+      minWidth: '1024px',
+    };
+    const logo = {
+      marginLeft: '40px',
+    };
+    const banner = {
+      marginLeft: 'auto',
+      marginRight: '40px'
+    };
+    const contacts = {
+      marginRight: '40px'
     };
     return {
       container,
+      logo,
+      banner,
+      contacts,
     };
   }
   componentDidMount() {
@@ -30,9 +44,9 @@ class Header extends React.PureComponent<Props, State> {
     console.log('style', style);
     return (
       <div style={style.container}>
-        <Logo />
-        <Banner />
-        <Contacts />
+        <Logo style={style.logo} />
+        <Banner style={style.banner} />
+        <Contacts style={style.contacts} />
       </div>
     );
   }

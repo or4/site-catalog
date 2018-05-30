@@ -10,7 +10,7 @@ const fonts = {
   fontFamily: 'Tahoma, Verdana, sans-serif',
   fontFamilySecond: 'Verdana',
   size1: '25px',
-  size2: '11px',
+  size2: '13px',
 };
 
 
@@ -33,7 +33,7 @@ export const theme = {
       fontFamily: fonts.fontFamily,
       fontSize: fonts.size2,
       fontStyle: 'italic' as 'italic',
-      lineHeight: '13px',
+      lineHeight: '15px',
     },
   },
   navigation: {

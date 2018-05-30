@@ -3,14 +3,19 @@ import banner from 'assets/images/banners/jaroslavl-small.jpg';
 import { theme } from 'ui/theme';
 
 type Props = {
+  style?: any;
 };
 type State = {
 };
 
 class Banner extends React.PureComponent<Props, State> {
-  getStyle() {
+  getStyle(customStyle: any) {
     const container = {
+      height: '100px',
     };
+    if (customStyle) {
+      Object.assign(container, customStyle);
+    }
     const banner = {
       ...theme.header.banner,
     };
@@ -20,8 +25,8 @@ class Banner extends React.PureComponent<Props, State> {
     };
   }
   render() {
-    const style = this.getStyle();
-    //const {  } = this.props;
+    const { style: customStyle } = this.props;
+    const style = this.getStyle(customStyle);
     return (
       <div style={style.container}>
         <img style={style.banner} src={banner} alt="" />
