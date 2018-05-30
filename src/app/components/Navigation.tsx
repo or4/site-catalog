@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Link } from 'react-router';
 import { theme } from 'ui/theme';
+import NavigationItem from 'components/NavigationItem';
 
 const mycss = require('./Navigation.scss');
 
@@ -31,11 +31,11 @@ class Navigation extends React.PureComponent<Props, State> {
 
     return (
       <div style={style.container} className={mycss.navigation}>
-        <Link className="navigation" to="about">About</Link>
-        <Link to="production">Production</Link>
-        <Link to="products">Products</Link>
-        <Link to="news">News</Link>
-        <Link to="contacts">Contacts</Link>
+        <NavigationItem to="about" text="About" />
+        <NavigationItem to="production" text="Production" />
+        <NavigationItem to="products" text="Products" />
+        <NavigationItem to="news" text="News<" />
+        <NavigationItem to="contacts" text="Contacts" />
       </div>
     );
   }
