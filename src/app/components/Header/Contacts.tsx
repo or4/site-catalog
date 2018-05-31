@@ -2,6 +2,7 @@ import React from 'react';
 import { theme } from 'ui/theme';
 
 type Props = {
+  className?: any;
   style?: any;
 };
 type State = {
@@ -32,10 +33,11 @@ class Contacts extends React.PureComponent<Props, State> {
     };
   }
   render() {
-    const { style: customStyle } = this.props;
+    const { className, style: customStyle } = this.props;
     const style = this.getStyle(customStyle);
+    const classes = className ? className : '';
     return (
-      <div style={style.container}>
+      <div style={style.container} className={classes}>
         <div style={style.caption}><b>КОНТАКТНАЯ ИНФОРМАЦИЯ</b></div>
         <div><b>Адрес:</b> 150000, г. Петропавловск,</div>
         <div style={style.addressBottom}>1 Проезд Я.Гашека 8</div>

@@ -3,6 +3,7 @@ import banner from 'assets/images/banners/jaroslavl-small.jpg';
 import { theme } from 'ui/theme';
 
 type Props = {
+  className?: any;
   style?: any;
 };
 type State = {
@@ -25,10 +26,11 @@ class Banner extends React.PureComponent<Props, State> {
     };
   }
   render() {
-    const { style: customStyle } = this.props;
+    const { className, style: customStyle } = this.props;
     const style = this.getStyle(customStyle);
+    const classes = className ? className : '';
     return (
-      <div style={style.container}>
+      <div style={style.container} className={classes}>
         <img style={style.banner} src={banner} alt="" />
       </div>
     );
