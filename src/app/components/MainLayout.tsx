@@ -2,9 +2,7 @@ const appConfig = require('../../../config/main');
 
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Header, Navigation } from 'components';
-
-const css = require('./MainLayout.scss');
+import { Header, Navigation, Footer } from 'components';
 
 type Props = {
 };
@@ -12,12 +10,11 @@ type State = {
 };
 
 class MainLayout extends React.Component<Props, State> {
-  componentDidMount() {
-    console.log('MainLayout componentDidMount');
-  }
   getStyle = () => {
     const container = {
       background: '#ccc',
+      minHeight: '100vh',
+      minWidth: '1024px',
     };
 
     return {
@@ -27,11 +24,12 @@ class MainLayout extends React.Component<Props, State> {
   public render() {
     const style = this.getStyle();
     return (
-      <div className={css.container} style={style.container}>
+      <div style={style.container}>
         <Helmet {...appConfig.app} {...appConfig.app.head} />
         <Header />
         <Navigation />
         {this.props.children}
+        <Footer />
       </div>
     );
   }

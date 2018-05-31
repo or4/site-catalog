@@ -38,7 +38,7 @@ class Html extends React.Component<IHtmlProps, {}> {
         padding: 0;
       }
       #app {
-        height: 100vh;
+        minHeight: '100vh',
       }`;
     };
 

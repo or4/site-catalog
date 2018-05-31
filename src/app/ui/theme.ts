@@ -45,6 +45,21 @@ export const theme = {
       fontFamily: fonts.fontFamily,
       fontSize: '14px',
     }
+  },
+  footer: {
+    mainText: {
+      color: colors.grey2,
+      fontFamily: fonts.fontFamily,
+      fontSize: fonts.size2,
+      lineHeight: '15px',
+    },
+    subText: {
+      color: colors.grey2,
+      fontFamily: fonts.fontFamily,
+      fontSize: fonts.size2,
+      lineHeight: '15px',
+    }
+
   }
 };
 
