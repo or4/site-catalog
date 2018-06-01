@@ -18,6 +18,9 @@ const fonts = {
 export const theme = {
   colors,
   fonts,
+  content: {
+    minHeight: '600px',
+  },
   header: {
     logo: {
       color: colors.grey1,

@@ -1,18 +1,14 @@
 import React from 'react';
-import { theme } from 'ui/theme';
+// import { theme } from 'ui/theme';
 
 type Props = {
 };
 type State = {
 };
 
-class LeftSideBar extends React.PureComponent<Props, State> {
+class VerticalSlides extends React.PureComponent<Props, State> {
   getStyle() {
     const container = {
-      borderRight: '1px solid #333',
-      boxSizing: 'border-box' as 'border-box',
-      minHeight: theme.content.minHeight,
-      width: '300px',
     };
     return {
       container,
@@ -23,9 +19,9 @@ class LeftSideBar extends React.PureComponent<Props, State> {
     //const {  } = this.props;
     return (
       <div style={style.container}>
-        LeftSideBar
+        VerticalSlides
       </div>
     );
   }
 }
-export default LeftSideBar;
+export default VerticalSlides;

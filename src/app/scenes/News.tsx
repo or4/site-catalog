@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React from 'react';
+import MiddleLayout from 'components/MiddleLayout';
 
 type Props = {
 };
@@ -9,9 +10,11 @@ class News extends React.PureComponent<Props, State> {
   render() {
     //const {  } = this.props;
     return (
-      <div>
-        News
-      </div>
+      <MiddleLayout route={'news'}>
+        <div>
+          News
+        </div>
+      </MiddleLayout>
     );
   }
 }

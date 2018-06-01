@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React from 'react';
+import MiddleLayout from 'components/MiddleLayout';
 
 type IProps = {};
 interface IState {}
@@ -11,7 +12,6 @@ class About extends React.Component<IProps, IState> {
     const container = {
       background: 'green',
     };
-
     return {
       container,
     };
@@ -19,9 +19,11 @@ class About extends React.Component<IProps, IState> {
   public render() {
     const style = this.getStyle();
     return (
-      <div style={style.container}>
-        About
-      </div>
+      <MiddleLayout route={'about'}>
+        <div style={style.container}>
+          About
+        </div>
+      </MiddleLayout>
     );
   }
 }

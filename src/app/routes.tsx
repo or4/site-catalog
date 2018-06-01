@@ -14,3 +14,8 @@ export default (
     <Route path="products" component={Products} />
   </Route>
 );
+
+export type RouteType =   '/' | 'about' | 'contacts' | 'news' | 'production' | 'products';
+
+export const routesHasLeftSideBar: RouteType[] = ['/', 'about'];
+export const routesHasRightSideBar: RouteType[] = ['/', 'about', 'contacts', 'news'];

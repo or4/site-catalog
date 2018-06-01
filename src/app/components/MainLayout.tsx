@@ -3,8 +3,6 @@ const appConfig = require('../../../config/main');
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Header, Navigation, Footer } from 'components';
-import LeftSideBar from 'components/LeftSideBar';
-import RightSideBar from 'components/RightSideBar';
 
 type Props = {
 };
@@ -19,18 +17,8 @@ class MainLayout extends React.Component<Props, State> {
       minWidth: '1024px',
     };
 
-    const mainSectionContainer = {
-      display: 'flex',
-    };
-
-    const contentContainer = {
-      width: '100%'
-    };
-
     return {
       container,
-      mainSectionContainer,
-      contentContainer,
     };
   }
   public render() {
@@ -41,13 +29,7 @@ class MainLayout extends React.Component<Props, State> {
         <Header />
         <Navigation />
 
-        <div style={style.mainSectionContainer}>
-          <LeftSideBar />
-          <div style={style.contentContainer}>
-            {this.props.children}
-          </div>
-          <RightSideBar />
-        </div>
+        {this.props.children}
 
         <Footer />
       </div>
