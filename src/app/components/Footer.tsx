@@ -13,6 +13,7 @@ class Footer extends React.PureComponent<Props, State> {
       display: 'flex',
       justifyContent: 'center' as 'center',
       flexDirection: 'column' as 'column',
+      paddingBottom: theme.content.defaultMargin1,
     };
     const mainText = {
       fontWeight: '700' as 'bold',

@@ -20,6 +20,7 @@ export const theme = {
   fonts,
   content: {
     minHeight: '600px',
+    defaultMargin1: '20px',
   },
   header: {
     logo: {

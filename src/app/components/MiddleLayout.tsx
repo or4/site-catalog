@@ -18,6 +18,7 @@ class MiddleLayout extends React.PureComponent<Props, State> {
       minHeight: theme.content.minHeight,
     };
     const sceneContainer = {
+      margin: theme.content.defaultMargin1,
       width: '100%'
     };
     return {
