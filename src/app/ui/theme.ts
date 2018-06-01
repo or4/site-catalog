@@ -9,8 +9,9 @@ const colors = {
 const fonts = {
   fontFamily: 'Tahoma, Verdana, sans-serif',
   fontFamilySecond: 'Verdana',
-  size1: '25px',
-  size2: '13px',
+  size1: '25px', // logo
+  size2: '13px', // header__contacts, footer__text
+  size3: '16px', // navigation__item
 };
 
 
@@ -23,10 +24,6 @@ export const theme = {
       fontFamily: fonts.fontFamilySecond,
       fontSize: fonts.size1,
       textShadow: `${colors.black} 1px 1px 2px, ${colors.grey1} 0 0 1em`
-    },
-    banner: {
-      height: '100px',
-      width: '160px',
     },
     contacts: {
       color: colors.darkBlue,
@@ -43,7 +40,7 @@ export const theme = {
     item: {
       color: colors.white,
       fontFamily: fonts.fontFamily,
-      fontSize: '14px',
+      fontSize: fonts.size3,
     }
   },
   footer: {

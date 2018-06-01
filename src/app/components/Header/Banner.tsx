@@ -1,6 +1,6 @@
 import React from 'react';
 import banner from 'assets/images/banners/jaroslavl-small.jpg';
-import { theme } from 'ui/theme';
+// import { theme } from 'ui/theme';
 
 type Props = {
   className?: any;
@@ -18,7 +18,8 @@ class Banner extends React.PureComponent<Props, State> {
       Object.assign(container, customStyle);
     }
     const banner = {
-      ...theme.header.banner,
+      height: '100px',
+      width: '160px',
     };
     return {
       container,

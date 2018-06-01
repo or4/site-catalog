@@ -19,11 +19,11 @@ class NavigationItem extends React.PureComponent<Props, State> {
       padding: '0 25px',
     };
     const sign = {
-      color: theme.colors.white,
+      ...theme.navigation.item,
       marginRight: '10px',
     };
     const link = {
-      color: theme.colors.white,
+      ...theme.navigation.item
     };
     return {
       container,

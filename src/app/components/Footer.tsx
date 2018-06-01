@@ -15,13 +15,16 @@ class Footer extends React.PureComponent<Props, State> {
       flexDirection: 'column' as 'column',
     };
     const mainText = {
-      fontWeight: '700',
+      fontWeight: '700' as 'bold',
       marginBottom: '8px',
+      textAlign: 'left' as 'left',
+      width: '450px',
 
       ...theme.footer.mainText,
     };
     const subText = {
-      width: '330px',
+      textAlign: 'left' as 'left',
+      width: '450px',
       ...theme.footer.subText,
     };
     return {
@@ -36,10 +39,12 @@ class Footer extends React.PureComponent<Props, State> {
     return (
       <div style={style.container}>
         <div style={style.mainText}>
-          © 2011 Резинотехника - СК
+          Все права защищены © Резинотехника - СК, 2011—2018
         </div>
         <div style={style.subText}>
-          Полное или частичное использование материалов сайта возможно только с письменного разрешения Фирмы "Резинотехника".
+          Информация, представленная на сайте, не является публичной офертой. <br />
+          Полное или частичное использование материалов сайта <br />
+          возможно только с письменного разрешения Фирмы &quot;Резинотехника&quot;.
         </div>
       </div>
     );
