@@ -4,7 +4,10 @@
   "description": "A universal boilerplate for building web applications w/ TypeScript, React, Redux and more.",
   "main": "build/server.js",
   "scripts": {
-    "clean": "rimraf build",
+    "startf": "yarn clean && yarn build && yarn start",
+    "startf:p": "clean && build:prod && start:prod",
+
+    "clean": "rimraf build && rimraf coverage",
     "prebuild": "npm run clean",
     "build": "webpack --config config/webpack/index.js",
     "build:prod": "cross-env NODE_ENV=production npm run build",

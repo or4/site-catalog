@@ -1,5 +1,5 @@
 import React from 'react';
-// import { theme } from 'ui/theme';
+import { theme } from 'ui/theme';
 
 type Props = {
 };
@@ -9,9 +9,10 @@ type State = {
 class RightSideBar extends React.PureComponent<Props, State> {
   getStyle() {
     const container = {
-      borderLeft: '1px solid #333',
-      boxSizing: 'borderBox' as 'borderBox',
+      boxSizing: 'border-box' as 'border-box',
       width: '300px',
+
+      borderLeft: theme.content.devBorder,
     };
     return {
       container,

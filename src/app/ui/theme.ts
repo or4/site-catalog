@@ -21,6 +21,7 @@ export const theme = {
   content: {
     minHeight: '600px',
     defaultMargin1: '20px',
+    devBorder: '1px solid #aaa'
   },
   header: {
     logo: {

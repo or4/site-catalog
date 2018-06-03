@@ -9,10 +9,11 @@ type State = {
 class LeftSideBar extends React.PureComponent<Props, State> {
   getStyle() {
     const container = {
-      borderRight: '1px solid #333',
       boxSizing: 'border-box' as 'border-box',
       minHeight: theme.content.minHeight,
       width: '300px',
+
+      borderRight: theme.content.devBorder,
     };
     return {
       container,

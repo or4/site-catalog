@@ -30,9 +30,20 @@ class MiddleLayout extends React.PureComponent<Props, State> {
     const style = this.getStyle();
     const { route } = this.props;
     const content = [];
-    if (routesHasLeftSideBar.indexOf(route) !== -1) { content.push(<LeftSideBar />) }
-    content.push(<div style={style.sceneContainer}> {this.props.children} </div>);
-    if (routesHasRightSideBar.indexOf(route) !== -1) { content.push(<RightSideBar />) }
+
+    if (routesHasLeftSideBar.indexOf(route) !== -1) {
+      content.push(<LeftSideBar key={'left-side-bar_key'} />);
+    }
+
+    content.push(
+      <div key={'content_key'} style={style.sceneContainer}>
+        {this.props.children}
+      </div>
+    );
+
+    if (routesHasRightSideBar.indexOf(route) !== -1) {
+      content.push(<RightSideBar key={'right-side-bar_key'} />);
+    }
 
     return (
       <div style={style.container}>
