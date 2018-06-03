@@ -1,15 +1,20 @@
 const appConfig = require('../../../../config/main');
 import { createStore, applyMiddleware, compose } from 'redux';
 import { routerMiddleware } from 'react-router-redux';
-import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 import { IStore } from './IStore';
+import createSagaMiddleware from 'redux-saga';
+import sagas from 'store/sagas';
+
+//import thunk from 'redux-thunk';
 
 export function configureStore(history: any, initialState?: IStore): Redux.Store<IStore> {
 
+  const sagaMiddleware = createSagaMiddleware();
   const middlewares: Redux.Middleware[] = [
     routerMiddleware(history),
-    thunk,
+    sagaMiddleware,
+    // thunk,
   ];
 
   const composeEnhancers = (appConfig.env !== 'production' &&
@@ -25,6 +30,8 @@ export function configureStore(history: any, initialState?: IStore): Redux.Store
       store.replaceReducer((require('./reducers')));
     });
   }
+
+  sagaMiddleware.run(sagas);
 
   return store;
 }

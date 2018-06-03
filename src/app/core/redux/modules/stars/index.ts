@@ -55,6 +55,25 @@ export function getStars() {
   };
 }
 
+
+export function getStarsEx1() {
+  return (dispatch: any) => {
+    dispatch(starsRequest());
+
+    return fetch('https://api.github.com/repos/barbar/vortigern')
+      .then((res) => {
+        if (res.ok) {
+          return res.json()
+            .then((res) => dispatch(starsSuccess(res.stargazers_count)));
+        } else {
+          return res.json()
+            .then((res) => dispatch(starsFailure(res)));
+        }
+      })
+      .catch((err) => dispatch(starsFailure(err)));
+  };
+}
+
 /** Action Creator */
 export function starsRequest(): IStarsAction {
   return {
