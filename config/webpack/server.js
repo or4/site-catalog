@@ -1,3 +1,5 @@
+require('regenerator-runtime/runtime');
+
 let path = require('path');
 let fs = require('fs');
 let webpack = require('webpack');
@@ -76,6 +78,9 @@ let config = {
   },
 
   plugins: [
+    new webpack.ProvidePlugin({
+      'regeneratorRuntime': 'regenerator-runtime/runtime'
+    }),
     new webpack.LoaderOptionsPlugin({
       debug: false,
       options: {

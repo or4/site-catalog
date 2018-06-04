@@ -1,3 +1,5 @@
+require('regenerator-runtime/runtime');
+
 let fs = require('fs');
 let path = require('path');
 let webpack = require('webpack');
