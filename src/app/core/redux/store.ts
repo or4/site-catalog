@@ -4,7 +4,7 @@ import { routerMiddleware } from 'react-router-redux';
 import rootReducer from './reducers';
 import { IStore } from './IStore';
 
-import createSagaMiddleware from 'redux-saga';
+import createSagaMiddleware, { END } from 'redux-saga';
 const { rootSaga } = require('store/sagas');
 const sagaMiddleware = createSagaMiddleware();
 
@@ -32,7 +32,9 @@ export function configureStore(history: any, initialState?: IStore): Redux.Store
     });
   }
 
-  sagaMiddleware.run(rootSaga);
+  (store as any).runSaga = sagaMiddleware.run;
+  (store as any).close = () => store.dispatch(END);
+  // sagaMiddleware.run(rootSaga);
 
   return store;
 }
