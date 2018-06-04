@@ -7,10 +7,10 @@ import createSagaMiddleware from 'redux-saga';
 import sagas from 'store/sagas';
 
 //import thunk from 'redux-thunk';
+const sagaMiddleware = createSagaMiddleware();
 
 export function configureStore(history: any, initialState?: IStore): Redux.Store<IStore> {
 
-  const sagaMiddleware = createSagaMiddleware();
   const middlewares: Redux.Middleware[] = [
     routerMiddleware(history),
     sagaMiddleware,

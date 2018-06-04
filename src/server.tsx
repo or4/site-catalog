@@ -10,7 +10,7 @@ import * as ReactDOMServer from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { createMemoryHistory, match } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
-const { ReduxAsyncConnect, loadOnServer } = require('redux-connect');
+const { ReduxAsyncConnect, /* loadOnServer*/ } = require('redux-connect');
 import { configureStore } from './app/core/redux/store';
 import routes from './app/routes';
 import Html from './Html';
@@ -22,6 +22,8 @@ const favicon = require('serve-favicon');
 const manifest = require('../build/manifest.json');
 
 const app = express();
+
+import rootSaga from 'store/sagas';
 
 // const compression = require('compression');
 // app.use(compression());
@@ -62,16 +64,41 @@ app.get('*', (req: any, res: any) => {
       } else if (redirectLocation) {
         res.redirect(302, redirectLocation.pathname + redirectLocation.search);
       } else if (renderProps) {
-        const asyncRenderData = Object.assign({}, renderProps, { store });
+        // const asyncRenderData = Object.assign({}, renderProps, { store });
 
-        loadOnServer(asyncRenderData).then(() => {
+
+
+        (store as any).runSaga(rootSaga).toPromise().then(() => {
+          console.log('sagas complete');
+
           const markup = ReactDOMServer.renderToString(
             <Provider store={store} key="provider">
               <ReduxAsyncConnect {...renderProps} />
             </Provider>,
           );
           res.status(200).send(renderHTML(markup, store));
+        }).catch((e: any) => {
+          console.log(e.message);
+          res.status(500).send(e.message);
         });
+
+        const markup = ReactDOMServer.renderToString(
+          <Provider store={store} key="provider">
+            <ReduxAsyncConnect {...renderProps} />
+          </Provider>,
+        );
+        res.status(200).send(renderHTML(markup, store));
+        (store as any).close();
+
+
+        // loadOnServer(asyncRenderData).then(() => {
+        //   const markup = ReactDOMServer.renderToString(
+        //     <Provider store={store} key="provider">
+        //       <ReduxAsyncConnect {...renderProps} />
+        //     </Provider>,
+        //   );
+        //   res.status(200).send(renderHTML(markup, store));
+        // });
       } else {
         res.status(404).send('Not Found?');
       }
