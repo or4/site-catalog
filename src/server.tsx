@@ -13,7 +13,7 @@ import { Provider } from 'react-redux';
 import { createMemoryHistory, match } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 const { ReduxAsyncConnect, loadOnServer } = require('redux-connect');
-import { configureStore } from './app/core/redux/store';
+import { configureStore } from 'store';
 import routes from './app/routes';
 import Html from './Html';
 

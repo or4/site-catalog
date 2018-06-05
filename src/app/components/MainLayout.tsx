@@ -1,7 +1,7 @@
 const appConfig = require('../../../config/main');
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { ActionTypes } from 'core/sagas/actions';
+import { ActionTypes } from 'store/actions';
 
 import React from 'react';
 import { Helmet } from 'react-helmet';

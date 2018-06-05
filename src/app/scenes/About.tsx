@@ -2,7 +2,7 @@ import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import MiddleLayout from 'components/MiddleLayout';
-import { ActionTypes } from 'core/sagas/actions';
+import { ActionTypes } from 'store/actions';
 
 type StateProps = {
 };
