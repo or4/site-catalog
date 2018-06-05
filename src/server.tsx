@@ -68,7 +68,11 @@ app.get('*', (req: any, res: any) => {
       } else if (renderProps) {
         const asyncRenderData = Object.assign({}, renderProps, { store });
 
-        (store).runSaga(rootSaga).toPromise().then(() => {
+        const resSaga = (store as any).runSaga(rootSaga);
+
+        console.log('(store as any).runSaga(rootSaga)', resSaga);
+        console.log('(store as any).runSaga(rootSaga).done', resSaga.done);
+        (store as any).runSaga(rootSaga).done.then(() => {
           console.log('sagas complete');
         });
 

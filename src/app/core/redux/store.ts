@@ -5,17 +5,15 @@ import rootReducer from './reducers';
 import { IStore } from './IStore';
 
 import createSagaMiddleware, { END } from 'redux-saga';
+import { ActionTypes } from 'core/sagas/actions';
 const { rootSaga } = require('store/sagas');
 const sagaMiddleware = createSagaMiddleware();
-
-//import thunk from 'redux-thunk';
 
 export function configureStore(history: any, initialState?: IStore): Redux.Store<IStore> {
 
   const middlewares: Redux.Middleware[] = [
     routerMiddleware(history),
     sagaMiddleware,
-    // thunk,
   ];
 
   const composeEnhancers = (appConfig.env !== 'production' &&
@@ -34,7 +32,9 @@ export function configureStore(history: any, initialState?: IStore): Redux.Store
 
   (store as any).runSaga = sagaMiddleware.run;
   (store as any).close = () => store.dispatch(END);
-  // sagaMiddleware.run(rootSaga);
 
+  sagaMiddleware.run(rootSaga);
+
+  store.dispatch({ type: ActionTypes.LOAD_BALANCE });
   return store;
 }
