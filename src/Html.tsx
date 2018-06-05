@@ -1,4 +1,3 @@
-import { IStore } from 'core/redux/IStore';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import serialize from 'serialize-javascript';
@@ -6,7 +5,7 @@ import serialize from 'serialize-javascript';
 interface IHtmlProps {
   manifest?: any;
   markup?: string;
-  store?: Redux.Store<IStore>;
+  store?: Redux.Store<any>;
 }
 
 class Html extends React.Component<IHtmlProps, {}> {

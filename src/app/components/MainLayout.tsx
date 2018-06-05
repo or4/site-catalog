@@ -1,15 +1,27 @@
 const appConfig = require('../../../config/main');
+import { Dispatch } from 'redux';
+import { connect } from 'react-redux';
+import { ActionTypes } from 'store/actions';
 
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Header, Navigation, Footer } from 'components';
 
-type Props = {
+type StateProps = {
 };
+type DispatchProps = {
+  loadBalance: () => void;
+};
+type Props = StateProps & DispatchProps;
+
 type State = {
 };
 
 class MainLayout extends React.Component<Props, State> {
+  componentDidMount() {
+    console.log('MainLayout componentDidMount');
+    this.props.loadBalance();
+  }
   getStyle = () => {
     const container = {
       background: '#ccc',
@@ -41,4 +53,15 @@ class MainLayout extends React.Component<Props, State> {
   }
 }
 
-export default MainLayout;
+const mapStateToProps = (state: any) => ({
+});
+
+const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
+  return {
+    loadBalance: () => {
+      dispatch({ type: ActionTypes.LOAD_BALANCE });
+    }
+  };
+};
+export default connect<StateProps, DispatchProps>(mapStateToProps, mapDispatchToProps)(MainLayout);
+

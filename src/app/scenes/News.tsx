@@ -3,7 +3,7 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 //import { AppState } from 'store/reducers';
 import MiddleLayout from 'components/MiddleLayout';
-import { getStarsEx1 } from 'core/redux/modules/stars';
+
 
 type StateProps = {
   stars: any;
@@ -44,7 +44,7 @@ const mapStateToProps = (state: any) => ({
 const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
   return {
     getStars: () => {
-      getStarsEx1()(dispatch);
+      // getStarsEx1()(dispatch);
     }
 
   };

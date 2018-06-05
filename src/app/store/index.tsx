@@ -1,46 +1,39 @@
-// //import { StoreEnhancer } from 'redoodle'
-// /* eslint-disable no-unused-vars */
-// import { createStore, applyMiddleware, compose, Action, Middleware, MiddlewareAPI, Dispatch } from 'redux';
-// /* eslint-enable no-unused-vars */
-// import { routerMiddleware } from 'react-router-redux';
-// import createHistory from 'history/createHashHistory';
-// import createSagaMiddleware from 'redux-saga';
-// import { rootReducer, AppState, appInitialState } from './reducers';
-// import sagas from './sagas';
+const appConfig = require('../../../config/main');
+import { createStore, applyMiddleware, compose } from 'redux';
+import { routerMiddleware } from 'react-router-redux';
+import rootReducer from './reducers';
 
-// import { IS_DEV, IS_REDUX_DEVTOOLS } from '../settings';
+import createSagaMiddleware, { END } from 'redux-saga';
+import { ActionTypes } from './actions';
+const { rootSaga } = require('store/sagas');
+const sagaMiddleware = createSagaMiddleware();
 
-// export const history = createHistory();
-// const middleware = routerMiddleware(history);
+export function configureStore(history: any, initialState?: any): Redux.Store<any> {
 
-// const sagaMiddleware = createSagaMiddleware();
+  const middlewares: Redux.Middleware[] = [
+    routerMiddleware(history),
+    sagaMiddleware,
+  ];
 
-// const actionToPlainObject: Middleware =
-//   (api: MiddlewareAPI<void>) =>
-//     (next: Dispatch<void>) =>
-//       <A extends Action>(action: A) => {
-//         // console.log(action);
-//         return next(Object.assign({}, action));
-//       };
+  const composeEnhancers = (appConfig.env !== 'production' &&
+    typeof window === 'object' &&
+    (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
+  const store: Redux.Store<any> = createStore<any>(rootReducer, initialState, composeEnhancers(
+    applyMiddleware(...middlewares),
+  ));
 
-// let enhancer;
-// if (IS_DEV && IS_REDUX_DEVTOOLS && (window as any).__REDUX_DEVTOOLS_EXTENSION__) {
-//   enhancer = compose(
-//     applyMiddleware(sagaMiddleware, middleware, actionToPlainObject),
-//     (window as any).__REDUX_DEVTOOLS_EXTENSION__(),
-//   );
-// } else {
-//   enhancer = compose(
-//     applyMiddleware(sagaMiddleware, middleware, actionToPlainObject)
-//   );
-// }
+  if (appConfig.env === 'development' && (module as any).hot) {
+    (module as any).hot.accept('./reducers', () => {
+      store.replaceReducer((require('./reducers')));
+    });
+  }
 
+  (store as any).runSaga = sagaMiddleware.run;
+  (store as any).close = () => store.dispatch(END);
 
-// const store = createStore<AppState>(rootReducer, appInitialState, enhancer as any);
-// // const store = createStore(reducers, enhancer);
-// sagaMiddleware.run(sagas);
+  sagaMiddleware.run(rootSaga);
 
-// export default store;
-
-// export { AppState };
+  store.dispatch({ type: ActionTypes.LOAD_BALANCE });
+  return store;
+}

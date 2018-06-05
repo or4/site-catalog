@@ -1,12 +1,23 @@
 import React from 'react';
+import { Dispatch } from 'redux';
+import { connect } from 'react-redux';
 import MiddleLayout from 'components/MiddleLayout';
+import { ActionTypes } from 'store/actions';
 
-type IProps = {};
-interface IState {}
+type StateProps = {
+};
+type DispatchProps = {
+  loadBalance: () => void;
+};
+type Props = StateProps & DispatchProps;
 
-class About extends React.Component<IProps, IState> {
+type State = {
+};
+
+class About extends React.Component<Props, State> {
   componentDidMount() {
     console.log('About componentDidMount');
+    this.props.loadBalance();
   }
   getStyle = () => {
     const container = {
@@ -69,4 +80,16 @@ class About extends React.Component<IProps, IState> {
     );
   }
 }
-export default About;
+
+const mapStateToProps = (state: any) => ({
+});
+
+const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
+  return {
+    loadBalance: () => {
+      dispatch({ type: ActionTypes.LOAD_BALANCE });
+    }
+  };
+};
+export default connect<StateProps, DispatchProps>(mapStateToProps, mapDispatchToProps)(About);
+

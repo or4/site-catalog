@@ -1,3 +1,5 @@
+require('regenerator-runtime/runtime');
+
 let fs = require('fs');
 let path = require('path');
 let webpack = require('webpack');
@@ -10,6 +12,7 @@ let CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
 let config = {
   // Enable sourcemaps for debugging webpack's output.
   devtool: 'source-map',
+
 
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
@@ -99,6 +102,9 @@ let config = {
   },
 
   plugins: [
+    new webpack.ProvidePlugin({
+      'regeneratorRuntime': 'regenerator-runtime/runtime'
+    }),
     new CheckerPlugin(),
     new webpack.LoaderOptionsPlugin({
       debug: true,
