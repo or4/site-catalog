@@ -2,10 +2,15 @@ import { Reducer } from 'redux';
 
 import { ActionTypes } from './actions';
 
+export type Category = {
+  id: string;
+  name: string;
+};
+
 type TState = {
   error?: any;
   requesting: boolean;
-  data: any;
+  data: Category[];
 };
 
 const initialState: TState = {

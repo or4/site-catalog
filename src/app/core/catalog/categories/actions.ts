@@ -1,3 +1,5 @@
+import { Category } from 'core/catalog/categories/reducer';
+
 export enum ActionTypes {
   LOAD_CATEGORIES = '[Catalog/categories] Load categories',
   LOAD_CATEGORIES_SUCCESS = '[Catalog/categories] Load categories success',
@@ -15,12 +17,6 @@ export const LoadCategoriesSuccess = {
 export const LoadCategoriesFail = {
   type: ActionTypes.LOAD_CATEGORIES_FAIL,
 };
-
-export type Category = {
-  id: string;
-  name: string;
-};
-
 
 export type TLoadCategories = {
   type: ActionTypes.LOAD_CATEGORIES;
