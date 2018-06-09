@@ -30,3 +30,27 @@ declare module '*.jpg' {
   const value: any;
   export = value;
 }
+
+
+declare module 'webpack-dev-middleware' {
+  const value: any;
+  export = value;
+}
+
+declare module 'webpack-hot-middleware' {
+  const value: any;
+  export = value;
+}
+
+
+declare module 'express' {
+  const value: any;
+  export = value;
+}
+
+
+declare module 'redux-logger' {
+  const value: any;
+  export = value;
+}
+
