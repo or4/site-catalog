@@ -1,6 +1,6 @@
 import { Reducer } from 'redux';
 
-import { ActionTypes } from './actions';
+import { ActionTypes, ActionsAll } from './actions';
 
 export type Category = {
   id: string;
@@ -20,7 +20,7 @@ const initialState: TState = {
 
 export type TCategoriesState = TState;
 export const categoriesInitialState = initialState;
-export const categories: Reducer<TState> = (state: TState = initialState, action: any): TState => {
+export const categoriesReducer: Reducer<TState> = (state: TState = initialState, action: ActionsAll): TState => {
   switch (action.type) {
     case ActionTypes.LOAD_CATEGORIES:
       return { ...state, requesting: true };

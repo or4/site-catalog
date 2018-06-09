@@ -10,7 +10,7 @@ import Root from './Root';
 import { renderToString } from 'react-dom/server';
 import { match, createMemoryHistory } from 'react-router';
 import { store } from 'store';
-import root from 'store/sagas';
+import root from 'core/sagas';
 
 // simple return store
 //const store = configureStore();
@@ -36,7 +36,7 @@ const layout = (body: any, initialState: any) => (`
     <script type="text/javascript" charset="utf-8">
       window.__INITIAL_STATE__ = ${initialState};
     </script>
-    <script src="/static/bundle.js"></script>
+    <script src="/public/js/app.js"></script>
   </body>
   </html>
 `);

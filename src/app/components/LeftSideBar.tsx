@@ -1,5 +1,6 @@
 import React from 'react';
 import { theme } from 'ui/theme';
+import { Category } from 'core/catalog/categories/reducer';
 
 type Props = {
 };

@@ -42,26 +42,31 @@ const sagaMiddleware = createSagaMiddleware();
 //   return store;
 // }
 
-let resCompose: any;
-
-try {
-  resCompose = compose(
-    applyMiddleware(
-      sagaMiddleware
-    ),
-    (window as any).__REDUX_DEVTOOLS_EXTENSION__(),
-  );
-} catch (e) {
-  resCompose = compose(
-    applyMiddleware(
-      sagaMiddleware
-    ),
-  );
-}
 
 
 export function configureStore(initialState?: any) {
   console.log('called configureStore');
+
+  let resCompose: any;
+
+  try {
+    resCompose = compose(
+      applyMiddleware(
+        sagaMiddleware
+      ),
+      (window as any).__REDUX_DEVTOOLS_EXTENSION__(),
+    );
+    console.log('devTools');
+
+  } catch (e) {
+    resCompose = compose(
+      applyMiddleware(
+        sagaMiddleware
+      ),
+    );
+
+    console.log('no devTools');
+  }
 
   const store = createStore(
     rootReducer,

@@ -8,7 +8,7 @@ import { browserHistory } from 'react-router';
 import routes from './app/routes';
 import Root from './Root';
 import { configureStore } from 'store';
-import root from 'store/sagas';
+import root from 'core/sagas';
 // import { rootSaga } from 'store/sagas';
 
 const store = configureStore(window.__INITIAL_STATE__);

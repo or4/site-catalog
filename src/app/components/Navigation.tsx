@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { theme } from 'ui/theme';
 import NavigationItem from 'components/NavigationItem';
+import { Category } from 'core/catalog/categories/reducer';
 
 type Props = {
 };

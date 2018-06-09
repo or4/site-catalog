@@ -1,16 +1,19 @@
 const appConfig = require('../../../config/main');
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { ActionTypes } from 'store/actions';
 
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Header, Navigation, Footer } from 'components';
+import { ActionTypes } from 'core/catalog/categories/actions';
+import { AppState } from 'store/reducers';
+import { Category } from 'core/catalog/categories/reducer';
 
 type StateProps = {
+  categories: Category[];
 };
 type DispatchProps = {
-  loadBalance: () => void;
+  loadCategories: () => void;
 };
 type Props = StateProps & DispatchProps;
 
@@ -18,9 +21,12 @@ type State = {
 };
 
 class MainLayout extends React.Component<Props, State> {
-  componentDidMount() {
-    console.log('MainLayout componentDidMount');
-    this.props.loadBalance();
+  static getDerivedStateFromProps({ loadCategories, categories }: Props) {
+    if (categories.length === 0) {
+      console.log('******** CategoriesPage componentDidMount load action');
+      loadCategories();
+    }
+    return {};
   }
   getStyle = () => {
     const container = {
@@ -47,19 +53,24 @@ class MainLayout extends React.Component<Props, State> {
           {this.props.children}
         </div>
 
+        <div>
+          {this.props.categories && this.props.categories.map((item) => <div key={item.id}>{item.name}</div>)}
+        </div>
+
         <Footer />
       </div>
     );
   }
 }
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: AppState) => ({
+  categories: state.categories.data
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
   return {
-    loadBalance: () => {
-      dispatch({ type: ActionTypes.LOAD_BALANCE });
+    loadCategories: () => {
+      dispatch({ type: ActionTypes.LOAD_CATEGORIES });
     }
   };
 };

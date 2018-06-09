@@ -2,7 +2,6 @@ import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import MiddleLayout from 'components/MiddleLayout';
-import { ActionTypes } from 'store/actions';
 
 type StateProps = {
 };
@@ -87,7 +86,7 @@ const mapStateToProps = (state: any) => ({
 const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
   return {
     loadBalance: () => {
-      dispatch({ type: ActionTypes.LOAD_BALANCE });
+      // dispatch({ type: ActionTypes.LOAD_BALANCE });
     }
   };
 };

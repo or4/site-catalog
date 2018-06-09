@@ -1,10 +1,23 @@
 import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
-const { reducer } = require('redux-connect');
+import { routerReducer, RouterState } from 'react-router-redux';
+// const { reducer } = require('redux-connect');
 
-const rootReducer: Redux.Reducer<any> = combineReducers<any>({
+import { categoriesReducer, TCategoriesState, categoriesInitialState } from 'core/catalog/categories/reducer';
+
+
+export type AppState = {
+  routing: RouterState | {};
+  categories: TCategoriesState;
+};
+
+export const appInitialState: AppState = {
+  routing: {},
+  categories: categoriesInitialState,
+};
+
+const rootReducer = combineReducers<AppState>({
   routing: routerReducer,
-  reduxAsyncConnect: reducer,
+  categories: categoriesReducer,
 });
 
 export default rootReducer;

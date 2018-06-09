@@ -30,7 +30,6 @@ export type TLoadCategoriesFail = {
   error: any;
 };
 
-
-export type AllActions = TLoadCategories
+export type ActionsAll = TLoadCategories
   | TLoadCategoriesSuccess
   | TLoadCategoriesFail;
