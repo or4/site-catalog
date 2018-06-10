@@ -2,15 +2,24 @@ import { Reducer } from 'redux';
 
 import { ActionTypes, ActionsAll } from './actions';
 
-export type Category = {
-  id: string;
+export type TCategory = {
+  id: number;
+  idVirtual: string;
+  isDefault: number;
   name: string;
+  order: number;
+  parentId: number;
+
+  image: string;
+  description: string;
+
+  subItems?: TCategory[];
 };
 
 type TState = {
   error?: any;
   requesting: boolean;
-  data: Category[];
+  data: TCategory[];
 };
 
 const initialState: TState = {

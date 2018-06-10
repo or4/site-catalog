@@ -1,4 +1,4 @@
-import { Category } from 'core/catalog/categories/reducer';
+import { TCategory } from 'core/catalog/categories/reducer';
 
 export enum ActionTypes {
   LOAD_CATEGORIES = '[Catalog/categories] Load categories',
@@ -23,7 +23,7 @@ export type TLoadCategories = {
 };
 export type TLoadCategoriesSuccess = {
   type: ActionTypes.LOAD_CATEGORIES_SUCCESS;
-  data: Category[];
+  data: TCategory[];
 };
 export type TLoadCategoriesFail = {
   type: ActionTypes.LOAD_CATEGORIES_FAIL;

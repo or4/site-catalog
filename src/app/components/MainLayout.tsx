@@ -7,10 +7,10 @@ import { Helmet } from 'react-helmet';
 import { Header, Navigation, Footer } from 'components';
 import { ActionTypes } from 'core/catalog/categories/actions';
 import { AppState } from 'store/reducers';
-import { Category } from 'core/catalog/categories/reducer';
+import { TCategory } from 'core/catalog/categories/reducer';
 
 type StateProps = {
-  categories: Category[];
+  categories: TCategory[];
 };
 type DispatchProps = {
   loadCategories: () => void;
