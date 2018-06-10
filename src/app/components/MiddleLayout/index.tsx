@@ -1,7 +1,8 @@
 import React from 'react';
-import LeftSideBar from 'components/LeftSideBar';
-import RightSideBar from 'components/RightSideBar';
-import { RouteType, routesHasLeftSideBar, routesHasRightSideBar } from 'routes';
+import LeftSideBar from './LeftSideBar';
+import NavigationTree from './LeftSideBar/NavigationTree';
+import RightSideBar from './RightSideBar';
+import { RouteType, routesDescription } from 'routes';
 import { theme } from 'ui/theme';
 
 type Props = {
@@ -31,8 +32,8 @@ class MiddleLayout extends React.PureComponent<Props, State> {
     const { route } = this.props;
     const content = [];
 
-    if (routesHasLeftSideBar.indexOf(route) !== -1) {
-      content.push(<LeftSideBar key={'left-side-bar_key'} />);
+    if (routesDescription[route].isNavigationTree) {
+      content.push(<LeftSideBar key={'left-side-bar_key'}> <NavigationTree /> </LeftSideBar>);
     }
 
     content.push(
@@ -41,8 +42,8 @@ class MiddleLayout extends React.PureComponent<Props, State> {
       </div>
     );
 
-    if (routesHasRightSideBar.indexOf(route) !== -1) {
-      content.push(<RightSideBar key={'right-side-bar_key'} />);
+    if (routesDescription[route].isRightSideBar) {
+      content.push(<RightSideBar key={'left-side-bar_key'} />);
     }
 
     return (

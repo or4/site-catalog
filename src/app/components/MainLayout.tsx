@@ -53,10 +53,6 @@ class MainLayout extends React.Component<Props, State> {
           {this.props.children}
         </div>
 
-        <div>
-          {this.props.categories && this.props.categories.map((item) => <div key={item.id}>{item.name}</div>)}
-        </div>
-
         <Footer />
       </div>
     );

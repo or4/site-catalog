@@ -1,6 +1,5 @@
 import React from 'react';
 import { theme } from 'ui/theme';
-import { Category } from 'core/catalog/categories/reducer';
 
 type Props = {
 };
@@ -25,7 +24,7 @@ class LeftSideBar extends React.PureComponent<Props, State> {
     //const {  } = this.props;
     return (
       <div style={style.container}>
-        LeftSideBar
+        {this.props.children}
       </div>
     );
   }

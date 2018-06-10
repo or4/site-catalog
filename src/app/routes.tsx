@@ -17,5 +17,19 @@ export default (
 
 export type RouteType =   '/' | 'about' | 'contacts' | 'news' | 'production' | 'products';
 
-export const routesHasLeftSideBar: RouteType[] = ['/', 'about'];
-export const routesHasRightSideBar: RouteType[] = ['/', 'about', 'contacts', 'news'];
+export type RouteDescription = {
+  isNavigationTree?: boolean;
+  isRightSideBar?: boolean;
+};
+
+export const routesDescription: {[key in RouteType]: RouteDescription} = {
+  '/': { isNavigationTree: true },
+  'about': { isNavigationTree: true },
+  'contacts': { isNavigationTree: true },
+  'news': { isNavigationTree: true, isRightSideBar: true },
+  'production': { isNavigationTree: true },
+  'products': { isNavigationTree: true },
+};
+
+// export const routesHasNavigationTree: RouteType[] = ['/', 'about'];
+// export const routesHasRightSideBar: RouteType[] = ['/', 'about', 'contacts', 'news'];
