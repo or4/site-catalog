@@ -23,10 +23,10 @@ export type RouteDescription = {
 };
 
 export const routesDescription: {[key in RouteType]: RouteDescription} = {
-  '/': { isNavigationTree: true },
-  'about': { isNavigationTree: true },
-  'contacts': { isNavigationTree: true },
-  'news': { isNavigationTree: true, isRightSideBar: true },
+  '/': { isNavigationTree: false },
+  'about': { isNavigationTree: false },
+  'contacts': { isNavigationTree: false },
+  'news': { isNavigationTree: false, isRightSideBar: true },
   'production': { isNavigationTree: true },
   'products': { isNavigationTree: true },
 };

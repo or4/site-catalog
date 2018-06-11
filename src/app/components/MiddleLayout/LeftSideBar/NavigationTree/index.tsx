@@ -1,6 +1,7 @@
 import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import { AppState } from 'store/reducers';
 import { TCategory } from 'core/catalog/categories/reducer';
 
@@ -31,8 +32,15 @@ class NavigationTree extends React.PureComponent<Props, State> {
     return (
       <ul>
         {
-          categories && categories.map((item: TCategory) =>
-            <li key={item.id}>{item.name}{this.getNavMenu(item.subItems)}</li>)
+          categories && categories.map(
+            (item: TCategory) => (
+
+              <li key={item.id}>
+                <Link to={`/catalog/category/${item.id}`}>
+                  {item.name}
+                </Link>
+                {this.getNavMenu(item.subItems)}
+              </li>))
         }
       </ul>
     );
