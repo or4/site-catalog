@@ -1,32 +1,46 @@
-// import { Reducer } from 'redux';
+import { Reducer } from 'redux';
 
-// import { ActionTypes } from './actions';
+import { ActionTypes, ActionsAll } from './actions';
 
-// type TState = {
-//   error?: any;
-//   requesting: boolean;
-//   data: any;
-// };
+export type TItem = {
+  id: number;
+  idVirtual: string;
+  isDefault: number;
+  name: string;
+  order: number;
+  parentId: number;
 
-// const initialState: TState = {
-//   requesting: false,
-//   data: []
-// };
+  image: string;
+  description: string;
 
-// export type TCategoriesState = TState;
-// export const categoriesInitialState = initialState;
-// export const categories: Reducer<TState> = (state: TState = initialState, action: any): TState => {
-//   switch (action.type) {
-//     case ActionTypes.LOAD_CATEGORIES:
-//       return { ...state, requesting: true };
-//     case ActionTypes.LOAD_CATEGORIES_SUCCESS:
-//       return { ...state, data: action.data, requesting: false, error: false };
-//     case ActionTypes.LOAD_CATEGORIES_FAIL:
-//       return { ...state, error: action.error, requesting: false };
+  subItems?: TItem[];
+};
 
-//     default: return state;
-//   }
-// };
+type TState = {
+  error?: any;
+  requesting: boolean;
+  data: TItem[];
+};
 
-// // export const selectCategories = (state: any) => state.categories;
+const initialState: TState = {
+  requesting: false,
+  data: []
+};
+
+export type TItemsState = TState;
+export const itemsInitialState = initialState;
+export const itemsReducer: Reducer<TState> = (state: TState = initialState, action: ActionsAll): TState => {
+  switch (action.type) {
+    case ActionTypes.LOAD_ITEMS:
+      return { ...state, requesting: true };
+    case ActionTypes.LOAD_ITEMS_SUCCESS:
+      return { ...state, data: action.data, requesting: false, error: false };
+    case ActionTypes.LOAD_ITEMS_FAIL:
+      return { ...state, error: action.error, requesting: false };
+
+    default: return state;
+  }
+};
+
+// export const selectItems = (state: any) => state.items;
 

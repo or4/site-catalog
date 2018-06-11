@@ -1,52 +1,35 @@
-// export enum ActionTypes {
-//   LOAD_CATEGORIES = '[Catalog/categories] Load categories',
-//   LOAD_CATEGORIES_SUCCESS = '[Catalog/categories] Load categories success',
-//   LOAD_CATEGORIES_FAIL = '[Catalog/categories] Load categories fail',
-//   LOAD_ITEMS = '[Catalog/categories] Load items',
-//   LOAD_ITEMS_SUCCESS = '[Catalog/categories] Load items success',
-//   LOAD_ITEMS_FAIL = '[Catalog/categories] Load items fail',
-// }
+import { TItem } from 'core/catalog/items/reducer';
 
-// // Load categories
+export enum ActionTypes {
+  LOAD_ITEMS = '[Catalog/items] Load items',
+  LOAD_ITEMS_SUCCESS = '[Catalog/items] Load items success',
+  LOAD_ITEMS_FAIL = '[Catalog/items] Load items fail',
+}
 
-// export const LoadCategories = {
-//   type: ActionTypes.LOAD_CATEGORIES,
-// };
-// export const LoadCategoriesSuccess = {
-//   type: ActionTypes.LOAD_CATEGORIES_SUCCESS,
-// };
-// export const LoadCategoriesFail = {
-//   type: ActionTypes.LOAD_CATEGORIES_FAIL,
-// };
+// Load items
 
-// export type Category = {
-//   id: string;
-//   name: string;
-// };
+export const LoadItems = {
+  type: ActionTypes.LOAD_ITEMS,
+};
+export const LoadItemsSuccess = {
+  type: ActionTypes.LOAD_ITEMS_SUCCESS,
+};
+export const LoadItemsFail = {
+  type: ActionTypes.LOAD_ITEMS_FAIL,
+};
 
-// export type Item = {
-//   id: string;
-//   name: string;
-// };
+export type TLoadItems = {
+  type: ActionTypes.LOAD_ITEMS;
+};
+export type TLoadItemsSuccess = {
+  type: ActionTypes.LOAD_ITEMS_SUCCESS;
+  data: TItem[];
+};
+export type TLoadItemsFail = {
+  type: ActionTypes.LOAD_ITEMS_FAIL;
+  error: any;
+};
 
-
-// export type TLoadCategories = {
-//   type: ActionTypes.LOAD_CATEGORIES;
-// };
-// export type TLoadCategoriesSuccess = {
-//   type: ActionTypes.LOAD_CATEGORIES_SUCCESS;
-//   data: Category[];
-// };
-
-// export type TLoadItems = {
-//   type: ActionTypes.LOAD_ITEMS;
-// };
-// export type TLoadItemsSuccess = {
-//   type: ActionTypes.LOAD_ITEMS_SUCCESS;
-//   payload: Item[];
-// };
-
-// export type AllActions = TLoadCategories
-//   | TLoadCategoriesSuccess
-//   | TLoadItems
-//   | TLoadItemsSuccess;
+export type ActionsAll = TLoadItems
+  | TLoadItemsSuccess
+  | TLoadItemsFail;

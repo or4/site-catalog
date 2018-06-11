@@ -15,6 +15,7 @@
     "noImplicitThis": true,
     "noImplicitAny": true,
     "noUnusedLocals": false,
+    "jsx-no-multiline-js": false,
     "outDir": "build",
     "paths": {
       "*": [

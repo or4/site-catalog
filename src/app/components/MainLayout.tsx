@@ -5,15 +5,19 @@ import { connect } from 'react-redux';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Header, Navigation, Footer } from 'components';
-import { ActionTypes } from 'core/catalog/categories/actions';
+import { ActionTypes as CategoriesActionTypes } from 'core/catalog/categories/actions';
+import { ActionTypes as ItemsActionTypes } from 'core/catalog/items/actions';
 import { AppState } from 'store/reducers';
 import { TCategory } from 'core/catalog/categories/reducer';
+import { TItem } from 'core/catalog/items/reducer';
 
 type StateProps = {
   categories: TCategory[];
+  items: TItem[];
 };
 type DispatchProps = {
   loadCategories: () => void;
+  loadItems: () => void;
 };
 type Props = StateProps & DispatchProps;
 
@@ -21,10 +25,14 @@ type State = {
 };
 
 class MainLayout extends React.Component<Props, State> {
-  static getDerivedStateFromProps({ loadCategories, categories }: Props) {
+  static getDerivedStateFromProps({ loadCategories, categories, loadItems, items, }: Props) {
     if (categories.length === 0) {
       console.log('******** CategoriesPage componentDidMount load action');
       loadCategories();
+    }
+    if (items.length === 0) {
+      console.log('******** CategoriesPage componentDidMount load action');
+      loadItems();
     }
     return {};
   }
@@ -60,14 +68,18 @@ class MainLayout extends React.Component<Props, State> {
 }
 
 const mapStateToProps = (state: AppState) => ({
-  categories: state.categories.data
+  categories: state.categories.data,
+  items: state.items.data,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
   return {
     loadCategories: () => {
-      dispatch({ type: ActionTypes.LOAD_CATEGORIES });
-    }
+      dispatch({ type: CategoriesActionTypes.LOAD_CATEGORIES });
+    },
+    loadItems: () => {
+      dispatch({ type: ItemsActionTypes.LOAD_ITEMS });
+    },
   };
 };
 export default connect<StateProps, DispatchProps>(mapStateToProps, mapDispatchToProps)(MainLayout);

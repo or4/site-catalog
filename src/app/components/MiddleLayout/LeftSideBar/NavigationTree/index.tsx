@@ -30,14 +30,17 @@ class NavigationTree extends React.PureComponent<Props, State> {
     }
     return (
       <ul>
-        {categories && categories.map((item: TCategory) => <li key={item.id}>{item.name}{this.getNavMenu(item.subItems)}</li>)}
+        {
+          categories && categories.map((item: TCategory) =>
+            <li key={item.id}>{item.name}{this.getNavMenu(item.subItems)}</li>)
+        }
       </ul>
     );
   }
   render() {
     // const style = this.getStyle();
     // const {  } = this.props;
-    console.log('this.props.categories', this.props.categories);
+    console.log('NavigationTree categories', this.props.categories);
 
     return (
       <div>

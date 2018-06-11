@@ -3,8 +3,12 @@
   "extends": [
     "tslint-react"
   ],
-  "jsRules": {},
-  "rules": {},
+  "jsRules": {
+    "jsx-no-multiline-js": false
+  },
+  "rules": {
+    "jsx-no-multiline-js": false
+  },
   "rulesDirectory": [],
   "semicolon": [
     true,
