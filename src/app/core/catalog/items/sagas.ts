@@ -1,12 +1,12 @@
 
 import { take, put, fork } from 'redux-saga/effects';
 import axios from 'axios';
-import { ActionTypes } from './actions';
+import { ActionTypes, TLoadItems } from './actions';
 import { TItem } from 'core/catalog/items/reducer';
 import { convertItems } from 'core/catalog/items/converter';
 
 
-function* loadItems() {
+function* loadItems(action: TLoadItems) {
   console.log('core catalog saga loadItems LOAD_ITEMS');
   try {
     const { data } = yield axios.get(`http://rti-ck.kz/rti_items.php`);

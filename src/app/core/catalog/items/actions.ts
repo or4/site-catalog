@@ -8,18 +8,10 @@ export enum ActionTypes {
 
 // Load items
 
-export const LoadItems = {
-  type: ActionTypes.LOAD_ITEMS,
-};
-export const LoadItemsSuccess = {
-  type: ActionTypes.LOAD_ITEMS_SUCCESS,
-};
-export const LoadItemsFail = {
-  type: ActionTypes.LOAD_ITEMS_FAIL,
-};
-
 export type TLoadItems = {
   type: ActionTypes.LOAD_ITEMS;
+  page: number;
+  limit: number;
 };
 export type TLoadItemsSuccess = {
   type: ActionTypes.LOAD_ITEMS_SUCCESS;
