@@ -6,7 +6,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Header, Navigation, Footer } from 'components';
 import { ActionTypes as CategoriesActionTypes } from 'core/catalog/categories/actions';
-import { ActionTypes as ItemsActionTypes } from 'core/catalog/items/actions';
+import { ActionTypes as ItemsActionTypes, loadItems } from 'core/catalog/items/actions';
 import { AppState } from 'store/reducers';
 import { TCategory } from 'core/catalog/categories/reducer';
 import { TItem } from 'core/catalog/items/reducer';
@@ -17,7 +17,7 @@ type StateProps = {
 };
 type DispatchProps = {
   loadCategories: () => void;
-  loadItems: () => void;
+  loadItems: (page: number, limit: number) => void;
 };
 type Props = StateProps & DispatchProps;
 
@@ -32,7 +32,7 @@ class MainLayout extends React.Component<Props, State> {
     }
     if (items.length === 0) {
       console.log('******** CategoriesPage componentDidMount load action');
-      loadItems();
+      // loadItems(page, limit);
     }
     return {};
   }
@@ -77,8 +77,8 @@ const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
     loadCategories: () => {
       dispatch({ type: CategoriesActionTypes.LOAD_CATEGORIES });
     },
-    loadItems: () => {
-      dispatch({ type: ItemsActionTypes.LOAD_ITEMS });
+    loadItems: (page: number, limit: number) => {
+      dispatch(loadItems(page, limit));
     },
   };
 };

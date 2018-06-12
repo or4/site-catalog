@@ -22,6 +22,11 @@ export type TLoadItemsFail = {
   error: any;
 };
 
+
+export const loadItems = (page: number, limit: number): TLoadItems => {
+  return { type: ActionTypes.LOAD_ITEMS, page, limit };
+};
+
 export type ActionsAll = TLoadItems
   | TLoadItemsSuccess
   | TLoadItemsFail;
