@@ -17,7 +17,7 @@ type StateProps = {
 };
 type DispatchProps = {
   loadCategories: () => void;
-  loadItems: (page: number, limit: number) => void;
+  loadItems: (category: string, page: number, limit: number) => void;
 };
 type Props = StateProps & DispatchProps;
 
@@ -77,8 +77,8 @@ const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
     loadCategories: () => {
       dispatch({ type: CategoriesActionTypes.LOAD_CATEGORIES });
     },
-    loadItems: (page: number, limit: number) => {
-      dispatch(loadItems(page, limit));
+    loadItems: (category: string, page: number, limit: number) => {
+      dispatch(loadItems(category, page, limit));
     },
   };
 };

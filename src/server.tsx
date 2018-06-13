@@ -67,7 +67,7 @@ app.use(function(req: any, res: any) {
       sagaReady.done.then(() => {
         // now we have some data in store
         const newInitialState = JSON.stringify(store.getState());
-        console.log('server.tsx, sagas done newInitialState', newInitialState);
+        // console.log('server.tsx, sagas done newInitialState', newInitialState);
 
         // Run second render rootComp with changed data in store
         // and transfer newInitialState

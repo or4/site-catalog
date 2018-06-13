@@ -10,6 +10,7 @@ export enum ActionTypes {
 
 export type TLoadItems = {
   type: ActionTypes.LOAD_ITEMS;
+  category: string;
   page: number;
   limit: number;
 };
@@ -23,8 +24,8 @@ export type TLoadItemsFail = {
 };
 
 
-export const loadItems = (page: number, limit: number): TLoadItems => {
-  return { type: ActionTypes.LOAD_ITEMS, page, limit };
+export const loadItems = (category: string, page: number, limit: number): TLoadItems => {
+  return { type: ActionTypes.LOAD_ITEMS, category, page, limit };
 };
 
 export type ActionsAll = TLoadItems

@@ -48,7 +48,7 @@ class NavigationTree extends React.PureComponent<Props, State> {
   render() {
     // const style = this.getStyle();
     // const {  } = this.props;
-    console.log('NavigationTree categories', this.props.categories);
+    // console.log('NavigationTree categories', this.props.categories);
 
     return (
       <div>

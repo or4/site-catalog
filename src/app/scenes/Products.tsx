@@ -27,7 +27,7 @@ class Products extends React.PureComponent<Props, State> {
   render() {
     // const style = this.getStyle();
     const { items } = this.props;
-    console.log('Products items', this.props.items);
+    // console.log('Products items', this.props.items);
 
     return (
       <div>

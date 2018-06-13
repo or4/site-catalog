@@ -10,7 +10,8 @@ import { takeLatest } from 'redux-saga';
 function* loadItems(action: TLoadItems) {
   console.log('core catalog saga loadItems LOAD_ITEMS');
   try {
-    const { data } = yield axios.get(`http://rti-ck.kz/rti_items.php`);
+    const { category, limit, page } = action;
+    const { data } = yield axios.get(`http://rti-ck.kz/rti_items.php?category=${category}&limit=${limit}&page=${page}`);
     if (!data) { throw new Error('core catalog saga loadItems, data is empty') }
 
     yield put({
@@ -28,10 +29,3 @@ function* loadItems(action: TLoadItems) {
 export default [
   takeLatest(ActionTypes.LOAD_ITEMS, loadItems),
 ];
-
-// export function* watchLoadItems() {
-//   while (true) {
-//     yield take(ActionTypes.LOAD_ITEMS);
-//     yield fork(loadItems);
-//   }
-// }
