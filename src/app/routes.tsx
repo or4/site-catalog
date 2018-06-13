@@ -7,15 +7,15 @@ export default (
   <Route path="/" component={MainLayout}>
     <IndexRoute component={About} />
     <Route path="/" component={About} />
-    <Route path="about" component={About} />
-    <Route path="contacts" component={Contacts} />
-    <Route path="news" component={News} />
-    <Route path="production" component={Production} />
-    <Route path="products" component={Products} />
+    <Route path="/about" component={About} />
+    <Route path="/contacts" component={Contacts} />
+    <Route path="/news" component={News} />
+    <Route path="/production" component={Production} />
+    <Route path="/products" component={Products} />
   </Route>
 );
 
-export type RouteType =   '/' | 'about' | 'contacts' | 'news' | 'production' | 'products';
+export type RouteType =   '/' | '/about' | '/contacts' | '/news' | '/production' | '/products';
 
 export type RouteDescription = {
   isNavigationTree?: boolean;
@@ -24,11 +24,11 @@ export type RouteDescription = {
 
 export const routesDescription: {[key in RouteType]: RouteDescription} = {
   '/': { isNavigationTree: false },
-  'about': { isNavigationTree: false },
-  'contacts': { isNavigationTree: false },
-  'news': { isNavigationTree: false, isRightSideBar: true },
-  'production': { isNavigationTree: true },
-  'products': { isNavigationTree: true },
+  '/about': { isNavigationTree: false },
+  '/contacts': { isNavigationTree: false },
+  '/news': { isNavigationTree: false, isRightSideBar: true },
+  '/production': { isNavigationTree: true },
+  '/products': { isNavigationTree: true },
 };
 
 // export const routesHasNavigationTree: RouteType[] = ['/', 'about'];

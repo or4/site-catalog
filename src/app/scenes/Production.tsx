@@ -10,7 +10,7 @@ class Production extends React.PureComponent<Props, State> {
   render() {
     //const {  } = this.props;
     return (
-      <MiddleLayout route={'production'}>
+      <MiddleLayout route={'/production'}>
         <div>
           Production
         </div>

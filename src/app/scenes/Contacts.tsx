@@ -10,7 +10,7 @@ class Contacts extends React.PureComponent<Props, State> {
   render() {
     //const {  } = this.props;
     return (
-      <MiddleLayout route={'contacts'}>
+      <MiddleLayout route={'/contacts'}>
         <div>
           Contacts
         </div>

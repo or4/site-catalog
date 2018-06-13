@@ -18,7 +18,7 @@ type State = {
 class News extends React.PureComponent<Props, State> {
   render() {
     return (
-      <MiddleLayout route={'news'}>
+      <MiddleLayout route={'/news'}>
         <div>
           News
         </div>

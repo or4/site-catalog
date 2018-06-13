@@ -71,7 +71,7 @@ class About extends React.Component<Props, State> {
   public render() {
     const style = this.getStyle();
     return (
-      <MiddleLayout route={'about'}>
+      <MiddleLayout route={'/about'}>
         <div style={style.container}>
           <div dangerouslySetInnerHTML={this.createMarkup()} />
         </div>
