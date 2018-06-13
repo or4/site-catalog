@@ -4,6 +4,7 @@ import axios from 'axios';
 import { ActionTypes, TLoadItems } from './actions';
 import { TItem } from 'core/catalog/items/reducer';
 import { convertItems } from 'core/catalog/items/converter';
+import { takeLatest } from 'redux-saga';
 
 
 function* loadItems(action: TLoadItems) {
@@ -24,10 +25,13 @@ function* loadItems(action: TLoadItems) {
   }
 }
 
+export default [
+  takeLatest(ActionTypes.LOAD_ITEMS, loadItems),
+];
 
-export function* watchLoadItems() {
-  while (true) {
-    yield take(ActionTypes.LOAD_ITEMS);
-    yield fork(loadItems);
-  }
-}
+// export function* watchLoadItems() {
+//   while (true) {
+//     yield take(ActionTypes.LOAD_ITEMS);
+//     yield fork(loadItems);
+//   }
+// }

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { ActionTypes } from './actions';
 import { TCategory } from 'core/catalog/categories/reducer';
 import { convertCategories } from 'core/catalog/categories/converter';
+import { takeLatest } from 'redux-saga';
 
 
 function* loadCategories() {
@@ -27,9 +28,14 @@ function* loadCategories() {
 }
 
 
-export function* watchLoadCategories() {
-  while (true) {
-    yield take(ActionTypes.LOAD_CATEGORIES);
-    yield fork(loadCategories);
-  }
-}
+export default [
+  takeLatest(ActionTypes.LOAD_CATEGORIES, loadCategories),
+];
+
+
+// export function* watchLoadCategories() {
+//   while (true) {
+//     yield take(ActionTypes.LOAD_CATEGORIES);
+//     yield fork(loadCategories);
+//   }
+// }
