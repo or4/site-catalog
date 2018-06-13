@@ -8,7 +8,7 @@ import { takeLatest } from 'redux-saga';
 
 
 function* loadCategories() {
-  console.log('core catalog saga loadCategories LOAD_CATEGORIES');
+  console.log('API: core catalog saga loadCategories LOAD_CATEGORIES');
   try {
     const { data } = yield axios.get(`http://rti-ck.kz/rti_cat.php`);
     if (!data) { throw new Error('core catalog saga loadCategories, data is empty') }
@@ -27,15 +27,6 @@ function* loadCategories() {
   }
 }
 
-
 export default [
   takeLatest(ActionTypes.LOAD_CATEGORIES, loadCategories),
 ];
-
-
-// export function* watchLoadCategories() {
-//   while (true) {
-//     yield take(ActionTypes.LOAD_CATEGORIES);
-//     yield fork(loadCategories);
-//   }
-// }

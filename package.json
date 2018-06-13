@@ -12,8 +12,8 @@
     "build:prod": "cross-env NODE_ENV=production npm run build",
     "postbuild": "webpack --config config/webpack/server.js",
     "prestart": "npm run build",
-    "startx": "node build/server.js",
-    "start": "cross-env BABEL_ENV=cjs node --require @babel/register build/server.js",
+    "start": "yarn build && node build/server.js",
+    "start--": "cross-env BABEL_ENV=cjs node --require @babel/register build/server.js",
     "start:prod": "cross-env NODE_ENV=production npm start",
     "test": "karma start config/test/karma.conf.js",
     "lint": "tslint \"src/**/**.ts*\""

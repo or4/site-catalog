@@ -30,6 +30,3 @@ export const routesDescription: {[key in RouteType]: RouteDescription} = {
   '/production': { isNavigationTree: true },
   '/products': { isNavigationTree: true },
 };
-
-// export const routesHasNavigationTree: RouteType[] = ['/', 'about'];
-// export const routesHasRightSideBar: RouteType[] = ['/', 'about', 'contacts', 'news'];

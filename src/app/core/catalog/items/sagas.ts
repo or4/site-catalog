@@ -8,7 +8,7 @@ import { takeLatest } from 'redux-saga';
 
 
 function* loadItems(action: TLoadItems) {
-  console.log('core catalog saga loadItems LOAD_ITEMS');
+  console.log('API: core catalog saga loadItems LOAD_ITEMS');
   try {
     const { category, limit, page } = action;
     const { data } = yield axios.get(`http://rti-ck.kz/rti_items.php?category=${category}&limit=${limit}&page=${page}`);

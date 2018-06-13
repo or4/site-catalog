@@ -4,7 +4,6 @@ import items from 'core/catalog/items/sagas';
 
 export default function* root() {
   yield all([
-    // fork(watchLoadCategories),
     ...categories,
     ...items,
   ]);

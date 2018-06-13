@@ -25,13 +25,14 @@ type State = {
 };
 
 class MainLayout extends React.Component<Props, State> {
+  state = {};
   static getDerivedStateFromProps({ loadCategories, categories, loadItems, items, }: Props) {
     if (categories.length === 0) {
       console.log('******** CategoriesPage componentDidMount load action');
       loadCategories();
     }
     if (items.length === 0) {
-      console.log('******** CategoriesPage componentDidMount load action');
+      // console.log('******** CategoriesPage componentDidMount load action');
       // loadItems(page, limit);
     }
     return {};
