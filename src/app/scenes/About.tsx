@@ -2,6 +2,8 @@ import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import MiddleLayout from 'components/MiddleLayout';
+import { IS_DEV, IS_SHOW_ABOUT } from 'settings';
+
 
 type StateProps = {
 };
@@ -70,10 +72,11 @@ class About extends React.Component<Props, State> {
 
   public render() {
     const style = this.getStyle();
+    const content = <div dangerouslySetInnerHTML={this.createMarkup()} />;
     return (
       <MiddleLayout route={'/about'}>
         <div style={style.container}>
-          <div dangerouslySetInnerHTML={this.createMarkup()} />
+          {IS_DEV && IS_SHOW_ABOUT && content}
         </div>
       </MiddleLayout>
     );
