@@ -11,7 +11,7 @@ export default (
     <Route path="/contacts" component={Contacts} />
     <Route path="/news" component={News} />
     <Route path="/production" component={Production} />
-    <Route path="/products" component={Products} />
+    <Route path="/products/:id" component={Products} />
   </Route>
 );
 

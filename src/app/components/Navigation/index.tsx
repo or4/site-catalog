@@ -31,11 +31,11 @@ class Navigation extends React.PureComponent<Props, State> {
 
     return (
       <div style={style.container}>
-        <NavigationItem to="about" text="О нас" />
-        <NavigationItem to="production" text="Производство" />
-        <NavigationItem to="products" text="Продукция" />
-        <NavigationItem to="news" text="Новости" />
-        <NavigationItem to="contacts" text="Контакты" />
+        <NavigationItem to="/about" text="О нас" />
+        <NavigationItem to="/production" text="Производство" />
+        <NavigationItem to="/products/1" text="Продукция" />
+        <NavigationItem to="/news" text="Новости" />
+        <NavigationItem to="/contacts" text="Контакты" />
       </div>
     );
   }

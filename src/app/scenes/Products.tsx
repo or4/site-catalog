@@ -3,6 +3,7 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { AppState } from 'store/reducers';
 import { TItem } from 'core/catalog/items/reducer';
+import MiddleLayout from 'components/MiddleLayout';
 
 type OwnProps = {
 };
@@ -30,11 +31,11 @@ class Products extends React.PureComponent<Props, State> {
     // console.log('Products items', this.props.items);
 
     return (
-      <div>
+      <MiddleLayout route={'/products'}>
         <ul>
           {items && items.map((item: TItem) => <li key={item.id}>{item.name}</li>)}
         </ul>
-      </div>
+      </MiddleLayout>
     );
   }
 }
