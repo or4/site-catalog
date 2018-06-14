@@ -11,7 +11,11 @@ function* loadItems(action: TLoadItems) {
   console.log('API: core catalog saga loadItems LOAD_ITEMS');
   try {
     const { category, limit, page } = action;
-    const { data } = yield axios.get(`http://rti-ck.kz/rti_items.php?category=${category}&limit=${limit}&page=${page}`);
+
+    const url = `http://rti-ck.kz/rti_items_by_cat.php?category=${category}&limit=${limit}&page=${page}`;
+    // const url = `http://rti-ck.kz/rti_items_by_cat.php?category=5,5.31&limit=${limit}&page=${page}`;
+    console.log('saga url', url);
+    const { data } = yield axios.get(url);
     if (!data) { throw new Error('core catalog saga loadItems, data is empty') }
 
     yield put({

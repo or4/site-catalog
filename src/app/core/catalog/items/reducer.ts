@@ -35,14 +35,17 @@ export const itemsReducer: Reducer<TState> = (state: TState = initialState, acti
       return { ...state, requesting: true };
     case ActionTypes.LOAD_ITEMS_SUCCESS:
       const { category, limit, page, data: dataCat } = action;
-      const newState = {
+      console.log('reducer LOAD_ITEMS_SUCCESS', category, limit, page, dataCat);
+      const newState =  {
         ...state,
-
+        data: {
+          ...state.data,
+          [category]: dataCat
+        },
         requesting: false,
         error: false
       };
-      newState.data[category] = dataCat;
-
+      console.log('newState', newState);
       return newState;
     case ActionTypes.LOAD_ITEMS_FAIL:
       return { ...state, error: action.error, requesting: false };

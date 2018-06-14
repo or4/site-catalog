@@ -10,6 +10,7 @@ import { ActionTypes as ItemsActionTypes, loadItems } from 'core/catalog/items/a
 import { AppState } from 'store/reducers';
 import { TCategory } from 'core/catalog/categories/reducer';
 import { TItem } from 'core/catalog/items/reducer';
+import { IS_DEV } from 'settings';
 
 type StateProps = {
   categories: TCategory[];
@@ -39,7 +40,7 @@ class MainLayout extends React.Component<Props, State> {
   }
   getStyle = () => {
     const container = {
-      background: '#ccc',
+      background: IS_DEV ? '#fff' : '#ccc',
       minHeight: '100vh',
       minWidth: '1024px',
     };
@@ -52,10 +53,11 @@ class MainLayout extends React.Component<Props, State> {
     const style = this.getStyle();
     // i don't know why, but if remove wrapper of prop.children
     // container of it would not render
+    // <Header />
     return (
       <div style={style.container}>
         <Helmet {...appConfig.app} {...appConfig.app.head} />
-        <Header />
+
         <Navigation />
 
         <div>

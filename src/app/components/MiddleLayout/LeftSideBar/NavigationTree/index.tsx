@@ -25,7 +25,7 @@ class NavigationTree extends React.PureComponent<Props, State> {
       container,
     };
   }
-  getNavMenu = (categories: TCategory[]): any => {
+  getNavMenu = (path: string, categories: TCategory[]): any => {
     if (!categories) {
       return null;
     }
@@ -39,7 +39,7 @@ class NavigationTree extends React.PureComponent<Props, State> {
                 <Link to={`/catalog/${item.idVirtual}`}>
                   {item.name}
                 </Link>
-                {this.getNavMenu(item.subItems)}
+                {this.getNavMenu(path + item.idVirtual, item.subItems)}
               </li>))
         }
       </ul>
@@ -52,7 +52,7 @@ class NavigationTree extends React.PureComponent<Props, State> {
 
     return (
       <div>
-        {this.getNavMenu(this.props.categories)}
+        {this.getNavMenu('', this.props.categories)}
       </div>
     );
   }
