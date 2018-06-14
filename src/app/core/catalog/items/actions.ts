@@ -17,6 +17,9 @@ export type TLoadItems = {
 export type TLoadItemsSuccess = {
   type: ActionTypes.LOAD_ITEMS_SUCCESS;
   data: TItem[];
+  category: string;
+  limit: number;
+  page: number;
 };
 export type TLoadItemsFail = {
   type: ActionTypes.LOAD_ITEMS_FAIL;

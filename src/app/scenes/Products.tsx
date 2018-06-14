@@ -8,7 +8,7 @@ import MiddleLayout from 'components/MiddleLayout';
 type OwnProps = {
 };
 type StateProps = {
-  items: TItem[];
+  // items: TItem[];
 };
 type DispatchProps = {
 };
@@ -27,20 +27,21 @@ class Products extends React.PureComponent<Props, State> {
   }
   render() {
     // const style = this.getStyle();
-    const { items } = this.props;
+    // const { items } = this.props;
+    // {items && items.map((item: TItem) => <li key={item.id}>{item.name}</li>)}
     // console.log('Products items', this.props.items);
 
     return (
       <MiddleLayout route={'/products'}>
         <ul>
-          {items && items.map((item: TItem) => <li key={item.id}>{item.name}</li>)}
+          {null}
         </ul>
       </MiddleLayout>
     );
   }
 }
 const mapStateToProps = (state: AppState) => ({
-  items: state.items.data
+  // items: state.items.data
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {

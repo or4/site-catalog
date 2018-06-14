@@ -13,7 +13,7 @@ import { TItem } from 'core/catalog/items/reducer';
 
 type StateProps = {
   categories: TCategory[];
-  items: TItem[];
+  // items: TItem[];
 };
 type DispatchProps = {
   loadCategories: () => void;
@@ -26,15 +26,15 @@ type State = {
 
 class MainLayout extends React.Component<Props, State> {
   state = {};
-  static getDerivedStateFromProps({ loadCategories, categories, loadItems, items, }: Props) {
+  static getDerivedStateFromProps({ loadCategories, categories, /* loadItems, items,*/ }: Props) {
     if (categories.length === 0) {
       console.log('******** CategoriesPage componentDidMount load action');
       loadCategories();
     }
-    if (items.length === 0) {
-      // console.log('******** CategoriesPage componentDidMount load action');
-      // loadItems(page, limit);
-    }
+    // if (items.length === 0) {
+    //   console.log('******** CategoriesPage componentDidMount load action');
+    //   loadItems(page, limit);
+    // }
     return {};
   }
   getStyle = () => {
@@ -70,7 +70,7 @@ class MainLayout extends React.Component<Props, State> {
 
 const mapStateToProps = (state: AppState) => ({
   categories: state.categories.data,
-  items: state.items.data,
+  // items: state.items.data['1'],
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {

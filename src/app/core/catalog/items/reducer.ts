@@ -19,12 +19,12 @@ export type TItem = {
 type TState = {
   error?: any;
   requesting: boolean;
-  data: TItem[];
+  data: {[key: string]: TItem[]};
 };
 
 const initialState: TState = {
   requesting: false,
-  data: []
+  data: {}
 };
 
 export type TItemsState = TState;
@@ -34,7 +34,16 @@ export const itemsReducer: Reducer<TState> = (state: TState = initialState, acti
     case ActionTypes.LOAD_ITEMS:
       return { ...state, requesting: true };
     case ActionTypes.LOAD_ITEMS_SUCCESS:
-      return { ...state, data: action.data, requesting: false, error: false };
+      const { category, limit, page, data: dataCat } = action;
+      const newState = {
+        ...state,
+
+        requesting: false,
+        error: false
+      };
+      newState.data[category] = dataCat;
+
+      return newState;
     case ActionTypes.LOAD_ITEMS_FAIL:
       return { ...state, error: action.error, requesting: false };
 

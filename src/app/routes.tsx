@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { IndexRoute, Route } from 'react-router';
-import { About, Contacts, News, Production, Products } from 'scenes';
+import { About, Contacts, News, Production, Products, Catalog } from 'scenes';
 import { MainLayout } from 'components';
 
 export default (
@@ -11,11 +11,12 @@ export default (
     <Route path="/contacts" component={Contacts} />
     <Route path="/news" component={News} />
     <Route path="/production" component={Production} />
-    <Route path="/products/:id" component={Products} />
+    <Route path="/products" component={Products} />
+    <Route path="/catalog/:category" component={Catalog} />
   </Route>
 );
 
-export type RouteType =   '/' | '/about' | '/contacts' | '/news' | '/production' | '/products';
+export type RouteType =   '/' | '/about' | '/contacts' | '/news' | '/production' | '/products' | '/catalog';
 
 export type RouteDescription = {
   isNavigationTree?: boolean;
@@ -29,4 +30,5 @@ export const routesDescription: {[key in RouteType]: RouteDescription} = {
   '/news': { isNavigationTree: false, isRightSideBar: true },
   '/production': { isNavigationTree: true },
   '/products': { isNavigationTree: true },
+  '/catalog': { isNavigationTree: true },
 };

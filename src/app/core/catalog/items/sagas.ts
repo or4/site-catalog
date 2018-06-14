@@ -16,6 +16,9 @@ function* loadItems(action: TLoadItems) {
 
     yield put({
       type: ActionTypes.LOAD_ITEMS_SUCCESS,
+      category: category,
+      limit: limit,
+      page: page,
       data: data,
     });
     yield take(ActionTypes.LOAD_ITEMS_SUCCESS);

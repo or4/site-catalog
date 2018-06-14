@@ -29,14 +29,9 @@ class MiddleLayout extends React.PureComponent<Props, State> {
   }
   render() {
     const style = this.getStyle();
-    const { route: routeOrig } = this.props;
-    console.log('routeOrig', routeOrig);
-
-    const route: RouteType = '/' + routeOrig.split('/')[1] as any;
+    const { route } = this.props;
 
     const content = [];
-    console.log('route', route);
-
 
     if (routesDescription[route].isNavigationTree) {
       content.push(<LeftSideBar key={'left-side-bar_key'}> <NavigationTree /> </LeftSideBar>);
