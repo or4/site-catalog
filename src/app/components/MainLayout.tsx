@@ -53,18 +53,17 @@ class MainLayout extends React.Component<Props, State> {
     const style = this.getStyle();
     // i don't know why, but if remove wrapper of prop.children
     // container of it would not render
+    // <Navigation />
     // <Header />
+    // <Footer />
     return (
       <div style={style.container}>
         <Helmet {...appConfig.app} {...appConfig.app.head} />
-
-        <Navigation />
 
         <div>
           {this.props.children}
         </div>
 
-        <Footer />
       </div>
     );
   }
