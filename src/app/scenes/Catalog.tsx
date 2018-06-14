@@ -23,7 +23,7 @@ type State = {
 class Products extends React.PureComponent<Props, State> {
   state = {};
   static getDerivedStateFromProps({ loadItems, items, routeParams, }: Props) {
-    if (items.length === 0) {
+    if (typeof items === 'undefined' || items.length === 0) {
       const { category } = routeParams;
       console.log('******** Products componentDidMount load action, category=', category);
       loadItems(category, 1, 5);
