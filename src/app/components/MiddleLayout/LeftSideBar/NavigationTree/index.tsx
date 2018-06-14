@@ -36,7 +36,7 @@ class NavigationTree extends React.PureComponent<Props, State> {
             (item: TCategory) => (
 
               <li key={item.id}>
-                <Link to={`/catalog/${path},${item.idVirtual}`}>
+                <Link to={`/catalog/${item.idVirtual}`}>
                   {item.name}
                 </Link>
                 {this.getNavMenu(path + item.idVirtual, item.subItems)}

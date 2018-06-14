@@ -26,7 +26,7 @@ class Products extends React.PureComponent<Props, State> {
     if (typeof items === 'undefined' || items.length === 0) {
       const { category } = routeParams;
       console.log('******** Products componentDidMount load action, category=', category);
-      loadItems(category, 1, 5);
+      loadItems(category, 0, 500);
     }
     return {};
   }
@@ -44,10 +44,11 @@ class Products extends React.PureComponent<Props, State> {
     console.log('routeParams', routeParams);
     console.log('routeParams.category', routeParams.category);
     console.log('this.props', this.props);
-    // console.log('Products items', this.props.items);
+    console.log('Products items', items);
 
     return (
       <MiddleLayout route={'/catalog'}>
+        Catalog
         <ul>
           {items && items.map((item: TItem) => <li key={item.id}>{item.name}</li>)}
         </ul>
@@ -55,9 +56,12 @@ class Products extends React.PureComponent<Props, State> {
     );
   }
 }
-const mapStateToProps = (state: AppState, props: OwnProps) => ({
-  items: state.items.data[props.routeParams]
-});
+const mapStateToProps = (state: AppState, props: OwnProps) => {
+  const items = state.items.data[props.routeParams.category];
+  return {
+    items,
+  };
+};
 
 const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
   return {

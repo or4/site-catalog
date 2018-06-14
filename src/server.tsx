@@ -46,7 +46,7 @@ app.use(function(req: any, res: any) {
 
   match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
     // for dev
-    if (req.url === '/favicon.ico') { return }
+    // if (req.url === '/favicon.ico') { return }
     console.log('\n\n\nserver.tsx, req', req.url);
 
     if (error) {
