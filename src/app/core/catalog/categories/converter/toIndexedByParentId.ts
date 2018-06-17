@@ -1,48 +1,12 @@
 import { TCategoryServer, TCategory } from 'core/catalog/categories/types';
 
-/**
- * Convert from server structure to client structure
- */
-export const convertToClientData = (data: TCategoryServer[]) =>
-  data.map((category: TCategoryServer) => ({
-    id: Number(category.id),
-    idVirtual: category.id1,
-    isDefault: Number(category.is_default),
-    name: category.name,
-    order: Number(category.order),
-    parentId: Number(category.parent_id),
-
-    image: category.image,
-    description: category.description,
-  })) as TCategory[];
-
-
-/**
- * Simple sort by prop order
- */
-export const sort =
-  (data: TCategory[]) => data.sort(
-    (a: TCategory, b: TCategory) => a.order - b.order
-  );
-
-
-/**
- * We convert to object to faster access to data
- * another word indexed data
- */
-export const convertToIndexedData =
-  (data: TCategory[]) => data.reduce(
-    (obj: {[key : string] : TCategory}, category: TCategory) => {
-      obj[category.idVirtual] = category;
-      return obj;
-    }, {});
-
-
 
 /**
  *  Private function, Return upper level or 0-level categories
  */
-const filterParents0 = (data: TCategory[]) => data.filter((category: TCategory) => category.parentId === 0);
+const filterParents0 =
+  (data: TCategory[]) =>
+    data.filter((category: TCategory) => category.parentId === 0);
 
 
 
@@ -61,7 +25,7 @@ const convertToObjKeyParentId = (data: TCategory[]) =>
 
 export const separateData = (data: TCategory[]) => {
 
-  const separated = getSeparatedData(data);
+  const separated = convertToObjKeyParentId(data);
   const parents0 = filterParents0(data);
 
   const processSub = (item: TCategory): TCategory[] => {

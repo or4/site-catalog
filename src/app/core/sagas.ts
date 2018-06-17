@@ -1,5 +1,5 @@
 import { fork, all } from 'redux-saga/effects';
-import categories from 'core/catalog/categories/sagas';
+import categories from 'core/catalog/sagas';
 // import items from 'core/catalog/items/sagas';
 
 export default function* root() {

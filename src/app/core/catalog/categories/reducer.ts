@@ -2,30 +2,20 @@ import { Reducer } from 'redux';
 
 import { ActionTypes, ActionsAll } from './actions';
 import { AppState } from 'store/reducers';
+import { TCategory } from 'core/catalog/categories/types';
 
-export type TCategory = {
-  id: number;
-  idVirtual: string;
-  isDefault: number;
-  name: string;
-  order: number;
-  parentId: number;
-
-  image: string;
-  description: string;
-
-  subItems?: TCategory[];
-};
 
 type TState = {
   error?: any;
   requesting: boolean;
-  data: TCategory[];
+  indexed: {[key: string]: TCategory};
+  separated: TCategory[];
 };
 
 const initialState: TState = {
   requesting: false,
-  data: []
+  indexed: {},
+  separated: [],
 };
 
 export type TCategoriesState = TState;
@@ -34,8 +24,10 @@ export const categoriesReducer: Reducer<TState> = (state: TState = initialState,
   switch (action.type) {
     case ActionTypes.LOAD_CATEGORIES:
       return { ...state, requesting: true };
-    case ActionTypes.LOAD_CATEGORIES_SUCCESS:
-      return { ...state, data: action.data, requesting: false, error: false };
+    case ActionTypes.LOAD_INDEXED_CATEGORIES_SUCCESS:
+      return { ...state, indexed: action.data, requesting: false, error: false };
+    case ActionTypes.LOAD_SEPARATED_CATEGORIES_SUCCESS:
+      return { ...state, separated: action.data, requesting: false, error: false };
     case ActionTypes.LOAD_CATEGORIES_FAIL:
       return { ...state, error: action.error, requesting: false };
 
