@@ -12,6 +12,7 @@ type OwnProps = {
 type StateProps = {
   category: TCategory;
   items: TItem[];
+  getCategory: (category: string) => TCategory;
 };
 type DispatchProps = {
 };
@@ -45,11 +46,39 @@ class Products extends React.PureComponent<Props, State> {
       this.props.category.description.replace(/src=\"/g, 'src="http://rti-ck.kz/')
     };
   }
+  getCaption = () => {
+    const { routeParams, getCategory } = this.props;
+    const categoryArray = routeParams.category.split('.');
+
+    //    return getCategory('1') + ', ' + getCategory('1.2');
+    let output = '';
+    categoryArray.reduce((acc: string, category: string) => {
+      if (acc === '') {
+        const categoryObj = getCategory(category);
+        if (categoryObj === null) {
+          return '';
+        }
+        output = categoryObj.name;
+        return category;
+      }
+
+      const newAcc = acc + '.' + category;
+      const categoryObj = getCategory(newAcc);
+      if (categoryObj === null) {
+        return '';
+      }
+      output = output + ', ' + categoryObj.name.toLocaleLowerCase();
+      return newAcc;
+    }, '');
+    return output;
+  }
   render() {
     const style = this.getStyle();
     const { routeParams, items, category } = this.props;
     console.log('routeParams', routeParams);
     console.log('routeParams.category', routeParams.category);
+
+
     // console.log('this.props', this.props);
     // console.log('Products items', items);
 
@@ -58,11 +87,11 @@ class Products extends React.PureComponent<Props, State> {
 
     return (
       <MiddleLayout route={'/catalog'}>
-        <h2>Catalog {category && category.name}</h2>
-        <div dangerouslySetInnerHTML={this.getArticle()} />
+        <h2>Цены на товары категории «{this.getCaption()}» на 23.05.2018 в тенге с учетом НДС</h2>
         <ul>
           {items && items.map((item: TItem) => <li key={item.id}>{item.name}</li>)}
         </ul>
+        <div dangerouslySetInnerHTML={this.getArticle()} />
       </MiddleLayout>
     );
   }
@@ -73,6 +102,7 @@ const mapStateToProps = (state: AppState, props: OwnProps) => {
   return {
     items,
     category,
+    getCategory: selectCategory.bind(null, state),
   };
 };
 
