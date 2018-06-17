@@ -8,7 +8,7 @@ import { IS_DEV, IS_SHOW_ABOUT } from 'settings';
 type StateProps = {
 };
 type DispatchProps = {
-  loadBalance: () => void;
+  // loadBalance: () => void;
 };
 type Props = StateProps & DispatchProps;
 
@@ -16,10 +16,10 @@ type State = {
 };
 
 class About extends React.Component<Props, State> {
-  componentDidMount() {
-    console.log('SCENE About, componentDidMount');
-    this.props.loadBalance();
-  }
+  // componentDidMount() {
+  //   console.log('SCENE About, componentDidMount');
+  //   this.props.loadBalance();
+  // }
   getStyle = () => {
     const container = {
     };
@@ -88,9 +88,9 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
   return {
-    loadBalance: () => {
-      // dispatch({ type: ActionTypes.LOAD_BALANCE });
-    }
+    // loadBalance: () => {
+    //   // dispatch({ type: ActionTypes.LOAD_BALANCE });
+    // }
   };
 };
 export default connect<StateProps, DispatchProps>(mapStateToProps, mapDispatchToProps)(About);

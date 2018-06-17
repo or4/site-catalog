@@ -14,23 +14,24 @@ import { IS_DEV } from 'settings';
 
 type StateProps = {
   categories: TCategory[];
-  // items: TItem[];
+  items: TItem[];
 };
 type DispatchProps = {
   loadCategories: () => void;
-  loadItems: (category: string, page: number, limit: number) => void;
+  // loadItems: () => void;
 };
 type Props = StateProps & DispatchProps;
 
 type State = {
 };
-
+let first = true;
 class MainLayout extends React.Component<Props, State> {
   state = {};
   static getDerivedStateFromProps({ loadCategories, categories, /* loadItems, items,*/ }: Props) {
-    if (categories.length === 0) {
+    if (first && categories.length === 0) {
       console.log('******** CategoriesPage componentDidMount load action');
       loadCategories();
+      first = false;
     }
     // if (items.length === 0) {
     //   console.log('******** CategoriesPage componentDidMount load action');
@@ -51,6 +52,11 @@ class MainLayout extends React.Component<Props, State> {
   }
   public render() {
     const style = this.getStyle();
+
+    let date = new Date();
+    console.log(`render this.props.items.length ${date.getMinutes()}:${date.getSeconds()}`, this.props.items.length);
+    console.log(`render this.props.categories.length ${date.getMinutes()}:${date.getSeconds()}`, this.props.categories.length);
+
     // i don't know why, but if remove wrapper of prop.children
     // container of it would not render
     // <Navigation />
@@ -71,17 +77,24 @@ class MainLayout extends React.Component<Props, State> {
 
 const mapStateToProps = (state: AppState) => ({
   categories: state.categories.data,
-  // items: state.items.data['1'],
+  items: state.items.data,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
   return {
     loadCategories: () => {
+
+      let date = new Date();
+      console.log(`pre dispatch ${date.getMinutes()}:${date.getSeconds()}`);
+
       dispatch({ type: CategoriesActionTypes.LOAD_CATEGORIES });
+
+      date = new Date();
+      console.log(`after dispatch! ${date.getMinutes()}:${date.getSeconds()}`);
     },
-    loadItems: (category: string, page: number, limit: number) => {
-      dispatch(loadItems(category, page, limit));
-    },
+    // loadItems: () => {
+    //   dispatch(loadItems());
+    // },
   };
 };
 export default connect<StateProps, DispatchProps>(mapStateToProps, mapDispatchToProps)(MainLayout);

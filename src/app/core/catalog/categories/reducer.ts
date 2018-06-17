@@ -1,6 +1,7 @@
 import { Reducer } from 'redux';
 
 import { ActionTypes, ActionsAll } from './actions';
+import { AppState } from 'store/reducers';
 
 export type TCategory = {
   id: number;
@@ -42,5 +43,27 @@ export const categoriesReducer: Reducer<TState> = (state: TState = initialState,
   }
 };
 
-// export const selectCategories = (state: any) => state.categories;
+const selectCategoryRec = function(categoryName: string, data: TCategory[]): TCategory | null {
+  for (let i = 0; i < data.length; i++) {
+    const current = data[i];
+    if (current.idVirtual === categoryName) {
+      return current;
+    }
+
+    if (current.subItems.length > 0) {
+      const found = selectCategoryRec(categoryName, current.subItems);
+      if (found !== null) {
+        return found;
+      }
+    }
+  }
+
+  return null;
+};
+
+export const selectCategory = (state: AppState, category: string) => {
+  console.log('selectCategory category', category);
+  // console.log('selectCategory category data', state.categories.data);
+  return selectCategoryRec(category, state.categories.data);
+};
 

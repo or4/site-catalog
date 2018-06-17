@@ -59,13 +59,19 @@ const layout = (body: any, initialState: any) => (`
   </html>
 `);
 
+let firstTime = true;
+let newInitialState = {};
+let rootComp = <div>Error: RootComp not inited!</div>;
+
 app.use(function(req: any, res: any) {
 
 
   match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
     // for dev
     // if (req.url === '/favicon.ico') { return }
-    console.log('\n\n\nserver.tsx, req', req.url);
+    let date = new Date();
+    console.log(`\n\n\nserver.tsx, req  ${date.getMinutes()}:${date.getSeconds()}`, req.url);
+
 
     if (error) {
       res.status(500).send(error.message);
@@ -74,41 +80,73 @@ app.use(function(req: any, res: any) {
     } else if (renderProps && renderProps.components) {
 
       // perform Root constructor and transfer to it ref store
-      const rootComp = <Root store={store} routes={routes} history={createMemoryHistory()} renderProps={renderProps} type="server" />;
+      rootComp = <Root store={store} routes={routes} history={createMemoryHistory()} renderProps={renderProps} type="server" />;
       console.log('server.tsx, Root Component constructor inited');
 
-      // initialization async genearators saga
-      const sagaReady = store.runSaga(root);
-      console.log('server.tsx, Sagas inited');
+      if (firstTime) {
 
-      // wait until all sagas would resolved
-      sagaReady.done.then(() => {
-        // now we have some data in store
-        const newInitialState = JSON.stringify(store.getState());
-        // console.log('server.tsx, sagas done newInitialState', newInitialState);
+        console.log('server.tsx, LOADING FIRST TIME!!!');
 
-        // Run second render rootComp with changed data in store
-        // and transfer newInitialState
+        // initialization async genearators saga
+        const sagaReady = store.runSaga(root);
+        console.log('server.tsx, Sagas inited');
+
+        // wait until all sagas would resolved
+        sagaReady.done.then(() => {
+
+          firstTime = false;
+
+          // now we have some data in store
+          newInitialState = JSON.stringify(store.getState());
+          // console.log('server.tsx, sagas done newInitialState', newInitialState);
+
+          // Run second render rootComp with changed data in store
+          // and transfer newInitialState
+          res.status(200).send(
+            layout(
+              renderToString(rootComp),
+              newInitialState
+            )
+          );
+          console.log('server.tsx, second render done!, data was sent');
+
+        }).catch((e: any) => {
+          console.log('server.tsx,', e.message);
+          res.status(500).send(e.message);
+        });
+
+        // Run first render, there is call actions and next transfer to sagas
+        renderToString(rootComp);
+        console.log('server.tsx, first render done!');
+
+        // dispatch END, that says saga ready to perform,
+        // and all prepared actions start perform in sagas
+        store.close();
+        console.log('server.tsx, store.close()');
+
+      } else {
+
+        console.log('server.tsx, LOADING SECOND TIME!!!');
+
+        date = new Date();
+        console.log(`server.tsx, pre ctor Root ${date.getMinutes()}:${date.getSeconds()}`);
+
+        // i think need for specify route
+        rootComp = <Root store={store} routes={routes} history={createMemoryHistory()} renderProps={renderProps} type="server" />;
+
+        date = new Date();
+        console.log(`server.tsx, pre send ${date.getMinutes()}:${date.getSeconds()}`);
+
         res.status(200).send(
           layout(
             renderToString(rootComp),
             newInitialState
           )
         );
-        console.log('server.tsx, second render done!, data was sent');
-      }).catch((e: any) => {
-        console.log('server.tsx,', e.message);
-        res.status(500).send(e.message);
-      });
 
-      // Run first render, there is call actions and next transfer to sagas
-      renderToString(rootComp);
-      console.log('server.tsx, first render done!');
-
-      // dispatch END, that says saga ready to perform,
-      // and all prepared actions start perform in sagas
-      store.close();
-      console.log('server.tsx, store.close()');
+        date = new Date();
+        console.log(`server.tsx, sended ${date.getMinutes()}:${date.getSeconds()}`);
+      }
     } else {
       res.status(404).send('Not found');
       console.log('server.tsx, Not found');

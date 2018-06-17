@@ -1,30 +1,35 @@
 import { Reducer } from 'redux';
 
 import { ActionTypes, ActionsAll } from './actions';
+import { AppState } from 'store/reducers';
 
 export type TItem = {
   id: number;
-  idVirtual: string;
-  isDefault: number;
+  category: string[];
   name: string;
-  order: number;
-  parentId: number;
 
-  image: string;
-  description: string;
 
-  subItems?: TItem[];
+  // idVirtual: string;
+  // isDefault: number;
+  // order: number;
+  // parentId: number;
+
+  // image: string;
+  // description: string;
+
+  // subItems?: TItem[];
 };
 
 type TState = {
   error?: any;
   requesting: boolean;
-  data: {[key: string]: TItem[]};
+  // data: {[key: string]: TItem[]};
+  data: TItem[];
 };
 
 const initialState: TState = {
   requesting: false,
-  data: {}
+  data: []
 };
 
 export type TItemsState = TState;
@@ -34,19 +39,19 @@ export const itemsReducer: Reducer<TState> = (state: TState = initialState, acti
     case ActionTypes.LOAD_ITEMS:
       return { ...state, requesting: true };
     case ActionTypes.LOAD_ITEMS_SUCCESS:
-      const { category, limit, page, data: dataCat } = action;
-      console.log('reducer LOAD_ITEMS_SUCCESS', category, limit, page, dataCat);
-      const newState =  {
-        ...state,
-        data: {
-          ...state.data,
-          [category]: dataCat
-        },
-        requesting: false,
-        error: false
-      };
-      console.log('newState', newState);
-      return newState;
+      const { data } = action;
+      console.log('reducer LOAD_ITEMS_SUCCESS');
+      // const newState =  {
+      //   ...state,
+      //   data: {
+      //     ...state.data,
+      //     [category]: dataCat
+      //   },
+      //   requesting: false,
+      //   error: false
+      // };
+      // console.log('newState', newState);
+      return { ...state, data };
     case ActionTypes.LOAD_ITEMS_FAIL:
       return { ...state, error: action.error, requesting: false };
 
@@ -54,5 +59,7 @@ export const itemsReducer: Reducer<TState> = (state: TState = initialState, acti
   }
 };
 
-// export const selectItems = (state: any) => state.items;
+export const selectItems = (state: AppState, category: string) => state.items.data.filter((item) => {
+  return item.category.indexOf(category) >= 0;
+});
 
