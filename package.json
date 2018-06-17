@@ -4,6 +4,8 @@
   "description": "A universal boilerplate for building web applications w/ TypeScript, React, Redux and more.",
   "main": "build/server.js",
   "scripts": {
+    "start": "node build/server.js",
+    "start:prod": "cross-env NODE_ENV=production npm start",
     "startf": "yarn clean && yarn build && yarn start",
     "startf:p": "clean && build:prod && start:prod",
     "clean": "rimraf build && rimraf coverage",
@@ -12,9 +14,8 @@
     "build:prod": "cross-env NODE_ENV=production npm run build",
     "postbuild": "webpack --config config/webpack/server.js",
     "prestart": "npm run build",
-    "start": "yarn build && node build/server.js",
-    "start--": "cross-env BABEL_ENV=cjs node --require @babel/register build/server.js",
-    "start:prod": "cross-env NODE_ENV=production npm start",
+    "start1": "cross-env NODE_ENV=production yarn build && node build/server.js",
+    "startx": "cross-env node --require @babel/register build/server.js",
     "test": "karma start config/test/karma.conf.js",
     "lint": "tslint \"src/**/**.ts*\""
   },
@@ -72,7 +73,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "@babel/register": "7.0.0-beta.39",
+    "@babel/core": "^7.0.0-beta.49",
     "@types/chai": "^4.0.4",
     "@types/enzyme": "^3.1.3",
     "@types/history": "^4.5.0",
@@ -162,7 +163,8 @@
     "webpack-manifest-plugin": "^1.1.0"
   },
   "dependencies": {
-    "@babel/core": "^7.0.0-beta.49",
+    "@babel/polyfill": "^7.0.0-beta.51",
+    "@babel/register": "7.0.0-beta.39",
     "apisauce": "^0.15.2",
     "chalk": "^2.3.0",
     "compression": "^1.6.2",

@@ -7,6 +7,8 @@ import Root from './Root';
 import { configureStore } from 'store';
 import root from 'core/sagas';
 
+let regeneratorRuntime =  require('regenerator-runtime');
+
 const store = configureStore(window.__INITIAL_STATE__);
 store.runSaga(root);
 
