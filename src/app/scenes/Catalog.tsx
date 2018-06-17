@@ -40,7 +40,9 @@ class Products extends React.PureComponent<Props, State> {
   }
   getArticle = () => {
     return {
-      __html: this.props.category && this.props.category.description
+
+      __html: this.props.category && this.props.category.description &&
+      this.props.category.description.replace(/src=\"/g, 'src="http://rti-ck.kz/')
     };
   }
   render() {
