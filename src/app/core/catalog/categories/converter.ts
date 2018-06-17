@@ -11,7 +11,8 @@ type TCategoryServer = {
   description: string;
 };
 
-const convertToClientData = (data: TCategoryServer[]) =>
+
+export const convertCategories = (data: TCategoryServer[]) =>
   data.map((category: TCategoryServer) => ({
     id: Number(category.id),
     idVirtual: category.id1,
@@ -24,12 +25,16 @@ const convertToClientData = (data: TCategoryServer[]) =>
     description: category.description,
   })) as TCategory[];
 
-const sortData = (data: TCategory[]) => data.sort((a: TCategory, b: TCategory) => a.order - b.order);
+export const sortCategories =
+  (data: TCategory[]) => data.sort(
+    (a: TCategory, b: TCategory) => a.order - b.order
+  );
+
 
 // this method separate by parentId
 // create array of categories arrays, where key of main array is parentId
 // then you have array where keys is categoryId, and value is array of sub categories
-const separateData = (data: TCategory[]) =>
+const getSeparatedData = (data: TCategory[]) =>
   data.reduce(
     (acc: any, category: TCategory) => {
       if (typeof acc[category.parentId] === 'undefined') {
@@ -42,12 +47,12 @@ const separateData = (data: TCategory[]) =>
 // return upper level categories
 const getParents0 = (data: TCategory[]) => data.filter((category: TCategory) => category.parentId === 0);
 
-export const convertCategories = (data: TCategoryServer[]) => {
 
-  const converted = convertToClientData(data);
-  const sorted = sortData(converted);
-  const separated = separateData(sorted);
-  const parents0 = getParents0(sorted);
+
+export const separateData = (data: TCategory[]) => {
+
+  const separated = getSeparatedData(data);
+  const parents0 = getParents0(data);
 
   const processSub = (item: TCategory): TCategory[] => {
     // get subItems for item
