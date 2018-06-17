@@ -21,7 +21,6 @@ let config = {
 
   entry: {
     app: [
-      'webpack-hot-middleware/client?reload=true',
       './src/client.tsx',
       './src/vendor/main.ts'
     ]
@@ -42,7 +41,7 @@ let config = {
     },
     {
       test: /\.tsx?$/,
-      loaders: ['react-hot-loader/webpack', 'awesome-typescript-loader']
+      loaders: ['awesome-typescript-loader']
     },
     {
       test: /\.jsx$/,

@@ -53,7 +53,7 @@ const layout = (body: any, initialState: any) => (`
     <script type="text/javascript" charset="utf-8">
       window.__INITIAL_STATE__ = ${initialState};
     </script>
-    <script src="/public/js/vendor.js"></script>
+    <!--<script src="/public/js/vendor.js"></script>-->
     <script src="/public/js/app.js"></script>
   </body>
   </html>
