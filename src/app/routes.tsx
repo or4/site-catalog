@@ -17,19 +17,14 @@ export default (
   </Route>
 );
 
-export type RouteType =   '/' | '/about' | '/contacts' | '/news' | '/production' | '/products' | '/catalog';
+export type RouteType =   '/about' | '/contacts' | '/news' | '/production' | '/products' | '/catalog';
+export type RouterContent = 'tree' | 'photo' | 'price' | 'news' | 'way';
 
-export type RouteDescription = {
-  isNavigationTree?: boolean;
-  isRightSideBar?: boolean;
-};
-
-export const routesDescription: {[key in RouteType]: RouteDescription} = {
-  '/': { isNavigationTree: false },
-  '/about': { isNavigationTree: false },
-  '/contacts': { isNavigationTree: false },
-  '/news': { isNavigationTree: false, isRightSideBar: true },
-  '/production': { isNavigationTree: true },
-  '/products': { isNavigationTree: true },
-  '/catalog': { isNavigationTree: true },
+export const routesDescription: {[key in RouteType] : Array<RouterContent>} = {
+  '/about': ['photo', 'price', 'news'],
+  '/production': ['tree', 'price', 'news'],
+  '/products': ['tree', 'price', 'news'],
+  '/news': ['tree', 'price'],
+  '/contacts': ['way', 'price'],
+  '/catalog': ['tree'],
 };
