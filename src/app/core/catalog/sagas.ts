@@ -5,8 +5,10 @@ import log from 'util/logger';
 
 import { ActionTypes as CategoriesActionTypes } from './categories/actions';
 import { ActionTypes as ItemsActionTypes } from './items/actions';
-import { TCategory } from './categories/reducer';
-import { convertCategories, sortCategories, separateData, convertCategoriesToObject, } from './categories/converter';
+import { convertToClientData, sort } from 'core/catalog/categories/converter/common';
+import { convertToIndexedById } from 'core/catalog/categories/converter/toIndexedById';
+import { separateData } from 'core/catalog/categories/converter/toIndexedByParentId';
+
 
 
 function* loadData() {
@@ -18,11 +20,11 @@ function* loadData() {
     if (!serverData) { throw new Error('core catalog saga loadCategories, data is empty') }
     log(`categories loaded`);
 
-    const converted = convertCategories(serverData);
-    const sorted = sortCategories(converted);
-    const obj = convertCategoriesToObject(sorted);
+    const converted = convertToClientData(serverData);
+    const sorted = sort(converted);
+    const obj = convertToIndexedById(sorted);
     yield put({
-      type: CategoriesActionTypes.LOAD_SORTED_CATEGORIES_SUCCESS,
+      type: CategoriesActionTypes.LOAD_INDEXED_CATEGORIES_SUCCESS,
       data: obj,
     });
 

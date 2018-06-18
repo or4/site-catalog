@@ -4,7 +4,9 @@ import { connect } from 'react-redux';
 import { AppState } from 'store/reducers';
 import { TItem, selectItems } from 'core/catalog/items/reducer';
 import MiddleLayout from 'components/MiddleLayout';
-import { selectCategory, TCategory } from 'core/catalog/categories/reducer';
+import { selectCategory } from 'core/catalog/categories/reducer';
+import { getCategoryCaption } from 'core/catalog/categories/common';
+import { TCategory } from 'core/catalog/categories/types';
 
 type OwnProps = {
   routeParams: any;
@@ -12,7 +14,7 @@ type OwnProps = {
 type StateProps = {
   category: TCategory;
   items: TItem[];
-  getCategory: (category: string) => TCategory;
+  selectCategory: (category: string) => TCategory;
 };
 type DispatchProps = {
 };
@@ -47,30 +49,8 @@ class Products extends React.PureComponent<Props, State> {
     };
   }
   getCaption = () => {
-    const { routeParams, getCategory } = this.props;
-    const categoryArray = routeParams.category.split('.');
-
-    //    return getCategory('1') + ', ' + getCategory('1.2');
-    let output = '';
-    categoryArray.reduce((acc: string, category: string) => {
-      if (acc === '') {
-        const categoryObj = getCategory(category);
-        if (categoryObj === null) {
-          return '';
-        }
-        output = categoryObj.name;
-        return category;
-      }
-
-      const newAcc = acc + '.' + category;
-      const categoryObj = getCategory(newAcc);
-      if (categoryObj === null) {
-        return '';
-      }
-      output = output + ', ' + categoryObj.name.toLocaleLowerCase();
-      return newAcc;
-    }, '');
-    return output;
+    const { routeParams, selectCategory } = this.props;
+    return getCategoryCaption(routeParams.category, selectCategory);
   }
   render() {
     const style = this.getStyle();
@@ -102,7 +82,7 @@ const mapStateToProps = (state: AppState, props: OwnProps) => {
   return {
     items,
     category,
-    getCategory: selectCategory.bind(null, state),
+    selectCategory: selectCategory.bind(null, state),
   };
 };
 

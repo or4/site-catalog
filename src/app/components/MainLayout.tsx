@@ -4,13 +4,12 @@ import { connect } from 'react-redux';
 
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Header, Navigation, Footer } from 'components';
+// import { Header, Navigation, Footer } from 'components';
 import { ActionTypes as CategoriesActionTypes } from 'core/catalog/categories/actions';
-import { ActionTypes as ItemsActionTypes, loadItems } from 'core/catalog/items/actions';
 import { AppState } from 'store/reducers';
-import { TCategory } from 'core/catalog/categories/reducer';
 import { TItem } from 'core/catalog/items/reducer';
 import { IS_DEV } from 'settings';
+import { TCategory } from 'core/catalog/categories/types';
 
 type StateProps = {
   categories: TCategory[];
@@ -18,7 +17,6 @@ type StateProps = {
 };
 type DispatchProps = {
   loadCategories: () => void;
-  // loadItems: () => void;
 };
 type Props = StateProps & DispatchProps;
 
@@ -33,10 +31,7 @@ class MainLayout extends React.Component<Props, State> {
       loadCategories();
       first = false;
     }
-    // if (items.length === 0) {
-    //   console.log('******** CategoriesPage componentDidMount load action');
-    //   loadItems(page, limit);
-    // }
+
     return {};
   }
   getStyle = () => {
@@ -76,7 +71,7 @@ class MainLayout extends React.Component<Props, State> {
 }
 
 const mapStateToProps = (state: AppState) => ({
-  categories: state.categories.data,
+  categories: state.categories.separated,
   items: state.items.data,
 });
 

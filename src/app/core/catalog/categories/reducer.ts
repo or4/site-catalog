@@ -56,6 +56,6 @@ const selectCategoryRec = function(categoryName: string, data: TCategory[]): TCa
 export const selectCategory = (state: AppState, category: string) => {
   console.log('selectCategory category', category);
   // console.log('selectCategory category data', state.categories.data);
-  return selectCategoryRec(category, state.categories.data);
+  return selectCategoryRec(category, state.categories.separated);
 };
 

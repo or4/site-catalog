@@ -3,7 +3,7 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { AppState } from 'store/reducers';
-import { TCategory } from 'core/catalog/categories/reducer';
+import { TCategory } from 'core/catalog/categories/types';
 
 type OwnProps = {
 };
@@ -58,7 +58,7 @@ class NavigationTree extends React.PureComponent<Props, State> {
   }
 }
 const mapStateToProps = (state: AppState) => ({
-  categories: state.categories.data
+  categories: state.categories.separated
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
