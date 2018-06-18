@@ -4,12 +4,14 @@ import { connect } from 'react-redux';
 
 import React from 'react';
 import { Helmet } from 'react-helmet';
-// import { Header, Navigation, Footer } from 'components';
+import { Header, Navigation, Footer } from 'components';
 import { ActionTypes as CategoriesActionTypes } from 'core/catalog/categories/actions';
 import { AppState } from 'store/reducers';
 import { TItem } from 'core/catalog/items/reducer';
-import { IS_DEV } from 'settings';
+import { IS_DEV, IS_BACKGROUND, IS_NAVIGATION, IS_HEADER, IS_FOOTER } from 'settings';
 import { TCategory } from 'core/catalog/categories/types';
+import './MainLayout.scss';
+
 
 type StateProps = {
   categories: TCategory[];
@@ -36,7 +38,7 @@ class MainLayout extends React.Component<Props, State> {
   }
   getStyle = () => {
     const container = {
-      background: IS_DEV ? '#fff' : '#ccc',
+      background: IS_DEV && IS_BACKGROUND ? '#ccc' : '#fff',
       minHeight: '100vh',
       minWidth: '1024px',
     };
@@ -54,17 +56,18 @@ class MainLayout extends React.Component<Props, State> {
 
     // i don't know why, but if remove wrapper of prop.children
     // container of it would not render
-    // <Navigation />
-    // <Header />
-    // <Footer />
+
     return (
       <div style={style.container}>
         <Helmet {...appConfig.app} {...appConfig.app.head} />
+        {IS_DEV && IS_HEADER && <Header />}
+        {IS_DEV && IS_NAVIGATION && <Navigation />}
 
         <div>
           {this.props.children}
         </div>
 
+        {IS_DEV && IS_FOOTER && <Footer />}
       </div>
     );
   }

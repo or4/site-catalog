@@ -48,7 +48,7 @@ const layout = (body: any, initialState: any) => (`
     <meta charset="UTF-8"/>
     <title>Redux-saga real-world universal example</title>
   </head>
-  <body>
+  <body style="margin: 0; background: #ccc;">
     <div id="root"><div>${body}</div></div>
     <script type="text/javascript" charset="utf-8">
       window.__INITIAL_STATE__ = ${initialState};
