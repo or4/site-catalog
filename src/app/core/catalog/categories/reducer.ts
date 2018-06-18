@@ -35,27 +35,28 @@ export const categoriesReducer: Reducer<TState> = (state: TState = initialState,
   }
 };
 
-const selectCategoryRec = function(categoryName: string, data: TCategory[]): TCategory | null {
-  for (let i = 0; i < data.length; i++) {
-    const current = data[i];
-    if (current.idVirtual === categoryName) {
-      return current;
-    }
+// const selectCategoryRec = function(categoryName: string, data: TCategory[]): TCategory | null {
+//   for (let i = 0; i < data.length; i++) {
+//     const current = data[i];
+//     if (current.idVirtual === categoryName) {
+//       return current;
+//     }
 
-    if (current.subItems.length > 0) {
-      const found = selectCategoryRec(categoryName, current.subItems);
-      if (found !== null) {
-        return found;
-      }
-    }
-  }
+//     if (current.subItems.length > 0) {
+//       const found = selectCategoryRec(categoryName, current.subItems);
+//       if (found !== null) {
+//         return found;
+//       }
+//     }
+//   }
 
-  return null;
-};
+//   return null;
+// };
 
 export const selectCategory = (state: AppState, category: string) => {
   console.log('selectCategory category', category);
+  return state.categories.indexed[category];
   // console.log('selectCategory category data', state.categories.data);
-  return selectCategoryRec(category, state.categories.separated);
+  // return selectCategoryRec(category, state.categories.separated);
 };
 

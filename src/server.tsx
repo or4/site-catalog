@@ -35,7 +35,7 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 console.log('__dirname', __dirname);
 
 
-let port = 3000;
+let port = 9000;
 
 let compiler = webpack(config);
 // app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
