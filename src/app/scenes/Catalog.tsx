@@ -7,7 +7,7 @@ import MiddleLayout from 'components/MiddleLayout';
 import { selectCategory } from 'core/catalog/categories/reducer';
 import { getCategoryCaption } from 'core/catalog/categories/common';
 import { TCategory } from 'core/catalog/categories/types';
-import { isUndefined, convertImgUrl } from 'core/common';
+import { convertImgUrl } from 'core/common';
 
 type OwnProps = {
   routeParams: any;
