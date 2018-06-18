@@ -12,6 +12,7 @@ export default (
     <Route path="/news" component={News} />
     <Route path="/production" component={Production} />
     <Route path="/products" component={Products} />
+    <Route path="/catalog" component={Catalog} />
     <Route path="/catalog/:category" component={Catalog} />
   </Route>
 );

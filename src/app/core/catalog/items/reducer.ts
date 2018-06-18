@@ -59,7 +59,7 @@ export const itemsReducer: Reducer<TState> = (state: TState = initialState, acti
   }
 };
 
-export const selectItems = (state: AppState, category: string) => state.items.data.filter((item) => {
-  return item.category.indexOf(category) >= 0;
-});
+export const selectItems =
+  (state: AppState, category: string) =>
+    state.items.data.filter(item => item.category.indexOf(category) >= 0);
 
