@@ -1,9 +1,9 @@
-export type WidthSize =  'small' | 'medium' | 'large';
+export type ScreenSize =  'small' | 'medium' | 'large';
 
-const sizeDimesions = {
-  large: 1024,
-  medium: 768,
-  small: 430,
+const screenSizeDimesions = {
+  large: Number.POSITIVE_INFINITY, // desktop
+  medium: 1024, // landscape mobile, tablet, pc with small screen
+  small: 430, // portrait mobile
 };
 
 const getWidth = () => {
@@ -15,8 +15,22 @@ const getWidth = () => {
 };
 
 // const getHeight = () => window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-const isSize = (size: WidthSize) => getWidth() <= sizeDimesions[size];
+const isSize = (size: ScreenSize) => getWidth() <= screenSizeDimesions[size];
 
-export const isSmallWidth = () => isSize('small');
-export const isMediumWidth = () => isSize('medium');
-export const isLargeWidth = () => isSize('small');
+export const isSmall = () => isSize('small');
+export const isMedium = () => isSize('medium');
+export const isLarge = () => isSize('large');
+
+export const getScreenSize = (): ScreenSize => {
+  if (isSmall()) return 'small';
+  if (isMedium()) return 'medium';
+  return 'large';
+};
+
+/*
+template:
+
+  isLarge() && Object.assign(container, {  });
+  isMedium() && Object.assign(container, {  });
+  isSmall() && Object.assign(container, {  });
+*/

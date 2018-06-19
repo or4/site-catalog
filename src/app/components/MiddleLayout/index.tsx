@@ -4,7 +4,8 @@ import NavigationTree from './LeftSideBar/NavigationTree';
 import RightSideBar from './RightSideBar';
 import { RouteType, routeHas, routeContentIsRequired, RouterContent } from 'routes';
 import { theme } from 'ui/theme';
-import { isSmallWidth, isMediumWidth, isLargeWidth } from 'util/responsive';
+import { isLarge, isMedium } from 'util/responsive';
+
 
 type Props = {
   children: any;
@@ -33,14 +34,13 @@ class MiddleLayout extends React.PureComponent<Props, State> {
     const style = this.getStyle();
     const { route } = this.props;
 
-    const content = [];
     const contentLeftBar: any = [];
     const contentRightBar: any = [];
 
     if (routeHas(route, 'tree')) {
-      if (isLargeWidth()) {
+      if (isLarge()) {
         contentLeftBar.push(<NavigationTree />);
-      } else if (isMediumWidth() && routeContentIsRequired('tree')) {
+      } else if (isMedium() && routeContentIsRequired('tree')) {
         contentLeftBar.push(<NavigationTree />);
       }
     }

@@ -47,6 +47,7 @@ const layout = (body: any, initialState: any) => (`
   <html>
   <head>
     <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,maximum-scale=1,initial-scale=1">
     <title>Redux-saga real-world universal example</title>
   </head>
   <body style="margin: 0; background: #ccc;">
