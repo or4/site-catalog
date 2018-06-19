@@ -11,6 +11,7 @@ import { TItem } from 'core/catalog/items/reducer';
 import { IS_DEV, IS_BACKGROUND, IS_NAVIGATION, IS_HEADER, IS_FOOTER } from 'settings';
 import { TCategory } from 'core/catalog/categories/types';
 import './MainLayout.scss';
+import log from 'util/logger';
 
 
 type StateProps = {
@@ -29,7 +30,7 @@ class MainLayout extends React.Component<Props, State> {
   state = {};
   static getDerivedStateFromProps({ loadCategories, categories, /* loadItems, items,*/ }: Props) {
     if (first && categories.length === 0) {
-      console.log('******** CategoriesPage componentDidMount load action');
+      log('******** CategoriesPage componentDidMount load action');
       loadCategories();
       first = false;
     }
@@ -51,8 +52,8 @@ class MainLayout extends React.Component<Props, State> {
     const style = this.getStyle();
 
     let date = new Date();
-    console.log(`render this.props.items.length ${date.getMinutes()}:${date.getSeconds()}`, this.props.items.length);
-    console.log(`render this.props.categories.length ${date.getMinutes()}:${date.getSeconds()}`, this.props.categories.length);
+    log(`render this.props.items.length`, this.props.items.length);
+    log(`render this.props.categories.length`, this.props.categories.length);
 
     // i don't know why, but if remove wrapper of prop.children
     // container of it would not render
@@ -83,12 +84,12 @@ const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
     loadCategories: () => {
 
       let date = new Date();
-      console.log(`pre dispatch ${date.getMinutes()}:${date.getSeconds()}`);
+      log(`pre dispatch ${date.getMinutes()}:${date.getSeconds()}`);
 
       dispatch({ type: CategoriesActionTypes.LOAD_CATEGORIES });
 
       date = new Date();
-      console.log(`after dispatch! ${date.getMinutes()}:${date.getSeconds()}`);
+      log(`after dispatch! ${date.getMinutes()}:${date.getSeconds()}`);
     },
     // loadItems: () => {
     //   dispatch(loadItems());

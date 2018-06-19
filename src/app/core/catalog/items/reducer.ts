@@ -2,6 +2,7 @@ import { Reducer } from 'redux';
 
 import { ActionTypes, ActionsAll } from './actions';
 import { AppState } from 'store/reducers';
+import log from 'util/logger';
 
 export type TItem = {
   id: number;
@@ -40,7 +41,7 @@ export const itemsReducer: Reducer<TState> = (state: TState = initialState, acti
       return { ...state, requesting: true };
     case ActionTypes.LOAD_ITEMS_SUCCESS:
       const { data } = action;
-      console.log('reducer LOAD_ITEMS_SUCCESS');
+      log('reducer LOAD_ITEMS_SUCCESS');
       // const newState =  {
       //   ...state,
       //   data: {
@@ -50,7 +51,7 @@ export const itemsReducer: Reducer<TState> = (state: TState = initialState, acti
       //   requesting: false,
       //   error: false
       // };
-      // console.log('newState', newState);
+      // log('newState', newState);
       return { ...state, data };
     case ActionTypes.LOAD_ITEMS_FAIL:
       return { ...state, error: action.error, requesting: false };

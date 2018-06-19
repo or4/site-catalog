@@ -29,7 +29,7 @@ class Products extends React.PureComponent<Props, State> {
     // const style = this.getStyle();
     // const { items } = this.props;
     // {items && items.map((item: TItem) => <li key={item.id}>{item.name}</li>)}
-    // console.log('Products items', this.props.items);
+    // log('Products items', this.props.items);
 
     return (
       <MiddleLayout route={'/products'}>

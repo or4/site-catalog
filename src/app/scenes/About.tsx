@@ -17,7 +17,7 @@ type State = {
 
 class About extends React.Component<Props, State> {
   // componentDidMount() {
-  //   console.log('SCENE About, componentDidMount');
+  //   log('SCENE About, componentDidMount');
   //   this.props.loadBalance();
   // }
   getStyle = () => {

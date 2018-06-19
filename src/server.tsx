@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 require('@babel/register');
 import '@babel/polyfill';
+import log from './app/util/logger';
 
 let regeneratorRuntime =  require('regenerator-runtime');
 
@@ -32,7 +33,7 @@ let app = express();
 app.use(compression());
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
-console.log('__dirname', __dirname);
+log('__dirname', __dirname);
 
 
 let port = 9000;
@@ -70,7 +71,7 @@ app.use(function(req: any, res: any) {
     // for dev
     // if (req.url === '/favicon.ico') { return }
     let date = new Date();
-    console.log(`\n\n\nserver.tsx, req  ${date.getMinutes()}:${date.getSeconds()}`, req.url);
+    log(`\n\n\nserver.tsx, req  ${date.getMinutes()}:${date.getSeconds()}`, req.url);
 
 
     if (error) {
@@ -81,15 +82,15 @@ app.use(function(req: any, res: any) {
 
       // perform Root constructor and transfer to it ref store
       rootComp = <Root store={store} routes={routes} history={createMemoryHistory()} renderProps={renderProps} type="server" />;
-      console.log('server.tsx, Root Component constructor inited');
+      log('server.tsx, Root Component constructor inited');
 
       if (firstTime) {
 
-        console.log('server.tsx, LOADING FIRST TIME!!!');
+        log('server.tsx, LOADING FIRST TIME!!!');
 
         // initialization async genearators saga
         const sagaReady = store.runSaga(root);
-        console.log('server.tsx, Sagas inited');
+        log('server.tsx, Sagas inited');
 
         // wait until all sagas would resolved
         sagaReady.done.then(() => {
@@ -98,7 +99,7 @@ app.use(function(req: any, res: any) {
 
           // now we have some data in store
           newInitialState = JSON.stringify(store.getState());
-          // console.log('server.tsx, sagas done newInitialState', newInitialState);
+          // log('server.tsx, sagas done newInitialState', newInitialState);
 
           // Run second render rootComp with changed data in store
           // and transfer newInitialState
@@ -108,34 +109,34 @@ app.use(function(req: any, res: any) {
               newInitialState
             )
           );
-          console.log('server.tsx, second render done!, data was sent');
+          log('server.tsx, second render done!, data was sent');
 
         }).catch((e: any) => {
-          console.log('server.tsx,', e.message);
+          log('server.tsx,', e.message);
           res.status(500).send(e.message);
         });
 
         // Run first render, there is call actions and next transfer to sagas
         renderToString(rootComp);
-        console.log('server.tsx, first render done!');
+        log('server.tsx, first render done!');
 
         // dispatch END, that says saga ready to perform,
         // and all prepared actions start perform in sagas
         store.close();
-        console.log('server.tsx, store.close()');
+        log('server.tsx, store.close()');
 
       } else {
 
-        console.log('server.tsx, LOADING SECOND TIME!!!');
+        log('server.tsx, LOADING SECOND TIME!!!');
 
         date = new Date();
-        console.log(`server.tsx, pre ctor Root ${date.getMinutes()}:${date.getSeconds()}`);
+        log(`server.tsx, pre ctor Root ${date.getMinutes()}:${date.getSeconds()}`);
 
         // i think need for specify route
         rootComp = <Root store={store} routes={routes} history={createMemoryHistory()} renderProps={renderProps} type="server" />;
 
         date = new Date();
-        console.log(`server.tsx, pre send ${date.getMinutes()}:${date.getSeconds()}`);
+        log(`server.tsx, pre send ${date.getMinutes()}:${date.getSeconds()}`);
 
         res.status(200).send(
           layout(
@@ -145,11 +146,11 @@ app.use(function(req: any, res: any) {
         );
 
         date = new Date();
-        console.log(`server.tsx, sended ${date.getMinutes()}:${date.getSeconds()}`);
+        log(`server.tsx, sended ${date.getMinutes()}:${date.getSeconds()}`);
       }
     } else {
       res.status(404).send('Not found');
-      console.log('server.tsx, Not found');
+      log('server.tsx, Not found');
     }
   });
 });
@@ -159,7 +160,7 @@ app.listen(port, function(error: any) {
   if (error) {
     console.error(error);
   } else {
-    console.info('==> 🌎  Listening on port %s. Open up http://localhost:%s/ in your browser.', port, port);
+    console.info('==> 🌎  Listening on port %s. Open up http://192.168.88.144:%s/ in your browser.', port, port);
   }
 });
 

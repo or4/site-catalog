@@ -3,6 +3,7 @@ import { Reducer } from 'redux';
 import { ActionTypes, ActionsAll } from './actions';
 import { AppState } from 'store/reducers';
 import { TCategory } from 'core/catalog/categories/types';
+import log from 'util/logger';
 
 
 type TState = {
@@ -54,9 +55,9 @@ export const categoriesReducer: Reducer<TState> = (state: TState = initialState,
 // };
 
 export const selectCategory = (state: AppState, category: string) => {
-  console.log('selectCategory category', category);
+  log('selectCategory category', category);
   return state.categories.indexed[category];
-  // console.log('selectCategory category data', state.categories.data);
+  // log('selectCategory category data', state.categories.data);
   // return selectCategoryRec(category, state.categories.separated);
 };
 

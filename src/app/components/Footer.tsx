@@ -37,7 +37,7 @@ class Footer extends React.PureComponent<Props, State> {
   render() {
     const style = this.getStyle();
     //const {  } = this.props;
-    // console.log('style.container', style.container);
+    // log('style.container', style.container);
 
     return (
       <div style={style.container}>

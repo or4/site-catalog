@@ -30,4 +30,7 @@ export const routesContent: {[key in RouteType] : Array<RouterContent>} = {
 };
 
 export const routeHas =
-  (route: RouteType, content: RouterContent) => routesContent[route].indexOf(content) >= 0;
+(route: RouteType, content: RouterContent) => routesContent[route].indexOf(content) >= 0;
+
+const routeContentIsRequiredData: Array<RouterContent> = ['tree', 'price', 'way'];
+export const routeContentIsRequired = (content: RouterContent) => routeContentIsRequiredData.indexOf(content) >= 0;

@@ -2,10 +2,11 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from './reducers';
 
 import createSagaMiddleware, { END } from 'redux-saga';
+import log from 'util/logger';
 const sagaMiddleware = createSagaMiddleware();
 
 export function configureStore(initialState?: any) {
-  console.log('store configureStore called');
+  log('store configureStore called');
 
   let resCompose: any;
 
@@ -16,7 +17,7 @@ export function configureStore(initialState?: any) {
       )
       // , (window as any).__REDUX_DEVTOOLS_EXTENSION__(),
     );
-    console.log('devTools');
+    log('devTools');
 
   } catch (e) {
     resCompose = compose(
@@ -25,7 +26,7 @@ export function configureStore(initialState?: any) {
       ),
     );
 
-    console.log('no devTools');
+    log('no devTools');
   }
 
   const store = createStore(

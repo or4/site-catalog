@@ -23,11 +23,11 @@ class Navigation extends React.PureComponent<Props, State> {
     };
   }
   componentDidMount() {
-    // console.log('Navigation componentDidMount');
+    // log('Navigation componentDidMount');
   }
   render() {
     const style = this.getStyle();
-    // console.log('style', style);
+    // log('style', style);
 
     return (
       <div style={style.container}>
