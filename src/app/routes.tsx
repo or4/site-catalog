@@ -20,7 +20,7 @@ export default (
 export type RouteType =   '/about' | '/contacts' | '/news' | '/production' | '/products' | '/catalog';
 export type RouterContent = 'tree' | 'photo' | 'price' | 'news' | 'way';
 
-export const routesDescription: {[key in RouteType] : Array<RouterContent>} = {
+export const routesContent: {[key in RouteType] : Array<RouterContent>} = {
   '/about': ['photo', 'price', 'news'],
   '/production': ['tree', 'price', 'news'],
   '/products': ['tree', 'price', 'news'],
@@ -28,3 +28,6 @@ export const routesDescription: {[key in RouteType] : Array<RouterContent>} = {
   '/contacts': ['way', 'price'],
   '/catalog': ['tree'],
 };
+
+export const routeHas =
+  (route: RouteType, content: RouterContent) => routesContent[route].indexOf(content) >= 0;

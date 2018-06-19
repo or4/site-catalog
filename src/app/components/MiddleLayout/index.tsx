@@ -2,7 +2,7 @@ import React from 'react';
 import LeftSideBar from './LeftSideBar';
 import NavigationTree from './LeftSideBar/NavigationTree';
 import RightSideBar from './RightSideBar';
-import { RouteType, routesDescription } from 'routes';
+import { RouteType, routeHas } from 'routes';
 import { theme } from 'ui/theme';
 
 type Props = {
@@ -33,19 +33,15 @@ class MiddleLayout extends React.PureComponent<Props, State> {
 
     const content = [];
 
-    if (routesDescription[route].isNavigationTree) {
+    routeHas(route, 'tree') &&
       content.push(<LeftSideBar key={'left-side-bar_key'}> <NavigationTree /> </LeftSideBar>);
-    }
 
-    content.push(
-      <div key={'content_key'} style={style.sceneContainer}>
-        {this.props.children}
-      </div>
-    );
 
-    if (routesDescription[route].isRightSideBar) {
+    content.push(<div key={'content_key'} style={style.sceneContainer}>{this.props.children}</div>);
+
+    routeHas(route, 'news') &&
       content.push(<RightSideBar key={'left-side-bar_key'} />);
-    }
+
 
     return (
       <div style={style.container}>
