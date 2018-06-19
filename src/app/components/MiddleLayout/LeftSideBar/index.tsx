@@ -1,5 +1,6 @@
 import React from 'react';
 import { theme } from 'ui/theme';
+import { isSmall } from 'util/responsive';
 
 type Props = {
 };
@@ -8,17 +9,36 @@ type State = {
 
 class LeftSideBar extends React.PureComponent<Props, State> {
   getStyle() {
-    const container = {
-      boxSizing: 'border-box' as 'border-box',
-      minHeight: theme.content.minHeight,
-      width: '300px',
+    const container = {};
+    if (isSmall()) {
+      Object.assign(container, {
+        display: 'none',
+      });
+    } else {
+      Object.assign(container, {
+        boxSizing: 'border-box' as 'border-box',
+        minHeight: theme.content.minHeight,
+        width: '300px',
 
-      borderRight: theme.content.devBorder,
-    };
+        borderRight: theme.content.devBorder,
+      });
+    }
     return {
       container,
     };
   }
+  componentDidMount() {
+    try {
+      window.addEventListener('resize', this.resize);
+    } catch (error) { }
+  }
+
+  componentWillUnmount() {
+    try {
+      window.removeEventListener('resize', this.resize);
+    } catch (error) { }
+  }
+  resize = () => this.forceUpdate()
   render() {
     const style = this.getStyle();
     //const {  } = this.props;

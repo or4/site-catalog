@@ -2,6 +2,7 @@ import * as React from 'react';
 import { theme } from 'ui/theme';
 import NavigationItem from './NavigationItem';
 import { isSmall, isMedium, isLarge } from 'util/responsive';
+import log from 'util/logger';
 
 type Props = {
 };
@@ -24,30 +25,36 @@ class Navigation extends React.PureComponent<Props, State> {
 
   getStyle() {
     const container = {};
+    const subContainer = {};
 
     if (isSmall()) {
+      log('isSmall true');
       Object.assign(container, {
-        height: '4px',
-        maxHeight: '4px',
-        minHeight: '4px',
+        height: '2px',
+        maxHeight: '2px',
+        minHeight: '2px',
         ...theme.navigation.container,
       });
+      Object.assign(subContainer, {
+        display: 'none',
+      });
     } else if (isMedium() || isLarge()) {
+      log('isMedium true');
       Object.assign(container, {
         height: '36px',
         maxHeight: '36px',
         ...theme.navigation.container,
       });
+      Object.assign(subContainer, {
+        alignItems: 'center' as 'center',
+        display: 'flex',
+        height: '36px',
+        justifyContent: 'space-evenly' as 'space-evenly',
+        maxWidth: '650px',
+        margin: '0 auto',
+      });
     }
 
-    const subContainer = {
-      alignItems: 'center' as 'center',
-      display: 'flex',
-      height: '36px',
-      justifyContent: 'space-evenly' as 'space-evenly',
-      maxWidth: '650px',
-      margin: '0 auto',
-    };
     return {
       container,
       subContainer,
@@ -58,15 +65,13 @@ class Navigation extends React.PureComponent<Props, State> {
 
     return (
       <div style={style.container}>
-        {isSmall() ? null : (
-          <div style={style.subContainer}>
-            <NavigationItem to="/about" text="О&nbsp;нас" />
-            <NavigationItem to="/production" text="Производство" />
-            <NavigationItem to="/products" text="Продукция" />
-            <NavigationItem to="/news" text="Новости" />
-            <NavigationItem to="/contacts" text="Контакты" />
-          </div>)
-        }
+        <div style={style.subContainer}>
+          <NavigationItem to="/about" text="О&nbsp;нас" />
+          <NavigationItem to="/production" text="Производство" />
+          <NavigationItem to="/products" text="Продукция" />
+          <NavigationItem to="/news" text="Новости" />
+          <NavigationItem to="/contacts" text="Контакты" />
+        </div>
       </div>
     );
   }
