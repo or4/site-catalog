@@ -3,7 +3,7 @@
 let config = {
   env: process.env.NODE_ENV || 'development',
   // host: process.env.HOST || 'localhost',
-  host: process.env.HOST || '192.168.88.33',
+  host: process.env.HOST || '192.168.88.144',
   port: process.env.PORT || 9000,
   karmaPort: 9876,
 
