@@ -38,7 +38,7 @@ class Header extends React.PureComponent<Props, State> {
       });
       Object.assign(logo, { marginTop: '30px', marginBottom: '30px' });
       Object.assign(banner, { display: 'none' });
-      Object.assign(contacts, { });
+      Object.assign(contacts, { display: 'none' });
     } else if (isMedium()) {
       Object.assign(container, {
         alignItems: 'center' as 'center',

@@ -21,7 +21,7 @@ class Contacts extends React.PureComponent<Props, State> {
       });
       Object.assign(caption, { display: 'none' });
       Object.assign(address, { display: 'none' });
-      Object.assign(phones, {});
+      Object.assign(phones, { display: 'none' });
     }
     else if (isMedium() || isLarge()) {
       Object.assign(container, {
