@@ -1,8 +1,7 @@
 import React from 'react';
 import { theme } from 'ui/theme';
 import { isSmall } from 'util/responsive';
-import log from 'util/logger';
-import { subscribeResize, unsubscribeResize } from 'components/Resize';
+import { log } from 'util/logger';
 
 type Props = {
   className?: any;
@@ -12,9 +11,6 @@ type State = {
 };
 
 class Logo extends React.PureComponent<Props, State> {
-  componentDidMount() { subscribeResize(this, 'Header Logo') }
-  componentWillUnmount() { unsubscribeResize(this, 'Header Logo') }
-
   getStyle(customStyle: any) {
     const container = {
       width: isSmall() ? '268px' : '245px', // line break

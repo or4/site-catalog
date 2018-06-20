@@ -3,7 +3,7 @@ import { Reducer } from 'redux';
 import { ActionTypes, ActionsAll } from './actions';
 import { AppState } from 'store/reducers';
 import { TCategory } from 'core/catalog/categories/types';
-import log from 'util/logger';
+import { log } from 'util/logger';
 
 
 type TState = {

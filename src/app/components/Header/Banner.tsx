@@ -1,6 +1,6 @@
 import React from 'react';
 import banner from 'assets/images/banners/jaroslavl-small.jpg';
-import log from 'util/logger';
+import { log } from 'util/logger';
 
 type Props = {
   className?: any;

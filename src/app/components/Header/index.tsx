@@ -4,7 +4,7 @@ import Banner from 'components/Header/Banner';
 import Contacts from 'components/Header/Contacts';
 import { isSmall, isLarge, isMedium } from 'util/responsive';
 import { flexColumn, flexRow } from 'ui/theme';
-import log from 'util/logger';
+import { log } from 'util/logger';
 import { subscribeResize, unsubscribeResize } from 'components/Resize';
 
 type Props = {

@@ -4,7 +4,7 @@ import RightSideBar from './RightSideBar';
 import { RouteType, routeHas, routeContentIsRequired } from 'routes';
 import { theme } from 'ui/theme';
 import { isLarge, isMedium, isSmall } from 'util/responsive';
-import log from 'util/logger';
+import { log } from 'util/logger';
 import NavigationTree from 'ui/NavigationTree';
 
 

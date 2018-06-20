@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 require('@babel/register');
 import '@babel/polyfill';
-import log from './app/util/logger';
+import { log, logIntendation, IntendationType } from './app/util/logger';
 
 let regeneratorRuntime =  require('regenerator-runtime');
 
@@ -72,7 +72,7 @@ app.use(function(req: any, res: any) {
     // for dev
     // if (req.url === '/favicon.ico') { return }
     let date = new Date();
-    log(`\n\n\nserver.tsx, req  ${date.getMinutes()}:${date.getSeconds()}`, req.url);
+    logIntendation(IntendationType.start, `server.tsx, req  ${date.getMinutes()}:${date.getSeconds()}`, req.url);
 
 
     if (error) {

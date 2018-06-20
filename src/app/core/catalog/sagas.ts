@@ -1,7 +1,7 @@
 
 import { takeLatest, take, put, fork, call } from 'redux-saga/effects';
 import axios from 'axios';
-import log from 'util/logger';
+import { log } from 'util/logger';
 
 import { ActionTypes as CategoriesActionTypes } from './categories/actions';
 import { ActionTypes as ItemsActionTypes } from './items/actions';

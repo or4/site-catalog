@@ -3,7 +3,7 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import MiddleLayout from 'components/MiddleLayout';
 import { IS_DEV, IS_SHOW_ABOUT } from 'settings';
-import log from 'util/logger';
+import { log } from 'util/logger';
 
 
 type StateProps = {

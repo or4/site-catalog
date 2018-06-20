@@ -8,7 +8,7 @@ import { selectCategory } from 'core/catalog/categories/reducer';
 import { getCategoryCaption } from 'core/catalog/categories/common';
 import { TCategory } from 'core/catalog/categories/types';
 import { convertImgUrl } from 'core/common';
-import log from 'util/logger';
+import { log } from 'util/logger';
 
 type OwnProps = {
   routeParams: any;

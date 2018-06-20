@@ -1,5 +1,5 @@
 import React from 'react';
-import log from 'util/logger';
+import { log } from 'util/logger';
 // import { theme } from 'ui/theme';
 
 type Props = {

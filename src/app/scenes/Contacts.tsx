@@ -1,6 +1,6 @@
 import React from 'react';
 import MiddleLayout from 'components/MiddleLayout';
-import log from 'util/logger';
+import { log } from 'util/logger';
 
 type Props = {
 };

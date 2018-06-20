@@ -1,6 +1,5 @@
 import React from 'react';
-import log from 'util/logger';
-// import { theme } from 'ui/theme';
+import { log, logIntendation, IntendationType } from 'util/logger';
 
 type Props = {
 };
@@ -34,6 +33,7 @@ class Resize extends React.PureComponent<Props, State> {
     } catch (error) { }
   }
   resize = () => {
+    logIntendation(IntendationType.start, 'window resize start');
     componentsToResize.forEach((item: any) => {
       try {
         item.forceUpdate && item.forceUpdate();
@@ -41,6 +41,7 @@ class Resize extends React.PureComponent<Props, State> {
         log('Resize forceUpdate', item, e);
       }
     });
+    logIntendation(IntendationType.end, 'window resized done');
   }
 
   render() {

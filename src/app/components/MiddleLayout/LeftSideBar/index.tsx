@@ -1,6 +1,6 @@
 import React from 'react';
 import { theme } from 'ui/theme';
-import log from 'util/logger';
+import { log } from 'util/logger';
 
 type Props = {
 };

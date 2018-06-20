@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { AppState } from 'store/reducers';
 import { TCategory } from 'core/catalog/categories/types';
-import log from 'util/logger';
+import { log } from 'util/logger';
 
 type OwnProps = {
 };
