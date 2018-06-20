@@ -37,6 +37,7 @@ let config = {
     path: path.resolve('./build/public'),
     publicPath: '/public/',
     filename: 'js/[name].[chunkhash].js'
+    // filename: 'js/[name].js'
   },
 
   module: {
@@ -152,6 +153,25 @@ let config = {
         NODE_ENV: JSON.stringify('production')
       }
     })
+    // ,
+    // function() {
+    //   this.plugin('done', function(statsData) {
+    //     let stats = statsData.toJson();
+
+    //     if (!stats.errors.length) {
+    //       let htmlFileName = 'index.html';
+    //       let html = fs.readFileSync(path.join(__dirname, htmlFileName), 'utf8');
+
+    //       let htmlOutput = html.replace(
+    //         /<script\s+src=(["'])(.+?)app\.js\1/i,
+    //         '<script src=$1$2' + stats.assetsByChunkName.main[0] + '$1');
+
+    //       fs.writeFileSync(
+    //         path.join(__dirname, '%public%', htmlFileName),
+    //         htmlOutput);
+    //     }
+    //   });
+    // }
   ]
 };
 

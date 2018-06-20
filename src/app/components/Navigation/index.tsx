@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { theme } from 'ui/theme';
 import NavigationItem from './NavigationItem';
+import { isSmall, isMedium, isLarge } from 'util/responsive';
+import log from 'util/logger';
 
 type Props = {
 };
@@ -8,34 +10,70 @@ type State = {
 };
 
 class Navigation extends React.PureComponent<Props, State> {
-  getStyle() {
-    const container = {
-      alignItems: 'center' as 'center',
-      display: 'flex',
-      height: '36px',
-      justifyContent: 'center' as 'center',
-      maxHeight: '36px',
+  componentDidMount() {
+    try {
+      window.addEventListener('resize', this.resize);
+    } catch (error) { }
+  }
 
-      ...theme.navigation.container,
-    };
+  componentWillUnmount() {
+    try {
+      window.removeEventListener('resize', this.resize);
+    } catch (error) { }
+  }
+  resize = () => this.forceUpdate()
+
+  getStyle() {
+    const container = {};
+    const subContainer = {};
+
+    if (isSmall()) {
+      log('isSmall true');
+      Object.assign(container, {
+        height: '2px',
+        maxHeight: '2px',
+        minHeight: '2px',
+        ...theme.navigation.container,
+      });
+      Object.assign(subContainer, {
+        display: 'none',
+      });
+    } else if (isMedium() || isLarge()) {
+      log('isMedium true');
+      Object.assign(container, {
+        height: '36px',
+        maxHeight: '36px',
+        ...theme.navigation.container,
+      });
+      Object.assign(subContainer, {
+        alignItems: 'center' as 'center',
+        display: 'flex',
+        height: '36px',
+        justifyContent: 'space-evenly' as 'space-evenly',
+        maxWidth: '650px',
+        margin: '0 auto',
+      });
+    }
+
     return {
       container,
+      subContainer,
     };
   }
-  componentDidMount() {
-    // console.log('Navigation componentDidMount');
-  }
   render() {
+    log('Navigation render');
+
     const style = this.getStyle();
-    // console.log('style', style);
 
     return (
       <div style={style.container}>
-        <NavigationItem to="/about" text="О нас" />
-        <NavigationItem to="/production" text="Производство" />
-        <NavigationItem to="/products" text="Продукция" />
-        <NavigationItem to="/news" text="Новости" />
-        <NavigationItem to="/contacts" text="Контакты" />
+        <div style={style.subContainer}>
+          <NavigationItem to="/about" text="О&nbsp;нас" />
+          <NavigationItem to="/production" text="Производство" />
+          <NavigationItem to="/products" text="Продукция" />
+          <NavigationItem to="/news" text="Новости" />
+          <NavigationItem to="/contacts" text="Контакты" />
+        </div>
       </div>
     );
   }

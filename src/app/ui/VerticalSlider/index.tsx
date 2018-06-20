@@ -1,4 +1,5 @@
 import React from 'react';
+import log from 'util/logger';
 // import { theme } from 'ui/theme';
 
 type Props = {
@@ -6,7 +7,7 @@ type Props = {
 type State = {
 };
 
-class VerticalSlides extends React.PureComponent<Props, State> {
+class VerticalSlider extends React.PureComponent<Props, State> {
   getStyle() {
     const container = {
     };
@@ -15,13 +16,14 @@ class VerticalSlides extends React.PureComponent<Props, State> {
     };
   }
   render() {
+    log('VerticalSlider render');
     const style = this.getStyle();
     //const {  } = this.props;
     return (
       <div style={style.container}>
-        VerticalSlides
+        VerticalSlider
       </div>
     );
   }
 }
-export default VerticalSlides;
+export default VerticalSlider;

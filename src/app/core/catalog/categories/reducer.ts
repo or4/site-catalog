@@ -1,30 +1,22 @@
 import { Reducer } from 'redux';
 
 import { ActionTypes, ActionsAll } from './actions';
+import { AppState } from 'store/reducers';
+import { TCategory } from 'core/catalog/categories/types';
+import log from 'util/logger';
 
-export type TCategory = {
-  id: number;
-  idVirtual: string;
-  isDefault: number;
-  name: string;
-  order: number;
-  parentId: number;
-
-  image: string;
-  description: string;
-
-  subItems?: TCategory[];
-};
 
 type TState = {
   error?: any;
   requesting: boolean;
-  data: TCategory[];
+  indexed: {[key: string]: TCategory};
+  separated: TCategory[];
 };
 
 const initialState: TState = {
   requesting: false,
-  data: []
+  indexed: {},
+  separated: [],
 };
 
 export type TCategoriesState = TState;
@@ -33,8 +25,10 @@ export const categoriesReducer: Reducer<TState> = (state: TState = initialState,
   switch (action.type) {
     case ActionTypes.LOAD_CATEGORIES:
       return { ...state, requesting: true };
-    case ActionTypes.LOAD_CATEGORIES_SUCCESS:
-      return { ...state, data: action.data, requesting: false, error: false };
+    case ActionTypes.LOAD_INDEXED_CATEGORIES_SUCCESS:
+      return { ...state, indexed: action.data, requesting: false, error: false };
+    case ActionTypes.LOAD_SEPARATED_CATEGORIES_SUCCESS:
+      return { ...state, separated: action.data, requesting: false, error: false };
     case ActionTypes.LOAD_CATEGORIES_FAIL:
       return { ...state, error: action.error, requesting: false };
 
@@ -42,5 +36,28 @@ export const categoriesReducer: Reducer<TState> = (state: TState = initialState,
   }
 };
 
-// export const selectCategories = (state: any) => state.categories;
+// const selectCategoryRec = function(categoryName: string, data: TCategory[]): TCategory | null {
+//   for (let i = 0; i < data.length; i++) {
+//     const current = data[i];
+//     if (current.idVirtual === categoryName) {
+//       return current;
+//     }
+
+//     if (current.subItems.length > 0) {
+//       const found = selectCategoryRec(categoryName, current.subItems);
+//       if (found !== null) {
+//         return found;
+//       }
+//     }
+//   }
+
+//   return null;
+// };
+
+export const selectCategory = (state: AppState, category: string) => {
+  log('selectCategory category', category);
+  return state.categories.indexed[category];
+  // log('selectCategory category data', state.categories.data);
+  // return selectCategoryRec(category, state.categories.separated);
+};
 

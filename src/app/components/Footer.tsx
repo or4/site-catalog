@@ -1,5 +1,7 @@
 import React from 'react';
-import { theme } from 'ui/theme';
+import { theme, flexColumn } from 'ui/theme';
+import { isSmall } from 'util/responsive';
+import log from 'util/logger';
 
 type Props = {
 };
@@ -9,23 +11,18 @@ type State = {
 class Footer extends React.PureComponent<Props, State> {
   getStyle() {
     const container = {
-      alignItems: 'center' as 'center',
-      display: 'flex',
-      justifyContent: 'center' as 'center',
-      flexDirection: 'column' as 'column',
-      paddingBottom: theme.content.defaultMargin1,
+      padding: `0 ${theme.content.defaultMargin1} ${theme.content.defaultMargin1} ${theme.content.defaultMargin1}`,
+      ...flexColumn('center', 'center'),
     };
     const mainText = {
       fontWeight: '700' as 'bold',
       marginBottom: '8px',
       textAlign: 'left' as 'left',
-      width: '450px',
 
       ...theme.footer.mainText,
     };
     const subText = {
       textAlign: 'left' as 'left',
-      width: '450px',
       ...theme.footer.subText,
     };
     return {
@@ -35,9 +32,8 @@ class Footer extends React.PureComponent<Props, State> {
     };
   }
   render() {
+    log('Footer render');
     const style = this.getStyle();
-    //const {  } = this.props;
-    // console.log('style.container', style.container);
 
     return (
       <div style={style.container}>
@@ -45,9 +41,8 @@ class Footer extends React.PureComponent<Props, State> {
           Все права защищены © Резинотехника - СК, 2011—2018
         </div>
         <div style={style.subText}>
-          Информация, представленная на сайте, не является публичной офертой. <br />
-          Полное или частичное использование материалов сайта <br />
-          возможно только с письменного разрешения Фирмы &quot;Резинотехника&quot;.
+          Информация, представленная на сайте, не является публичной офертой.
+          Полное или частичное использование материалов сайта возможно только с письменного разрешения Фирмы &quot;Резинотехника&quot;.
         </div>
       </div>
     );

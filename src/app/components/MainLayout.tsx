@@ -6,43 +6,38 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Header, Navigation, Footer } from 'components';
 import { ActionTypes as CategoriesActionTypes } from 'core/catalog/categories/actions';
-import { ActionTypes as ItemsActionTypes, loadItems } from 'core/catalog/items/actions';
 import { AppState } from 'store/reducers';
-import { TCategory } from 'core/catalog/categories/reducer';
 import { TItem } from 'core/catalog/items/reducer';
-import { IS_DEV } from 'settings';
+import { TCategory } from 'core/catalog/categories/types';
+import log from 'util/logger';
+import { isInitial } from 'util/responsive';
+
 
 type StateProps = {
   categories: TCategory[];
-  // items: TItem[];
+  items: TItem[];
 };
 type DispatchProps = {
   loadCategories: () => void;
-  loadItems: (category: string, page: number, limit: number) => void;
 };
 type Props = StateProps & DispatchProps;
 
 type State = {
 };
-
+let first = true;
 class MainLayout extends React.Component<Props, State> {
   state = {};
   static getDerivedStateFromProps({ loadCategories, categories, /* loadItems, items,*/ }: Props) {
-    if (categories.length === 0) {
-      console.log('******** CategoriesPage componentDidMount load action');
+    if (first && categories.length === 0) {
+      log('******** CategoriesPage componentDidMount load action');
       loadCategories();
+      first = false;
     }
-    // if (items.length === 0) {
-    //   console.log('******** CategoriesPage componentDidMount load action');
-    //   loadItems(page, limit);
-    // }
+
     return {};
   }
   getStyle = () => {
     const container = {
-      background: IS_DEV ? '#fff' : '#ccc',
-      minHeight: '100vh',
-      minWidth: '1024px',
     };
 
     return {
@@ -50,37 +45,40 @@ class MainLayout extends React.Component<Props, State> {
     };
   }
   public render() {
+    log('MainLayout render');
     const style = this.getStyle();
-    // i don't know why, but if remove wrapper of prop.children
-    // container of it would not render
-    // <Navigation />
-    // <Header />
-    // <Footer />
+
+    log(`render this.props.items.length`, this.props.items.length);
+    log(`render this.props.categories.length`, this.props.categories.length);
+
     return (
       <div style={style.container}>
         <Helmet {...appConfig.app} {...appConfig.app.head} />
+
+        {!isInitial() && <Header />}
+        {!isInitial() && <Navigation />}
 
         <div>
           {this.props.children}
         </div>
 
+        <Footer />
       </div>
     );
   }
 }
 
 const mapStateToProps = (state: AppState) => ({
-  categories: state.categories.data,
-  // items: state.items.data['1'],
+  categories: state.categories.separated,
+  items: state.items.data,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
   return {
     loadCategories: () => {
+      log(`pre dispatch loadCategories`);
       dispatch({ type: CategoriesActionTypes.LOAD_CATEGORIES });
-    },
-    loadItems: (category: string, page: number, limit: number) => {
-      dispatch(loadItems(category, page, limit));
+      log(`after dispatch loadCategories`);
     },
   };
 };

@@ -1,29 +1,22 @@
-import { TCategory } from 'core/catalog/categories/reducer';
+import { TCategory } from 'core/catalog/categories/types';
 
 export enum ActionTypes {
   LOAD_CATEGORIES = '[Catalog/categories] Load categories',
-  LOAD_CATEGORIES_SUCCESS = '[Catalog/categories] Load categories success',
+  LOAD_INDEXED_CATEGORIES_SUCCESS = '[Catalog/categories] Load indexed categories success',
+  LOAD_SEPARATED_CATEGORIES_SUCCESS = '[Catalog/categories] Load separated categories success',
   LOAD_CATEGORIES_FAIL = '[Catalog/categories] Load categories fail',
 }
-
-// Load categories
-
-export const LoadCategories = {
-  type: ActionTypes.LOAD_CATEGORIES,
-};
-export const LoadCategoriesSuccess = {
-  type: ActionTypes.LOAD_CATEGORIES_SUCCESS,
-};
-export const LoadCategoriesFail = {
-  type: ActionTypes.LOAD_CATEGORIES_FAIL,
-};
 
 export type TLoadCategories = {
   type: ActionTypes.LOAD_CATEGORIES;
 };
-export type TLoadCategoriesSuccess = {
-  type: ActionTypes.LOAD_CATEGORIES_SUCCESS;
+export type TLoadCategoriesSeparatedSuccess = {
+  type: ActionTypes.LOAD_SEPARATED_CATEGORIES_SUCCESS;
   data: TCategory[];
+};
+export type TLoadCategoriesSortedSuccess = {
+  type: ActionTypes.LOAD_INDEXED_CATEGORIES_SUCCESS;
+  data: {[key: string]: TCategory};
 };
 export type TLoadCategoriesFail = {
   type: ActionTypes.LOAD_CATEGORIES_FAIL;
@@ -31,5 +24,6 @@ export type TLoadCategoriesFail = {
 };
 
 export type ActionsAll = TLoadCategories
-  | TLoadCategoriesSuccess
+  | TLoadCategoriesSeparatedSuccess
+  | TLoadCategoriesSortedSuccess
   | TLoadCategoriesFail;

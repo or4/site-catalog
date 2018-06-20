@@ -1,9 +1,12 @@
 import React from 'react';
 import LeftSideBar from './LeftSideBar';
-import NavigationTree from './LeftSideBar/NavigationTree';
 import RightSideBar from './RightSideBar';
-import { RouteType, routesDescription } from 'routes';
+import { RouteType, routeHas, routeContentIsRequired } from 'routes';
 import { theme } from 'ui/theme';
+import { isLarge, isMedium, isSmall } from 'util/responsive';
+import log from 'util/logger';
+import NavigationTree from 'ui/NavigationTree';
+
 
 type Props = {
   children: any;
@@ -11,6 +14,7 @@ type Props = {
 };
 type State = {
 };
+
 
 class MiddleLayout extends React.PureComponent<Props, State> {
   getStyle() {
@@ -28,28 +32,29 @@ class MiddleLayout extends React.PureComponent<Props, State> {
     };
   }
   render() {
+    log('MiddleLayout render');
     const style = this.getStyle();
     const { route } = this.props;
 
-    const content = [];
+    const contentLeftBar: any = [];
+    const contentRightBar: any = [];
 
-    if (routesDescription[route].isNavigationTree) {
-      content.push(<LeftSideBar key={'left-side-bar_key'}> <NavigationTree /> </LeftSideBar>);
-    }
-
-    content.push(
-      <div key={'content_key'} style={style.sceneContainer}>
-        {this.props.children}
-      </div>
-    );
-
-    if (routesDescription[route].isRightSideBar) {
-      content.push(<RightSideBar key={'left-side-bar_key'} />);
+    if (routeHas(route, 'tree')) {
+      if (isSmall()) {
+        // empty branch
+      }
+      else if (isMedium() || isLarge()) {
+        contentLeftBar.push(<NavigationTree key={'key-NavigationTree'} />);
+      }
     }
 
     return (
       <div style={style.container}>
-        {content}
+        {contentLeftBar.length !== 0 ? <LeftSideBar> {contentLeftBar} </LeftSideBar> : null}
+        <div style={style.sceneContainer}>
+          {this.props.children}
+        </div>
+        {contentRightBar.length !== 0 ? <RightSideBar> {contentRightBar} </RightSideBar> : null}
       </div>
     );
   }

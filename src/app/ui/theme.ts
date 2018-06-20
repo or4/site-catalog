@@ -86,3 +86,26 @@ export const theme = {
 //   };
 //   return style;
 // };
+
+type TAlignItems = 'center';
+type TJustifyContent = 'center' | 'space-between';
+
+export const flexRow = (alignItems: TAlignItems, justifyContent: TJustifyContent) => {
+  const style = {
+    alignItems,
+    display: 'flex',
+    flexDirection: 'row' as 'row',
+    justifyContent,
+  };
+  return style;
+};
+
+export const flexColumn = (alignItems: TAlignItems, justifyContent: TJustifyContent) => {
+  const style = {
+    alignItems,
+    display: 'flex',
+    flexDirection: 'column' as 'column',
+    justifyContent,
+  };
+  return style;
+};

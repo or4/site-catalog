@@ -1,5 +1,6 @@
 import React from 'react';
 import { theme } from 'ui/theme';
+import log from 'util/logger';
 
 type Props = {
 };
@@ -19,6 +20,7 @@ class RightSideBar extends React.PureComponent<Props, State> {
     };
   }
   render() {
+    log('MiddleLayout RightSideBar render');
     const style = this.getStyle();
     //const {  } = this.props;
     return (

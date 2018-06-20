@@ -12,23 +12,25 @@ export default (
     <Route path="/news" component={News} />
     <Route path="/production" component={Production} />
     <Route path="/products" component={Products} />
+    <Route path="/catalog" component={Catalog} />
     <Route path="/catalog/:category" component={Catalog} />
   </Route>
 );
 
-export type RouteType =   '/' | '/about' | '/contacts' | '/news' | '/production' | '/products' | '/catalog';
+export type RouteType =   '/about' | '/contacts' | '/news' | '/production' | '/products' | '/catalog';
+export type RouterContent = 'tree' | 'photo' | 'price' | 'news' | 'way';
 
-export type RouteDescription = {
-  isNavigationTree?: boolean;
-  isRightSideBar?: boolean;
+export const routesContent: {[key in RouteType] : Array<RouterContent>} = {
+  '/about': ['photo', 'price', 'news'],
+  '/production': ['tree', 'price', 'news'],
+  '/products': ['tree', 'price', 'news'],
+  '/news': ['tree', 'price'],
+  '/contacts': ['way', 'price'],
+  '/catalog': ['tree'],
 };
 
-export const routesDescription: {[key in RouteType]: RouteDescription} = {
-  '/': { isNavigationTree: false },
-  '/about': { isNavigationTree: false },
-  '/contacts': { isNavigationTree: false },
-  '/news': { isNavigationTree: false, isRightSideBar: true },
-  '/production': { isNavigationTree: true },
-  '/products': { isNavigationTree: true },
-  '/catalog': { isNavigationTree: true },
-};
+export const routeHas =
+  (route: RouteType, content: RouterContent) => routesContent[route].indexOf(content) >= 0;
+
+const routeContentIsRequiredData: Array<RouterContent> = ['tree', 'price', 'way'];
+export const routeContentIsRequired = (content: RouterContent) => routeContentIsRequiredData.indexOf(content) >= 0;

@@ -16,7 +16,7 @@ class NavigationItem extends React.PureComponent<Props, State> {
     const container = {
       display: 'inline-block',
       lineHeight: '36px',
-      padding: '0 25px',
+      padding: '0 5px',
     };
     const sign = {
       ...theme.navigation.item,

@@ -1,5 +1,7 @@
 import React from 'react';
 import { theme } from 'ui/theme';
+import { isSmall } from 'util/responsive';
+import log from 'util/logger';
 
 type Props = {
   className?: any;
@@ -9,10 +11,21 @@ type State = {
 };
 
 class Logo extends React.PureComponent<Props, State> {
+  componentDidMount() {
+    try {
+      window.addEventListener('resize', this.resize);
+    } catch (error) { }
+  }
+
+  componentWillUnmount() {
+    try {
+      window.removeEventListener('resize', this.resize);
+    } catch (error) { }
+  }
+  resize = () => this.forceUpdate()
   getStyle(customStyle: any) {
     const container = {
-      //marginLeft: '40px',
-      width: '245px',
+      width: isSmall() ? '268px' : '245px', // line break
       textAlign: 'center' as 'center',
       ...theme.header.logo,
     };
@@ -24,6 +37,7 @@ class Logo extends React.PureComponent<Props, State> {
     };
   }
   render() {
+    log('Header Logo render');
     const { className, style: customStyle } = this.props;
     const style = this.getStyle(customStyle);
     const classes = className ? className : '';

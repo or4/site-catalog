@@ -41,7 +41,7 @@
 //     };
 //   }
 //   componentDidMount() {
-//     console.log('Navigation componentDidMount');
+//     log('Navigation componentDidMount');
 //   }
 //   render() {
 //     // const { classes } = sheet;
