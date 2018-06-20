@@ -6,7 +6,7 @@ type Props = {
 type State = {
 };
 
-class VerticalSlides extends React.PureComponent<Props, State> {
+class VerticalSlider extends React.PureComponent<Props, State> {
   getStyle() {
     const container = {
     };
@@ -19,9 +19,9 @@ class VerticalSlides extends React.PureComponent<Props, State> {
     //const {  } = this.props;
     return (
       <div style={style.container}>
-        VerticalSlides
+        VerticalSlider
       </div>
     );
   }
 }
-export default VerticalSlides;
+export default VerticalSlider;

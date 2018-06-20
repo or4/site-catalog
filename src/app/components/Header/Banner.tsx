@@ -1,5 +1,6 @@
 import React from 'react';
 import banner from 'assets/images/banners/jaroslavl-small.jpg';
+import log from 'util/logger';
 
 type Props = {
   className?: any;
@@ -26,6 +27,7 @@ class Banner extends React.PureComponent<Props, State> {
     };
   }
   render() {
+    log('Header render');
     const { className, style: customStyle } = this.props;
     const style = this.getStyle(customStyle);
     const classes = className ? className : '';

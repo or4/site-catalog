@@ -1,5 +1,6 @@
 import React from 'react';
 import { theme } from 'ui/theme';
+import log from 'util/logger';
 
 type Props = {
   className?: any;
@@ -39,6 +40,7 @@ class Contacts extends React.PureComponent<Props, State> {
     };
   }
   render() {
+    log('Header render');
     const { className, style: customStyle } = this.props;
     const style = this.getStyle(customStyle);
     const classes = className ? className : '';
