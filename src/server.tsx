@@ -44,13 +44,13 @@ let compiler = webpack(config);
 
 const layout = (body: any, initialState: any) => (`
   <!DOCTYPE html>
-  <html>
+  <html style="background: #ddd;">
   <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width,maximum-scale=1,initial-scale=1">
     <title>Redux-saga real-world universal example</title>
   </head>
-  <body style="margin: 0; background: #ccc;">
+  <body style="margin: 0; background: #ddd; background: repeat url(http://rti-ck.kz/content/bg/1.png);">
     <div id="root"><div>${body}</div></div>
     <script type="text/javascript" charset="utf-8">
       window.__INITIAL_STATE__ = ${initialState};

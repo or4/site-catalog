@@ -39,7 +39,7 @@ class MainLayout extends React.Component<Props, State> {
   }
   getStyle = () => {
     const container = {
-      background: IS_DEV && IS_BACKGROUND ? '#ccc' : '#fff',
+      // background: '#ddd',
       // minHeight: '100vh',
       // minWidth: '1024px',
     };

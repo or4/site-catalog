@@ -60,7 +60,7 @@ class Header extends React.PureComponent<Props, State> {
       });
       Object.assign(logo, { marginLeft: '40px' });
       Object.assign(banner, { marginLeft: 'auto', marginRight: '40px' });
-      Object.assign(contacts, { marginLeft: 'auto', marginRight: '40px' });
+      Object.assign(contacts, { marginRight: '40px' });
     }
 
     return {
