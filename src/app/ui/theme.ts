@@ -7,8 +7,8 @@ const colors = {
 };
 
 const fonts = {
-  fontFamily: 'Tahoma, Verdana, sans-serif',
-  fontFamilySecond: 'Verdana',
+  fontFamily1: 'Tahoma, Verdana, Arial, sans-serif',
+  fontFamily2: 'Verdana, Tahoma, Arial, sans-serif',
   size1: '25px', // logo
   size2: '13px', // header__contacts, footer__text
   size3: '16px', // navigation__item
@@ -26,13 +26,13 @@ export const theme = {
   header: {
     logo: {
       color: colors.grey1,
-      fontFamily: fonts.fontFamilySecond,
+      fontFamily: fonts.fontFamily2,
       fontSize: fonts.size1,
       textShadow: `${colors.black} 1px 1px 2px, ${colors.grey1} 0 0 1em`
     },
     contacts: {
       color: colors.darkBlue,
-      fontFamily: fonts.fontFamily,
+      fontFamily: fonts.fontFamily2,
       fontSize: fonts.size2,
       fontStyle: 'italic' as 'italic',
       lineHeight: '15px',
@@ -44,20 +44,20 @@ export const theme = {
     },
     item: {
       color: colors.white,
-      fontFamily: fonts.fontFamily,
+      fontFamily: fonts.fontFamily2,
       fontSize: fonts.size3,
     }
   },
   footer: {
     mainText: {
       color: colors.grey2,
-      fontFamily: fonts.fontFamily,
+      fontFamily: fonts.fontFamily2,
       fontSize: fonts.size2,
       lineHeight: '15px',
     },
     subText: {
       color: colors.grey2,
-      fontFamily: fonts.fontFamily,
+      fontFamily: fonts.fontFamily2,
       fontSize: fonts.size2,
       lineHeight: '15px',
     }
@@ -65,9 +65,8 @@ export const theme = {
   paging: {
     text: {
       color: colors.grey2,
-      fontFamily: fonts.fontFamily,
-      fontSize: fonts.size3,
-      lineHeight: '20px',
+      fontFamily: fonts.fontFamily2,
+      lineHeight: '28px',
     }
   },
 };
@@ -75,7 +74,7 @@ export const theme = {
 // export const lightFont = (color: string, fontSize: string, lineHeight?: string) => {
 //   const font = {
 //     color,
-//     fontFamily: fonts.fontFamily,
+//     fontFamily: fonts.fontFamily2,
 //     fontSize,
 //   };
 
