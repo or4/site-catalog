@@ -2,9 +2,9 @@ import React from 'react';
 import LeftSideBar from './LeftSideBar';
 import NavigationTree from './LeftSideBar/NavigationTree';
 import RightSideBar from './RightSideBar';
-import { RouteType, routeHas, routeContentIsRequired, RouterContent } from 'routes';
+import { RouteType, routeHas, routeContentIsRequired } from 'routes';
 import { theme } from 'ui/theme';
-import { isLarge, isMedium } from 'util/responsive';
+import { isLarge, isMedium, isSmall } from 'util/responsive';
 
 
 type Props = {
@@ -38,9 +38,12 @@ class MiddleLayout extends React.PureComponent<Props, State> {
     const contentRightBar: any = [];
 
     if (routeHas(route, 'tree')) {
-      if (isLarge()) {
+      if (isSmall()) {
+        // empty branch
+      }
+      else if (isMedium() && routeContentIsRequired('tree')) {
         contentLeftBar.push(<NavigationTree key={'key-NavigationTree'} />);
-      } else if (isMedium() && routeContentIsRequired('tree')) {
+      } else if (isLarge()) {
         contentLeftBar.push(<NavigationTree key={'key-NavigationTree'} />);
       }
     }
