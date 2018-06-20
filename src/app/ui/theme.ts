@@ -61,8 +61,15 @@ export const theme = {
       fontSize: fonts.size2,
       lineHeight: '15px',
     }
-
-  }
+  },
+  paging: {
+    text: {
+      color: colors.grey2,
+      fontFamily: fonts.fontFamily,
+      fontSize: fonts.size3,
+      lineHeight: '20px',
+    }
+  },
 };
 
 // export const lightFont = (color: string, fontSize: string, lineHeight?: string) => {
