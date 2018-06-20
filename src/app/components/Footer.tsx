@@ -1,6 +1,5 @@
 import React from 'react';
 import { theme, flexColumn } from 'ui/theme';
-import { isSmall } from 'util/responsive';
 import log from 'util/logger';
 
 type Props = {

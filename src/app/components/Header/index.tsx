@@ -5,6 +5,7 @@ import Contacts from 'components/Header/Contacts';
 import { isSmall, isLarge, isMedium } from 'util/responsive';
 import { flexColumn, flexRow } from 'ui/theme';
 import log from 'util/logger';
+import { subscribeResize, unsubscribeResize } from 'components/Resize';
 
 type Props = {
 };
@@ -12,18 +13,8 @@ type State = {
 };
 
 class Header extends React.PureComponent<Props, State> {
-  componentDidMount() {
-    try {
-      window.addEventListener('resize', this.resize);
-    } catch (error) { }
-  }
-
-  componentWillUnmount() {
-    try {
-      window.removeEventListener('resize', this.resize);
-    } catch (error) { }
-  }
-  resize = () => this.forceUpdate()
+  componentDidMount() { subscribeResize(this, 'Header') }
+  componentWillUnmount() { unsubscribeResize(this, 'Header') }
 
   getStyle = () => {
     const container = { };

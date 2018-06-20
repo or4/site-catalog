@@ -11,6 +11,7 @@ import { TItem } from 'core/catalog/items/reducer';
 import { TCategory } from 'core/catalog/categories/types';
 import log from 'util/logger';
 import { isInitial } from 'util/responsive';
+import Resize from 'components/Resize';
 
 
 type StateProps = {
@@ -33,9 +34,9 @@ class MainLayout extends React.Component<Props, State> {
       loadCategories();
       first = false;
     }
-
     return {};
   }
+
   getStyle = () => {
     const container = {
     };
@@ -63,6 +64,7 @@ class MainLayout extends React.Component<Props, State> {
         </div>
 
         <Footer />
+        <Resize />
       </div>
     );
   }

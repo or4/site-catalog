@@ -3,6 +3,7 @@ import { theme } from 'ui/theme';
 import NavigationItem from './NavigationItem';
 import { isSmall, isMedium, isLarge } from 'util/responsive';
 import log from 'util/logger';
+import { subscribeResize, unsubscribeResize } from 'components/Resize';
 
 type Props = {
 };
@@ -10,25 +11,14 @@ type State = {
 };
 
 class Navigation extends React.PureComponent<Props, State> {
-  componentDidMount() {
-    try {
-      window.addEventListener('resize', this.resize);
-    } catch (error) { }
-  }
-
-  componentWillUnmount() {
-    try {
-      window.removeEventListener('resize', this.resize);
-    } catch (error) { }
-  }
-  resize = () => this.forceUpdate()
+  componentDidMount() { subscribeResize(this, 'Navigation') }
+  componentWillUnmount() { unsubscribeResize(this, 'Navigation') }
 
   getStyle() {
     const container = {};
     const subContainer = {};
 
     if (isSmall()) {
-      log('isSmall true');
       Object.assign(container, {
         height: '2px',
         maxHeight: '2px',
@@ -39,7 +29,6 @@ class Navigation extends React.PureComponent<Props, State> {
         display: 'none',
       });
     } else if (isMedium() || isLarge()) {
-      log('isMedium true');
       Object.assign(container, {
         height: '36px',
         maxHeight: '36px',

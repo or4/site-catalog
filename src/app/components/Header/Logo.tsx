@@ -2,6 +2,7 @@ import React from 'react';
 import { theme } from 'ui/theme';
 import { isSmall } from 'util/responsive';
 import log from 'util/logger';
+import { subscribeResize, unsubscribeResize } from 'components/Resize';
 
 type Props = {
   className?: any;
@@ -11,18 +12,9 @@ type State = {
 };
 
 class Logo extends React.PureComponent<Props, State> {
-  componentDidMount() {
-    try {
-      window.addEventListener('resize', this.resize);
-    } catch (error) { }
-  }
+  componentDidMount() { subscribeResize(this, 'Header Logo') }
+  componentWillUnmount() { unsubscribeResize(this, 'Header Logo') }
 
-  componentWillUnmount() {
-    try {
-      window.removeEventListener('resize', this.resize);
-    } catch (error) { }
-  }
-  resize = () => this.forceUpdate()
   getStyle(customStyle: any) {
     const container = {
       width: isSmall() ? '268px' : '245px', // line break
