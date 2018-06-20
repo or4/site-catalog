@@ -1,6 +1,10 @@
 import React from 'react';
 import { theme, flexRow } from 'ui/theme';
 
+import jss from 'jss';
+import preset from 'jss-preset-default';
+jss.setup(preset());
+
 type Props = {
   from?: number;
   total?: number;
@@ -10,7 +14,22 @@ type Props = {
 type State = {
 };
 
+
 class PagingMedium extends React.PureComponent<Props, State> {
+  // test: any;
+  componentDidMount() {
+    // // const jss = createJss();
+    // const sheet = jss.createStyleSheet(this.getClassNames()).attach();
+    // const { classes } = sheet;
+    // this.test = classes;
+  }
+  getClassNames = () => {
+    return {
+      test: {
+        background: 'green'
+      }
+    };
+  }
   getStyle() {
     const container = {
       display: 'flex',
@@ -108,8 +127,13 @@ class PagingMedium extends React.PureComponent<Props, State> {
   render() {
     // url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iNiIgdmlld0JveD0iMCAwIDEyIDYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRpdGxlPlNoYXBlIDI8L3RpdGxlPjxwYXRoIGQ9Ik0uOCAwTDYgNC42IDExLjIgMGwuOC43TDYgNiAwIC43LjggMHoiIGZpbGw9IiMwMDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==)
     const style = this.getStyle();
+
+    const sheet = jss.createStyleSheet(this.getClassNames()).attach();
+    const { classes } = sheet;
+
+
     return (
-      <div style={style.container}>
+      <div style={style.container} className={classes && classes.test || 'assd'}>
         <div style={style.selectPageContainer}>
           <div style={style.pagePrevButton}>
             <img style={style.pagePrevButtonImg} src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iNiIgdmlld0JveD0iMCAwIDEyIDYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRpdGxlPlNoYXBlIDI8L3RpdGxlPjxwYXRoIGQ9Ik0uOCAwTDYgNC42IDExLjIgMGwuOC43TDYgNiAwIC43LjggMHoiIGZpbGw9IiMwMDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==" alt="" />

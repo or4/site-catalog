@@ -20,7 +20,7 @@
 
 ### Clean code
 * refactoring with isSmall..
-
+* refactor with jss
 
 ### Mobile
 * mobile menu
