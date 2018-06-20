@@ -2,29 +2,16 @@ import { Reducer } from 'redux';
 
 import { ActionTypes, ActionsAll } from './actions';
 import { AppState } from 'store/reducers';
-import { log } from 'util/logger';
 
 export type TItem = {
   id: number;
   category: string[];
   name: string;
-
-
-  // idVirtual: string;
-  // isDefault: number;
-  // order: number;
-  // parentId: number;
-
-  // image: string;
-  // description: string;
-
-  // subItems?: TItem[];
 };
 
 type TState = {
   error?: any;
   requesting: boolean;
-  // data: {[key: string]: TItem[]};
   data: TItem[];
 };
 
@@ -40,19 +27,7 @@ export const itemsReducer: Reducer<TState> = (state: TState = initialState, acti
     case ActionTypes.LOAD_ITEMS:
       return { ...state, requesting: true };
     case ActionTypes.LOAD_ITEMS_SUCCESS:
-      const { data } = action;
-      log('reducer LOAD_ITEMS_SUCCESS');
-      // const newState =  {
-      //   ...state,
-      //   data: {
-      //     ...state.data,
-      //     [category]: dataCat
-      //   },
-      //   requesting: false,
-      //   error: false
-      // };
-      // log('newState', newState);
-      return { ...state, data };
+      return { ...state, data: action.data };
     case ActionTypes.LOAD_ITEMS_FAIL:
       return { ...state, error: action.error, requesting: false };
 
