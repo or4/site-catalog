@@ -45,6 +45,7 @@ class MainLayout extends React.Component<Props, State> {
     };
   }
   public render() {
+    log('MainLayout render');
     const style = this.getStyle();
 
     log(`render this.props.items.length`, this.props.items.length);

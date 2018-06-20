@@ -1,6 +1,7 @@
 import React from 'react';
 import { theme } from 'ui/theme';
 import { isSmall } from 'util/responsive';
+import log from 'util/logger';
 
 type Props = {
 };
@@ -40,6 +41,7 @@ class LeftSideBar extends React.PureComponent<Props, State> {
   }
   resize = () => this.forceUpdate()
   render() {
+    log('LeftSideBar render');
     const style = this.getStyle();
     //const {  } = this.props;
     return (

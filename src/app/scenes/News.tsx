@@ -2,6 +2,7 @@ import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import MiddleLayout from 'components/MiddleLayout';
+import log from 'util/logger';
 
 
 type StateProps = {
@@ -15,6 +16,7 @@ type State = {
 
 class News extends React.PureComponent<Props, State> {
   render() {
+    log('About render');
     return (
       <MiddleLayout route={'/news'}>
         <div>

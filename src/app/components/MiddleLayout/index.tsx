@@ -5,6 +5,7 @@ import RightSideBar from './RightSideBar';
 import { RouteType, routeHas, routeContentIsRequired } from 'routes';
 import { theme } from 'ui/theme';
 import { isLarge, isMedium, isSmall } from 'util/responsive';
+import log from 'util/logger';
 
 
 type Props = {
@@ -31,6 +32,7 @@ class MiddleLayout extends React.PureComponent<Props, State> {
     };
   }
   render() {
+    log('MiddleLayout render');
     const style = this.getStyle();
     const { route } = this.props;
 
@@ -41,9 +43,7 @@ class MiddleLayout extends React.PureComponent<Props, State> {
       if (isSmall()) {
         // empty branch
       }
-      else if (isMedium() && routeContentIsRequired('tree')) {
-        contentLeftBar.push(<NavigationTree key={'key-NavigationTree'} />);
-      } else if (isLarge()) {
+      else if (isMedium() || isLarge()) {
         contentLeftBar.push(<NavigationTree key={'key-NavigationTree'} />);
       }
     }

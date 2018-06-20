@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { AppState } from 'store/reducers';
 import { TCategory } from 'core/catalog/categories/types';
+import log from 'util/logger';
 
 type OwnProps = {
 };
@@ -46,6 +47,7 @@ class NavigationTree extends React.PureComponent<Props, State> {
     );
   }
   render() {
+    log('NavigationTree render');
     // const style = this.getStyle();
     // const {  } = this.props;
     // log('NavigationTree categories', this.props.categories);

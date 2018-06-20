@@ -61,6 +61,8 @@ class Navigation extends React.PureComponent<Props, State> {
     };
   }
   render() {
+    log('Navigation render');
+
     const style = this.getStyle();
 
     return (

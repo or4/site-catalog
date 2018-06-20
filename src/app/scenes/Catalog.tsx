@@ -8,6 +8,7 @@ import { selectCategory } from 'core/catalog/categories/reducer';
 import { getCategoryCaption } from 'core/catalog/categories/common';
 import { TCategory } from 'core/catalog/categories/types';
 import { convertImgUrl } from 'core/common';
+import log from 'util/logger';
 
 type OwnProps = {
   routeParams: any;
@@ -31,6 +32,7 @@ class Products extends React.PureComponent<Props, State> {
   getCaption = () => getCategoryCaption(this.props.categoryId, this.props.selectCategory);
 
   render() {
+    log('About render');
     return (
       <MiddleLayout route={'/catalog'}>
         <h2>Цены на товары категории «{this.getCaption()}» на 23.05.2018 в тенге с учетом НДС</h2>

@@ -3,6 +3,7 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import MiddleLayout from 'components/MiddleLayout';
 import { IS_DEV, IS_SHOW_ABOUT } from 'settings';
+import log from 'util/logger';
 
 
 type StateProps = {
@@ -71,6 +72,7 @@ class About extends React.Component<Props, State> {
   }
 
   public render() {
+    log('About render');
     const style = this.getStyle();
     const content = <div dangerouslySetInnerHTML={this.createMarkup()} />;
     return (

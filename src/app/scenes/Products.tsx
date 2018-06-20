@@ -2,8 +2,8 @@ import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { AppState } from 'store/reducers';
-import { TItem } from 'core/catalog/items/reducer';
 import MiddleLayout from 'components/MiddleLayout';
+import log from 'util/logger';
 
 type OwnProps = {
 };
@@ -26,6 +26,7 @@ class Products extends React.PureComponent<Props, State> {
     };
   }
   render() {
+    log('About render');
     // const style = this.getStyle();
     // const { items } = this.props;
     // {items && items.map((item: TItem) => <li key={item.id}>{item.name}</li>)}
