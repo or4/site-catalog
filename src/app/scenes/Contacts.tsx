@@ -9,7 +9,7 @@ type State = {
 
 class Contacts extends React.PureComponent<Props, State> {
   render() {
-    log('About render');
+    log('Contacts render');
     //const {  } = this.props;
     return (
       <MiddleLayout route={'/contacts'}>

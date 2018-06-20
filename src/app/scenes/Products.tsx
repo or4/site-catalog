@@ -26,7 +26,7 @@ class Products extends React.PureComponent<Props, State> {
     };
   }
   render() {
-    log('About render');
+    log('Products render');
     // const style = this.getStyle();
     // const { items } = this.props;
     // {items && items.map((item: TItem) => <li key={item.id}>{item.name}</li>)}

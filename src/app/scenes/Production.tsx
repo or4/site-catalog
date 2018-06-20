@@ -9,7 +9,7 @@ type State = {
 
 class Production extends React.PureComponent<Props, State> {
   render() {
-    log('About render');
+    log('Production render');
     //const {  } = this.props;
     return (
       <MiddleLayout route={'/production'}>

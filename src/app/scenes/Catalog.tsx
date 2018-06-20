@@ -32,7 +32,7 @@ class Products extends React.PureComponent<Props, State> {
   getCaption = () => getCategoryCaption(this.props.categoryId, this.props.selectCategory);
 
   render() {
-    log('About render');
+    log('Catalog render');
     return (
       <MiddleLayout route={'/catalog'}>
         <h2>Цены на товары категории «{this.getCaption()}» на 23.05.2018 в тенге с учетом НДС</h2>
