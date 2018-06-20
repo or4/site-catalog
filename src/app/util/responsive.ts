@@ -1,3 +1,5 @@
+import { log } from 'util/logger';
+
 export type ScreenSize = 'initital' | 'small' | 'medium' | 'large';
 
 const screenSizeDimesions: {[key in ScreenSize] : number} = {
@@ -7,25 +9,41 @@ const screenSizeDimesions: {[key in ScreenSize] : number} = {
   large: Number.POSITIVE_INFINITY, // desktop
 };
 
+// return 0, when server rendering
 const getWidth = () => {
-  // return 0, when server rendering
   try { return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth } catch (e) { return 0 }
 };
 
 // const getHeight = () => window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 const isSize = (size: ScreenSize) => getWidth() <= screenSizeDimesions[size];
 
-export const isInitial = () => isSize('initital');
-export const isSmall = () => isSize('small');
-export const isMedium = () => isSize('medium');
-export const isLarge = () => isSize('large');
-
-export const getScreenSize = (): ScreenSize => {
-  if (isInitial()) return 'initital';
-  if (isSmall()) return 'small';
-  if (isMedium()) return 'medium';
-  return 'large';
+export const isInitial = () => {
+  const is = isSize('initital');
+  is && log('isInitial', is);
+  return is;
 };
+export const isSmall = () => {
+  const is = isSize('small');
+  is && log('isSmall', is);
+  return is;
+};
+export const isMedium = () => {
+  const is = isSize('medium');
+  is && log('isMedium', is);
+  return is;
+};
+export const isLarge = () => {
+  const is = isSize('large');
+  is && log('isLarge', is);
+  return is;
+};
+
+// export const getScreenSize = (): ScreenSize => {
+//   if (isInitial()) return 'initital';
+//   if (isSmall()) return 'small';
+//   if (isMedium()) return 'medium';
+//   return 'large';
+// };
 
 
 /*
