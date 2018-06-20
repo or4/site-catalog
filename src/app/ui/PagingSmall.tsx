@@ -2,10 +2,10 @@ import React from 'react';
 import { theme } from 'ui/theme';
 
 type Props = {
-  from: number;
-  total: number;
-  onNextClick: () => void;
-  onPrevClick: () => void;
+  from?: number;
+  total?: number;
+  onNextClick?: () => void;
+  onPrevClick?: () => void;
 };
 type State = {
 };
@@ -16,6 +16,7 @@ class PagingSmall extends React.PureComponent<Props, State> {
     };
 
     const button = {
+      background: 'transparent' as 'transparent',
       height: '20px',
       width: '25px'
     };
