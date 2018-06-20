@@ -1,6 +1,5 @@
 ### Feature aka bugs
-+ + + initial state with blinks
-+ + + forceUpdate when resize
++ ? initial state with blinks
 
 ### General
 * + + block: price
