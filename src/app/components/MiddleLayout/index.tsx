@@ -1,7 +1,7 @@
 import React from 'react';
 import LeftSideBar from './LeftSideBar';
 import RightSideBar from './RightSideBar';
-import { RouteType, routeHas, routeContentIsRequired } from 'routes';
+import { RouteType, routeHas } from 'routes';
 import { theme } from 'ui/theme';
 import { isLarge, isMedium, isSmall } from 'util/responsive';
 import { log } from 'util/logger';
