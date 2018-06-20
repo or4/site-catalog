@@ -37,7 +37,7 @@ class Logo extends React.PureComponent<Props, State> {
     };
   }
   render() {
-    log('Header render');
+    log('Header Logo render');
     const { className, style: customStyle } = this.props;
     const style = this.getStyle(customStyle);
     const classes = className ? className : '';

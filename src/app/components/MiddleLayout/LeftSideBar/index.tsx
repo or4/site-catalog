@@ -41,7 +41,7 @@ class LeftSideBar extends React.PureComponent<Props, State> {
   }
   resize = () => this.forceUpdate()
   render() {
-    log('LeftSideBar render');
+    log('MiddleLayout LeftSideBar render');
     const style = this.getStyle();
     //const {  } = this.props;
     return (

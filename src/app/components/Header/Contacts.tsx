@@ -40,7 +40,7 @@ class Contacts extends React.PureComponent<Props, State> {
     };
   }
   render() {
-    log('Header render');
+    log('Header Contacts render');
     const { className, style: customStyle } = this.props;
     const style = this.getStyle(customStyle);
     const classes = className ? className : '';

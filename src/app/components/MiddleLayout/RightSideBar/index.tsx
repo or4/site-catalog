@@ -20,7 +20,7 @@ class RightSideBar extends React.PureComponent<Props, State> {
     };
   }
   render() {
-    log('RightSideBar render');
+    log('MiddleLayout RightSideBar render');
     const style = this.getStyle();
     //const {  } = this.props;
     return (

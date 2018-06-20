@@ -1,4 +1,5 @@
 import React from 'react';
+import log from 'util/logger';
 // import { theme } from 'ui/theme';
 
 type Props = {
@@ -15,6 +16,7 @@ class VerticalSlider extends React.PureComponent<Props, State> {
     };
   }
   render() {
+    log('VerticalSlider render');
     const style = this.getStyle();
     //const {  } = this.props;
     return (
