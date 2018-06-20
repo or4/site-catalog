@@ -1,14 +1,14 @@
 ### Feature aka bugs
 + + + initial state with blinks
-
++ + + forceUpdate when resize
 
 ### General
-* block: price
-* block: way
-* block: ui-slider
-* block: store album
+* + + block: price
+* + + block: way
+* + block: ui-slider
+* + block: store album
 
-* catalog: paging
+* + catalog: paging
 
 * page: about
 * page: contacts
@@ -26,6 +26,9 @@
 ### Mobile
 * mobile menu
 
+
+### Responsive
+* footer on desktop & mobile
 
 
 

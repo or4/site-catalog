@@ -3,6 +3,7 @@ import Logo from 'components/Header/Logo';
 import Banner from 'components/Header/Banner';
 import Contacts from 'components/Header/Contacts';
 import { isSmall, isLarge, isMedium } from 'util/responsive';
+import { flexColumn, flexRow } from 'ui/theme';
 
 type Props = {
 };
@@ -31,36 +32,24 @@ class Header extends React.PureComponent<Props, State> {
 
     if (isSmall()) {
       Object.assign(container, {
-        alignItems: 'center' as 'center',
-        display: 'flex',
-        flexDirection: 'column' as 'column',
-        justifyContent: 'space-between' as 'space-between',
+        ...flexColumn('center', 'space-between'),
       });
       Object.assign(logo, { marginTop: '30px', marginBottom: '30px' });
-      Object.assign(banner, { display: 'none' });
       Object.assign(contacts, { display: 'none' });
-    } else if (isMedium()) {
+    } else if (isMedium() || isLarge()) {
       Object.assign(container, {
-        alignItems: 'center' as 'center',
-        display: 'flex',
-        justifyContent: 'space-between' as 'space-between',
         maxHeight: '140px',
         minHeight: '140px',
+        ...flexRow('center', 'space-between'),
       });
       Object.assign(logo, { marginLeft: '40px' });
-      Object.assign(banner, { display: 'none' });
       Object.assign(contacts, { marginLeft: 'auto', marginRight: '40px' });
+    }
+
+    if (isSmall() || isMedium()) {
+      Object.assign(banner, { display: 'none' });
     } else if (isLarge()) {
-      Object.assign(container, {
-        alignItems: 'center' as 'center',
-        display: 'flex',
-        justifyContent: 'space-between' as 'space-between',
-        maxHeight: '140px',
-        minHeight: '140px',
-      });
-      Object.assign(logo, { marginLeft: '40px' });
       Object.assign(banner, { marginLeft: 'auto', marginRight: '40px' });
-      Object.assign(contacts, { marginRight: '40px' });
     }
 
     return {

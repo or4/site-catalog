@@ -24,8 +24,7 @@ class Logo extends React.PureComponent<Props, State> {
   resize = () => this.forceUpdate()
   getStyle(customStyle: any) {
     const container = {
-      //marginLeft: '40px',
-      width: isSmall() ? '268px' : '245px',
+      width: isSmall() ? '268px' : '245px', // line break
       textAlign: 'center' as 'center',
       ...theme.header.logo,
     };

@@ -1,6 +1,5 @@
 import React from 'react';
 import banner from 'assets/images/banners/jaroslavl-small.jpg';
-// import { theme } from 'ui/theme';
 
 type Props = {
   className?: any;

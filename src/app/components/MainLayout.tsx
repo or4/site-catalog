@@ -8,10 +8,9 @@ import { Header, Navigation, Footer } from 'components';
 import { ActionTypes as CategoriesActionTypes } from 'core/catalog/categories/actions';
 import { AppState } from 'store/reducers';
 import { TItem } from 'core/catalog/items/reducer';
-import { IS_DEV, IS_BACKGROUND, IS_NAVIGATION, IS_HEADER, IS_FOOTER } from 'settings';
 import { TCategory } from 'core/catalog/categories/types';
-import './MainLayout.scss';
 import log from 'util/logger';
+import { isInitial } from 'util/responsive';
 
 
 type StateProps = {
@@ -39,9 +38,6 @@ class MainLayout extends React.Component<Props, State> {
   }
   getStyle = () => {
     const container = {
-      // background: '#ddd',
-      // minHeight: '100vh',
-      // minWidth: '1024px',
     };
 
     return {
@@ -51,24 +47,21 @@ class MainLayout extends React.Component<Props, State> {
   public render() {
     const style = this.getStyle();
 
-    let date = new Date();
     log(`render this.props.items.length`, this.props.items.length);
     log(`render this.props.categories.length`, this.props.categories.length);
-
-    // i don't know why, but if remove wrapper of prop.children
-    // container of it would not render
 
     return (
       <div style={style.container}>
         <Helmet {...appConfig.app} {...appConfig.app.head} />
-        {IS_DEV && IS_HEADER && <Header />}
-        {IS_DEV && IS_NAVIGATION && <Navigation />}
+
+        {!isInitial() && <Header />}
+        {!isInitial() && <Navigation />}
 
         <div>
           {this.props.children}
         </div>
 
-        {IS_DEV && IS_FOOTER && <Footer />}
+        <Footer />
       </div>
     );
   }
@@ -82,18 +75,10 @@ const mapStateToProps = (state: AppState) => ({
 const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
   return {
     loadCategories: () => {
-
-      let date = new Date();
-      log(`pre dispatch ${date.getMinutes()}:${date.getSeconds()}`);
-
+      log(`pre dispatch loadCategories`);
       dispatch({ type: CategoriesActionTypes.LOAD_CATEGORIES });
-
-      date = new Date();
-      log(`after dispatch! ${date.getMinutes()}:${date.getSeconds()}`);
+      log(`after dispatch loadCategories`);
     },
-    // loadItems: () => {
-    //   dispatch(loadItems());
-    // },
   };
 };
 export default connect<StateProps, DispatchProps>(mapStateToProps, mapDispatchToProps)(MainLayout);

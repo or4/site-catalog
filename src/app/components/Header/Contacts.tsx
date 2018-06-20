@@ -1,6 +1,5 @@
 import React from 'react';
 import { theme } from 'ui/theme';
-import { isSmall, isMedium, isLarge } from 'util/responsive';
 
 type Props = {
   className?: any;
@@ -15,27 +14,18 @@ class Contacts extends React.PureComponent<Props, State> {
     const caption = {};
     const address = {};
     const phones = {};
-    if (isSmall()) {
-      Object.assign(container, {
-        ...theme.header.contacts,
-      });
-      Object.assign(caption, { display: 'none' });
-      Object.assign(address, { display: 'none' });
-      Object.assign(phones, { display: 'none' });
-    }
-    else if (isMedium() || isLarge()) {
-      Object.assign(container, {
-        marginRight: '40px',
-        width: '210px',
-        ...theme.header.contacts,
-      });
-      Object.assign(caption, {
-        fontWeight: '700' as any,
-        fontStyle: 'normal' as 'normal',
-        marginBottom: '6px',
-      });
-      Object.assign(address, { marginBottom: '5px', });
-    }
+
+    Object.assign(container, {
+      marginRight: '40px',
+      width: '210px',
+      ...theme.header.contacts,
+    });
+    Object.assign(caption, {
+      fontWeight: '700' as any,
+      fontStyle: 'normal' as 'normal',
+      marginBottom: '6px',
+    });
+    Object.assign(address, { marginBottom: '5px', });
 
     if (customStyle) {
       Object.assign(container, customStyle);
