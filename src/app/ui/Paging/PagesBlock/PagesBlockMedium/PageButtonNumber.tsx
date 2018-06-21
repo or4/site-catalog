@@ -3,6 +3,7 @@ import PageButtonBase, { BorderRadius } from '../common/PageButtonBase';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
+import { join } from 'util/helpers';
 jss.setup(preset());
 
 type Props = {
@@ -29,7 +30,7 @@ class PageButtonNumber extends React.PureComponent<Props, State> {
   render() {
     const { borderRadius, className } = this.props;
     return (
-      <PageButtonBase borderRadius={borderRadius} className={[classes.container, className].join(' ')} >
+      <PageButtonBase borderRadius={borderRadius} className={join(classes.container, className)} >
         {this.props.children}
       </PageButtonBase>
     );

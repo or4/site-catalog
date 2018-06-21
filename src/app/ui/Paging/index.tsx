@@ -5,6 +5,7 @@ import AmountBlock from 'ui/Paging/AmountBlock';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
+import { join } from 'util/helpers';
 jss.setup(preset());
 
 const getClasses = () => {
@@ -41,7 +42,7 @@ class Paging extends React.PureComponent<Props, State> {
 
     const { className } = this.props;
     return (
-      <div className={[classes.container, className].join(' ')}>
+      <div className={join(classes.container, className)}>
         <PagesBlock className={classes.pagesContainer} isSmall={isSmall()} />
         <AmountBlock className={classes.amountContainer} isSmall={isSmall()} />
       </div>);

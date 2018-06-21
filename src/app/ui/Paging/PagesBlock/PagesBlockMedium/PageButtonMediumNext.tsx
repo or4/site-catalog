@@ -4,6 +4,7 @@ import PageButtonBase from '../common/PageButtonBase';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
+import { join } from 'util/helpers';
 jss.setup(preset());
 
 const getClasses = () => {
@@ -35,7 +36,7 @@ class PageButtonMediumNext extends React.PureComponent<Props, State> {
   render() {
     const { className } = this.props;
     return (
-      <PageButtonBase className={[classes.container, className].join(' ')} borderRadius="full">
+      <PageButtonBase className={join(classes.container, className)} borderRadius="full">
         <span>Вперед</span>
         <img className={classes.image} src={arrowIconBase64} alt="" />
       </PageButtonBase>

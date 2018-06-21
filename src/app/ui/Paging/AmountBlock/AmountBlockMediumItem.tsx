@@ -4,6 +4,7 @@ import { flexRow } from 'ui/theme';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
+import { join } from 'util/helpers';
 jss.setup(preset());
 
 type Props = {
@@ -30,7 +31,7 @@ class AmountBlockMediumItem extends React.PureComponent<Props, State> {
   render() {
     const { className } = this.props;
     return (
-      <AmountBlockMediumItemBase className={[classes.container, className].join(' ')} >
+      <AmountBlockMediumItemBase className={join(classes.container, className)} >
         {this.props.children}
       </AmountBlockMediumItemBase>
     );

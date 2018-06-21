@@ -3,6 +3,7 @@ import AmountBlockMedium from 'ui/Paging/AmountBlock/AmountBlockMedium';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
+import { join } from 'util/helpers';
 jss.setup(preset());
 
 const getClasses = () => {
@@ -28,7 +29,7 @@ class AmountBlock extends React.PureComponent<Props, State> {
   render() {
     const { className, isSmall } = this.props;
     return (
-      <div className={[classes.container, className].join(' ')}>
+      <div className={join(classes.container, className)}>
         <AmountBlockMedium />
       </div>
     );

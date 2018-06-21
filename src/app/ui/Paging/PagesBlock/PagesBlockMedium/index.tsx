@@ -5,6 +5,7 @@ import PageButtonMediumPrev from './PageButtonMediumPrev';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
+import { join } from 'util/helpers';
 jss.setup(preset());
 
 const getClasses = () => {
@@ -37,7 +38,7 @@ class PagesBlockMedium extends React.PureComponent<Props, State> {
   render() {
     const { className } = this.props;
     return (
-      <div className={[classes.container, className].join(' ')}>
+      <div className={join(classes.container, className)}>
         <PageButtonMediumPrev className={classes.prev} />
         <PageButtonNumber borderRadius={'left'}> 1 </PageButtonNumber>
         <PageButtonNumber borderRadius={'none'}> 2 </PageButtonNumber>
