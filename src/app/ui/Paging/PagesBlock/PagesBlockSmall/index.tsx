@@ -25,6 +25,9 @@ const sheet = jss.createStyleSheet(getClasses()).attach();
 const { classes } = sheet;
 
 type Props = {
+  onClick: (page: number) => void;
+  page: number;
+  totalPages: number;
 };
 type State = {
 };

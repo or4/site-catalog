@@ -30,6 +30,9 @@ const { classes } = sheet;
 
 type Props = {
   className?: string;
+  onClick: (page: number) => void;
+  page: number;
+  totalPages: number;
 };
 type State = {
 };

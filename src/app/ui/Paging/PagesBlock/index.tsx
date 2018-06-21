@@ -30,17 +30,19 @@ const { classes } = sheet;
 type Props = {
   className?: string;
   isSmall: boolean;
-  onClick: (data: string) => void;
+  onClick: (page: number) => void;
+  page: number;
+  totalPages: number;
 };
 type State = {
 };
 
 class PagesBlock extends React.PureComponent<Props, State> {
   render() {
-    const { className, isSmall, onClick } = this.props;
+    const { className, isSmall, onClick, page, totalPages } = this.props;
     return (
       <div className={join(classes.container, className)}>
-        {isSmall ? <PagesBlockSmall /> : <PagesBlockMedium />}
+        {isSmall ? <PagesBlockSmall onClick={onClick} page={page} totalPages={totalPages} /> : <PagesBlockMedium onClick={onClick} page={page} totalPages={totalPages} />}
       </div>
     );
   }

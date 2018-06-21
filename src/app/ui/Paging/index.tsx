@@ -32,15 +32,15 @@ const { classes } = sheet;
 
 type Props = {
   className?: string;
-  onPagesClick?: (data: string) => void;
+  onPagesClick?: (page: number) => void;
   onAmountClick?: (data: string) => void;
 };
 type State = {
 };
 
 class Paging extends React.PureComponent<Props, State> {
-  onPagesClick = (data: string) => {
-    log('onPagesClick', data);
+  onPagesClick = (page: number) => {
+    log('onPagesClick', page);
   }
   onAmountClick = (data: string) => {
     log('onAmountClick', data);
@@ -53,8 +53,8 @@ class Paging extends React.PureComponent<Props, State> {
     const { className, } = this.props;
     return (
       <div className={join(classes.container, className)}>
-        <PagesBlock onClick={this.onPagesClick} className={classes.pagesContainer} isSmall={isSmall()} />
-        <AmountBlock onClick={this.onAmountClick} className={classes.amountContainer} isSmall={isSmall()} />
+        <PagesBlock className={classes.pagesContainer} isSmall={isSmall()} onClick={this.onPagesClick} page={2} totalPages={4} />
+        <AmountBlock className={classes.amountContainer} isSmall={isSmall()} onClick={this.onAmountClick} />
       </div>);
   }
 }
