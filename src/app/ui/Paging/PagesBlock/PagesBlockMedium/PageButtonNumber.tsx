@@ -1,6 +1,6 @@
 import React from 'react';
 import jss from 'jss';
-import PageButtonBase from 'ui/Paging/PagesBlock/PageButtonBase';
+import PageButtonBase from '../common/PageButtonBase';
 
 type Props = {
 };

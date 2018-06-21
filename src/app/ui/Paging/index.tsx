@@ -1,7 +1,6 @@
 import React from 'react';
-import PagingMedium from 'ui/Paging/PagingMedium';
 import { isSmall, isInitial } from 'util/responsive';
-import PagingSmall from 'ui/Paging/PagingSmall';
+import PagesBlock from 'ui/Paging/PagesBlock';
 
 type Props = {
 };
@@ -14,7 +13,7 @@ class Paging extends React.PureComponent<Props, State> {
       return null;
     }
 
-    return isSmall() ? <PagingSmall /> : <PagingMedium />;
+    return <PagesBlock isSmall={isSmall()} />;
   }
 }
 export default Paging;
