@@ -10,8 +10,6 @@ const getClasses = () => {
   const container = {
     padding: '0 13px',
   };
-  const span = {
-  };
   const image = {
     transform: 'rotate(270deg)',
     marginLeft: '13px',
@@ -20,7 +18,6 @@ const getClasses = () => {
 
   return {
     container,
-    span,
     image,
   };
 };
@@ -39,7 +36,7 @@ class PageButtonMediumNext extends React.PureComponent<Props, State> {
     const { className } = this.props;
     return (
       <PageButtonBase className={[classes.container, className].join(' ')} borderRadius="full">
-        <span className={classes.span}>Вперед</span>
+        <span>Вперед</span>
         <img className={classes.image} src={arrowIconBase64} alt="" />
       </PageButtonBase>
     );

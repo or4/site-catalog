@@ -1,23 +1,29 @@
 import React from 'react';
 import PageButtonBase from '../common/PageButtonBase';
+import { arrowIconBase64 } from 'ui/icons/base64';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
 jss.setup(preset());
 
 type Props = {
+  className?: string;
 };
 type State = {
 };
 
 const getClasses = () => {
-  const button = {
-    textAlign: 'center' as 'center',
-    width: '32px',
+  const container = {
+  };
+  const image = {
+    transform: 'rotate(270deg)',
+    marginLeft: '13px',
+    marginBottom: '1px',
   };
 
   return {
-    button,
+    container,
+    image,
   };
 };
 
@@ -26,9 +32,10 @@ const { classes } = sheet;
 
 class PageButtonSmallNext extends React.PureComponent<Props, State> {
   render() {
+    const { className } = this.props;
     return (
-      <PageButtonBase borderRadius={'right'} className={classes.button}>
-        {this.props.children}
+      <PageButtonBase className={[classes.container, className].join(' ')} borderRadius={'right'}>
+        <img className={classes.image} src={arrowIconBase64} alt="" />
       </PageButtonBase>
     );
   }

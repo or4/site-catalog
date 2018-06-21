@@ -21,12 +21,9 @@ const getClasses = () => {
     marginRight: '13px',
     marginBottom: '1px',
   };
-  const span = {
-  };
 
   return {
     container,
-    span,
     image,
   };
 };
