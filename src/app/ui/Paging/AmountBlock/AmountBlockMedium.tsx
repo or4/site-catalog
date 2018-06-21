@@ -4,6 +4,7 @@ import { flexRow } from 'ui/theme';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
+import { amountValues } from 'ui/Paging/AmountBlock';
 jss.setup(preset());
 
 const getClasses = () => {
@@ -27,20 +28,33 @@ const sheet = jss.createStyleSheet(getClasses()).attach();
 const { classes } = sheet;
 
 type Props = {
-  onClick: () => void;
+  onClick: (data: string) => void;
 };
 type State = {
 };
 
 class AmountBlockMedium extends React.PureComponent<Props, State> {
-  render() {
+  content: Array<any>;
+  componentDidMount() {
     const { onClick } = this.props;
+
+    const lastIndex = amountValues.length - 1;
+    this.content = amountValues.map(
+      (value: string, index: number) => (
+        <AmountBlockMediumItem
+          className={index !== lastIndex ? classes.item : classes.itemAll}
+          key={value}
+          onClick={onClick.bind(null, value)}
+        >
+          {value}
+        </AmountBlockMediumItem>
+      )
+    );
+  }
+  render() {
     return (
       <div className={classes.container}>
-        <AmountBlockMediumItem onClick={onClick} className={classes.item}>50</AmountBlockMediumItem>
-        <AmountBlockMediumItem onClick={onClick} className={classes.item}>150</AmountBlockMediumItem>
-        <AmountBlockMediumItem onClick={onClick} className={classes.item}>300</AmountBlockMediumItem>
-        <AmountBlockMediumItem onClick={onClick} className={classes.itemAll}>все</AmountBlockMediumItem>
+        {this.content}
       </div>
     );
   }

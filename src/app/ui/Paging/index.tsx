@@ -7,6 +7,7 @@ import AmountBlock from 'ui/Paging/AmountBlock';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
+import { log } from 'util/logger';
 jss.setup(preset());
 
 const getClasses = () => {
@@ -31,23 +32,29 @@ const { classes } = sheet;
 
 type Props = {
   className?: string;
-  onPagesClick?: () => void;
-  onAmountClick?: () => void;
+  onPagesClick?: (data: string) => void;
+  onAmountClick?: (data: string) => void;
 };
 type State = {
 };
 
 class Paging extends React.PureComponent<Props, State> {
+  onPagesClick = (data: string) => {
+    log('onPagesClick', data);
+  }
+  onAmountClick = (data: string) => {
+    log('onAmountClick', data);
+  }
   render() {
     if (isInitial()) {
       return null;
     }
 
-    const { className, onPagesClick, onAmountClick } = this.props;
+    const { className, } = this.props;
     return (
       <div className={join(classes.container, className)}>
-        <PagesBlock onClick={onPagesClick} className={classes.pagesContainer} isSmall={isSmall()} />
-        <AmountBlock onClick={onAmountClick} className={classes.amountContainer} isSmall={isSmall()} />
+        <PagesBlock onClick={this.onPagesClick} className={classes.pagesContainer} isSmall={isSmall()} />
+        <AmountBlock onClick={this.onAmountClick} className={classes.amountContainer} isSmall={isSmall()} />
       </div>);
   }
 }

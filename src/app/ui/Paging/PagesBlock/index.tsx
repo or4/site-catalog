@@ -30,7 +30,7 @@ const { classes } = sheet;
 type Props = {
   className?: string;
   isSmall: boolean;
-  onClick: () => void;
+  onClick: (data: string) => void;
 };
 type State = {
 };
