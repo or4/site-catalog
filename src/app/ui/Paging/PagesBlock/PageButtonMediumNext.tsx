@@ -1,7 +1,7 @@
 import React from 'react';
 import jss from 'jss';
-import PageButtonText from 'ui/Paging/PagesBlock/PageButtonText';
 import { arrowIconBase64 } from 'ui/icons/base64';
+import PageButtonBase from 'ui/Paging/PagesBlock/PageButtonBase';
 
 type Props = {
 };
@@ -10,8 +10,8 @@ type State = {
 
 const getClasses = () => {
   const image = {
-    transform: 'rotate(90deg)',
-    marginRight: '13px',
+    transform: 'rotate(270deg)',
+    marginLeft: '13px',
     marginBottom: '1px',
   };
 
@@ -23,14 +23,14 @@ const getClasses = () => {
 const sheet = jss.createStyleSheet(getClasses()).attach();
 const { classes } = sheet;
 
-class PageButtonTextNext extends React.PureComponent<Props, State> {
+class PageButtonMediumNext extends React.PureComponent<Props, State> {
   render() {
     return (
-      <PageButtonText>
-        <span>Назад</span>
+      <PageButtonBase>
+        <span>Вперед</span>
         <img className={classes.image} src={arrowIconBase64} alt="" />
-      </PageButtonText>
+      </PageButtonBase>
     );
   }
 }
-export default PageButtonTextNext;
+export default PageButtonMediumNext;

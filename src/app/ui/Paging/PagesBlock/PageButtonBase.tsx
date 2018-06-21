@@ -3,7 +3,7 @@ import { theme } from 'ui/theme';
 import jss from 'jss';
 
 type Props = {
-  className: string;
+  className?: string;
 };
 type State = {
 };

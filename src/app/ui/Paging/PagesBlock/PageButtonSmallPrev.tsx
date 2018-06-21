@@ -21,7 +21,7 @@ const getClasses = () => {
 const sheet = jss.createStyleSheet(getClasses()).attach();
 const { classes } = sheet;
 
-class PageButtonText extends React.PureComponent<Props, State> {
+class PageButtonSmallPrev extends React.PureComponent<Props, State> {
   render() {
     return (
       <PageButtonBase className={classes.button}>
@@ -30,4 +30,4 @@ class PageButtonText extends React.PureComponent<Props, State> {
     );
   }
 }
-export default PageButtonText;
+export default PageButtonSmallPrev;
