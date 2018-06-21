@@ -1,18 +1,11 @@
 import React from 'react';
 import AmountBlockMediumItemBase from 'ui/Paging/AmountBlock/AmountBlockMediumItemBase';
 import { flexRow } from 'ui/theme';
+import { join } from 'util/helpers';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
-import { join } from 'util/helpers';
 jss.setup(preset());
-
-type Props = {
-  className?: string;
-};
-type State = {
-};
-
 
 const getClasses = () => {
   const container = {
@@ -26,6 +19,12 @@ const getClasses = () => {
 
 const sheet = jss.createStyleSheet(getClasses()).attach();
 const { classes } = sheet;
+
+type Props = {
+  className?: string;
+};
+type State = {
+};
 
 class AmountBlockMediumItem extends React.PureComponent<Props, State> {
   render() {
