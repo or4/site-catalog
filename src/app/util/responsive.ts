@@ -10,11 +10,13 @@ const screenSizeDimesions: {[key in ScreenSize] : number} = {
 };
 
 // return 0, when server rendering
-const getWidth = () => {
+export const getWidth = () => {
   try { return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth } catch (e) { return 0 }
 };
 
-// const getHeight = () => window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+export const getHeight = () => {
+  try { return window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight } catch (e) { return 0 }
+};
 const isSize = (size: ScreenSize) => getWidth() <= screenSizeDimesions[size];
 
 export const isInitial = () => {

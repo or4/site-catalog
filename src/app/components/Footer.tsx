@@ -1,6 +1,7 @@
 import React from 'react';
 import { theme, flexColumn } from 'ui/theme';
 import { log } from 'util/logger';
+import { getWidth, getHeight } from 'util/responsive';
 
 type Props = {
 };
@@ -43,6 +44,8 @@ class Footer extends React.PureComponent<Props, State> {
           Информация, представленная на сайте, не является публичной офертой.
           Полное или частичное использование материалов сайта возможно только с письменного разрешения Фирмы &quot;Резинотехника&quot;.
         </div>
+        <div>{`screen width: ${getWidth()}px`}</div>
+        <div>{`screen height: ${getHeight()}px`}</div>
       </div>
     );
   }

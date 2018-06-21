@@ -11,6 +11,7 @@ type State = {
 class PagesBlockMedium extends React.PureComponent<Props, State> {
   getStyle() {
     const container = {
+      display: 'flex',
     };
     return {
       container,

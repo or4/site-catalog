@@ -9,6 +9,7 @@ type State = {
 
 const getClasses = () => {
   const button = {
+    background: 'green',
     textAlign: 'center' as 'center',
     width: '32px',
   };
