@@ -14,10 +14,10 @@ type State = {
 
 const getClasses = () => {
   const container = {
+    padding: '0 10px',
   };
   const image = {
     transform: 'rotate(270deg)',
-    marginLeft: '13px',
     marginBottom: '1px',
   };
 

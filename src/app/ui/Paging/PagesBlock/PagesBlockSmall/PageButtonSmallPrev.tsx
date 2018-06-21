@@ -14,6 +14,7 @@ type State = {
 
 const getClasses = () => {
   const container = {
+    padding: '0 10px',
   };
   const image = {
     transform: 'rotate(90deg)',

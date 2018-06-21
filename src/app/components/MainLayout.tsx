@@ -42,6 +42,8 @@ class MainLayout extends React.Component<Props, State> {
 
   getStyle = () => {
     const container = {
+      maxWidth: '100%',
+      overflow: 'hidden' as 'hidden',
     };
 
     return {

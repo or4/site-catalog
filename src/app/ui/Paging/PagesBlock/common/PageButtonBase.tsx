@@ -9,6 +9,7 @@ const getClasses = () => {
   const container = {
     background: 'transparent' as 'transparent',
     border: '1px solid rgba(0, 0, 0, 0.2)',
+    boxSizing: 'border-box' as 'border-box',
     // borderRadius: '3px',
     cursor: 'pointer',
     height: '28px',

@@ -34,8 +34,8 @@ class PagesBlockSmall extends React.PureComponent<Props, State> {
     //const {  } = this.props;
     return (
       <div className={classes.container}>
-        <PageButtonSmallNext className={classes.next} />
         <PageButtonSmallPrev className={classes.prev} />
+        <PageButtonSmallNext className={classes.next} />
       </div>
     );
   }
