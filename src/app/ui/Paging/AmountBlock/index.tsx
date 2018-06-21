@@ -18,19 +18,23 @@ const getClasses = () => {
 const sheet = jss.createStyleSheet(getClasses()).attach();
 const { classes } = sheet;
 
+export type AmountType = 'small' | 'medium' | 'large' | 'all';
+
+
 type Props = {
   className?: string;
   isSmall: boolean;
+  onClick: () => void;
 };
 type State = {
 };
 
 class AmountBlock extends React.PureComponent<Props, State> {
   render() {
-    const { className, isSmall } = this.props;
+    const { className, isSmall, onClick } = this.props;
     return (
       <div className={join(classes.container, className)}>
-        <AmountBlockMedium />
+        <AmountBlockMedium onClick={onClick} />
       </div>
     );
   }

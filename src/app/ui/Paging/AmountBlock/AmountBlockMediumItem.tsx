@@ -22,15 +22,16 @@ const { classes } = sheet;
 
 type Props = {
   className?: string;
+  onClick: () => void;
 };
 type State = {
 };
 
 class AmountBlockMediumItem extends React.PureComponent<Props, State> {
   render() {
-    const { className } = this.props;
+    const { className, onClick } = this.props;
     return (
-      <AmountBlockMediumItemBase className={join(classes.container, className)} >
+      <AmountBlockMediumItemBase className={join(classes.container, className)} onClick={onClick}>
         {this.props.children}
       </AmountBlockMediumItemBase>
     );

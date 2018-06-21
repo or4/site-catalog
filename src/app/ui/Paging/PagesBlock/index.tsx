@@ -30,13 +30,14 @@ const { classes } = sheet;
 type Props = {
   className?: string;
   isSmall: boolean;
+  onClick: () => void;
 };
 type State = {
 };
 
 class PagesBlock extends React.PureComponent<Props, State> {
   render() {
-    const { className, isSmall } = this.props;
+    const { className, isSmall, onClick } = this.props;
     return (
       <div className={join(classes.container, className)}>
         {isSmall ? <PagesBlockSmall /> : <PagesBlockMedium />}

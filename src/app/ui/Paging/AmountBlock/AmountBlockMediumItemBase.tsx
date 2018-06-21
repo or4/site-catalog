@@ -29,6 +29,7 @@ const getClasses = () => {
 
 type Props = {
   className?: string;
+  onClick: () => void;
 };
 type State = {
 };
@@ -38,9 +39,9 @@ const { classes } = sheet;
 
 class AmountBlockMediumItemBase extends React.PureComponent<Props, State> {
   render() {
-    const { className, } = this.props;
+    const { className, onClick } = this.props;
     return (
-      <div className={join(classes.container, className)}>
+      <div className={join(classes.container, className)} onClick={onClick} >
         {this.props.children}
       </div>
     );
