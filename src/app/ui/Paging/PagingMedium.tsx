@@ -2,8 +2,8 @@ import React from 'react';
 import { theme, flexRow } from 'ui/theme';
 
 import jss from 'jss';
-import preset from 'jss-preset-default';
-jss.setup(preset());
+// import preset from 'jss-preset-default';
+// jss.setup(preset());
 
 type Props = {
   from?: number;
@@ -14,6 +14,17 @@ type Props = {
 type State = {
 };
 
+const getClassNames = () => {
+  return {
+    test: {
+      background: 'green'
+    }
+  };
+};
+const sheet = jss.createStyleSheet(getClassNames()).attach();
+const { classes } = sheet;
+
+
 
 class PagingMedium extends React.PureComponent<Props, State> {
   // test: any;
@@ -22,13 +33,6 @@ class PagingMedium extends React.PureComponent<Props, State> {
     // const sheet = jss.createStyleSheet(this.getClassNames()).attach();
     // const { classes } = sheet;
     // this.test = classes;
-  }
-  getClassNames = () => {
-    return {
-      test: {
-        background: 'green'
-      }
-    };
   }
   getStyle() {
     const container = {
@@ -125,18 +129,15 @@ class PagingMedium extends React.PureComponent<Props, State> {
   }
 
   render() {
-    // url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iNiIgdmlld0JveD0iMCAwIDEyIDYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRpdGxlPlNoYXBlIDI8L3RpdGxlPjxwYXRoIGQ9Ik0uOCAwTDYgNC42IDExLjIgMGwuOC43TDYgNiAwIC43LjggMHoiIGZpbGw9IiMwMDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==)
     const style = this.getStyle();
 
-    const sheet = jss.createStyleSheet(this.getClassNames()).attach();
-    const { classes } = sheet;
-
+    const icon = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iNiIgdmlld0JveD0iMCAwIDEyIDYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRpdGxlPlNoYXBlIDI8L3RpdGxlPjxwYXRoIGQ9Ik0uOCAwTDYgNC42IDExLjIgMGwuOC43TDYgNiAwIC43LjggMHoiIGZpbGw9IiMwMDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==';
 
     return (
       <div style={style.container} className={classes && classes.test || 'assd'}>
         <div style={style.selectPageContainer}>
           <div style={style.pagePrevButton}>
-            <img style={style.pagePrevButtonImg} src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iNiIgdmlld0JveD0iMCAwIDEyIDYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRpdGxlPlNoYXBlIDI8L3RpdGxlPjxwYXRoIGQ9Ik0uOCAwTDYgNC42IDExLjIgMGwuOC43TDYgNiAwIC43LjggMHoiIGZpbGw9IiMwMDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==" alt="" />
+            <img style={style.pagePrevButtonImg} src={icon} alt="" />
             Назад
           </div>
           <div style={style.pageButton}>1</div>
@@ -146,7 +147,7 @@ class PagingMedium extends React.PureComponent<Props, State> {
           <div style={style.pageButton}>5</div>
           <div style={style.pageNextButton}>
             Вперед
-            <img style={style.pageNextButtonImg} src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iNiIgdmlld0JveD0iMCAwIDEyIDYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRpdGxlPlNoYXBlIDI8L3RpdGxlPjxwYXRoIGQ9Ik0uOCAwTDYgNC42IDExLjIgMGwuOC43TDYgNiAwIC43LjggMHoiIGZpbGw9IiMwMDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==" alt="" />
+            <img style={style.pageNextButtonImg} src={icon} alt="" />
           </div>
         </div>
         <div style={style.selectAmountContainer}>

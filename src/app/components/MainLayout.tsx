@@ -13,6 +13,9 @@ import { log } from 'util/logger';
 import { isInitial } from 'util/responsive';
 import Resize from 'components/Resize';
 
+import jss from 'jss';
+import preset from 'jss-preset-default';
+jss.setup(preset());
 
 type StateProps = {
   categories: TCategory[];

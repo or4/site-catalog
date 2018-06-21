@@ -9,9 +9,7 @@ import { getCategoryCaption } from 'core/catalog/categories/common';
 import { TCategory } from 'core/catalog/categories/types';
 import { convertImgUrl } from 'core/common';
 import { log } from 'util/logger';
-import PagingMedium from 'ui/PagingMedium';
-import { isSmall } from 'util/responsive';
-import PagingSmall from 'ui/PagingSmall';
+import Paging from 'ui/Paging';
 
 type OwnProps = {
   routeParams: any;
@@ -38,7 +36,7 @@ class Products extends React.PureComponent<Props, State> {
     log('Catalog render');
     return (
       <MiddleLayout route={'/catalog'}>
-        {isSmall() ? <PagingSmall /> : <PagingMedium />}
+        <Paging />
         <h2>Цены на товары категории «{this.getCaption()}» на 23.05.2018 в тенге с учетом НДС</h2>
         <ul>
           {this.props.items.map((item: TItem) => <li key={item.id}>{item.name}</li>)}
