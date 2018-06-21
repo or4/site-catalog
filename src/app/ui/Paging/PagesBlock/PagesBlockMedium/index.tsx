@@ -40,13 +40,13 @@ class PagesBlockMedium extends React.PureComponent<Props, State> {
     //const {  } = this.props;
     return (
       <div className={classes.container}>
-        <PageButtonMediumNext className={classes.next} />
+        <PageButtonMediumPrev className={classes.prev} />
         <PageButtonNumber borderRadius={'left'}> 1 </PageButtonNumber>
         <PageButtonNumber borderRadius={'none'}> 2 </PageButtonNumber>
         <PageButtonNumber borderRadius={'none'}> 3 </PageButtonNumber>
         <PageButtonNumber borderRadius={'none'}> 4 </PageButtonNumber>
         <PageButtonNumber borderRadius={'right'}> 5 </PageButtonNumber>
-        <PageButtonMediumPrev className={classes.prev} />
+        <PageButtonMediumNext className={classes.next} />
       </div>
     );
   }
