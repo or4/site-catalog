@@ -1,25 +1,35 @@
 import React from 'react';
-// import { theme } from 'ui/theme';
+import AmountBlockMedium from 'ui/Paging/AmountBlock/AmountBlockMedium';
+
+import jss from 'jss';
+import preset from 'jss-preset-default';
+jss.setup(preset());
+
+const getClasses = () => {
+  const container = {
+    display: 'flex',
+  };
+  return {
+    container,
+  };
+};
+
+const sheet = jss.createStyleSheet(getClasses()).attach();
+const { classes } = sheet;
 
 type Props = {
+  className?: string;
+  isSmall: boolean;
 };
 type State = {
 };
 
 class AmountBlock extends React.PureComponent<Props, State> {
-  getStyle() {
-    const ComponentStyle = {
-    };
-    return {
-      ComponentStyle,
-    };
-  }
   render() {
-    const style = this.getStyle();
-    //const {  } = this.props;
+    const { className, isSmall } = this.props;
     return (
-      <div style={style.ComponentStyle}>
-        AmountBlock`
+      <div className={[classes.container, className].join(' ')}>
+        <AmountBlockMedium />
       </div>
     );
   }

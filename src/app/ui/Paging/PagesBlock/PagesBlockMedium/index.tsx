@@ -28,18 +28,16 @@ const sheet = jss.createStyleSheet(getClasses()).attach();
 const { classes } = sheet;
 
 type Props = {
+  className?: string;
 };
 type State = {
 };
 
 class PagesBlockMedium extends React.PureComponent<Props, State> {
-  getStyle() {
-  }
   render() {
-    const style = this.getStyle();
-    //const {  } = this.props;
+    const { className } = this.props;
     return (
-      <div className={classes.container}>
+      <div className={[classes.container, className].join(' ')}>
         <PageButtonMediumPrev className={classes.prev} />
         <PageButtonNumber borderRadius={'left'}> 1 </PageButtonNumber>
         <PageButtonNumber borderRadius={'none'}> 2 </PageButtonNumber>

@@ -1,0 +1,1 @@
+export const join = (...rest: string[]) => rest.join(' ');
