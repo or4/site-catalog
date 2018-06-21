@@ -1,6 +1,9 @@
 import React from 'react';
-import { theme } from 'ui/theme';
+import { theme, flexRow } from 'ui/theme';
+
 import jss from 'jss';
+import preset from 'jss-preset-default';
+jss.setup(preset());
 
 type Props = {
   className?: string;
@@ -9,7 +12,7 @@ type State = {
 };
 
 const getClasses = () => {
-  const button = {
+  const container = {
     background: 'transparent' as 'transparent',
     border: '1px solid rgba(0, 0, 0, 0.2)',
     borderRadius: '3px',
@@ -18,6 +21,7 @@ const getClasses = () => {
     transition: '.1s ease-out',
 
     ...theme.paging.text,
+    ...flexRow('center', 'center'),
 
     '&:hover': {
       border: '1px solid rgba(0, 0, 0, 0.3)',
@@ -25,7 +29,7 @@ const getClasses = () => {
   };
 
   return {
-    button,
+    container,
   };
 };
 
@@ -37,7 +41,7 @@ class PageButtonBase extends React.PureComponent<Props, State> {
   render() {
     const { className } = this.props;
     return (
-      <div className={[classes.button, className].join(' ')}>
+      <div className={[classes.container, className].join(' ')}>
         {this.props.children}
       </div>
     );

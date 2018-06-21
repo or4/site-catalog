@@ -1,21 +1,32 @@
 import React from 'react';
-import jss from 'jss';
 import { arrowIconBase64 } from 'ui/icons/base64';
 import PageButtonBase from '../common/PageButtonBase';
 
+import jss from 'jss';
+import preset from 'jss-preset-default';
+jss.setup(preset());
+
 type Props = {
+  className?: string;
 };
 type State = {
 };
 
 const getClasses = () => {
+  const container = {
+    padding: '0 13px',
+  };
   const image = {
     transform: 'rotate(90deg)',
     marginRight: '13px',
     marginBottom: '1px',
   };
+  const span = {
+  };
 
   return {
+    container,
+    span,
     image,
   };
 };
@@ -25,8 +36,9 @@ const { classes } = sheet;
 
 class PageButtonMediumPrev extends React.PureComponent<Props, State> {
   render() {
+    const { className } = this.props;
     return (
-      <PageButtonBase>
+      <PageButtonBase className={[classes.container, className].join(' ')}>
         <img className={classes.image} src={arrowIconBase64} alt="" />
         <span>Назад</span>
       </PageButtonBase>

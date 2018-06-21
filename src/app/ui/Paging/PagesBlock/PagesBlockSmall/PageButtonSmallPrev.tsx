@@ -1,6 +1,9 @@
 import React from 'react';
-import jss from 'jss';
 import PageButtonBase from '../common/PageButtonBase';
+
+import jss from 'jss';
+import preset from 'jss-preset-default';
+jss.setup(preset());
 
 type Props = {
 };

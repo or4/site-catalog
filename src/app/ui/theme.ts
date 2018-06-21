@@ -97,22 +97,22 @@ export const theme = {
 type TAlignItems = 'center';
 type TJustifyContent = 'center' | 'space-between';
 
-export const flexRow = (alignItems: TAlignItems, justifyContent: TJustifyContent) => {
+export const flexRow = (alignItems?: TAlignItems, justifyContent?: TJustifyContent) => {
   const style = {
-    alignItems,
     display: 'flex',
     flexDirection: 'row' as 'row',
-    justifyContent,
   };
+  alignItems && Object.assign(style, { alignItems, });
+  justifyContent && Object.assign(style, { justifyContent, });
   return style;
 };
 
-export const flexColumn = (alignItems: TAlignItems, justifyContent: TJustifyContent) => {
+export const flexColumn = (alignItems?: TAlignItems, justifyContent?: TJustifyContent) => {
   const style = {
-    alignItems,
     display: 'flex',
     flexDirection: 'column' as 'column',
-    justifyContent,
   };
+  alignItems && Object.assign(style, { alignItems, });
+  justifyContent && Object.assign(style, { justifyContent, });
   return style;
 };
