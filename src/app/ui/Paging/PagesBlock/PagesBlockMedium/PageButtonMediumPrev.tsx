@@ -1,7 +1,7 @@
 import React from 'react';
 import jss from 'jss';
 import { arrowIconBase64 } from 'ui/icons/base64';
-import PageButtonBase from 'ui/Paging/PagesBlock/PageButtonBase';
+import PageButtonBase from '../common/PageButtonBase';
 
 type Props = {
 };
