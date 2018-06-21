@@ -1,5 +1,5 @@
 import React from 'react';
-import PageButtonBase from '../common/PageButtonBase';
+import PageButtonBase, { BorderRadius } from '../common/PageButtonBase';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
@@ -7,6 +7,7 @@ jss.setup(preset());
 
 type Props = {
   className?: string;
+  borderRadius: BorderRadius;
 };
 type State = {
 };
@@ -26,9 +27,9 @@ const { classes } = sheet;
 
 class PageButtonNumber extends React.PureComponent<Props, State> {
   render() {
-    const { className } = this.props;
+    const { borderRadius, className } = this.props;
     return (
-      <PageButtonBase className={[classes.container, className].join(' ')}>
+      <PageButtonBase borderRadius={borderRadius} className={[classes.container, className].join(' ')} >
         {this.props.children}
       </PageButtonBase>
     );

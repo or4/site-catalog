@@ -38,7 +38,7 @@ class PageButtonMediumPrev extends React.PureComponent<Props, State> {
   render() {
     const { className } = this.props;
     return (
-      <PageButtonBase className={[classes.container, className].join(' ')}>
+      <PageButtonBase className={[classes.container, className].join(' ')} borderRadius="full">
         <img className={classes.image} src={arrowIconBase64} alt="" />
         <span>Назад</span>
       </PageButtonBase>

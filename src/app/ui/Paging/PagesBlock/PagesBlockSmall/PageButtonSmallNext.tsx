@@ -27,7 +27,7 @@ const { classes } = sheet;
 class PageButtonSmallNext extends React.PureComponent<Props, State> {
   render() {
     return (
-      <PageButtonBase className={classes.button}>
+      <PageButtonBase borderRadius={'right'} className={classes.button}>
         {this.props.children}
       </PageButtonBase>
     );
