@@ -1,16 +1,17 @@
 import React from 'react';
 import { isSmall, isInitial } from 'util/responsive';
+import { flexRow } from 'ui/theme';
+import { join } from 'util/helpers';
 import PagesBlock from 'ui/Paging/PagesBlock';
 import AmountBlock from 'ui/Paging/AmountBlock';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
-import { join } from 'util/helpers';
 jss.setup(preset());
 
 const getClasses = () => {
   const container = {
-    display: 'flex',
+    ...flexRow()
   };
   const pagesContainer = {
     margin: '0 auto 0 0'
