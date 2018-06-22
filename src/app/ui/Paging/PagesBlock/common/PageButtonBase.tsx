@@ -49,6 +49,7 @@ export type BorderRadius = 'none' | 'right' | 'left' | 'full';
 type Props = {
   className?: string;
   borderRadius: BorderRadius;
+  onClick?: () => void;
 };
 type State = {
 };
@@ -61,7 +62,7 @@ class PageButtonBase extends React.PureComponent<Props, State> {
   render() {
     const { className, borderRadius } = this.props;
     return (
-      <div className={[classes.container, borderClasses[borderRadius], className].join(' ')}>
+      <div className={[classes.container, borderClasses[borderRadius], className].join(' ')} onClick={this.props.onClick}>
         {this.props.children}
       </div>
     );

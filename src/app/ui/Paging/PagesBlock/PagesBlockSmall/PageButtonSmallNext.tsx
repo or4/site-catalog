@@ -7,12 +7,6 @@ import preset from 'jss-preset-default';
 import { join } from 'util/helpers';
 jss.setup(preset());
 
-type Props = {
-  className?: string;
-};
-type State = {
-};
-
 const getClasses = () => {
   const container = {
     padding: '0 10px',
@@ -31,11 +25,18 @@ const getClasses = () => {
 const sheet = jss.createStyleSheet(getClasses()).attach();
 const { classes } = sheet;
 
+type Props = {
+  className?: string;
+  onClick: () => void;
+};
+type State = {
+};
+
 class PageButtonSmallNext extends React.PureComponent<Props, State> {
   render() {
     const { className } = this.props;
     return (
-      <PageButtonBase className={join(classes.container, className)} borderRadius={'right'}>
+      <PageButtonBase className={join(classes.container, className)} borderRadius={'right'} onClick={this.props.onClick}>
         <img className={classes.image} src={arrowIconBase64} alt="" />
       </PageButtonBase>
     );

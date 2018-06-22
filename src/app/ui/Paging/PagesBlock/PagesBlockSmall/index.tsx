@@ -4,6 +4,7 @@ import PageButtonSmallPrev from './PageButtonSmallPrev';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
+import { getPrevPage, getNextPage } from 'util/pages';
 jss.setup(preset());
 
 const getClasses = () => {
@@ -33,12 +34,20 @@ type State = {
 };
 
 class PagesBlockSmall extends React.PureComponent<Props, State> {
+  onPrevClick = () => {
+    const { onClick, page, } = this.props;
+    onClick && onClick(getPrevPage(page, 1));
+  }
+  onNextClick = () => {
+    const { onClick, page, totalPages, } = this.props;
+    onClick && onClick(getNextPage(page, 1, totalPages));
+  }
   render() {
     //const {  } = this.props;
     return (
       <div className={classes.container}>
-        <PageButtonSmallPrev className={classes.prev} />
-        <PageButtonSmallNext className={classes.next} />
+        <PageButtonSmallPrev className={classes.prev} onClick={this.onPrevClick} />
+        <PageButtonSmallNext className={classes.next} onClick={this.onNextClick} />
       </div>
     );
   }

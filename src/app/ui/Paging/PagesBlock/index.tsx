@@ -40,9 +40,12 @@ type State = {
 class PagesBlock extends React.PureComponent<Props, State> {
   render() {
     const { className, isSmall, onClick, page, totalPages } = this.props;
+    const content = isSmall ? <PagesBlockSmall onClick={onClick} page={page} totalPages={totalPages} /> :
+      <PagesBlockMedium onClick={onClick} page={page} totalPages={totalPages} />;
+
     return (
       <div className={join(classes.container, className)}>
-        {isSmall ? <PagesBlockSmall onClick={onClick} page={page} totalPages={totalPages} /> : <PagesBlockMedium onClick={onClick} page={page} totalPages={totalPages} />}
+        {content}
       </div>
     );
   }
