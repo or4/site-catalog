@@ -15,6 +15,7 @@ import Resize from 'components/Resize';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
+import ScreenSize from 'ui/ScreenSize';
 jss.setup(preset());
 
 type StateProps = {
@@ -70,6 +71,7 @@ class MainLayout extends React.Component<Props, State> {
 
         <Footer />
         <Resize />
+        <ScreenSize />
       </div>
     );
   }
