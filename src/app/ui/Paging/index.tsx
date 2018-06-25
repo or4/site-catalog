@@ -35,6 +35,8 @@ type Props = {
   className?: string;
   onPagesClick?: (page: number) => void;
   onAmountClick?: (data: string) => void;
+  page: number;
+  totalPages: number;
 };
 type State = {
 };
@@ -43,9 +45,6 @@ class Paging extends React.PureComponent<Props, State> {
   componentDidMount() { subscribeResize(this, 'Paging') }
   componentWillUnmount() { unsubscribeResize(this, 'Paging') }
 
-  onPagesClick = (page: number) => {
-    log('onPagesClick', page);
-  }
   onAmountClick = (data: string) => {
     log('onAmountClick', data);
   }
@@ -54,10 +53,10 @@ class Paging extends React.PureComponent<Props, State> {
       return null;
     }
 
-    const { className, } = this.props;
+    const { className, onPagesClick, page, totalPages } = this.props;
     return (
       <div className={join(classes.container, className)}>
-        <PagesBlock className={classes.pagesContainer} isSmall={isSmall()} onClick={this.onPagesClick} page={2} totalPages={10} />
+        <PagesBlock className={classes.pagesContainer} isSmall={isSmall()} onClick={onPagesClick} page={page} totalPages={totalPages} />
         <AmountBlock className={classes.amountContainer} isSmall={isSmall()} onClick={this.onAmountClick} />
       </div>);
   }

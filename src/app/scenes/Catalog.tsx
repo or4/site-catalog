@@ -25,18 +25,25 @@ type DispatchProps = {
 type Props = StateProps & DispatchProps & OwnProps;
 
 type State = {
+  page: number;
+  totalPages: number;
 };
 
 class Products extends React.PureComponent<Props, State> {
-
+  state = { page: 1, totalPages: 10 }
   getArticle = () => ({ __html: convertImgUrl(this.props.categoryDescription) });
   getCaption = () => getCategoryCaption(this.props.categoryId, this.props.selectCategory);
 
+  onPagesClick = (page: number) => {
+    this.setState({ page, });
+    console.log('state page', page);
+  }
   render() {
     log('Catalog render');
+    const { page, totalPages } = this.state;
     return (
       <MiddleLayout route={'/catalog'}>
-        <Paging />
+        <Paging page={page} totalPages={totalPages} onPagesClick={this.onPagesClick} />
         <h2>Цены на товары категории «{this.getCaption()}» на 23.05.2018 в тенге с учетом НДС</h2>
         <ul>
           {this.props.items.map((item: TItem) => <li key={item.id}>{item.name}</li>)}
