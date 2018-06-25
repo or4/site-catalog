@@ -4,6 +4,7 @@ import { routerReducer, RouterState } from 'react-router-redux';
 import { categoriesReducer, TCategoriesState, categoriesInitialState } from 'core/catalog/categories/reducer';
 import { itemsReducer, TItemsState, itemsInitialState } from 'core/catalog/items/reducer';
 import { amountItemsReducer, TAmountItemsState, amountItemsInitialState } from 'core/settings/amountItems/reducer';
+import { pagesReducer, TPagesState, pagesInitialState } from 'core/catalog/pages/reducer';
 
 
 export type AppState = {
@@ -11,6 +12,7 @@ export type AppState = {
   categories: TCategoriesState;
   items: TItemsState;
   amountItems: TAmountItemsState;
+  pages: TPagesState;
 };
 
 export const appInitialState: AppState = {
@@ -18,6 +20,7 @@ export const appInitialState: AppState = {
   categories: categoriesInitialState,
   items: itemsInitialState,
   amountItems: amountItemsInitialState,
+  pages: pagesInitialState,
 };
 
 const rootReducer = combineReducers<AppState>({
@@ -25,6 +28,7 @@ const rootReducer = combineReducers<AppState>({
   categories: categoriesReducer,
   items: itemsReducer,
   amountItems: amountItemsReducer,
+  pages: pagesReducer,
 });
 
 export default rootReducer;
