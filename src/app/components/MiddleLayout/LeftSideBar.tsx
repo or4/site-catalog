@@ -1,8 +1,10 @@
 import React from 'react';
 import { theme } from 'ui/theme';
 import { log } from 'util/logger';
+import CompactIcon from 'ui/CompactIcon';
 
 type Props = {
+  isCompact: boolean;
 };
 type State = {
 };
@@ -23,6 +25,9 @@ class LeftSideBar extends React.PureComponent<Props, State> {
       container,
     };
   }
+  onCompactToggle = () => {
+
+  }
 
   render() {
     log('MiddleLayout LeftSideBar render');
@@ -31,6 +36,7 @@ class LeftSideBar extends React.PureComponent<Props, State> {
     return (
       <div style={style.container}>
         {this.props.children}
+        <CompactIcon onClick={this.onCompactToggle} />
       </div>
     );
   }

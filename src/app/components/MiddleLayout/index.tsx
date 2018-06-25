@@ -42,19 +42,25 @@ class MiddleLayout extends React.PureComponent<Props, State> {
 
     const contentLeftBar: any = [];
     const contentRightBar: any = [];
+    let isCompact = false;
 
     if (routeHas(route, 'tree')) {
       if (isSmall()) {
-        // empty branch
+        contentLeftBar.push(<NavigationTree key={'key-NavigationTree'} />);
+        isCompact = true;
       }
-      else if (isMedium() || isLarge()) {
+      else if (isMedium()) {
+        contentLeftBar.push(<NavigationTree key={'key-NavigationTree'} />);
+        isCompact = true;
+      }
+      else if (isLarge()) {
         contentLeftBar.push(<NavigationTree key={'key-NavigationTree'} />);
       }
     }
 
     return (
       <div style={style.container}>
-        {contentLeftBar.length !== 0 ? <LeftSideBar> {contentLeftBar} </LeftSideBar> : null}
+        {contentLeftBar.length !== 0 ? <LeftSideBar isCompact={isCompact}> {contentLeftBar} </LeftSideBar> : null}
         <div style={style.sceneContainer}>
           {this.props.children}
         </div>

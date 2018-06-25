@@ -14,12 +14,12 @@ const initialState: TState = {
 
 export type TPagesState = TState;
 export const pagesInitialState = initialState;
-export const pagesReducer: Reducer<TState> = (state: TState = initialState, action: ActionsAll | AmountItemsActionsAll): TState => {
+export const pagesReducer: Reducer<TState> = (state: TState = initialState, action: ActionsAll & AmountItemsActionsAll): TState => {
   switch (action.type) {
     case LOCATION_CHANGE:
-    case AmountItemsActionTypes.CHANGE_AMOUNT_ITEMS_ON_PAGE: {
+    case AmountItemsActionTypes.CHANGE_AMOUNT_ITEMS_ON_PAGE:
       return { ...state, page: 1 };
-    }
+
     case ActionTypes.CHANGE_PAGE:
       return { ...state, page: action.page };
     default: return state;
