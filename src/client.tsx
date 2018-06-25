@@ -7,6 +7,7 @@ import Root from './Root';
 import { configureStore } from 'store';
 import root from 'core/sagas';
 import { log, logIntendation, IntendationType } from './app/util/logger';
+import './client.scss';
 
 let regeneratorRuntime =  require('regenerator-runtime');
 

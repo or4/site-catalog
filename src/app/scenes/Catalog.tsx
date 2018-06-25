@@ -41,7 +41,7 @@ class Products extends React.PureComponent<Props, State> {
         <ul>
           {this.props.items.map((item: TItem) => <li key={item.id}>{item.name}</li>)}
         </ul>
-        <div dangerouslySetInnerHTML={this.getArticle()} />
+        <div className={'article-description'} dangerouslySetInnerHTML={this.getArticle()} />
       </MiddleLayout>
     );
   }

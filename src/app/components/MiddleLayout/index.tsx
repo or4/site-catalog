@@ -6,6 +6,7 @@ import { theme } from 'ui/theme';
 import { isLarge, isMedium, isSmall } from 'util/responsive';
 import { log } from 'util/logger';
 import NavigationTree from 'ui/NavigationTree';
+import { subscribeResize, unsubscribeResize } from 'components/Resize';
 
 
 type Props = {
@@ -17,6 +18,9 @@ type State = {
 
 
 class MiddleLayout extends React.PureComponent<Props, State> {
+  componentDidMount() { subscribeResize(this, 'MiddleLayout') }
+  componentWillUnmount() { unsubscribeResize(this, 'MiddleLayout') }
+
   getStyle() {
     const container = {
       display: 'flex',
@@ -24,7 +28,7 @@ class MiddleLayout extends React.PureComponent<Props, State> {
     };
     const sceneContainer = {
       margin: theme.content.defaultMargin1,
-      width: '100%'
+      width: 'calc(100% - 40px)',
     };
     return {
       container,
@@ -40,10 +44,10 @@ class MiddleLayout extends React.PureComponent<Props, State> {
     const contentRightBar: any = [];
 
     if (routeHas(route, 'tree')) {
-      if (isSmall()) {
+      if (isSmall() || isMedium()) {
         // empty branch
       }
-      else if (isMedium() || isLarge()) {
+      else if (isLarge()) {
         contentLeftBar.push(<NavigationTree key={'key-NavigationTree'} />);
       }
     }

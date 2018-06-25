@@ -4,6 +4,7 @@ import { flexRow } from 'ui/theme';
 import { join } from 'util/helpers';
 import PagesBlock from 'ui/Paging/PagesBlock';
 import AmountBlock from 'ui/Paging/AmountBlock';
+import { subscribeResize, unsubscribeResize } from 'components/Resize';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
@@ -39,6 +40,9 @@ type State = {
 };
 
 class Paging extends React.PureComponent<Props, State> {
+  componentDidMount() { subscribeResize(this, 'Paging') }
+  componentWillUnmount() { unsubscribeResize(this, 'Paging') }
+
   onPagesClick = (page: number) => {
     log('onPagesClick', page);
   }

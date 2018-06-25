@@ -38,6 +38,8 @@ class AmountBlockMedium extends React.PureComponent<Props, State> {
   componentDidMount() {
     const { onClick } = this.props;
 
+    console.log('amountValues', amountValues);
+
     const lastIndex = amountValues.length - 1;
     this.content = amountValues.map(
       (value: string, index: number) => (
@@ -50,8 +52,13 @@ class AmountBlockMedium extends React.PureComponent<Props, State> {
         </AmountBlockMediumItem>
       )
     );
+    console.log('this.content', this.content);
+
+    this.forceUpdate();
+
   }
   render() {
+    console.log('render this.content', this.content);
     return (
       <div className={classes.container}>
         {this.content}

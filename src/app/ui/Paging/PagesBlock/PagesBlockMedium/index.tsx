@@ -13,10 +13,10 @@ const getClasses = () => {
   const container = {
     display: 'flex',
   };
-  const next = {
+  const prev = {
     marginRight: '13px',
   };
-  const prev = {
+  const next = {
     marginLeft: '13px',
   };
   return {

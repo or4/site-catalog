@@ -32,12 +32,13 @@ class ScreenSize extends React.PureComponent<Props, State> {
   getStyle() {
     const container = {
       background: 'transparent',
-      color: 'rgba(0, 0, 0, .3)',
+      color: 'rgba(0, 0, 0, .8)',
       fontSize: '12px',
       fontFamily: 'Verdana, Tahoma, Arial, sans-serif',
       position: 'absolute' as 'absolute',
-      right: '60px',
-      top: '50px',
+      right: '30px',
+      // top: '20px',
+      bottom: '20px',
     };
     return {
       container,
