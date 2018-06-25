@@ -7,14 +7,24 @@ jss.setup(preset());
 const getClasses = () => {
   const container = {
     background: 'rgba(0, 0, 0, 0.2)',
-    borderTopRightRadius: '20px',
-    borderBottomRightRadius: '20px',
-    cursor: 'pointer',
-    height: '40px',
-    left: '0',
     position: 'fixed' as 'fixed',
-    bottom: '50%',
-    width: '20px',
+    cursor: 'pointer',
+
+    // borderTopRightRadius: '20px',
+    // borderBottomRightRadius: '20px',
+
+    // borderRadius: '20px',
+    // bottom: '40px',
+    // height: '40px',
+    // right: '40px',
+    // width: '40px',
+
+    borderTopLeftRadius: '100px',
+    bottom: '0px',
+    height: '100px',
+    right: '0px',
+    width: '100px',
+
 
     '&:hover': {
       background: 'rgba(0, 0, 0, 0.4)',
