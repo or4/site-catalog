@@ -1,7 +1,7 @@
 import React from 'react';
-import AmountBlockMediumItem from 'ui/Paging/AmountBlock/AmountBlockMediumItem';
 import { flexRow } from 'ui/theme';
 import { amountItemsKeys, AmountItemsType, amountItems } from 'core/settings/amountItems/common';
+import AmountBlockMediumItem from './AmountBlockMediumItem';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
