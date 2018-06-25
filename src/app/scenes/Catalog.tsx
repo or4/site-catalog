@@ -44,9 +44,10 @@ class Products extends React.PureComponent<Props, State> {
   }
 
   onAmountClick = (amountItems: AmountItemsType) => {
-    console.log('state amountItems', amountItems);
     changeAmountType(amountItems);
+    console.log('state amountItems', amountItems);
   }
+
   render() {
     log('Catalog render');
     const { page, totalPages } = this.state;
