@@ -1,10 +1,10 @@
 import React from 'react';
 import AmountBlockMediumItem from 'ui/Paging/AmountBlock/AmountBlockMediumItem';
 import { flexRow } from 'ui/theme';
+import { amountValues } from 'core/settings/amountItems/common';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
-import { amountValues } from 'ui/Paging/AmountBlock';
 jss.setup(preset());
 
 const getClasses = () => {
@@ -38,8 +38,6 @@ class AmountBlockMedium extends React.PureComponent<Props, State> {
   componentDidMount() {
     const { onClick } = this.props;
 
-    console.log('amountValues', amountValues);
-
     const lastIndex = amountValues.length - 1;
     this.content = amountValues.map(
       (value: string, index: number) => (
@@ -52,13 +50,10 @@ class AmountBlockMedium extends React.PureComponent<Props, State> {
         </AmountBlockMediumItem>
       )
     );
-    console.log('this.content', this.content);
 
     this.forceUpdate();
-
   }
   render() {
-    console.log('render this.content', this.content);
     return (
       <div className={classes.container}>
         {this.content}

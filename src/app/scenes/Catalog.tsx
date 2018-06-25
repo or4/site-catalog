@@ -27,16 +27,22 @@ type Props = StateProps & DispatchProps & OwnProps;
 type State = {
   page: number;
   totalPages: number;
+  amountItems: number;
 };
 
 class Products extends React.PureComponent<Props, State> {
-  state = { page: 1, totalPages: 10 }
+  state = { page: 1, totalPages: 10, amountItems: 50 }
   getArticle = () => ({ __html: convertImgUrl(this.props.categoryDescription) });
   getCaption = () => getCategoryCaption(this.props.categoryId, this.props.selectCategory);
 
   onPagesClick = (page: number) => {
     this.setState({ page, });
     console.log('state page', page);
+  }
+
+  onAmountClick = (amountItems: number) => {
+    this.setState({ amountItems, });
+    console.log('state amountItems', amountItems);
   }
   render() {
     log('Catalog render');

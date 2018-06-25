@@ -8,7 +8,6 @@ import { subscribeResize, unsubscribeResize } from 'components/Resize';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
-import { log } from 'util/logger';
 jss.setup(preset());
 
 const getClasses = () => {
@@ -45,19 +44,16 @@ class Paging extends React.PureComponent<Props, State> {
   componentDidMount() { subscribeResize(this, 'Paging') }
   componentWillUnmount() { unsubscribeResize(this, 'Paging') }
 
-  onAmountClick = (data: string) => {
-    log('onAmountClick', data);
-  }
   render() {
     if (isInitial()) {
       return null;
     }
 
-    const { className, onPagesClick, page, totalPages } = this.props;
+    const { className, onAmountClick, onPagesClick, page, totalPages } = this.props;
     return (
       <div className={join(classes.container, className)}>
         <PagesBlock className={classes.pagesContainer} isSmall={isSmall()} onClick={onPagesClick} page={page} totalPages={totalPages} />
-        <AmountBlock className={classes.amountContainer} isSmall={isSmall()} onClick={this.onAmountClick} />
+        <AmountBlock className={classes.amountContainer} isSmall={isSmall()} onClick={onAmountClick} />
       </div>);
   }
 }
