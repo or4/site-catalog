@@ -1,14 +1,16 @@
-import { Action } from 'redux';
-import { AmountType } from 'core/settings/amountItems/common';
+import { AmountItemsType } from 'core/settings/amountItems/common';
 
 export enum ActionTypes {
   CHANGE_AMOUNT_ITEMS_ON_PAGE = '[Settings/Amount items on page] Change amount items'
 }
 
-export class ChangeAmountType implements Action {
-  public readonly type = ActionTypes.CHANGE_AMOUNT_ITEMS_ON_PAGE;
-  constructor(public amountType: AmountType) { }
-}
+export type TChangeAmountType = {
+  type: ActionTypes.CHANGE_AMOUNT_ITEMS_ON_PAGE;
+  amountType: AmountItemsType;
+};
 
+export const changeAmountType = (amountType: AmountItemsType): TChangeAmountType => {
+  return { type: ActionTypes.CHANGE_AMOUNT_ITEMS_ON_PAGE, amountType, };
+};
 
-export type ActionsAll = ChangeAmountType;
+export type ActionsAll = TChangeAmountType;

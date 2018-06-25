@@ -4,6 +4,7 @@ import AmountBlockMedium from 'ui/Paging/AmountBlock/AmountBlockMedium';
 import jss from 'jss';
 import preset from 'jss-preset-default';
 import { join } from 'util/helpers';
+import { AmountItemsType } from 'core/settings/amountItems/common';
 jss.setup(preset());
 
 const getClasses = () => {
@@ -21,7 +22,7 @@ const { classes } = sheet;
 type Props = {
   className?: string;
   isSmall: boolean;
-  onClick: (data: string) => void;
+  onClick: (amountItems: AmountItemsType) => void;
 };
 type State = {
 };

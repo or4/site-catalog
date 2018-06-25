@@ -1,10 +1,11 @@
 import { Reducer } from 'redux';
 
 import { ActionTypes, ActionsAll } from './actions';
-import { AmountType } from 'core/settings/amountItems/common';
+import { AmountItemsType } from 'core/settings/amountItems/common';
+import { AppState } from 'store/reducers';
 
 
-type TState = AmountType;
+type TState = AmountItemsType;
 
 const initialState: TState = 'small';
 
@@ -17,3 +18,4 @@ export const amountItemsReducer: Reducer<TState> = (state: TState = initialState
   }
 };
 
+export const selectAmountItems = (state: AppState) => state.amountItems;

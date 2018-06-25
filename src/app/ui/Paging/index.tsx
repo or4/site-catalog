@@ -8,6 +8,7 @@ import { subscribeResize, unsubscribeResize } from 'components/Resize';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
+import { AmountItemsType } from 'core/settings/amountItems/common';
 jss.setup(preset());
 
 const getClasses = () => {
@@ -33,7 +34,7 @@ const { classes } = sheet;
 type Props = {
   className?: string;
   onPagesClick?: (page: number) => void;
-  onAmountClick?: (data: string) => void;
+  onAmountClick?: (amountItems: AmountItemsType) => void;
   page: number;
   totalPages: number;
 };
