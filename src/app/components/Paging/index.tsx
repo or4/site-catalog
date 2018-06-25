@@ -2,19 +2,23 @@ import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { AppState } from 'store/reducers';
-
-import { isSmall, isInitial } from 'util/responsive';
-import { flexRow } from 'ui/theme';
-import { join } from 'util/helpers';
-import { subscribeResize, unsubscribeResize } from 'components/Resize';
-import { changeAmountType } from 'core/settings/amountItems/actions';
-import { changePage } from 'core/catalog/pages/actions';
 import { AmountItemsType } from 'core/settings/amountItems/common';
+
+import { changePage } from 'core/catalog/pages/actions';
+import { changeAmountType } from 'core/settings/amountItems/actions';
+
+import { subscribeResize, unsubscribeResize } from 'components/Resize';
 import PagesBlock from './PagesBlock';
 import AmountBlock from './AmountBlock';
 
+import { flexRow } from 'ui/theme';
+import { isSmall, isInitial } from 'util/responsive';
+import { join } from 'util/helpers';
+
+
 import jss from 'jss';
 import preset from 'jss-preset-default';
+import { selectPage, selectTotalPages } from 'core/catalog/pages/selectors';
 jss.setup(preset());
 
 const getClasses = () => {
@@ -37,7 +41,9 @@ const getClasses = () => {
 const sheet = jss.createStyleSheet(getClasses()).attach();
 const { classes } = sheet;
 
+
 type OwnProps = {
+  category: string;
   className?: string;
 };
 type StateProps = {
@@ -53,34 +59,39 @@ type Props = StateProps & DispatchProps & OwnProps;
 type State = {
 };
 
-
-
 class Paging extends React.PureComponent<Props, State> {
   componentDidMount() { subscribeResize(this, 'Paging') }
   componentWillUnmount() { unsubscribeResize(this, 'Paging') }
-
-  onPagesClick = (page: number) => { changePage(page) }
-  onAmountClick = (amountItems: AmountItemsType) => { changeAmountType(amountItems) }
-
 
   render() {
     if (isInitial()) {
       return null;
     }
 
-    const { className, page, totalPages } = this.props;
+    const { className, changePage, changeAmountType, page, totalPages, } = this.props;
     return (
       <div className={join(classes.container, className)}>
-        <PagesBlock className={classes.pagesContainer} isSmall={isSmall()} onClick={this.onPagesClick} page={page} totalPages={totalPages} />
-        <AmountBlock className={classes.amountContainer} isSmall={isSmall()} onClick={this.onAmountClick} />
+        <PagesBlock
+          className={classes.pagesContainer}
+          isSmall={isSmall()}
+          onClick={changePage}
+          page={page}
+          totalPages={totalPages}
+        />
+        <AmountBlock
+          className={classes.amountContainer}
+          isSmall={isSmall()}
+          onClick={changeAmountType}
+        />
       </div>);
   }
 }
 
 const mapStateToProps = (state: AppState, props: OwnProps) => {
   return {
-    page: 0,
-    totalPages: 0,
+    page: selectPage(state),
+    // TODO Use reselector
+    totalPages: selectTotalPages(state, props.category),
   };
 };
 

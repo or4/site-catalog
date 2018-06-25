@@ -3,8 +3,6 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { AppState } from 'store/reducers';
 
-import { getCategoryCaption } from 'core/catalog/categories/common';
-import { convertImgUrl } from 'core/common';
 import { TItem, selectItemsByCategory } from 'core/catalog/items/reducer';
 import { TCategory } from 'core/catalog/categories/types';
 import { selectCategory } from 'core/catalog/categories/reducer';
@@ -15,8 +13,9 @@ type OwnProps = {
 };
 type StateProps = {
   categoryId: string;
-  categoryDescription: string;
   selectCategory: (category: string) => TCategory;
+
+  categoryDescription: string;
   selectItems: () => TItem[];
 };
 type DispatchProps = {
@@ -28,19 +27,9 @@ type State = {
 
 
 class Article extends React.PureComponent<Props, State> {
-  getArticle = () => ({ __html: convertImgUrl(this.props.categoryDescription) });
-  getCaption = () => getCategoryCaption(this.props.categoryId, this.props.selectCategory);
-
-
   render() {
-    //const {  } = this.props;
     return (
       <div>
-        <h2>Цены на товары категории «{this.getCaption()}» на 23.05.2018 в тенге с учетом НДС</h2>
-        <ul>
-          {this.props.selectItems().map((item: TItem) => <li key={item.id}>{item.name}</li>)}
-        </ul>
-        <div className={'article-description'} dangerouslySetInnerHTML={this.getArticle()} />
       </div>
     );
   }

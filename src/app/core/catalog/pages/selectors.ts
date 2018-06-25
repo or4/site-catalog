@@ -4,6 +4,7 @@ import { selectAmountItems } from 'core/settings/amountItems/reducer';
 import { amountItems } from 'core/settings/amountItems/common';
 
 export const selectPage = (state: AppState) => state.pages.page;
+export const selectTotalPages = (state: AppState, category: string) => selectItemsByCategory(state, category).length;
 
 export const selectItemsByPage = (state: AppState, category: string) => {
   const items = selectItemsByCategory(state, category);
