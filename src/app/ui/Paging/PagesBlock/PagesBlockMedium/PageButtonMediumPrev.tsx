@@ -7,12 +7,6 @@ import preset from 'jss-preset-default';
 import { join } from 'util/helpers';
 jss.setup(preset());
 
-type Props = {
-  className?: string;
-};
-type State = {
-};
-
 const getClasses = () => {
   const container = {
     padding: '0 13px',
@@ -32,11 +26,18 @@ const getClasses = () => {
 const sheet = jss.createStyleSheet(getClasses()).attach();
 const { classes } = sheet;
 
+type Props = {
+  className?: string;
+  onClick: () => void;
+};
+type State = {
+};
+
 class PageButtonMediumPrev extends React.PureComponent<Props, State> {
   render() {
-    const { className } = this.props;
+    const { className, onClick } = this.props;
     return (
-      <PageButtonBase className={join(classes.container, className)} borderRadius="full">
+      <PageButtonBase className={join(classes.container, className)} borderRadius="full" onClick={onClick}>
         <img className={classes.image} src={arrowIconBase64} alt="" />
         <span>Назад</span>
       </PageButtonBase>

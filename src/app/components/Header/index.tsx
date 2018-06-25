@@ -28,21 +28,29 @@ class Header extends React.PureComponent<Props, State> {
       });
       Object.assign(logo, { marginTop: '30px', marginBottom: '30px' });
       Object.assign(contacts, { display: 'none' });
-    } else if (isMedium() || isLarge()) {
+      Object.assign(banner, { display: 'none' });
+
+    } else if (isMedium()) {
       Object.assign(container, {
         maxHeight: '140px',
         minHeight: '140px',
         ...flexRow('center', 'space-between'),
       });
       Object.assign(logo, { marginLeft: '40px' });
+      Object.assign(banner, { display: 'none' });
       Object.assign(contacts, { marginLeft: 'auto', marginRight: '40px' });
+
+    } else if (isLarge()) {
+      Object.assign(container, {
+        maxHeight: '140px',
+        minHeight: '140px',
+        ...flexRow('center', 'space-between'),
+      });
+      Object.assign(logo, { marginLeft: '40px' });
+      Object.assign(banner, { marginLeft: 'auto', marginRight: '40px' });
+      Object.assign(contacts, { marginRight: '40px' });
     }
 
-    if (isSmall() || isMedium()) {
-      Object.assign(banner, { display: 'none' });
-    } else if (isLarge()) {
-      Object.assign(banner, { marginLeft: 'auto', marginRight: '40px' });
-    }
 
     return {
       container,

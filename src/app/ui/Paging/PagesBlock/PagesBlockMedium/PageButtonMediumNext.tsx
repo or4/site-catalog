@@ -28,15 +28,16 @@ const { classes } = sheet;
 
 type Props = {
   className?: string;
+  onClick: () => void;
 };
 type State = {
 };
 
 class PageButtonMediumNext extends React.PureComponent<Props, State> {
   render() {
-    const { className } = this.props;
+    const { className, onClick } = this.props;
     return (
-      <PageButtonBase className={join(classes.container, className)} borderRadius="full">
+      <PageButtonBase className={join(classes.container, className)} borderRadius="full" onClick={onClick}>
         <span>Вперед</span>
         <img className={classes.image} src={arrowIconBase64} alt="" />
       </PageButtonBase>

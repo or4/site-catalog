@@ -57,7 +57,7 @@ class Paging extends React.PureComponent<Props, State> {
     const { className, } = this.props;
     return (
       <div className={join(classes.container, className)}>
-        <PagesBlock className={classes.pagesContainer} isSmall={isSmall()} onClick={this.onPagesClick} page={2} totalPages={4} />
+        <PagesBlock className={classes.pagesContainer} isSmall={isSmall()} onClick={this.onPagesClick} page={3} totalPages={10} />
         <AmountBlock className={classes.amountContainer} isSmall={isSmall()} onClick={this.onAmountClick} />
       </div>);
   }

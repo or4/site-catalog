@@ -46,9 +46,9 @@ class PagesBlockMedium extends React.PureComponent<Props, State> {
 
   onItem3Click = () => { this.props.onClick(this.props.page) }
 
-  onNextClick = () => { this.props.onClick(getNextPage(this.props.page, 1, this.props.totalPages)) }
   onItem4Click = () => { this.props.onClick(getNextPage(this.props.page, 1, this.props.totalPages)) }
   onItem5Click = () => { this.props.onClick(getNextPage(this.props.page, 2, this.props.totalPages)) }
+  onNextClick = () => { this.props.onClick(getNextPage(this.props.page, 1, this.props.totalPages)) }
 
   // getRadiusType = (index: number, page: number, total: number) => {
   //   isExist(index, page)
@@ -66,13 +66,13 @@ class PagesBlockMedium extends React.PureComponent<Props, State> {
     const { className } = this.props;
     return (
       <div className={join(classes.container, className)}>
-        <PageButtonMediumPrev className={classes.prev} />
-        {(this.props.page - 2) >= 1 ? <PageButtonNumber borderRadius={'left'}> {this.props.page - 2} </PageButtonNumber> : null}
-        <PageButtonNumber borderRadius={'none'}> {this.props.page - 1} </PageButtonNumber>
-        <PageButtonNumber borderRadius={'none'}> {this.props.page} </PageButtonNumber>
-        <PageButtonNumber borderRadius={'none'}> {this.props.page + 1} </PageButtonNumber>
-        <PageButtonNumber borderRadius={'right'}> {this.props.page + 2} </PageButtonNumber>
-        <PageButtonMediumNext className={classes.next} />
+        <PageButtonMediumPrev className={classes.prev} onClick={this.onPrevClick} />
+        <PageButtonNumber borderRadius={'left'} onClick={this.onItem1Click}> {this.props.page - 2} </PageButtonNumber>
+        <PageButtonNumber borderRadius={'none'} onClick={this.onItem2Click}> {this.props.page - 1} </PageButtonNumber>
+        <PageButtonNumber borderRadius={'none'} onClick={this.onItem3Click}> {this.props.page} </PageButtonNumber>
+        <PageButtonNumber borderRadius={'none'} onClick={this.onItem4Click}> {this.props.page + 1} </PageButtonNumber>
+        <PageButtonNumber borderRadius={'right'} onClick={this.onItem5Click}> {this.props.page + 2} </PageButtonNumber>
+        <PageButtonMediumNext className={classes.next} onClick={this.onNextClick} />
       </div>
     );
   }

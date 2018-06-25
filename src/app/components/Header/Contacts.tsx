@@ -18,7 +18,7 @@ class Contacts extends React.PureComponent<Props, State> {
 
     Object.assign(container, {
       marginRight: '40px',
-      width: '210px',
+      width: '220px',
       ...theme.header.contacts,
     });
     Object.assign(caption, {
