@@ -22,15 +22,22 @@ type Props = {
   className?: string;
   borderRadius: BorderRadius;
   onClick: () => void;
+  hidden: boolean;
+  isActive?: boolean;
 };
 type State = {
 };
 
 class PageButtonNumber extends React.PureComponent<Props, State> {
   render() {
-    const { borderRadius, className, onClick } = this.props;
+    const { borderRadius, className, hidden, isActive, onClick, } = this.props;
     return (
-      <PageButtonBase borderRadius={borderRadius} className={join(classes.container, className)} onClick={onClick}>
+      <PageButtonBase
+        borderRadius={borderRadius}
+        className={join(classes.container, className, hidden ? 'display-none' : '')}
+        isActive={isActive}
+        onClick={onClick}
+      >
         {this.props.children}
       </PageButtonBase>
     );

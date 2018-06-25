@@ -55,24 +55,48 @@ class PagesBlockMedium extends React.PureComponent<Props, State> {
 
   // }
   // isExist =
-  // getItem = (index: number, page: number, total: number) => {
-  //   const newPage = page + index;
-  //   if (newPage >= 1 && newPage <= total) {
-  //     return true;
-  //   }
+  exists = (index: number, page: number, total: number) => {
+    const newPage = page + index;
+    if (newPage >= 1 && newPage <= total) {
+      return true;
+    }
+    return false;
+  }
 
-  // }
+  getRadiusType = (index: number, page: number, total: number) => {
+
+    const currentExists = this.exists(index, page, total);
+    if (!currentExists) {
+      return 'none';
+    }
+
+    const prevExists = this.exists(index - 1, page, total);
+    const nextExists = this.exists(index + 1, page, total);
+
+    if (!prevExists && !nextExists) {
+      return 'full';
+    } else if (!prevExists || index === -2) {
+      return 'left';
+    } else if (!nextExists || index === 2) {
+      return 'right';
+    } else {
+      return 'none';
+    }
+  }
+
   render() {
-    const { className } = this.props;
+    const { className, page, totalPages } = this.props;
     return (
       <div className={join(classes.container, className)}>
-        <PageButtonMediumPrev className={classes.prev} onClick={this.onPrevClick} />
-        <PageButtonNumber borderRadius={'left'} onClick={this.onItem1Click}> {this.props.page - 2} </PageButtonNumber>
-        <PageButtonNumber borderRadius={'none'} onClick={this.onItem2Click}> {this.props.page - 1} </PageButtonNumber>
-        <PageButtonNumber borderRadius={'none'} onClick={this.onItem3Click}> {this.props.page} </PageButtonNumber>
-        <PageButtonNumber borderRadius={'none'} onClick={this.onItem4Click}> {this.props.page + 1} </PageButtonNumber>
-        <PageButtonNumber borderRadius={'right'} onClick={this.onItem5Click}> {this.props.page + 2} </PageButtonNumber>
-        <PageButtonMediumNext className={classes.next} onClick={this.onNextClick} />
+        <PageButtonMediumPrev className={classes.prev} onClick={this.onPrevClick} hidden={!this.exists(-1, page, totalPages)} />
+
+        <PageButtonNumber borderRadius={this.getRadiusType(-2, page, totalPages)} hidden={!this.exists(-2, page, totalPages)} onClick={this.onItem1Click} > {page - 2} </PageButtonNumber>
+        <PageButtonNumber borderRadius={this.getRadiusType(-1, page, totalPages)} hidden={!this.exists(-1, page, totalPages)} onClick={this.onItem2Click}> {page - 1} </PageButtonNumber>
+        <PageButtonNumber borderRadius={this.getRadiusType(0, page, totalPages)} hidden={!this.exists(0, page, totalPages)} isActive={true} onClick={this.onItem3Click}> {page} </PageButtonNumber>
+        <PageButtonNumber borderRadius={this.getRadiusType(1, page, totalPages)} hidden={!this.exists(1, page, totalPages)} onClick={this.onItem4Click} > {page + 1} </PageButtonNumber>
+        <PageButtonNumber borderRadius={this.getRadiusType(2, page, totalPages)} hidden={!this.exists(2, page, totalPages)} onClick={this.onItem5Click} > {page + 2} </PageButtonNumber>
+
+        <PageButtonMediumNext className={classes.next} onClick={this.onNextClick} hidden={!this.exists(1, page, totalPages)} />
       </div>
     );
   }

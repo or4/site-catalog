@@ -19,12 +19,16 @@ const getClasses = () => {
     ...flexRow('center', 'center'),
 
     '&:hover': {
-      border: '1px solid rgba(0, 0, 0, 0.3)',
+      border: '1px solid rgba(0, 0, 0, 0.4)',
     }
+  };
+  const active = {
+    border: '1px solid rgba(0, 0, 0, 0.4)',
   };
 
   return {
     container,
+    active,
   };
 };
 
@@ -49,6 +53,7 @@ export type BorderRadius = 'none' | 'right' | 'left' | 'full';
 type Props = {
   className?: string;
   borderRadius: BorderRadius;
+  isActive?: boolean;
   onClick?: () => void;
 };
 type State = {
@@ -60,9 +65,12 @@ const borderClasses = jss.createStyleSheet(getBorderClasses()).attach().classes;
 
 class PageButtonBase extends React.PureComponent<Props, State> {
   render() {
-    const { className, borderRadius } = this.props;
+    const { className, borderRadius, isActive } = this.props;
     return (
-      <div className={[classes.container, borderClasses[borderRadius], className].join(' ')} onClick={this.props.onClick}>
+      <div
+        className={[classes.container, borderClasses[borderRadius], className, isActive ? classes.active : ''].join(' ')}
+        onClick={this.props.onClick}
+      >
         {this.props.children}
       </div>
     );
