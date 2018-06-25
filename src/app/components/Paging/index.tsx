@@ -19,6 +19,7 @@ import { join } from 'util/helpers';
 import jss from 'jss';
 import preset from 'jss-preset-default';
 import { selectPage, selectTotalPages } from 'core/catalog/pages/selectors';
+import { selectAmountItems } from 'core/settings/amountItems/reducer';
 jss.setup(preset());
 
 const getClasses = () => {
@@ -47,6 +48,7 @@ type OwnProps = {
   className?: string;
 };
 type StateProps = {
+  amountItems: AmountItemsType;
   page: number;
   totalPages: number;
 };
@@ -68,7 +70,7 @@ class Paging extends React.PureComponent<Props, State> {
       return null;
     }
 
-    const { className, changePage, changeAmountType, page, totalPages, } = this.props;
+    const { amountItems, className, changePage, changeAmountType, page, totalPages, } = this.props;
     return (
       <div className={join(classes.container, className)}>
         <PagesBlock
@@ -79,6 +81,7 @@ class Paging extends React.PureComponent<Props, State> {
           totalPages={totalPages}
         />
         <AmountBlock
+          amountItems={amountItems}
           className={classes.amountContainer}
           isSmall={isSmall()}
           onClick={changeAmountType}
@@ -92,6 +95,7 @@ const mapStateToProps = (state: AppState, props: OwnProps) => {
     page: selectPage(state),
     // TODO Use reselector
     totalPages: selectTotalPages(state, props.routeParams.category),
+    amountItems: selectAmountItems(state),
   };
 };
 

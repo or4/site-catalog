@@ -86,11 +86,13 @@ class PagesBlockMedium extends React.PureComponent<Props, State> {
 
   render() {
     const { className, page, totalPages } = this.props;
+    if (totalPages === 1) {
+      return null;
+    }
     return (
       <div className={join(classes.container, className)}>
-        <PageButtonMediumPrev className={classes.prev} onClick={this.onPrevClick} hidden={!this.exists(-1, page, totalPages)} />
+        <PageButtonMediumPrev className={classes.prev} onClick={this.onPrevClick} hidden={page !== totalPages} />
 
-        <PageButtonNumber borderRadius={this.getRadiusType(-2, page, totalPages)} hidden={!this.exists(-2, page, totalPages)} onClick={this.onItem1Click} > {page - 2} </PageButtonNumber>
         <PageButtonNumber borderRadius={this.getRadiusType(-1, page, totalPages)} hidden={!this.exists(-1, page, totalPages)} onClick={this.onItem2Click}> {page - 1} </PageButtonNumber>
         <PageButtonNumber borderRadius={this.getRadiusType(0, page, totalPages)} hidden={!this.exists(0, page, totalPages)} isActive={true} onClick={this.onItem3Click}> {page} </PageButtonNumber>
         <PageButtonNumber borderRadius={this.getRadiusType(1, page, totalPages)} hidden={!this.exists(1, page, totalPages)} onClick={this.onItem4Click} > {page + 1} </PageButtonNumber>

@@ -5,9 +5,9 @@ import { amountItems } from 'core/settings/amountItems/common';
 
 export const selectPage = (state: AppState) => state.pages.page;
 export const selectTotalPages = (state: AppState, category: string) => {
-
   const totalItems = selectItemsByCategory(state, category).length;
   const perPageKey = selectAmountItems(state);
+
   if (perPageKey === 'all') {
     return 1;
   }

@@ -6,9 +6,13 @@ import { TCategory } from 'core/catalog/categories/types';
 
 export const selectItems = (state: AppState) => state.items.data;
 
-export const selectItemsByCategory = (state: AppState, category: string) =>
-  selectItems(state).filter(item => item.category.indexOf(category) >= 0);
+export const selectItemsByCategory = (state: AppState, category: string) => {
+  if (category === null || category === 'null') {
+    return selectItems(state);
+  }
 
+  return selectItems(state).filter(item => item.category.indexOf(category) >= 0);
+};
 
 export const selectItemsByPage = (state: AppState, category: TCategory) => {
   if (!category) { return [] }
