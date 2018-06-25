@@ -2,24 +2,16 @@ import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { AppState } from 'store/reducers';
-import { TItem, selectItemsByCategory } from 'core/catalog/items/reducer';
 import MiddleLayout from 'components/MiddleLayout';
-import { selectCategory } from 'core/catalog/categories/reducer';
-import { getCategoryCaption } from 'core/catalog/categories/common';
-import { TCategory } from 'core/catalog/categories/types';
-import { convertImgUrl } from 'core/common';
 import { log } from 'util/logger';
 import Paging from 'components/Paging';
+import Article from 'components/Article';
 
 
 type OwnProps = {
   routeParams: any;
 };
 type StateProps = {
-  categoryId: string;
-  categoryDescription: string;
-  selectCategory: (category: string) => TCategory;
-  selectItems: () => TItem[];
 };
 type DispatchProps = {
 };
@@ -29,19 +21,13 @@ type State = {
 };
 
 class Products extends React.PureComponent<Props, State> {
-  getArticle = () => ({ __html: convertImgUrl(this.props.categoryDescription) });
-  getCaption = () => getCategoryCaption(this.props.categoryId, this.props.selectCategory);
 
   render() {
     log('Catalog render');
     return (
       <MiddleLayout route={'/catalog'}>
         <Paging />
-        <h2>Цены на товары категории «{this.getCaption()}» на 23.05.2018 в тенге с учетом НДС</h2>
-        <ul>
-          {this.props.selectItems().map((item: TItem) => <li key={item.id}>{item.name}</li>)}
-        </ul>
-        <div className={'article-description'} dangerouslySetInnerHTML={this.getArticle()} />
+        <Article />
       </MiddleLayout>
     );
   }
@@ -49,12 +35,7 @@ class Products extends React.PureComponent<Props, State> {
 
 
 const mapStateToProps = (state: AppState, props: OwnProps) => {
-  const category = selectCategory(state, props.routeParams.category);
   return {
-    selectItems: selectItemsByCategory.bind(null, state, props.routeParams.category),
-    categoryDescription: category && category.description || '',
-    categoryId: props.routeParams.category,
-    selectCategory: selectCategory.bind(null, state),
   };
 };
 
