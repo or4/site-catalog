@@ -44,10 +44,10 @@ class MiddleLayout extends React.PureComponent<Props, State> {
     const contentRightBar: any = [];
 
     if (routeHas(route, 'tree')) {
-      if (isSmall() || isMedium()) {
+      if (isSmall()) {
         // empty branch
       }
-      else if (isLarge()) {
+      else if (isMedium() || isLarge()) {
         contentLeftBar.push(<NavigationTree key={'key-NavigationTree'} />);
       }
     }

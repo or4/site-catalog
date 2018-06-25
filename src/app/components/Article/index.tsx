@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import { AppState } from 'store/reducers';
 
 import { TCategory } from 'core/catalog/categories/types';
-import { selectCategory, getCaption } from 'core/catalog/categories/reducer';
 import ArticleHeader from 'components/Article/ArticleHeader';
 import ArticleProducts from 'components/Article/ArticleProducts';
 import ArticleContent from 'components/Article/ArticleContent';
+import { selectCategory, getCategoryCaption } from 'core/catalog/categories/selectors';
 
 type OwnProps = {
   routeParams?: any;
@@ -40,7 +40,7 @@ const mapStateToProps = (state: AppState, props: OwnProps) => {
   const category = selectCategory(state, props.routeParams.category);
   return {
     category,
-    categoryCaption: getCaption(state, category),
+    categoryCaption: getCategoryCaption(state, category),
   };
 };
 

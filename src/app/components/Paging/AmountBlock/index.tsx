@@ -1,10 +1,10 @@
 import React from 'react';
-import AmountBlockMedium from 'ui/Paging/AmountBlock/AmountBlockMedium';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
 import { join } from 'util/helpers';
 import { AmountItemsType } from 'core/settings/amountItems/common';
+import AmountBlockMedium from 'components/Paging/AmountBlock/AmountBlockMedium';
 jss.setup(preset());
 
 const getClasses = () => {

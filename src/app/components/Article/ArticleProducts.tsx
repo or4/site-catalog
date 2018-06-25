@@ -3,14 +3,15 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { AppState } from 'store/reducers';
 
-import { TItem, selectItemsByCategory } from 'core/catalog/items/reducer';
+import { TItem } from 'core/catalog/items/reducer';
 import { TCategory } from 'core/catalog/categories/types';
+import { selectItemsByPage } from 'core/catalog/items/selectors';
 
 type OwnProps = {
   category: TCategory;
 };
 type StateProps = {
-  selectItems: () => TItem[];
+  items: TItem[];
 };
 type DispatchProps = {
 };
@@ -22,10 +23,11 @@ type State = {
 
 class ArticleProducts extends React.PureComponent<Props, State> {
   render() {
+    const { items } = this.props;
     return (
       <div>
         <ul>
-          {this.props.selectItems().map((item: TItem) => <li key={item.id}>{item.name}</li>)}
+          {items.map((item: TItem) => <li key={item.id}>{item.name}</li>)}
         </ul>
       </div>
     );
@@ -34,7 +36,7 @@ class ArticleProducts extends React.PureComponent<Props, State> {
 
 const mapStateToProps = (state: AppState, props: OwnProps) => {
   return {
-    selectItems: selectItemsByCategory.bind(null, state, props.category),
+    items: selectItemsByPage(state, props.category)
   };
 };
 
