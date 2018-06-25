@@ -26,8 +26,8 @@ class Products extends React.PureComponent<Props, State> {
     log('Catalog render');
     return (
       <MiddleLayout route={'/catalog'}>
-        <Paging />
-        <Article />
+        <Paging routeParams={this.props.routeParams} />
+        <Article routeParams={this.props.routeParams} />
       </MiddleLayout>
     );
   }
