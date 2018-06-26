@@ -7,6 +7,7 @@ import { isLarge, isMedium, isSmall } from 'util/responsive';
 import { log } from 'util/logger';
 import NavigationTree from 'ui/NavigationTree';
 import { subscribeResize, unsubscribeResize } from 'components/Resize';
+import PhotoSlider from 'ui/PhotoSlider';
 
 
 type Props = {
@@ -55,6 +56,18 @@ class MiddleLayout extends React.PureComponent<Props, State> {
       }
       else if (isLarge()) {
         contentLeftBar.push(<NavigationTree key={'key-NavigationTree'} />);
+      }
+    }
+
+    if (routeHas(route, 'photo')) {
+      if (isSmall()) {
+        // empty
+      }
+      else if (isMedium()) {
+        contentLeftBar.push(<PhotoSlider key={'key-PhotoSlider'} />);
+      }
+      else if (isLarge()) {
+        contentLeftBar.push(<PhotoSlider key={'key-PhotoSlider'} />);
       }
     }
 

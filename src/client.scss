@@ -1,3 +1,7 @@
+
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
 .article-description {
   overflow: hidden;
 }
@@ -5,3 +9,9 @@
 .display-none {
   display: none;
 }
+
+/*
+.slick-arrow {
+  display: none !important;
+}
+*/

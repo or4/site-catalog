@@ -16,6 +16,7 @@ import Resize from 'components/Resize';
 import jss from 'jss';
 import preset from 'jss-preset-default';
 import ScreenSize from 'ui/ScreenSize';
+import PhotoSlider from 'ui/PhotoSlider';
 jss.setup(preset());
 
 type StateProps = {

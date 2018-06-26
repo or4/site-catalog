@@ -17,6 +17,8 @@ class LeftSideBar extends React.PureComponent<Props, State> {
       boxSizing: 'border-box' as 'border-box',
       minHeight: theme.content.minHeight,
       width: '300px',
+      display: 'flex',
+      justifyContent: 'center' as 'center',
 
       borderRight: theme.content.devBorder,
     });
