@@ -17,6 +17,7 @@ import jss from 'jss';
 import preset from 'jss-preset-default';
 import ScreenSize from 'ui/ScreenSize';
 import PhotoSlider from 'ui/PhotoSlider';
+import DownloadButton from 'ui/buttons/DownloadButton';
 jss.setup(preset());
 
 type StateProps = {
@@ -73,6 +74,7 @@ class MainLayout extends React.Component<Props, State> {
         <Footer />
         <Resize />
         <ScreenSize />
+        <DownloadButton />
       </div>
     );
   }
