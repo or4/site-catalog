@@ -14,6 +14,7 @@ class RightSideBar extends React.PureComponent<Props, State> {
     Object.assign(container, {
       // boxSizing: 'border-box' as 'border-box',
       minHeight: theme.content.minHeight,
+      padding: '8px 0',
       width: '300px',
       display: 'flex',
       justifyContent: 'center' as 'center',

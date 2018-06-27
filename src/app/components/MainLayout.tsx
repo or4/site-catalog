@@ -14,10 +14,6 @@ import { isInitial } from 'util/responsive';
 import Resize from 'components/Resize';
 import ScreenSize from 'ui/ScreenSize';
 
-import jss from 'jss';
-import preset from 'jss-preset-default';
-jss.setup(preset());
-
 type StateProps = {
   categories: TCategory[];
   items: TItem[];
