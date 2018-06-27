@@ -1,5 +1,5 @@
 import React from 'react';
-import excelIcon from 'assets/tmp/excel.svg';
+import compassIcon from 'assets/tmp/compass3.svg';
 import textIcon from 'assets/tmp/price3.svg';
 import { flexRow } from 'ui/theme';
 
@@ -20,7 +20,6 @@ const style = {
   },
 };
 
-
 const getClasses = () => {
   const container = {
     background: 'rgba(255, 255, 255, 0.3)',
@@ -36,6 +35,7 @@ const getClasses = () => {
       background: 'rgba(255, 255, 255, 0.1)',
     }
   };
+
   return {
     container,
   };
@@ -51,16 +51,16 @@ type Props = {
 type State = {
 };
 
-class DownloadButton extends React.PureComponent<Props, State> {
+class WayButton extends React.PureComponent<Props, State> {
 
   render() {
     const { icon } = this.props;
     return (
       <div className={classes.container}>
-        <img style={style.img} src={excelIcon} alt="xls" />
-        <img style={style.text} src={icon || textIcon} alt="text" />
+        <img style={style.img} src={icon || compassIcon} alt="xls" />
+        <img style={style.text} src={textIcon} alt="text" />
       </div>
     );
   }
 }
-export default DownloadButton;
+export default WayButton;
