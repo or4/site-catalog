@@ -1,5 +1,5 @@
 import React from 'react';
-import { theme } from 'ui/theme';
+import { theme, flexColumn } from 'ui/theme';
 import { log } from 'util/logger';
 import CompactIcon from 'ui/CompactIcon';
 
@@ -14,13 +14,14 @@ class LeftSideBar extends React.PureComponent<Props, State> {
     const container = {};
 
     Object.assign(container, {
-      boxSizing: 'border-box' as 'border-box',
+      // boxSizing: 'border-box' as 'border-box',
       minHeight: theme.content.minHeight,
       width: '300px',
-      display: 'flex',
-      justifyContent: 'center' as 'center',
+      // display: 'flex',
+      // justifyContent: 'center' as 'center',
 
-      borderRight: theme.content.devBorder,
+      // borderRight: theme.content.devBorder,
+      ...flexColumn('center', 'flex-start'),
     });
 
     return {

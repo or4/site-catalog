@@ -8,6 +8,7 @@ import { log } from 'util/logger';
 import NavigationTree from 'ui/NavigationTree';
 import { subscribeResize, unsubscribeResize } from 'components/Resize';
 import PhotoSlider from 'ui/PhotoSlider';
+import DownloadButton from 'ui/buttons/DownloadButton';
 
 
 type Props = {
@@ -45,6 +46,18 @@ class MiddleLayout extends React.PureComponent<Props, State> {
     const contentRightBar: any = [];
     let isCompact = false;
 
+    if (routeHas(route, 'price')) {
+      if (isSmall()) {
+        // empty
+      }
+      else if (isMedium()) {
+        contentLeftBar.push(<DownloadButton key={'key-DownloadButton'} />);
+      }
+      else if (isLarge()) {
+        contentRightBar.push(<DownloadButton key={'key-DownloadButton'} />);
+      }
+    }
+
     if (routeHas(route, 'tree')) {
       if (isSmall()) {
         contentLeftBar.push(<NavigationTree key={'key-NavigationTree'} />);
@@ -70,6 +83,8 @@ class MiddleLayout extends React.PureComponent<Props, State> {
         contentLeftBar.push(<PhotoSlider key={'key-PhotoSlider'} />);
       }
     }
+
+
 
     return (
       <div style={style.container}>

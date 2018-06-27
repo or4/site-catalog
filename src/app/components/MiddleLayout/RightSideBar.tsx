@@ -1,5 +1,5 @@
 import React from 'react';
-import { theme } from 'ui/theme';
+import { theme, flexColumn } from 'ui/theme';
 import { log } from 'util/logger';
 
 type Props = {
@@ -9,12 +9,19 @@ type State = {
 
 class RightSideBar extends React.PureComponent<Props, State> {
   getStyle() {
-    const container = {
-      boxSizing: 'border-box' as 'border-box',
-      width: '300px',
+    const container = {};
 
-      borderLeft: theme.content.devBorder,
-    };
+    Object.assign(container, {
+      // boxSizing: 'border-box' as 'border-box',
+      minHeight: theme.content.minHeight,
+      width: '300px',
+      display: 'flex',
+      justifyContent: 'center' as 'center',
+
+      // borderLeft: theme.content.devBorder,
+      ...flexColumn('center', 'flex-start'),
+    });
+
     return {
       container,
     };
@@ -25,7 +32,7 @@ class RightSideBar extends React.PureComponent<Props, State> {
     //const {  } = this.props;
     return (
       <div style={style.container}>
-        RightSideBar
+        {this.props.children}
       </div>
     );
   }

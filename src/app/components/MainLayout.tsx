@@ -12,12 +12,10 @@ import { TCategory } from 'core/catalog/categories/types';
 import { log } from 'util/logger';
 import { isInitial } from 'util/responsive';
 import Resize from 'components/Resize';
+import ScreenSize from 'ui/ScreenSize';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
-import ScreenSize from 'ui/ScreenSize';
-import PhotoSlider from 'ui/PhotoSlider';
-import DownloadButton from 'ui/buttons/DownloadButton';
 jss.setup(preset());
 
 type StateProps = {
@@ -74,7 +72,6 @@ class MainLayout extends React.Component<Props, State> {
         <Footer />
         <Resize />
         <ScreenSize />
-        <DownloadButton />
       </div>
     );
   }

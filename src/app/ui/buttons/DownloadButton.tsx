@@ -15,6 +15,7 @@ class DownloadButton extends React.PureComponent<Props, State> {
       borderRadius: '8px',
       border: '1px solid rgba(0,0,0,0.3)',
       height: '50px',
+      marginBottom: '8px',
       width: '235px',
 
       ...flexRow('center'),

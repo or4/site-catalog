@@ -95,7 +95,7 @@ export const theme = {
 // };
 
 type TAlignItems = 'center';
-type TJustifyContent = 'center' | 'space-between';
+type TJustifyContent = 'center' | 'space-between' | 'flex-start';
 
 export const flexRow = (alignItems?: TAlignItems, justifyContent?: TJustifyContent) => {
   const style = {
