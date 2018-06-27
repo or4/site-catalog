@@ -1,4 +1,5 @@
 import React from 'react';
+import { getScreenSize } from 'util/responsive';
 
 type Props = {
 };
@@ -36,9 +37,8 @@ class ScreenSize extends React.PureComponent<Props, State> {
       fontSize: '12px',
       fontFamily: 'Verdana, Tahoma, Arial, sans-serif',
       position: 'absolute' as 'absolute',
-      right: '30px',
-      // top: '20px',
-      bottom: '20px',
+      left: '10px',
+      top: '10px',
     };
     return {
       container,
@@ -48,8 +48,7 @@ class ScreenSize extends React.PureComponent<Props, State> {
     const style = this.getStyle();
     return (
       <div style={style.container}>
-        <div>{`screen width: ${getWidth()}px`}</div>
-        <div>{`screen height: ${getHeight()}px`}</div>
+        <div>{`${getWidth()}px, ${getHeight()}px, ${getScreenSize()}`}</div>
       </div>
     );
   }

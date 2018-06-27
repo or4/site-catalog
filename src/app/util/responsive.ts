@@ -1,11 +1,11 @@
 import { log } from 'util/logger';
 
-export type ScreenSize = 'initital' | 'small' | 'medium' | 'large';
+export type ScreenSize = 'initial' | 'small' | 'medium' | 'large';
 
 const screenSizeDimesions: {[key in ScreenSize] : number} = {
-  initital: 0, // server rendering
+  initial: 0, // server rendering
   small: 550, // portrait mobile
-  medium: 1024, // landscape mobile, tablet, pc with small screen
+  medium: 1280, // landscape mobile, tablet, pc with small screen
   large: Number.POSITIVE_INFINITY, // desktop
 };
 
@@ -20,7 +20,7 @@ export const getHeight = () => {
 const isSize = (size: ScreenSize) => getWidth() <= screenSizeDimesions[size];
 
 export const isInitial = () => {
-  const is = isSize('initital');
+  const is = isSize('initial');
   is && log('isInitial', is);
   return is;
 };
@@ -40,18 +40,4 @@ export const isLarge = () => {
   return is;
 };
 
-// export const getScreenSize = (): ScreenSize => {
-//   if (isInitial()) return 'initital';
-//   if (isSmall()) return 'small';
-//   if (isMedium()) return 'medium';
-//   return 'large';
-// };
-
-
-/*
-template:
-
-  isLarge() && Object.assign(container, {  });
-  isMedium() && Object.assign(container, {  });
-  isSmall() && Object.assign(container, {  });
-*/
+export const getScreenSize = (): ScreenSize => (isInitial() ? 'initial' : isSmall() ? 'small' : isMedium() ? 'medium' : 'large');
