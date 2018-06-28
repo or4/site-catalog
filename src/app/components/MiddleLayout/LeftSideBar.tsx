@@ -14,14 +14,12 @@ class LeftSideBar extends React.PureComponent<Props, State> {
     const container = {};
 
     Object.assign(container, {
-      // boxSizing: 'border-box' as 'border-box',
       minHeight: theme.content.minHeight,
+      maxWidth: '245px',
+      minWidth: '245px',
       padding: '8px 0',
-      width: '300px',
-      // display: 'flex',
-      // justifyContent: 'center' as 'center',
+      width: '245px',
 
-      // borderRight: theme.content.devBorder,
       ...flexColumn('center', 'flex-start'),
     });
 

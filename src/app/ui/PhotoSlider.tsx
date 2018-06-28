@@ -1,6 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 import { combineUrl } from 'core/common';
+import { flexRow } from 'ui/theme';
 // import 'slick-carousel/slick/slick-theme.css';
 // import 'slick-carousel/slick/slick.css';
 // import { theme } from 'ui/theme';
@@ -13,6 +14,9 @@ type State = {
 class PhotoSlider extends React.PureComponent<Props, State> {
   getStyle() {
     const container = {
+      background: 'rgba(255, 255, 255, 0.3)',
+      border: '1px solid rgba(0, 0, 0, 0.3)',
+      borderRadius: '4px',
       maxWidth: '223px',
       width: '223px',
     };
@@ -34,11 +38,24 @@ class PhotoSlider extends React.PureComponent<Props, State> {
       lineHeight: '18px',
       textAlign: 'center' as 'center',
     };
+
+    const text = {
+      fontFamily: 'Tahoma',
+      letterSpacing: '2px',
+      color: 'rgba(0,0,0,0.7)',
+      fontSize: '13px',
+      fontWeight: '600' as 'bold',
+      height: '50px',
+      ...flexRow('center', 'center'),
+    };
+
+
     return {
       container,
       item,
       img,
       title,
+      text,
     };
   }
   render() {
@@ -60,6 +77,7 @@ class PhotoSlider extends React.PureComponent<Props, State> {
     const style = this.getStyle();
     return (
       <div style={style.container}>
+        <div style={style.text}>ФОТОГАЛЕРЕЯ</div>
         <Slider {...settings}>
           <div>
             <div style={style.item}>
