@@ -1,33 +1,17 @@
-### Feature aka bugs
-+ ? initial state with blinks
-
 ### General
-* + + block: price
-* + + block: way
-* + block: ui-slider
-* + block: store album
-
-* + catalog: paging
-
 * page: about
 * page: contacts
 * page: products
 * page: production
 
-* navigation tree: search on categories
-* navigation tree: search on items
+* ui: navigation tree
+* ui: navigation tree, search
+* ui: photogallery open when click
 
-
-### Clean code
-* refactoring with isSmall..
-* refactor with jss
 
 ### Mobile
 * mobile menu
 
-
-### Responsive
-* footer on desktop & mobile
 
 
 

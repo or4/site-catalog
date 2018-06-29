@@ -40,12 +40,14 @@ class PhotoSlider extends React.PureComponent<Props, State> {
     };
 
     const text = {
-      fontFamily: 'Tahoma',
-      letterSpacing: '2px',
       color: 'rgba(0,0,0,0.7)',
+      cursor: 'default',
+      fontFamily: 'Tahoma',
       fontSize: '13px',
       fontWeight: '600' as 'bold',
       height: '50px',
+      letterSpacing: '2px',
+
       ...flexRow('center', 'center'),
     };
 
