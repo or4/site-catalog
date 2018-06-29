@@ -29,3 +29,6 @@
 * News page
 * slider: news album
 
+
+
+yarn run storybook

@@ -1,0 +1,20 @@
+{
+  "presets": [
+    ["env", {
+      "modules": false,
+      "targets": {
+        "browsers": [
+          "last 1 Chrome major versions",
+          "last 1 Firefox major versions",
+          "last 1 Safari major versions"
+        ],
+        "uglify": false
+      },
+      "useBuiltIns": false
+    }],
+    "stage-2",
+    "react"
+  ],
+  "plugins": [
+  ]
+}
