@@ -5,6 +5,7 @@ export type TreeItemType = {
   items?: TreeItemType[];
 };
 
+export type TreeDomType = 'caption' | 'icon';
 
 export const testDataForTree: TreeItemType[] = [{
   id: '1',

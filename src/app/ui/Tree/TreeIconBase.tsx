@@ -9,6 +9,7 @@ const positions = {
 import jss from 'jss';
 import preset from 'jss-preset-default';
 import { join } from 'util/helpers';
+import { TreeItemType } from 'ui/Tree/types';
 jss.setup(preset());
 
 const getClassess = () => {
@@ -45,6 +46,7 @@ const { classes } = jss.createStyleSheet(getClassess()).attach();
 type TreeIconType = 'minus' | 'plus';
 
 type Props = {
+  item: TreeItemType;
   treeIconType: TreeIconType;
 };
 type State = {
@@ -59,10 +61,10 @@ class TreeIconBase extends React.PureComponent<Props, State> {
     };
   }
   render() {
-    const { treeIconType } = this.props;
+    const { item, treeIconType } = this.props;
 
     return (
-      <span className={join(classes.container, classes[treeIconType])} />
+      <span id={`icon_${item.id}`} className={join(classes.container, classes[treeIconType])} />
     );
   }
 }

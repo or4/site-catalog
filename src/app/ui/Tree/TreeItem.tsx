@@ -23,30 +23,33 @@ const { classes } = jss.createStyleSheet(getClassess()).attach();
 
 type Props = {
   item: TreeItemType;
+  setItemToIndexedObj: (item: TreeItemType, component: JSX.Element) => JSX.Element;
 };
 type State = {
 };
 
 
 class TreeItem extends React.PureComponent<Props, State> {
+  test = () => {
+    console.log('test');
+  }
   getSubItems = (item: TreeItemType): any => {
+
     if (!item.items || item.items.length === 0) {
       return (
         <li key={item.id}>
-          <a href={`/catalog/${item.id}`}>
-            {item.name}
-          </a>
+          <span id={`caption_${item.id}`}>{item.name}</span>
         </li>
       );
     }
     return (
       <li key={item.id}>
-        <TreeIconBase treeIconType="plus" />
-        <a href={`/catalog/${item.id}`}>
-          {item.name}
-        </a>
+        <TreeIconBase item={item} treeIconType="plus" />
+        <span id={`caption_${item.id}`}>{item.name}</span>
         <ul className={classes.subContainer}>
-          {item.items.map(item => this.getSubItems(item))}
+          {item.items.map(item =>
+            this.props.setItemToIndexedObj(item, <TreeItem key={item.id} item={item} setItemToIndexedObj={this.props.setItemToIndexedObj} />)
+          )}
         </ul>
       </li>
     );
