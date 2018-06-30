@@ -1,78 +1,73 @@
 import React from 'react';
 import { TreeItemType } from './types';
 import TreeItem from './TreeItem';
-
-import jss from 'jss';
-import preset from 'jss-preset-default';
-jss.setup(preset());
-
-const getRawClassess = () => {
-  const container = {
-    listStyle: 'none',
-    margin: '0',
-    padding: '0',
-
-    '& ul': {
-      listStyle: 'none' as 'none',
-    }
-  };
-  const icon = {
-  };
-  return {
-    container,
-    icon,
-  };
-};
-
-const { classes } = jss.createStyleSheet(getRawClassess()).attach();
-
+import TreeIconBase from './TreeIconBase';
+import { treeClasses } from './index.style';
 
 type Props = {
   data: TreeItemType[];
 };
 type State = {
+  data: {[key: string]: Boolean};
 };
 
-
 class Tree extends React.PureComponent<Props, State> {
-  data = {} as {[key: string]: JSX.Element};
+  state = { data: {} as {[key: string]: Boolean} }
+
   onTreeClick = (event: any) => {
     try {
       const [type, id] = event.target.id.split('_');
-
-
-      (this.data[id] as any).test();
-
       console.log(`onTreeClick type=${type}, id=${id}`);
-      // console.log('this.data', this.data);
+
       if (type === 'caption') {
         console.log(`go to route ${`/catalog/id`}`);
       } else {
-        // ignored
+        // TODO Ramda or Immutable
+        this.setState({
+          data: {
+            ...this.state.data,
+            [id]: !this.state.data[id],
+          }
+        });
       }
     } catch (e) {
       // ignored
     }
   }
 
-  setItemToIndexedObj = (item: TreeItemType, component: JSX.Element): JSX.Element => {
-    this.data[item.id] = component;
-    // this.data[item.id] = myref;
-    return component;
-  }
-
-
   getItems = (items: TreeItemType[]): any => {
     if (!items || items.length === 0) { return null }
     return (
-      <ul className={classes.container} onClick={this.onTreeClick}>
+      <ul className={treeClasses.container} onClick={this.onTreeClick}>
         {items.map(
-          item => this.setItemToIndexedObj(item, <TreeItem key={item.id} item={item} setItemToIndexedObj={this.setItemToIndexedObj} />)
+          item => {
+            return this.getSubItems(item);
+          }
         )}
       </ul>
     );
   }
 
+  getSubItems = (item: TreeItemType): any => {
+    if (!item.items || item.items.length === 0) {
+      return (
+        <li key={item.id}>
+          <span id={`caption_${item.id}`}>{item.name}</span>
+        </li>
+      );
+    }
+    return (
+      <li key={item.id}>
+        <TreeIconBase item={item} treeIconType={this.state.data[item.id] ? 'minus' : 'plus'} />
+        <span id={`caption_${item.id}`}>{item.name}</span>
+        <ul className={treeClasses.subContainer}>
+          {item.items.map(item => {
+            return this.getSubItems(item);
+          })}
+        </ul>
+      </li>
+    );
+  }
   render() {
     const { data } = this.props;
     if (!data || !data.length) { return null }
