@@ -54,8 +54,11 @@ class Tree extends React.PureComponent<Props, State> {
     if (this.hasNoChilds(item)) {
       return (
         <li key={item.id}>
-          <TreeLineBase position={position} />
-          {this.getSubItemCaption(item)}
+          <div className={treeClasses.subItemFlexContainer}>
+            <TreeLineBase position={position} />
+            <span className={treeClasses.vert} />
+            {this.getSubItemCaption(item)}
+          </div>
         </li>
       );
     }

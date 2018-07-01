@@ -63,11 +63,11 @@ type State = {
 
 export const getPosition = (index: number, lastIndex: number): TreeIconPosition => {
   const firstIndex = 0;
-  if (index === firstIndex) {
-    return 'first';
-  }
   if (index === lastIndex) {
     return 'last';
+  }
+  if (index === firstIndex) {
+    return 'first';
   }
   return 'middle';
 };

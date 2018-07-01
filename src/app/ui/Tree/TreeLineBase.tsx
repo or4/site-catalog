@@ -18,6 +18,7 @@ const getClasses = () => {
       lineHeight: '16px',
       marginRight: '2px',
       width: '16px',
+      minWidth: '16px',
       height: '16px',
       display: 'inline-block',
       verticalAlign: 'middle',
@@ -32,10 +33,10 @@ const getClasses = () => {
     vertical: {
       background: `url(${treeLineBase64}) 0 0 repeat-y`,
       position: 'absolute' as 'absolute',
-      top: '19px',
+      top: '16px',
       left: '0',
       zIndex: '999' as any,
-      height: 'calc(100% - 26px)',
+      height: 'calc(100% - 23px)',
     },
 
     triangle: {

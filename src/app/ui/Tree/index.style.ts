@@ -1,6 +1,7 @@
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
+import { treeLineBase64 } from 'ui/icons/base64';
 jss.setup(preset());
 
 const getRawClassess = () => {
@@ -16,6 +17,9 @@ const getRawClassess = () => {
   const subItem = {
     cursor: 'pointer',
     fontSize: '12px',
+  };
+  const subItemFlexContainer = {
+    display: 'flex',
   };
   const subContainer = {
     display: 'block',
@@ -33,11 +37,21 @@ const getRawClassess = () => {
     opacity: '1' as any,
     height: '100%',
   };
+  const vert = {
+    background: `url(${treeLineBase64}) 0 0 repeat-y`,
+    position: 'absolute' as 'absolute',
+    top: '0px',
+    left: '0',
+    zIndex: '999' as any,
+    height: 'calc(100% - 1px)',
+  };
   return {
     container,
     subContainer,
+    subItemFlexContainer,
     icon,
     subItem,
+    vert,
     subItemShow,
   };
 };
