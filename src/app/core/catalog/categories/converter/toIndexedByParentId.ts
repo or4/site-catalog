@@ -29,16 +29,16 @@ export const separateData = (data: TCategory[]) => {
   const parents0 = filterParents0(data);
 
   const processSub = (item: TCategory): TCategory[] => {
-    // get subItems for item
-    const subItems = separated[item.id];
-    if (typeof subItems === 'undefined') {
+    // get items for item
+    const items = separated[item.id];
+    if (typeof items === 'undefined') {
       return [];
     }
 
-    return subItems.map((item: TCategory) => {
+    return items.map((item: TCategory) => {
       return {
         ...item,
-        subItems: processSub(item),
+        items: processSub(item),
       };
     });
   };
@@ -46,7 +46,7 @@ export const separateData = (data: TCategory[]) => {
   const result = parents0.map((item: TCategory) => {
     return {
       ...item,
-      subItems: processSub(item)
+      items: processSub(item)
     };
   });
 

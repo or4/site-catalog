@@ -15,6 +15,7 @@ const getRawClassess = () => {
   };
   const subItem = {
     cursor: 'pointer',
+    fontSize: '12px',
   };
   const subContainer = {
     display: 'block',
@@ -26,6 +27,7 @@ const getRawClassess = () => {
     overflow: 'hidden',
   };
   const icon = {
+    // marginTop: '4px',
   };
   const subItemShow = {
     opacity: '1' as any,

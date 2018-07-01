@@ -2,8 +2,8 @@ import React from 'react';
 import { treeIconBase64, treeLineBase64 } from 'ui/icons/base64';
 
 const positions = {
-  'triangle': '-56px -18px',
-  'corner': '-56px -36px',
+  'triangle': '-56px -21px',
+  'corner': '-56px -38px',
 };
 
 import jss from 'jss';
@@ -12,7 +12,7 @@ import { join } from 'util/helpers';
 import { TreeIconPosition } from 'ui/Tree/TreeIcon';
 jss.setup(preset());
 
-const getClassess = () => {
+const getClasses = () => {
   const classes = {
     container: {
       lineHeight: '16px',
@@ -32,10 +32,10 @@ const getClassess = () => {
     vertical: {
       background: `url(${treeLineBase64}) 0 0 repeat-y`,
       position: 'absolute' as 'absolute',
-      top: '20px',
+      top: '19px',
       left: '0',
-      zIndex: '-999' as any,
-      height: 'calc(100% - 18px)',
+      zIndex: '999' as any,
+      height: 'calc(100% - 26px)',
     },
 
     triangle: {
@@ -52,7 +52,7 @@ const getClassess = () => {
   return classes;
 };
 
-const { classes } = jss.createStyleSheet(getClassess()).attach();
+const { classes } = jss.createStyleSheet(getClasses()).attach();
 
 type TreeIconType = 'triangle' | 'vertical' | 'corner';
 

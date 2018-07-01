@@ -62,10 +62,13 @@ class Tree extends React.PureComponent<Props, State> {
 
     const isShow = this.state.data[item.id];
     const lastIndex = item.items.length - 1;
+    //style={{ marginTop: '4px' }}
     return (
       <li key={item.id} style={{ position: 'relative' }}>
-        <TreeIcon item={item} isShow={isShow} position={position} />
-        {this.getSubItemCaption(item)}
+        <div style={{ display: 'flex' }}>
+          <TreeIcon item={item} isShow={isShow} position={position} className={treeClasses.icon} />
+          {this.getSubItemCaption(item)}
+        </div>
         <TreeLineBase isVertical={true} />
         <ul className={join(treeClasses.subContainer, isShow && treeClasses.subItemShow || '')}>
           {item.items.map((item, index) => { return this.getSubItems(item, getPosition(index, lastIndex)) })}

@@ -7,12 +7,13 @@ import jss from 'jss';
 import preset from 'jss-preset-default';
 jss.setup(preset());
 
-const getClassess = () => {
+const getClasses = () => {
   const classes = {
     container: {
       lineHeight: '16px',
       marginRight: '2px',
       width: '16px',
+      minWidth: '16px',
       height: '16px',
       display: 'inline-block',
       verticalAlign: 'middle',
@@ -29,7 +30,7 @@ const getClassess = () => {
   return classes;
 };
 
-const { classes } = jss.createStyleSheet(getClassess()).attach();
+const { classes } = jss.createStyleSheet(getClasses()).attach();
 
 type TreeIconType = 'minus' | 'plus';
 export type TreeIconPosition = 'first' |'middle' |'last';
@@ -46,15 +47,16 @@ const positionsX = {
 // };
 
 const positionsY = {
-  'first': '-56px',
-  'middle': '-56px',
-  'last': '-56px',
+  'first': '-58px',
+  'middle': '-58px',
+  'last': '-58px',
 };
 
 type Props = {
   item: TreeItemType;
   isShow: boolean;
   position: TreeIconPosition;
+  className: string;
 };
 type State = {
 };
@@ -81,11 +83,11 @@ class TreeIcon extends React.PureComponent<Props, State> {
   }
 
   render() {
-    const { item, isShow } = this.props;
+    const { item, isShow, className } = this.props;
     const style = this.getStyle();
     return (
       <span
-        className={join(classes.container)}
+        className={join(classes.container, className || '')}
         id={`icon_${item.id}`}
         style={style}
       />

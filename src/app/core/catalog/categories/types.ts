@@ -22,7 +22,7 @@ export type TCategory = {
   image: string;
   description: string;
 
-  subItems?: TCategory[];
+  items?: TCategory[];
 };
 
 
