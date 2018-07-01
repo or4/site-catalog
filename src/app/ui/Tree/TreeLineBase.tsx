@@ -9,6 +9,7 @@ const positions = {
 import jss from 'jss';
 import preset from 'jss-preset-default';
 import { join } from 'util/helpers';
+import { TreeIconPosition } from 'ui/Tree/TreeIcon';
 jss.setup(preset());
 
 const getClassess = () => {
@@ -30,6 +31,11 @@ const getClassess = () => {
 
     vertical: {
       background: `url(${treeLineBase64}) 0 0 repeat-y`,
+      position: 'absolute' as 'absolute',
+      top: '20px',
+      left: '0',
+      zIndex: '-999' as any,
+      height: 'calc(100% - 18px)',
     },
 
     triangle: {
@@ -52,17 +58,23 @@ type TreeIconType = 'triangle' | 'vertical' | 'corner';
 
 type Props = {
   treeIconType?: TreeIconType;
-  isLast?: boolean;
+  position?: TreeIconPosition;
+  isVertical?: boolean;
 };
 type State = {
 };
 
 class TreeLineBase extends React.PureComponent<Props, State> {
   render() {
-    const { isLast } = this.props;
+    const { position, isVertical } = this.props;
+    if (isVertical) {
+      return (
+        <span className={join(classes.container, classes['vertical'])} />
+      );
+    }
 
     return (
-      <span className={join(classes.container, classes[isLast ? 'corner' : 'triangle'])} />
+      <span className={join(classes.container, classes[position === 'last' ? 'corner' : 'triangle'])} />
     );
   }
 }

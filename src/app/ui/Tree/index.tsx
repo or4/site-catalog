@@ -1,6 +1,6 @@
 import React from 'react';
 import { TreeItemType } from './types';
-import TreeIcon from './TreeIcon';
+import TreeIcon, { TreeIconPosition, getPosition } from './TreeIcon';
 import { treeClasses } from './index.style';
 import { join } from 'util/helpers';
 import TreeLineBase from 'ui/Tree/TreeLineBase';
@@ -40,7 +40,7 @@ class Tree extends React.PureComponent<Props, State> {
     const lastIndex = items.length - 1;
     return (
       <ul className={treeClasses.container} onClick={this.onTreeClick}>
-        {items.map((item, index) => { return this.getSubItems(item, index === lastIndex) })}
+        {items.map((item, index) => { return this.getSubItems(item, getPosition(index, lastIndex)) })}
       </ul>
     );
   }
@@ -50,11 +50,11 @@ class Tree extends React.PureComponent<Props, State> {
 
   hasNoChilds = (item: TreeItemType) => !item.items || item.items.length === 0
 
-  getSubItems = (item: TreeItemType, isLast: boolean): any => {
+  getSubItems = (item: TreeItemType, position: TreeIconPosition): any => {
     if (this.hasNoChilds(item)) {
       return (
         <li key={item.id}>
-          <TreeLineBase isLast={isLast} />
+          <TreeLineBase position={position} />
           {this.getSubItemCaption(item)}
         </li>
       );
@@ -63,11 +63,12 @@ class Tree extends React.PureComponent<Props, State> {
     const isShow = this.state.data[item.id];
     const lastIndex = item.items.length - 1;
     return (
-      <li key={item.id}>
-        <TreeIcon item={item} isShow={isShow} />
+      <li key={item.id} style={{ position: 'relative' }}>
+        <TreeIcon item={item} isShow={isShow} position={position} />
         {this.getSubItemCaption(item)}
+        <TreeLineBase isVertical={true} />
         <ul className={join(treeClasses.subContainer, isShow && treeClasses.subItemShow || '')}>
-          {item.items.map((item, index) => { return this.getSubItems(item, lastIndex === index) })}
+          {item.items.map((item, index) => { return this.getSubItems(item, getPosition(index, lastIndex)) })}
         </ul>
       </li>
     );
