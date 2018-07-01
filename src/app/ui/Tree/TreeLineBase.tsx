@@ -1,6 +1,5 @@
 import React from 'react';
-import { treeIconBase64 } from 'ui/icons/base64';
-import { treeLineBase64 } from 'ui/icons/base64';
+import { treeIconBase64, treeLineBase64 } from 'ui/icons/base64';
 
 const positions = {
   'triangle': '-56px -18px',
@@ -52,17 +51,18 @@ const { classes } = jss.createStyleSheet(getClassess()).attach();
 type TreeIconType = 'triangle' | 'vertical' | 'corner';
 
 type Props = {
-  treeIconType: TreeIconType;
+  treeIconType?: TreeIconType;
+  isLast?: boolean;
 };
 type State = {
 };
 
 class TreeLineBase extends React.PureComponent<Props, State> {
   render() {
-    const { treeIconType } = this.props;
+    const { isLast } = this.props;
 
     return (
-      <span className={join(classes.container, classes[treeIconType])} />
+      <span className={join(classes.container, classes[isLast ? 'corner' : 'triangle'])} />
     );
   }
 }

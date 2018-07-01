@@ -1,26 +1,26 @@
 import React from 'react';
 import { TreeItemType } from './types';
-import TreeItem from './TreeItem';
-import TreeIconBase from './TreeIconBase';
+import TreeIcon from './TreeIcon';
 import { treeClasses } from './index.style';
+import { join } from 'util/helpers';
+import TreeLineBase from 'ui/Tree/TreeLineBase';
 
 type Props = {
   data: TreeItemType[];
+  onClick: (id: string) => void;
 };
 type State = {
-  data: {[key: string]: Boolean};
+  data: {[key: string]: boolean};
 };
 
 class Tree extends React.PureComponent<Props, State> {
-  state = { data: {} as {[key: string]: Boolean} }
+  state = { data: {} as {[key: string]: boolean} }
 
   onTreeClick = (event: any) => {
     try {
       const [type, id] = event.target.id.split('_');
-      console.log(`onTreeClick type=${type}, id=${id}`);
-
       if (type === 'caption') {
-        console.log(`go to route ${`/catalog/id`}`);
+        this.props.onClick(id);
       } else {
         // TODO Ramda or Immutable
         this.setState({
@@ -37,37 +37,42 @@ class Tree extends React.PureComponent<Props, State> {
 
   getItems = (items: TreeItemType[]): any => {
     if (!items || items.length === 0) { return null }
+    const lastIndex = items.length - 1;
     return (
       <ul className={treeClasses.container} onClick={this.onTreeClick}>
-        {items.map(
-          item => {
-            return this.getSubItems(item);
-          }
-        )}
+        {items.map((item, index) => { return this.getSubItems(item, index === lastIndex) })}
       </ul>
     );
   }
 
-  getSubItems = (item: TreeItemType): any => {
-    if (!item.items || item.items.length === 0) {
+  getSubItemCaption = (item: TreeItemType) =>
+    <span id={`caption_${item.id}`} className={treeClasses.subItem}>{item.name}</span>
+
+  hasNoChilds = (item: TreeItemType) => !item.items || item.items.length === 0
+
+  getSubItems = (item: TreeItemType, isLast: boolean): any => {
+    if (this.hasNoChilds(item)) {
       return (
         <li key={item.id}>
-          <span id={`caption_${item.id}`}>{item.name}</span>
+          <TreeLineBase isLast={isLast} />
+          {this.getSubItemCaption(item)}
         </li>
       );
     }
+
+    const isShow = this.state.data[item.id];
+    const lastIndex = item.items.length - 1;
     return (
       <li key={item.id}>
-        <TreeIconBase item={item} treeIconType={this.state.data[item.id] ? 'minus' : 'plus'} />
-        <span id={`caption_${item.id}`}>{item.name}</span>
-        <ul className={treeClasses.subContainer}>
-          {item.items.map(item => {
-            return this.getSubItems(item);
-          })}
+        <TreeIcon item={item} isShow={isShow} />
+        {this.getSubItemCaption(item)}
+        <ul className={join(treeClasses.subContainer, isShow && treeClasses.subItemShow || '')}>
+          {item.items.map((item, index) => { return this.getSubItems(item, lastIndex === index) })}
         </ul>
       </li>
     );
   }
+
   render() {
     const { data } = this.props;
     if (!data || !data.length) { return null }
