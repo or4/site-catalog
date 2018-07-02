@@ -9,6 +9,9 @@ const rawClasses = {
   container: {
     cursor: 'pointer',
     fontSize: '12px',
+    '&:hover': {
+      textDecoration: 'underline'
+    }
   }
 };
 

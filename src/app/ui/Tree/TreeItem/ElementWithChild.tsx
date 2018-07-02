@@ -23,10 +23,12 @@ const rawClasses = {
     overflow: 'hidden',
     paddingLeft: '10px',
     position: 'relative' as 'relative',
-    zIndex: '1000' as any,
   },
   subItemsShow: {
     display: 'block',
+  },
+  icon: {
+    zIndex: '1000' as any,
   },
 };
 
@@ -50,7 +52,7 @@ class ElementWithChild extends React.PureComponent<Props, State> {
       <li key={item.id} className={classes.container}>
 
         <div className={classes.captionContainer}>
-          <TreeIconSign item={item} isShow={isShow} />
+          <TreeIconSign className={classes.icon} item={item} isShow={isShow} />
           <ElementCaption item={item} />
         </div>
 
