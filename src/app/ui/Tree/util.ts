@@ -1,4 +1,4 @@
-import { TreePosition } from './types';
+import { TreePosition, TreeItemType } from './types';
 
 export const getPosition = (index: number, lastIndex: number): TreePosition => {
   const firstIndex = 0;
@@ -8,3 +8,6 @@ export const getPosition = (index: number, lastIndex: number): TreePosition => {
 };
 
 export const isFirst = (position: TreePosition) => position === 'first';
+
+export const hasNoChilds = (item: TreeItemType) => !item.items || !item.items.length;
+

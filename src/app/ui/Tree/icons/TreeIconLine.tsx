@@ -28,7 +28,7 @@ const getClasses = () => {
       zIndex: '999' as any,
       height: 'calc(100%)',
     },
-    isFirst: {
+    withMargin: {
       top: '6px',
       height: 'calc(100% - 6px)'
     }
@@ -40,15 +40,15 @@ const getClasses = () => {
 const { classes } = jss.createStyleSheet(getClasses()).attach();
 
 type Props = {
-  isFirst: boolean;
+  withMargin?: boolean;
 };
 type State = {
 };
 
 class TreeIconLine extends React.PureComponent<Props, State> {
   render() {
-    const { isFirst } = this.props;
-    return <span className={join(classes.container, isFirst ? classes.isFirst : '')} />;
+    const { withMargin } = this.props;
+    return <span className={join(classes.container, withMargin ? classes.withMargin : '')} />;
   }
 }
 export { TreeIconLine };

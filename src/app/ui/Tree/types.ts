@@ -14,6 +14,16 @@ export const testDataForTree: TreeItemType[] = [{
   items: [{
     id: '1.1',
     name: 'sub11',
+    items: [{
+      id: '3.4.1',
+      name: 'sub31',
+    }, {
+      id: '3.4.2',
+      name: 'sub31',
+    }, {
+      id: '3.4.3',
+      name: 'sub31',
+    }]
   }, {
     id: '1.2',
     name: 'sub11',
