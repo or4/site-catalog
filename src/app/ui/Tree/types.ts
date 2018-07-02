@@ -6,7 +6,6 @@ export type TreeItemType = {
 };
 
 export type TreePosition = 'first' |'middle' |'last';
-export type TreeDomType = 'tree-caption' | 'tree-icon';
 
 export const testDataForTree: TreeItemType[] = [{
   id: '1',

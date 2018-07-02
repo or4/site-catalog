@@ -40,7 +40,7 @@ const positionsY = '-56px';
 type Props = {
   item: TreeItemType;
   isShow: boolean;
-  className: string;
+  className?: string;
 };
 type State = {
 };
