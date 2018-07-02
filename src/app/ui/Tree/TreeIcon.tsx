@@ -7,30 +7,26 @@ import jss from 'jss';
 import preset from 'jss-preset-default';
 jss.setup(preset());
 
-const getClasses = () => {
-  const classes = {
-    container: {
-      lineHeight: '16px',
-      marginRight: '2px',
-      width: '16px',
-      minWidth: '16px',
-      height: '16px',
-      display: 'inline-block',
-      verticalAlign: 'middle',
-      border: '0 none',
-      cursor: 'pointer',
-      outline: 'none',
-      backgroundColor: 'transparent',
-      backgroundRepeat: 'no-repeat',
-      backgroundAttachment: 'scroll',
-      backgroundImage: `url(${treeIconBase64})`,
-    }
-  };
-
-  return classes;
+const rawClasses = {
+  container: {
+    border: '0 none',
+    backgroundAttachment: 'scroll',
+    backgroundColor: 'transparent',
+    backgroundImage: `url(${treeIconBase64})`,
+    backgroundRepeat: 'no-repeat',
+    cursor: 'pointer',
+    display: 'inline-block',
+    height: '16px',
+    lineHeight: '16px',
+    marginRight: '2px',
+    minWidth: '16px',
+    outline: 'none',
+    width: '16px',
+    verticalAlign: 'middle',
+  }
 };
 
-const { classes } = jss.createStyleSheet(getClasses()).attach();
+const { classes } = jss.createStyleSheet(rawClasses).attach();
 
 type TreeIconType = 'minus' | 'plus';
 export type TreeIconPosition = 'first' |'middle' |'last';
@@ -40,17 +36,7 @@ const positionsX = {
   'plus': '-75px',
 };
 
-// const positionsY = {
-//   'first': '-2px',
-//   'middle': '-20px',
-//   'last': '-38px',
-// };
-
-const positionsY = {
-  'first': '-58px',
-  'middle': '-58px',
-  'last': '-58px',
-};
+const positionsY = '-58px';
 
 type Props = {
   item: TreeItemType;
@@ -63,22 +49,18 @@ type State = {
 
 export const getPosition = (index: number, lastIndex: number): TreeIconPosition => {
   const firstIndex = 0;
-  if (index === lastIndex) {
-    return 'last';
-  }
-  if (index === firstIndex) {
-    return 'first';
-  }
+  if (index === lastIndex) { return 'last' }
+  if (index === firstIndex) { return 'first' }
   return 'middle';
 };
 
 class TreeIcon extends React.PureComponent<Props, State> {
   getStyle = () => {
-    const { isShow, position } = this.props;
+    const { isShow } = this.props;
     const type: TreeIconType = isShow ? 'minus' : 'plus';
 
     return {
-      backgroundPosition: `${positionsX[type]} ${positionsY[position]}`
+      backgroundPosition: `${positionsX[type]} ${positionsY}`
     };
   }
 
@@ -88,10 +70,10 @@ class TreeIcon extends React.PureComponent<Props, State> {
     return (
       <span
         className={join(classes.container, className || '')}
-        id={`icon_${item.id}`}
+        id={`tree-icon_${item.id}`}
         style={style}
       />
     );
   }
 }
-export default TreeIcon;
+export { TreeIcon };

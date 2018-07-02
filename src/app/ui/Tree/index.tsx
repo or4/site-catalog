@@ -1,9 +1,9 @@
 import React from 'react';
 import { TreeItemType } from './types';
-import TreeIcon, { TreeIconPosition, getPosition } from './TreeIcon';
+import { TreeIcon, TreeIconPosition, getPosition } from './TreeIcon';
 import { treeClasses } from './index.style';
 import { join } from 'util/helpers';
-import TreeLineBase from 'ui/Tree/TreeLineBase';
+import TreeLine from 'ui/Tree/TreeLine';
 import * as R from 'ramda';
 
 type Props = {
@@ -20,16 +20,10 @@ class Tree extends React.PureComponent<Props, State> {
   onTreeClick = (event: any) => {
     try {
       const [type, id] = event.target.id.split('_');
-      if (type === 'caption') {
+      if (type === 'tree-caption') {
         this.props.onClick(id);
-      } else {
+      } else if (type === 'tree-icon') {
         this.setState(R.assocPath(['data', id], !this.state.data[id], this.state));
-        // this.setState({
-        //   data: {
-        //     ...this.state.data,
-        //     [id]: !this.state.data[id],
-        //   }
-        // });
       }
     } catch (e) {
       // ignored
@@ -47,7 +41,7 @@ class Tree extends React.PureComponent<Props, State> {
   }
 
   getSubItemCaption = (item: TreeItemType) =>
-    <span id={`caption_${item.id}`} className={treeClasses.subItem}>{item.name}</span>
+    <span id={`tree-caption_${item.id}`} className={treeClasses.subItem}>{item.name}</span>
 
   hasNoChilds = (item: TreeItemType) => !item.items || item.items.length === 0
 
@@ -56,7 +50,7 @@ class Tree extends React.PureComponent<Props, State> {
       return (
         <li key={item.id}>
           <div className={treeClasses.subItemFlexContainer}>
-            <TreeLineBase position={position} />
+            <TreeLine position={position} />
             {position !== 'last' ? <span className={treeClasses.vert} /> : null}
             {this.getSubItemCaption(item)}
           </div>
@@ -66,14 +60,14 @@ class Tree extends React.PureComponent<Props, State> {
 
     const isShow = this.state.data[item.id];
     const lastIndex = item.items.length - 1;
-    //style={{ marginTop: '4px' }}
+
     return (
       <li key={item.id} style={{ position: 'relative' }}>
         <div style={{ display: 'flex' }}>
           <TreeIcon item={item} isShow={isShow} position={position} className={treeClasses.icon} />
           {this.getSubItemCaption(item)}
         </div>
-        <TreeLineBase isVertical={true} />
+        <TreeLine isVertical={true} />
         <ul className={join(treeClasses.subContainer, isShow && treeClasses.subItemShow || '')}>
           {item.items.map((item, index) => { return this.getSubItems(item, getPosition(index, lastIndex)) })}
         </ul>

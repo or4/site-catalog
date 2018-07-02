@@ -1,5 +1,7 @@
 import React from 'react';
 import { treeIconBase64, treeLineBase64 } from 'ui/icons/base64';
+import { join } from 'util/helpers';
+import { TreeIconPosition } from 'ui/Tree/TreeIcon';
 
 const positions = {
   'triangle': '-66px -21px',
@@ -8,8 +10,6 @@ const positions = {
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
-import { join } from 'util/helpers';
-import { TreeIconPosition } from 'ui/Tree/TreeIcon';
 jss.setup(preset());
 
 const getClasses = () => {
@@ -69,7 +69,7 @@ type Props = {
 type State = {
 };
 
-class TreeLineBase extends React.PureComponent<Props, State> {
+class TreeLine extends React.PureComponent<Props, State> {
   render() {
     const { position, isVertical } = this.props;
     if (isVertical) {
@@ -83,4 +83,4 @@ class TreeLineBase extends React.PureComponent<Props, State> {
     );
   }
 }
-export default TreeLineBase;
+export default TreeLine;
