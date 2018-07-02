@@ -7,14 +7,14 @@ jss.setup(preset());
 
 const getClasses = () => {
   const container = {
-    background: 'rgba(255, 255, 255, 0.3)',
+    background: 'rgba(255, 255, 255, 0.5)',
     borderRadius: '4px',
     border: '1px solid rgba(0, 0, 0, 0.3)',
     cursor: 'pointer',
     height: '50px',
     marginBottom: '8px',
     position: 'relative' as 'relative',
-    width: '223px',
+    width: '263px',
 
     ...flexRow('center'),
 

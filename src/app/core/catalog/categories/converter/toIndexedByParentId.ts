@@ -30,7 +30,7 @@ export const separateData = (data: TCategory[]) => {
 
   const processSub = (item: TCategory): TCategory[] => {
     // get items for item
-    const items = separated[item.id];
+    const items = separated[item.idVirtual];
     if (typeof items === 'undefined') {
       return [];
     }

@@ -15,10 +15,10 @@ class LeftSideBar extends React.PureComponent<Props, State> {
 
     Object.assign(container, {
       minHeight: theme.content.minHeight,
-      maxWidth: '245px',
-      minWidth: '245px',
+      maxWidth: '285px',
+      minWidth: '285px',
       padding: '8px 0',
-      width: '245px',
+      width: '285px',
 
       ...flexColumn('center', 'flex-start'),
     });

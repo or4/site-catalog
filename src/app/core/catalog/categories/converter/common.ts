@@ -5,8 +5,8 @@ import { TCategoryServer, TCategory } from 'core/catalog/categories/types';
  */
 export const convertToClientData = (data: TCategoryServer[]) =>
   data.map((category: TCategoryServer) => ({
-    id: Number(category.id),
-    idVirtual: category.id1,
+    id: category.id1,
+    idVirtual: Number(category.id),
     isDefault: Number(category.is_default),
     name: category.name,
     order: Number(category.order),

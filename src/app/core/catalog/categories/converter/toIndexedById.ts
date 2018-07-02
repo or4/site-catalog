@@ -6,6 +6,6 @@ import { TCategoryServer, TCategory, CategoryIndexedById } from 'core/catalog/ca
  */
 export const convertToIndexedById =
   (data: TCategory[]) => data.reduce((obj: CategoryIndexedById, category: TCategory) => {
-    obj[category.idVirtual] = category;
+    obj[category.id] = category;
     return obj;
   }, {});

@@ -37,8 +37,8 @@ class ScreenSize extends React.PureComponent<Props, State> {
       fontSize: '12px',
       fontFamily: 'Verdana, Tahoma, Arial, sans-serif',
       position: 'absolute' as 'absolute',
-      left: '10px',
-      top: '10px',
+      // left: '10px', top: '10px',
+      right: '10px', top: '10px',
     };
     return {
       container,
