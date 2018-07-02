@@ -58,8 +58,8 @@ class MainLayout extends React.Component<Props, State> {
       <div style={style.container}>
         <Helmet {...appConfig.app} {...appConfig.app.head} />
 
-        {!isInitial() && <Header />}
-        {!isInitial() && <Navigation />}
+        {true ? null : !isInitial() && <Header />}
+        {true ? null : !isInitial() && <Navigation />}
 
         <div>
           {this.props.children}
