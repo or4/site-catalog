@@ -12,5 +12,9 @@ const stories = storiesOf('Tree', module);
 
 stories.addWithJSX(
   'default',
-  () => (<Tree data={data} />),
+  () => (
+    <div style={{ maxWidth: '150px', border: '1px solid rgba(0,0,0,0.4)' }}>
+      <Tree data={data} />
+    </div>
+  ),
 );

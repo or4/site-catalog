@@ -3,8 +3,8 @@ require('regenerator-runtime/runtime');
 let path = require('path');
 let fs = require('fs');
 let webpack = require('webpack');
-let postcssAssets = require('postcss-assets');
-let postcssNext = require('postcss-cssnext');
+// let postcssAssets = require('postcss-assets');
+// let postcssNext = require('postcss-cssnext');
 let stylelint = require('stylelint');
 
 let nodeModules = {};
@@ -35,7 +35,7 @@ let config = {
   },
 
   module: {
-    loaders: [{
+    rules: [{
       test: /\.(jpe?g|png|gif)$/i,
       loader: 'url-loader?limit=1000&name=images/[hash].[ext]'
     },
@@ -47,11 +47,22 @@ let config = {
       test: /\.jsx$/,
       loader: 'babel-loader'
     },
+
     {
-      test: /\.tsx?$/,
-      loader: 'awesome-typescript-loader',
-      exclude: /node_modules/
+      test: /\.(ts|tsx)$/,
+      include: path.resolve('./src'),
+      //exclude: path.resolve('./node_modules'),
+      use: [
+        {
+          loader: 'ts-loader',
+          options: {
+            // disable type checker - we will use it in fork plugin
+            transpileOnly: true,
+          },
+        },
+      ],
     },
+
     {
       test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
       loader: 'url-loader?limit=10000&mimetype=application/font-woff'
@@ -84,14 +95,14 @@ let config = {
     new webpack.LoaderOptionsPlugin({
       debug: false,
       options: {
-        postcss: function () {
-          return [
-            postcssNext(),
-            postcssAssets({
-              relative: true
-            }),
-          ];
-        },
+        // postcss: function () {
+        //   return [
+        //     postcssNext(),
+        //     postcssAssets({
+        //       relative: true
+        //     }),
+        //   ];
+        // },
       }
     })
   ],

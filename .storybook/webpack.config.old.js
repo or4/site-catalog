@@ -46,37 +46,14 @@ module.exports = {
       },
 
       {
-        test: /\.(js|jsx|mjs)$/,
-        include: paths.appSrc,
-        loader: require.resolve('babel-loader'),
-        options: {
-
-          compact: true,
-        },
+        enforce: 'pre',
+        test: /\.(ts|tsx)$/,
+        loader: 'tslint-loader'
       },
-
       {
         test: /\.(ts|tsx)$/,
-        include: paths.appSrc,
-        use: [
-          {
-            loader: require.resolve('ts-loader'),
-            options: {
-              // disable type checker - we will use it in fork plugin
-              transpileOnly: true,
-            },
-          },
-        ],
+        loaders: ['awesome-typescript-loader']
       },
-      // {
-      //   enforce: 'pre',
-      //   test: /\.(ts|tsx)$/,
-      //   loader: 'tslint-loader'
-      // },
-      // {
-      //   test: /\.(ts|tsx)$/,
-      //   loaders: ['awesome-typescript-loader']
-      // },
 
       {
         test: /\.(eot|svg|ttf|otf|woff|woff2)$/,

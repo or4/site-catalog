@@ -3,8 +3,8 @@ require('regenerator-runtime/runtime');
 let fs = require('fs');
 let path = require('path');
 let webpack = require('webpack');
-let postcssAssets = require('postcss-assets');
-let postcssNext = require('postcss-cssnext');
+// let postcssAssets = require('postcss-assets');
+// let postcssNext = require('postcss-cssnext');
 let stylelint = require('stylelint');
 let ManifestPlugin = require('webpack-manifest-plugin');
 let ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -41,15 +41,27 @@ let config = {
   },
 
   module: {
-    rules: [{
-      enforce: 'pre',
-      test: /\.tsx?$/,
-      loader: 'tslint-loader'
-    },
+    rules: [
+    // {
+    //   enforce: 'pre',
+    //   test: /\.tsx?$/,
+    //   loader: 'tslint-loader'
+    // },
+
     {
-      test: /\.tsx?$/,
-      loader: 'awesome-typescript-loader'
+      test: /\.(ts|tsx)$/,
+      include: path.resolve('./src'),
+      use: [
+        {
+          loader: 'ts-loader',
+          options: {
+            // disable type checker - we will use it in fork plugin
+            transpileOnly: true,
+          },
+        },
+      ],
     },
+
     {
       test: /\.jsx$/,
       loader: 'babel-loader'
@@ -64,8 +76,8 @@ let config = {
       loader: ExtractTextPlugin.extract({
         fallback: 'style-loader',
         use: [
-          'css-loader?modules&importLoaders=2&localIdentName=[local]___[hash:base64:5]',
-          'postcss-loader'
+          'css-loader?modules&importLoaders=2&localIdentName=[local]___[hash:base64:5]'
+          // , 'postcss-loader'
         ]
       })
     },
@@ -119,17 +131,17 @@ let config = {
         tslint: {
           failOnHint: true
         },
-        postcss: function () {
-          return [
-            stylelint({
-              files: '../../src/app/*.css'
-            }),
-            postcssNext(),
-            postcssAssets({
-              relative: true
-            }),
-          ];
-        },
+        // postcss: function () {
+        //   return [
+        //     stylelint({
+        //       files: '../../src/app/*.css'
+        //     }),
+        //     postcssNext(),
+        //     postcssAssets({
+        //       relative: true
+        //     }),
+        //   ];
+        // },
       }
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),

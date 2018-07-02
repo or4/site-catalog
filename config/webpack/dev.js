@@ -3,11 +3,11 @@ require('regenerator-runtime/runtime');
 let fs = require('fs');
 let path = require('path');
 let webpack = require('webpack');
-let postcssAssets = require('postcss-assets');
-let postcssNext = require('postcss-cssnext');
+// let postcssAssets = require('postcss-assets');
+// let postcssNext = require('postcss-cssnext');
 let stylelint = require('stylelint');
 let ManifestPlugin = require('webpack-manifest-plugin');
-let CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
+// let CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
 
 let config = {
   // Enable sourcemaps for debugging webpack's output.
@@ -34,69 +34,79 @@ let config = {
   },
 
   module: {
-    rules: [{
-      enforce: 'pre',
-      test: /\.tsx?$/,
-      loader: 'tslint-loader'
-    },
-    {
-      test: /\.tsx?$/,
-      loaders: ['awesome-typescript-loader']
-    },
-    {
-      test: /\.jsx$/,
-      loader: 'babel-loader'
-    },
-    {
-      test: /\.json$/,
-      loader: 'json-loader'
-    },
-    {
-      test: /\.scss$/,
-      include: path.resolve('./src/app'),
-      loaders: [
-        'style-loader',
-        'css-loader?modules&importLoaders=2&localIdentName=[local]___[hash:base64:5]',
-        'postcss-loader'
-      ]
-    },
-    {
-      test: /\.scss$/,
-      exclude: path.resolve('./src/app'),
-      loaders: [
-        'style-loader',
-        'css-loader'
-      ]
-    },
-    {
-      test: /\.css$/,
-      exclude: path.resolve('./src/app'),
-      loaders: [
-        'style-loader',
-        'css-loader'
-      ]
-    },
+    rules: [
+      // {
+      //   enforce: 'pre',
+      //   test: /\.tsx?$/,
+      //   loader: 'tslint-loader'
+      // },
 
-    {
-      test: /\.eot(\?.*)?$/,
-      loader: 'file-loader?name=fonts/[hash].[ext]'
-    },
-    {
-      test: /\.(woff|woff2)(\?.*)?$/,
-      loader: 'file-loader?name=fonts/[hash].[ext]'
-    },
-    {
-      test: /\.ttf(\?.*)?$/,
-      loader: 'url-loader?limit=10000&mimetype=application/octet-stream&name=fonts/[hash].[ext]'
-    },
-    {
-      test: /\.svg(\?.*)?$/,
-      loader: 'url-loader?limit=10000&mimetype=image/svg+xml&name=fonts/[hash].[ext]'
-    },
-    {
-      test: /\.(jpe?g|png|gif)$/i,
-      loader: 'url-loader?limit=1000&name=images/[hash].[ext]'
-    }
+      {
+        test: /\.(ts|tsx)$/,
+        include: path.resolve('./src'),
+        use: [
+          {
+            loader: 'ts-loader',
+            options: {
+            // disable type checker - we will use it in fork plugin
+              transpileOnly: true,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.jsx$/,
+        loader: 'babel-loader'
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
+      },
+      {
+        test: /\.scss$/,
+        include: path.resolve('./src/app'),
+        loaders: [
+          'style-loader',
+          'css-loader?modules&importLoaders=2&localIdentName=[local]___[hash:base64:5]'
+        ]
+      },
+      {
+        test: /\.scss$/,
+        exclude: path.resolve('./src/app'),
+        loaders: [
+          'style-loader',
+          'css-loader'
+        ]
+      },
+      {
+        test: /\.css$/,
+        exclude: path.resolve('./src/app'),
+        loaders: [
+          'style-loader',
+          'css-loader'
+        ]
+      },
+
+      {
+        test: /\.eot(\?.*)?$/,
+        loader: 'file-loader?name=fonts/[hash].[ext]'
+      },
+      {
+        test: /\.(woff|woff2)(\?.*)?$/,
+        loader: 'file-loader?name=fonts/[hash].[ext]'
+      },
+      {
+        test: /\.ttf(\?.*)?$/,
+        loader: 'url-loader?limit=10000&mimetype=application/octet-stream&name=fonts/[hash].[ext]'
+      },
+      {
+        test: /\.svg(\?.*)?$/,
+        loader: 'url-loader?limit=10000&mimetype=image/svg+xml&name=fonts/[hash].[ext]'
+      },
+      {
+        test: /\.(jpe?g|png|gif)$/i,
+        loader: 'url-loader?limit=1000&name=images/[hash].[ext]'
+      }
     ]
   },
 
@@ -104,23 +114,11 @@ let config = {
     new webpack.ProvidePlugin({
       'regeneratorRuntime': 'regenerator-runtime/runtime'
     }),
-    new CheckerPlugin(),
     new webpack.LoaderOptionsPlugin({
       debug: true,
       options: {
         tslint: {
           failOnHint: true
-        },
-        postcss: function () {
-          return [
-            stylelint({
-              files: '../../src/app/*.css'
-            }),
-            postcssNext(),
-            postcssAssets({
-              relative: true
-            }),
-          ];
         },
       }
     }),
@@ -132,8 +130,7 @@ let config = {
         BROWSER: JSON.stringify(true),
         NODE_ENV: JSON.stringify('development')
       }
-    }),
-    new webpack.HotModuleReplacementPlugin()
+    })
   ]
 };
 
