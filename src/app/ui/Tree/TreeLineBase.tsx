@@ -2,7 +2,7 @@ import React from 'react';
 import { treeIconBase64, treeLineBase64 } from 'ui/icons/base64';
 
 const positions = {
-  'triangle': '-56px -21px',
+  'triangle': '-66px -21px',
   'corner': '-56px -38px',
 };
 
@@ -42,6 +42,10 @@ const getClasses = () => {
     triangle: {
       backgroundImage: `url(${treeIconBase64})`,
       backgroundPosition: positions['triangle'],
+      width: '6px',
+      maxWidth: '6px',
+      minWidth: '6px',
+      marginLeft: '10px',
     },
 
     corner: {

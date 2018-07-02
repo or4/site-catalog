@@ -4,6 +4,7 @@ import TreeIcon, { TreeIconPosition, getPosition } from './TreeIcon';
 import { treeClasses } from './index.style';
 import { join } from 'util/helpers';
 import TreeLineBase from 'ui/Tree/TreeLineBase';
+import * as R from 'ramda';
 
 type Props = {
   data: TreeItemType[];
@@ -22,13 +23,13 @@ class Tree extends React.PureComponent<Props, State> {
       if (type === 'caption') {
         this.props.onClick(id);
       } else {
-        // TODO Ramda or Immutable
-        this.setState({
-          data: {
-            ...this.state.data,
-            [id]: !this.state.data[id],
-          }
-        });
+        this.setState(R.assocPath(['data', id], !this.state.data[id], this.state));
+        // this.setState({
+        //   data: {
+        //     ...this.state.data,
+        //     [id]: !this.state.data[id],
+        //   }
+        // });
       }
     } catch (e) {
       // ignored
@@ -56,7 +57,7 @@ class Tree extends React.PureComponent<Props, State> {
         <li key={item.id}>
           <div className={treeClasses.subItemFlexContainer}>
             <TreeLineBase position={position} />
-            <span className={treeClasses.vert} />
+            {position !== 'last' ? <span className={treeClasses.vert} /> : null}
             {this.getSubItemCaption(item)}
           </div>
         </li>

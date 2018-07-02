@@ -20,6 +20,7 @@ const getRawClassess = () => {
   };
   const subItemFlexContainer = {
     display: 'flex',
+    position: 'relative' as 'relative',
   };
   const subContainer = {
     display: 'block',
@@ -29,9 +30,11 @@ const getRawClassess = () => {
     opacity: '0' as any,
     height: '0',
     overflow: 'hidden',
+    position: 'relative' as 'relative'
   };
   const icon = {
     // marginTop: '4px',
+    zIndex: '1000' as any,
   };
   const subItemShow = {
     opacity: '1' as any,
@@ -41,9 +44,10 @@ const getRawClassess = () => {
     background: `url(${treeLineBase64}) 0 0 repeat-y`,
     position: 'absolute' as 'absolute',
     top: '0px',
-    left: '0',
+    left: '0px',
     zIndex: '999' as any,
-    height: 'calc(100% - 1px)',
+    height: 'calc(100%)',
+    width: '16px',
   };
   return {
     container,
