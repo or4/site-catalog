@@ -14,7 +14,7 @@ let regeneratorRuntime =  require('regenerator-runtime');
 let date = new Date();
 logIntendation(IntendationType.start, `client.tsx, start  ${date.getMinutes()}:${date.getSeconds()}`);
 
-const store = configureStore(window.__INITIAL_STATE__);
+export const store = configureStore(window.__INITIAL_STATE__);
 store.runSaga(root);
 
 date = new Date();

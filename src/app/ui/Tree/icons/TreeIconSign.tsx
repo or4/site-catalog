@@ -29,32 +29,23 @@ const rawClasses = {
 const { classes } = jss.createStyleSheet(rawClasses).attach();
 
 type TreeIconType = 'minus' | 'plus';
-export type TreeIconPosition = 'first' |'middle' |'last';
 
 const positionsX = {
   'minus': '-93px',
   'plus': '-75px',
 };
 
-const positionsY = '-58px';
+const positionsY = '-56px';
 
 type Props = {
   item: TreeItemType;
   isShow: boolean;
-  position: TreeIconPosition;
-  className: string;
+  className?: string;
 };
 type State = {
 };
 
-export const getPosition = (index: number, lastIndex: number): TreeIconPosition => {
-  const firstIndex = 0;
-  if (index === lastIndex) { return 'last' }
-  if (index === firstIndex) { return 'first' }
-  return 'middle';
-};
-
-class TreeIcon extends React.PureComponent<Props, State> {
+class TreeIconSign extends React.PureComponent<Props, State> {
   getStyle = () => {
     const { isShow } = this.props;
     const type: TreeIconType = isShow ? 'minus' : 'plus';
@@ -76,4 +67,4 @@ class TreeIcon extends React.PureComponent<Props, State> {
     );
   }
 }
-export { TreeIcon };
+export { TreeIconSign };

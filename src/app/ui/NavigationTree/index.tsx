@@ -7,6 +7,7 @@ import { TCategory } from 'core/catalog/categories/types';
 import { log } from 'util/logger';
 import Tree from 'ui/Tree';
 import { testDataForTree } from 'ui/Tree/types';
+import { push } from 'react-router-redux';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
@@ -19,6 +20,7 @@ type StateProps = {
   categories: TCategory[];
 };
 type DispatchProps = {
+  goToRoute: (route: string) => void;
 };
 type Props = StateProps & DispatchProps & OwnProps;
 
@@ -39,7 +41,8 @@ const { classes } = jss.createStyleSheet(getClasses()).attach();
 
 class NavigationTree extends React.PureComponent<Props, State> {
   onClick = (item: any) => {
-    console.log('onClick item', item);
+    this.props.goToRoute(`/catalog/${item.id}`);
+    console.log('onClick item 12', item);
   }
 
   render() {
@@ -63,6 +66,7 @@ const mapStateToProps = (state: AppState) => ({
 
 const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
   return {
+    goToRoute: (route: string) => dispatch(push(route))
 
   };
 };

@@ -18,11 +18,11 @@ type CategoryCaptionAccumulator = {
  */
 export const getCategoryCaption = (state: AppState, category: TCategory) => {
   if (!category) { return '' }
-  if (category.idVirtual === null) {
+  if (category.id === null) {
     return 'Все товары';
   }
 
-  const splitted = category.idVirtual.split('.');
+  const splitted = category.id.split('.');
 
   const acc = splitted.reduce(
     (acc: CategoryCaptionAccumulator, categoryPart: string) => {

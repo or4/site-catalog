@@ -17,7 +17,7 @@ export const selectItemsByCategory = (state: AppState, category: string) => {
 export const selectItemsByPage = (state: AppState, category: TCategory) => {
   if (!category) { return [] }
 
-  const items = selectItemsByCategory(state, category.idVirtual);
+  const items = selectItemsByCategory(state, category.id);
   const page = selectPage(state);
 
   const perPageKey = selectAmountItems(state);
