@@ -5,7 +5,12 @@ import { ActionTypes, ActionsAll } from './actions';
 export type TItem = {
   id: number;
   category: string[];
-  name: string;
+  name: 'Ремень 10*8* 715 Уфа';
+  unit: string;
+  opt: string;
+  roz: string;
+  weight: string;
+  place: string;
 };
 
 type TState = {

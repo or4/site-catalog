@@ -1,4 +1,5 @@
 import React from 'react';
+import { join } from 'util/helpers';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
@@ -6,15 +7,16 @@ jss.setup(preset());
 
 const rawClasses = {
   container: {
-    width: '50px',
-    minWidth: '50px',
+    fontSize: '12px',
+    lineHeight: '16px'
   }
 };
 
 const { classes } = jss.createStyleSheet(rawClasses).attach();
 
 type Props = {
-  value: string;
+  className?: string;
+  value?: string;
 };
 type State = {
 };
@@ -29,10 +31,10 @@ export class TableCell extends React.PureComponent<Props, State> {
   }
   render() {
     const style = this.getStyle();
-    const { value } = this.props;
+    const { className, value } = this.props;
     return (
-      <div className={classes.container} style={style.container}>
-        {value}
+      <div className={join(classes.container, className || '')} style={style.container}>
+        {value || this.props.children}
       </div>
     );
   }

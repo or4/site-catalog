@@ -1,13 +1,18 @@
 import React from 'react';
 import { TableItemType } from './types';
 import { TableRow } from './TableRow';
+import { borderBottom } from './style';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
+import { TableHeader } from 'ui/Table/TableHeader';
 jss.setup(preset());
 
 const rawClasses = {
   container: {
+    background: 'rgba(255, 255, 255, 0.4)',
+    borderRadius: '4px',
+    ...borderBottom,
   }
 };
 
@@ -30,9 +35,13 @@ export class Table extends React.PureComponent<Props, State> {
   render() {
     const style = this.getStyle();
     const { items } = this.props;
+    console.log('Table, items', items);
     return (
       <div className={classes.container} style={style.container}>
-        {items.map((item: TableItemType) => <TableRow key={item.idKey} item={item} />)}
+        <TableHeader />
+        {items.map(
+          (item: TableItemType) => <TableRow key={item.idKey} item={item} />
+        )}
       </div>
     );
   }
