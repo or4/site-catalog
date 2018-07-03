@@ -1,10 +1,10 @@
 import React from 'react';
 import { PageButtonBase } from '../common/PageButtonBase';
 import { arrowIconBase64 } from 'ui/icons/base64';
+import { join } from 'util/helpers';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
-import { join } from 'util/helpers';
 jss.setup(preset());
 
 const getClasses = () => {

@@ -1,10 +1,10 @@
 import React from 'react';
 import { PageButtonSmallNext } from './PageButtonSmallNext';
 import { PageButtonSmallPrev } from './PageButtonSmallPrev';
+import { getPrevPage, getNextPage } from 'util/pages';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
-import { getPrevPage, getNextPage } from 'util/pages';
 jss.setup(preset());
 
 const getClasses = () => {

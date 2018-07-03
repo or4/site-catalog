@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 
 import { browserHistory } from 'react-router';
 import routes from './app/routes';
-import Root from './Root';
+import { Root } from './Root';
 import { configureStore } from 'store';
 import root from 'core/sagas';
 import { log, logIntendation, IntendationType } from './app/util/logger';

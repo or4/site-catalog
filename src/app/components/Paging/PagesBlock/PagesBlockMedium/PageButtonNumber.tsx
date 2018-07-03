@@ -1,9 +1,9 @@
 import React from 'react';
 import { PageButtonBase, BorderRadius } from '../common/PageButtonBase';
+import { join } from 'util/helpers';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
-import { join } from 'util/helpers';
 jss.setup(preset());
 
 const getClasses = () => {

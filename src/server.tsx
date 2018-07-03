@@ -15,7 +15,7 @@ import webpack from 'webpack';
 import express from 'express';
 import routes from './app/routes';
 import React from 'react';
-import Root from './Root';
+import { Root } from './Root';
 import { renderToString } from 'react-dom/server';
 import { match, createMemoryHistory } from 'react-router';
 import { store } from 'store';

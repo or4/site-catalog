@@ -24,6 +24,7 @@ type State = {
 class ArticleProductsComponent extends React.PureComponent<Props, State> {
   render() {
     const { items } = this.props;
+    console.log('items', items);
     return (
       <div>
         <ul>

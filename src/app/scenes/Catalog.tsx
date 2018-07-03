@@ -20,7 +20,7 @@ type Props = StateProps & DispatchProps & OwnProps;
 type State = {
 };
 
-class ProductsComponent extends React.PureComponent<Props, State> {
+class CatalogComponent extends React.PureComponent<Props, State> {
 
   render() {
     log('Catalog render');
@@ -43,4 +43,4 @@ const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
   return {
   };
 };
-export const Products = connect<StateProps, DispatchProps>(mapStateToProps, mapDispatchToProps)(ProductsComponent);
+export const Catalog = connect<StateProps, DispatchProps>(mapStateToProps, mapDispatchToProps)(CatalogComponent);
