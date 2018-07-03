@@ -63,4 +63,4 @@ class Tree extends React.PureComponent<Props, State> {
     );
   }
 }
-export default Tree;
+export { Tree };
