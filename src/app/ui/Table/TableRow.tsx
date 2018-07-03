@@ -1,6 +1,7 @@
 import React from 'react';
 import { TableItemType } from './types';
-import { TableRow } from './TableRow';
+import { TableCell } from 'ui/Table/TableCell';
+import { flexRow } from 'ui/theme';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
@@ -8,18 +9,19 @@ jss.setup(preset());
 
 const rawClasses = {
   container: {
+    ...flexRow('center', 'center'),
   }
 };
 
 const { classes } = jss.createStyleSheet(rawClasses).attach();
 
 type Props = {
-  items: TableItemType[];
+  item: TableItemType;
 };
 type State = {
 };
 
-export class Table extends React.PureComponent<Props, State> {
+export class TableRow extends React.PureComponent<Props, State> {
   getStyle() {
     const container = {
     };
@@ -29,10 +31,11 @@ export class Table extends React.PureComponent<Props, State> {
   }
   render() {
     const style = this.getStyle();
-    const { items } = this.props;
+    const { item } = this.props;
     return (
       <div className={classes.container} style={style.container}>
-        {items.map((item: TableItemType) => <TableRow key={item.idKey} item={item} />)}
+        <TableCell value={item.id} />
+        <TableCell value={item.name} />
       </div>
     );
   }
