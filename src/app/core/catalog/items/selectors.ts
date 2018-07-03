@@ -7,7 +7,7 @@ import { TCategory } from 'core/catalog/categories/types';
 export const selectItems = (state: AppState) => state.items.data;
 
 export const selectItemsByCategory = (state: AppState, category: string) => {
-  if (category === null || category === 'null') {
+  if (category === '0') {
     return selectItems(state);
   }
 
@@ -17,6 +17,7 @@ export const selectItemsByCategory = (state: AppState, category: string) => {
 export const selectItemsByPage = (state: AppState, category: TCategory) => {
   if (!category) { return [] }
 
+  console.log('category.id', category.id);
   const items = selectItemsByCategory(state, category.id);
   const page = selectPage(state);
 
