@@ -38,7 +38,8 @@ export class Table extends React.PureComponent<Props, State> {
       <div className={classes.container} style={style.container}>
         <TableHeader />
         {items.map(
-          (item: TableItemType, index: number, arr: TableItemType[]) => <TableRow key={item.idKey} item={item} position={getPosition(index, arr.length - 1)} />
+          (item: TableItemType, index: number, arr: TableItemType[]) =>
+            <TableRow key={item.id} item={item} position={getPosition(index, arr.length - 1)} />
         )}
       </div>
     );
