@@ -21,7 +21,7 @@ stories.addWithJSX(
   'Table',
   () => (
     <div style={{ maxWidth: '150px', border: '1px solid rgba(0,0,0,0.4)' }}>
-      <Table data={data} />
+      <Table />
     </div>
   ),
 );

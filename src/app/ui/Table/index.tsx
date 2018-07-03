@@ -23,4 +23,4 @@ class Table extends React.PureComponent<Props, State> {
     );
   }
 }
-export default Table;
+export { Table };
