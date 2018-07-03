@@ -3,27 +3,13 @@ import LeftSideBar from './LeftSideBar';
 import RightSideBar from './RightSideBar';
 import { RouteType, routeHas } from 'routes';
 import { theme } from 'ui/theme';
-import { isLarge, isMedium, isSmall } from 'util/responsive';
+import { isLarge, isMedium, isSmall, isInitial } from 'util/responsive';
 import { log } from 'util/logger';
 import NavigationTree from 'ui/NavigationTree';
 import { subscribeResize, unsubscribeResize } from 'components/Resize';
 import PhotoSlider from 'ui/PhotoSlider';
 import DownloadButton from 'ui/buttons/DownloadButton';
 import WayButton from 'ui/buttons/WayButton';
-
-// import textIcon1 from 'assets/tmp/price1.svg';
-// import textIcon2 from 'assets/tmp/price2.svg';
-// import textIcon3 from 'assets/tmp/price3.svg';
-// import textIcon4 from 'assets/tmp/price4-sf-pro.svg';
-// import textIcon5 from 'assets/tmp/price5-ubuntu.svg';
-// import textIcon6 from 'assets/tmp/price6-ubuntu-medium.svg';
-// import textIcon7 from 'assets/tmp/price7-ubuntu-bold.svg';
-
-
-// import wayIcon1 from 'assets/tmp/compass.svg';
-// import wayIcon2 from 'assets/tmp/compass2.svg';
-// import wayIcon3 from 'assets/tmp/compass3.svg';
-// import wayIcon4 from 'assets/tmp/compass4.svg';
 
 type Props = {
   children: any;
@@ -60,22 +46,7 @@ class MiddleLayout extends React.PureComponent<Props, State> {
     const contentRightBar: any = [];
     let isCompact = false;
 
-
-    // contentLeftBar.push(<DownloadButton icon={textIcon1} key={'key-DownloadButton1'} />);
-    // contentLeftBar.push(<DownloadButton icon={textIcon2} key={'key-DownloadButton2'} />);
-    // contentLeftBar.push(<DownloadButton icon={textIcon3} key={'key-DownloadButton3'} />);
-    // contentLeftBar.push(<DownloadButton icon={textIcon4} key={'key-DownloadButton4'} />);
-    // contentLeftBar.push(<DownloadButton icon={textIcon5} key={'key-DownloadButton5'} />);
-    // contentLeftBar.push(<DownloadButton icon={textIcon6} key={'key-DownloadButton6'} />);
-    // contentLeftBar.push(<DownloadButton icon={textIcon7} key={'key-DownloadButton7'} />);
-
-    // contentLeftBar.push(<WayButton icon={wayIcon1} key={'key-WayButton'} />);
-    // contentLeftBar.push(<WayButton icon={wayIcon2} key={'key-WayButton'} />);
-    // contentLeftBar.push(<WayButton icon={wayIcon3} key={'key-WayButton'} />);
-    // contentLeftBar.push(<WayButton icon={wayIcon4} key={'key-WayButton'} />);
-
-
-    if (routeHas(route, 'price')) {
+    if (routeHas(route, 'price') && !isInitial()) {
       if (isSmall()) {
         // empty
       }
@@ -88,7 +59,7 @@ class MiddleLayout extends React.PureComponent<Props, State> {
       }
     }
 
-    if (routeHas(route, 'tree')) {
+    if (routeHas(route, 'tree') && !isInitial()) {
       if (isSmall()) {
         contentLeftBar.push(<NavigationTree key={'key-NavigationTree'} />);
         isCompact = true;
@@ -102,7 +73,7 @@ class MiddleLayout extends React.PureComponent<Props, State> {
       }
     }
 
-    if (routeHas(route, 'photo')) {
+    if (routeHas(route, 'photo') && !isInitial()) {
       if (isSmall()) {
         // empty
       }
