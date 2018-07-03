@@ -6,7 +6,6 @@ import { AppState } from 'store/reducers';
 import { TCategory } from 'core/catalog/categories/types';
 import { log } from 'util/logger';
 import Tree from 'ui/Tree';
-import { testDataForTree } from 'ui/Tree/types';
 import { push } from 'react-router-redux';
 
 import jss from 'jss';
@@ -51,7 +50,7 @@ class NavigationTree extends React.PureComponent<Props, State> {
     if (!this.props.categories) {
       return null;
     }
-    // console.log('this.props.categories', this.props.categories);
+    console.log('this.props.categories', this.props.categories);
 
     return (
       <div className={classes.container}>

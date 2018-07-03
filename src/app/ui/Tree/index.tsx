@@ -57,7 +57,7 @@ class Tree extends React.PureComponent<Props, State> {
     return (
       <ul className={classes.container} onClick={this.onTreeClick}>
         {items.map(
-          (item, index) => <TreeItem key={item.id} itemsState={itemsState} item={item} position={getPosition(index, lastIndex)} />
+          (item, index) => <TreeItem key={item.idKey} itemsState={itemsState} item={item} position={getPosition(index, lastIndex)} />
         )}
       </ul>
     );

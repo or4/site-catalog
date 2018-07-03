@@ -28,7 +28,7 @@ class ElementWithoutChild extends React.PureComponent<Props, State> {
     const { item, position } = this.props;
     if (position === 'last') {
       return (
-        <li key={item.id}>
+        <li key={item.idKey}>
           <div className={classes.subItemFlexContainer}>
             <TreeIconCorner />
             <ElementCaption item={item} />
@@ -38,7 +38,7 @@ class ElementWithoutChild extends React.PureComponent<Props, State> {
     }
 
     return (
-      <li key={item.id}>
+      <li key={item.idKey}>
         <div className={classes.subItemFlexContainer}>
           <TreeIconLine />
           <TreeIconHyphen />
