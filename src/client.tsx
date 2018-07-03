@@ -20,7 +20,7 @@ store.runSaga(root);
 date = new Date();
 
 logIntendation(IntendationType.start, `client.tsx, runedSaga  ${date.getMinutes()}:${date.getSeconds()}`);
-
+export { browserHistory };
 render(
   <Root
     store={store}
