@@ -6,13 +6,11 @@ import { borderBottom } from './style';
 import jss from 'jss';
 import preset from 'jss-preset-default';
 import { TableHeader } from 'ui/Table/TableHeader';
+import { getPosition } from 'ui/Tree/util';
 jss.setup(preset());
 
 const rawClasses = {
   container: {
-    background: 'rgba(255, 255, 255, 0.4)',
-    borderRadius: '4px',
-    ...borderBottom,
   }
 };
 
@@ -40,7 +38,7 @@ export class Table extends React.PureComponent<Props, State> {
       <div className={classes.container} style={style.container}>
         <TableHeader />
         {items.map(
-          (item: TableItemType) => <TableRow key={item.idKey} item={item} />
+          (item: TableItemType, index: number, arr: TableItemType[]) => <TableRow key={item.idKey} item={item} position={getPosition(index, arr.length - 1)} />
         )}
       </div>
     );

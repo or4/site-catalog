@@ -29,9 +29,6 @@ class ArticleProductsComponent extends React.PureComponent<Props, State> {
     return (
       <div>
         <Table items={items as any} />
-        <ul>
-          {items.map((item: TItem) => <li key={item.id}>{item.name}</li>)}
-        </ul>
       </div>
     );
   }

@@ -7,8 +7,11 @@ jss.setup(preset());
 
 const rawClasses = {
   container: {
-    fontSize: '12px',
-    lineHeight: '16px'
+    background: 'rgba(255, 255, 255, 0.5)',
+    fontSize: '11px',
+    lineHeight: '16px',
+    fontFamily: 'Verdana',
+    cursor: 'default',
   }
 };
 
