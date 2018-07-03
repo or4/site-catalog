@@ -1,7 +1,7 @@
 import React from 'react';
 import { join } from 'util/helpers';
 import { AmountItemsType } from 'core/settings/amountItems/common';
-import AmountBlockMedium from './AmountBlockMedium';
+import { AmountBlockMedium } from './AmountBlockMedium';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
@@ -28,7 +28,7 @@ type Props = {
 type State = {
 };
 
-class AmountBlock extends React.PureComponent<Props, State> {
+export class AmountBlock extends React.PureComponent<Props, State> {
   render() {
     const { amountItems, className, isSmall, onClick } = this.props;
     return (
@@ -38,4 +38,3 @@ class AmountBlock extends React.PureComponent<Props, State> {
     );
   }
 }
-export default AmountBlock;

@@ -11,8 +11,8 @@ import { TItem } from 'core/catalog/items/reducer';
 import { TCategory } from 'core/catalog/categories/types';
 import { log } from 'util/logger';
 import { isInitial } from 'util/responsive';
-import Resize from 'components/Resize';
-import ScreenSize from 'ui/ScreenSize';
+import { Resize } from 'components/Resize';
+import { ScreenSize } from 'ui/ScreenSize';
 
 type StateProps = {
   categories: TCategory[];
@@ -26,7 +26,7 @@ type Props = StateProps & DispatchProps;
 type State = {
 };
 let first = true;
-class MainLayout extends React.Component<Props, State> {
+class MainLayoutComponent extends React.Component<Props, State> {
   state = {};
   static getDerivedStateFromProps({ loadCategories, categories, /* loadItems, items,*/ }: Props) {
     if (first && categories.length === 0) {
@@ -48,7 +48,7 @@ class MainLayout extends React.Component<Props, State> {
     };
   }
   public render() {
-    log('MainLayout render');
+    log('MainLayoutComponent render');
     const style = this.getStyle();
 
     log(`render this.props.items.length`, this.props.items.length);
@@ -87,5 +87,5 @@ const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
     },
   };
 };
-export default connect<StateProps, DispatchProps>(mapStateToProps, mapDispatchToProps)(MainLayout);
+export const MainLayout = connect<StateProps, DispatchProps>(mapStateToProps, mapDispatchToProps)(MainLayoutComponent);
 

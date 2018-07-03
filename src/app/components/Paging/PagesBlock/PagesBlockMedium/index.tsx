@@ -1,12 +1,12 @@
 import React from 'react';
-import PageButtonMediumNext from './PageButtonMediumNext';
-import PageButtonNumber from './PageButtonNumber';
-import PageButtonMediumPrev from './PageButtonMediumPrev';
+import { PageButtonMediumNext } from './PageButtonMediumNext';
+import { PageButtonNumber } from './PageButtonNumber';
+import { PageButtonMediumPrev } from './PageButtonMediumPrev';
+import { join } from 'util/helpers';
+import { getPrevPage, getNextPage } from 'util/pages';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
-import { join } from 'util/helpers';
-import { getPrevPage, getNextPage } from 'util/pages';
 jss.setup(preset());
 
 const getClasses = () => {
@@ -39,7 +39,7 @@ type State = {
 };
 const pagesItems = ['prev', 'next', 'item1', 'item2', 'item3', 'item4', 'item5`'];
 
-class PagesBlockMedium extends React.PureComponent<Props, State> {
+export class PagesBlockMedium extends React.PureComponent<Props, State> {
   onPrevClick = () => { this.props.onClick(getPrevPage(this.props.page, 1)) }
   onItem1Click = () => { this.props.onClick(getPrevPage(this.props.page, 2)) }
   onItem2Click = () => { this.props.onClick(getPrevPage(this.props.page, 1)) }
@@ -103,4 +103,3 @@ class PagesBlockMedium extends React.PureComponent<Props, State> {
     );
   }
 }
-export default PagesBlockMedium;

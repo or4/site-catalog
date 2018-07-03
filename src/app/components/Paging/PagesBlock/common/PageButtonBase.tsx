@@ -63,7 +63,7 @@ const sheet = jss.createStyleSheet(getClasses()).attach();
 const { classes } = sheet;
 const borderClasses = jss.createStyleSheet(getBorderClasses()).attach().classes;
 
-class PageButtonBase extends React.PureComponent<Props, State> {
+export class PageButtonBase extends React.PureComponent<Props, State> {
   render() {
     const { className, borderRadius, isActive } = this.props;
     return (
@@ -76,4 +76,3 @@ class PageButtonBase extends React.PureComponent<Props, State> {
     );
   }
 }
-export default PageButtonBase;

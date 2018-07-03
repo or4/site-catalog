@@ -1,5 +1,5 @@
 import React from 'react';
-import PageButtonBase from '../common/PageButtonBase';
+import { PageButtonBase } from '../common/PageButtonBase';
 import { arrowIconBase64 } from 'ui/icons/base64';
 
 import jss from 'jss';
@@ -32,7 +32,7 @@ type Props = {
 type State = {
 };
 
-class PageButtonSmallPrev extends React.PureComponent<Props, State> {
+export class PageButtonSmallPrev extends React.PureComponent<Props, State> {
   render() {
     const { className } = this.props;
     return (
@@ -42,4 +42,3 @@ class PageButtonSmallPrev extends React.PureComponent<Props, State> {
     );
   }
 }
-export default PageButtonSmallPrev;

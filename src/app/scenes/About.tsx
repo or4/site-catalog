@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import MiddleLayout from 'components/MiddleLayout';
+import { MiddleLayout } from 'components/MiddleLayout';
 import { IS_DEV, IS_SHOW_ABOUT } from 'settings';
 import { log } from 'util/logger';
 
@@ -16,9 +16,9 @@ type Props = StateProps & DispatchProps;
 type State = {
 };
 
-class About extends React.Component<Props, State> {
+class AboutComponent extends React.Component<Props, State> {
   // componentDidMount() {
-  //   log('SCENE About, componentDidMount');
+  //   log('SCENE AboutComponent, componentDidMount');
   //   this.props.loadBalance();
   // }
   getStyle = () => {
@@ -72,7 +72,7 @@ class About extends React.Component<Props, State> {
   }
 
   public render() {
-    log('About render');
+    log('AboutComponent render');
     const style = this.getStyle();
     const content = <div dangerouslySetInnerHTML={this.createMarkup()} />;
     return (
@@ -95,5 +95,5 @@ const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
     // }
   };
 };
-export default connect<StateProps, DispatchProps>(mapStateToProps, mapDispatchToProps)(About);
+export const About = connect<StateProps, DispatchProps>(mapStateToProps, mapDispatchToProps)(AboutComponent);
 

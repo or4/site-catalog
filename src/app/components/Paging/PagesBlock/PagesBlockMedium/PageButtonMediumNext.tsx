@@ -1,6 +1,6 @@
 import React from 'react';
 import { arrowIconBase64 } from 'ui/icons/base64';
-import PageButtonBase from '../common/PageButtonBase';
+import { PageButtonBase } from '../common/PageButtonBase';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
@@ -34,7 +34,7 @@ type Props = {
 type State = {
 };
 
-class PageButtonMediumNext extends React.PureComponent<Props, State> {
+export class PageButtonMediumNext extends React.PureComponent<Props, State> {
   render() {
     const { className, onClick, hidden } = this.props;
     return (
@@ -45,4 +45,3 @@ class PageButtonMediumNext extends React.PureComponent<Props, State> {
     );
   }
 }
-export default PageButtonMediumNext;

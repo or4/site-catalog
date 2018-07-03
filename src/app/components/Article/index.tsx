@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import { AppState } from 'store/reducers';
 
 import { TCategory } from 'core/catalog/categories/types';
-import ArticleHeader from 'components/Article/ArticleHeader';
-import ArticleProducts from 'components/Article/ArticleProducts';
-import ArticleContent from 'components/Article/ArticleContent';
+import { ArticleHeader } from 'components/Article/ArticleHeader';
+import { ArticleProducts } from 'components/Article/ArticleProducts';
+import { ArticleContent } from 'components/Article/ArticleContent';
 import { selectCategory, getCategoryCaption } from 'core/catalog/categories/selectors';
 
 type OwnProps = {
@@ -23,7 +23,7 @@ type Props = StateProps & DispatchProps & OwnProps;
 type State = {
 };
 
-class Article extends React.PureComponent<Props, State> {
+class ArticleComponent extends React.PureComponent<Props, State> {
   render() {
     const { category, categoryCaption } = this.props;
     return (
@@ -48,4 +48,4 @@ const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
   return {
   };
 };
-export default connect<StateProps, DispatchProps>(mapStateToProps, mapDispatchToProps)(Article);
+export const Article = connect<StateProps, DispatchProps>(mapStateToProps, mapDispatchToProps)(ArticleComponent);

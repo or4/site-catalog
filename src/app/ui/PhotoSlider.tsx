@@ -11,7 +11,7 @@ type Props = {
 type State = {
 };
 
-class PhotoSlider extends React.PureComponent<Props, State> {
+export class PhotoSlider extends React.PureComponent<Props, State> {
   getStyle() {
     const container = {
       background: 'rgba(255, 255, 255, 0.3)',
@@ -153,4 +153,3 @@ class PhotoSlider extends React.PureComponent<Props, State> {
     );
   }
 }
-export default PhotoSlider;

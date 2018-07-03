@@ -11,7 +11,7 @@ type Props = {
 type State = {
 };
 
-class NavigationItem extends React.PureComponent<Props, State> {
+export class NavigationItem extends React.PureComponent<Props, State> {
   getStyle() {
     const container = {
       display: 'inline-block',
@@ -42,4 +42,3 @@ class NavigationItem extends React.PureComponent<Props, State> {
     );
   }
 }
-export default NavigationItem;

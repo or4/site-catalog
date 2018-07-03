@@ -1,5 +1,5 @@
 import React from 'react';
-import MiddleLayout from 'components/MiddleLayout';
+import { MiddleLayout } from 'components/MiddleLayout';
 import { log } from 'util/logger';
 
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
 type State = {
 };
 
-class Production extends React.PureComponent<Props, State> {
+export class Production extends React.PureComponent<Props, State> {
   render() {
     log('Production render');
     //const {  } = this.props;
@@ -20,4 +20,3 @@ class Production extends React.PureComponent<Props, State> {
     );
   }
 }
-export default Production;

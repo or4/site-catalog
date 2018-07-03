@@ -1,7 +1,7 @@
 import React from 'react';
-import Logo from 'components/Header/Logo';
-import Banner from 'components/Header/Banner';
-import Contacts from 'components/Header/Contacts';
+import { Logo } from 'components/Header/Logo';
+import { Banner } from 'components/Header/Banner';
+import { Contacts } from 'components/Header/Contacts';
 import { isSmall, isLarge, isMedium } from 'util/responsive';
 import { flexColumn, flexRow } from 'ui/theme';
 import { log } from 'util/logger';
@@ -12,7 +12,7 @@ type Props = {
 type State = {
 };
 
-class Header extends React.PureComponent<Props, State> {
+export class Header extends React.PureComponent<Props, State> {
   componentDidMount() { subscribeResize(this, 'Header') }
   componentWillUnmount() { unsubscribeResize(this, 'Header') }
 
@@ -74,4 +74,3 @@ class Header extends React.PureComponent<Props, State> {
   }
 }
 
-export default Header;

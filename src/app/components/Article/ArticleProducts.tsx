@@ -21,7 +21,7 @@ type State = {
 };
 
 
-class ArticleProducts extends React.PureComponent<Props, State> {
+class ArticleProductsComponent extends React.PureComponent<Props, State> {
   render() {
     const { items } = this.props;
     return (
@@ -44,5 +44,5 @@ const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
   return {
   };
 };
-export default connect<StateProps, DispatchProps>(mapStateToProps, mapDispatchToProps)(ArticleProducts);
+export const ArticleProducts = connect<StateProps, DispatchProps>(mapStateToProps, mapDispatchToProps)(ArticleProductsComponent);
 

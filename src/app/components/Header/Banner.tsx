@@ -9,7 +9,7 @@ type Props = {
 type State = {
 };
 
-class Banner extends React.PureComponent<Props, State> {
+export class Banner extends React.PureComponent<Props, State> {
   getStyle(customStyle: any) {
     const container = {
       height: '100px',
@@ -38,4 +38,3 @@ class Banner extends React.PureComponent<Props, State> {
     );
   }
 }
-export default Banner;

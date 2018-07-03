@@ -46,7 +46,7 @@ type State = {
 };
 
 
-class CompactIcon extends React.PureComponent<Props, State> {
+export class CompactIcon extends React.PureComponent<Props, State> {
   render() {
     //const {  } = this.props;
     return (
@@ -56,4 +56,3 @@ class CompactIcon extends React.PureComponent<Props, State> {
     );
   }
 }
-export default CompactIcon;

@@ -1,6 +1,6 @@
 import React from 'react';
-import PageButtonSmallNext from './PageButtonSmallNext';
-import PageButtonSmallPrev from './PageButtonSmallPrev';
+import { PageButtonSmallNext } from './PageButtonSmallNext';
+import { PageButtonSmallPrev } from './PageButtonSmallPrev';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
@@ -33,7 +33,7 @@ type Props = {
 type State = {
 };
 
-class PagesBlockSmall extends React.PureComponent<Props, State> {
+export class PagesBlockSmall extends React.PureComponent<Props, State> {
   onPrevClick = () => {
     const { onClick, page, } = this.props;
     onClick && onClick(getPrevPage(page, 1));
@@ -52,4 +52,3 @@ class PagesBlockSmall extends React.PureComponent<Props, State> {
     );
   }
 }
-export default PagesBlockSmall;

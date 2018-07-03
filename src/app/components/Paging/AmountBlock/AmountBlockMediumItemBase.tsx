@@ -37,7 +37,7 @@ type State = {
 const sheet = jss.createStyleSheet(getClasses()).attach();
 const { classes } = sheet;
 
-class AmountBlockMediumItemBase extends React.PureComponent<Props, State> {
+export class AmountBlockMediumItemBase extends React.PureComponent<Props, State> {
   render() {
     const { className, onClick } = this.props;
     return (
@@ -47,4 +47,3 @@ class AmountBlockMediumItemBase extends React.PureComponent<Props, State> {
     );
   }
 }
-export default AmountBlockMediumItemBase;

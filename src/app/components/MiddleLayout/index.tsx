@@ -1,15 +1,15 @@
 import React from 'react';
-import LeftSideBar from './LeftSideBar';
-import RightSideBar from './RightSideBar';
+import { LeftSideBar } from './LeftSideBar';
+import { RightSideBar } from './RightSideBar';
 import { RouteType, routeHas } from 'routes';
 import { theme } from 'ui/theme';
 import { isLarge, isMedium, isSmall, isInitial } from 'util/responsive';
 import { log } from 'util/logger';
-import NavigationTree from 'ui/NavigationTree';
+import { NavigationTree } from 'ui/NavigationTree';
 import { subscribeResize, unsubscribeResize } from 'components/Resize';
-import PhotoSlider from 'ui/PhotoSlider';
-import DownloadButton from 'ui/buttons/DownloadButton';
-import WayButton from 'ui/buttons/WayButton';
+import { PhotoSlider } from 'ui/PhotoSlider';
+import { DownloadButton } from 'ui/buttons/DownloadButton';
+import { WayButton } from 'ui/buttons/WayButton';
 
 type Props = {
   children: any;
@@ -19,7 +19,7 @@ type State = {
 };
 
 
-class MiddleLayout extends React.PureComponent<Props, State> {
+export class MiddleLayout extends React.PureComponent<Props, State> {
   componentDidMount() { subscribeResize(this, 'MiddleLayout') }
   componentWillUnmount() { unsubscribeResize(this, 'MiddleLayout') }
 
@@ -98,4 +98,3 @@ class MiddleLayout extends React.PureComponent<Props, State> {
     );
   }
 }
-export default MiddleLayout;

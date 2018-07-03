@@ -1,14 +1,13 @@
 import React from 'react';
 import { theme, flexColumn } from 'ui/theme';
 import { log } from 'util/logger';
-import { getWidth, getHeight } from 'util/responsive';
 
 type Props = {
 };
 type State = {
 };
 
-class Footer extends React.PureComponent<Props, State> {
+export class Footer extends React.PureComponent<Props, State> {
   getStyle() {
     const container = {
       padding: `0 ${theme.content.defaultMargin1} ${theme.content.defaultMargin1} ${theme.content.defaultMargin1}`,
@@ -48,4 +47,3 @@ class Footer extends React.PureComponent<Props, State> {
     );
   }
 }
-export default Footer;

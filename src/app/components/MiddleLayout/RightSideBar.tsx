@@ -7,7 +7,7 @@ type Props = {
 type State = {
 };
 
-class RightSideBar extends React.PureComponent<Props, State> {
+export class RightSideBar extends React.PureComponent<Props, State> {
   getStyle() {
     const container = {};
 
@@ -36,4 +36,3 @@ class RightSideBar extends React.PureComponent<Props, State> {
     );
   }
 }
-export default RightSideBar;

@@ -1,10 +1,10 @@
 import React from 'react';
-import PagesBlockSmall from './PagesBlockSmall';
-import PagesBlockMedium from './PagesBlockMedium';
+import { PagesBlockSmall } from './PagesBlockSmall';
+import { PagesBlockMedium } from './PagesBlockMedium';
+import { join } from 'util/helpers';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
-import { join } from 'util/helpers';
 jss.setup(preset());
 
 const getClasses = () => {
@@ -37,7 +37,7 @@ type Props = {
 type State = {
 };
 
-class PagesBlock extends React.PureComponent<Props, State> {
+export class PagesBlock extends React.PureComponent<Props, State> {
   render() {
     const { className, isSmall, onClick, page, totalPages } = this.props;
     const content = isSmall ? <PagesBlockSmall onClick={onClick} page={page} totalPages={totalPages} /> :
@@ -50,4 +50,3 @@ class PagesBlock extends React.PureComponent<Props, State> {
     );
   }
 }
-export default PagesBlock;

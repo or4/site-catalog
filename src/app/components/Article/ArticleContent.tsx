@@ -8,7 +8,7 @@ type Props = {
 type State = {
 };
 
-class ArticleContent extends React.PureComponent<Props, State> {
+export class ArticleContent extends React.PureComponent<Props, State> {
   getArticle = () => ({
     __html: convertImgUrl(this.props.category && this.props.category.description)
   });
@@ -19,4 +19,3 @@ class ArticleContent extends React.PureComponent<Props, State> {
     );
   }
 }
-export default ArticleContent;

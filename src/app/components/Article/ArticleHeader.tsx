@@ -8,7 +8,7 @@ type Props = {
 type State = {
 };
 
-class ArticleHeader extends React.PureComponent<Props, State> {
+export class ArticleHeader extends React.PureComponent<Props, State> {
   render() {
     const { category, categoryCaption } = this.props;
     return (
@@ -16,4 +16,3 @@ class ArticleHeader extends React.PureComponent<Props, State> {
     );
   }
 }
-export default ArticleHeader;

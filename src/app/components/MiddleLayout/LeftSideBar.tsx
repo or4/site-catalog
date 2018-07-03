@@ -1,7 +1,7 @@
 import React from 'react';
 import { theme, flexColumn } from 'ui/theme';
 import { log } from 'util/logger';
-import CompactIcon from 'ui/CompactIcon';
+import { CompactIcon } from 'ui/CompactIcon';
 
 type Props = {
   isCompact: boolean;
@@ -9,7 +9,7 @@ type Props = {
 type State = {
 };
 
-class LeftSideBar extends React.PureComponent<Props, State> {
+export class LeftSideBar extends React.PureComponent<Props, State> {
   getStyle() {
     const container = {};
 
@@ -43,4 +43,3 @@ class LeftSideBar extends React.PureComponent<Props, State> {
     );
   }
 }
-export default LeftSideBar;

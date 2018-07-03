@@ -20,7 +20,7 @@ export const unsubscribeResize = (component: any, key: string) => {
   }
 };
 
-class Resize extends React.PureComponent<Props, State> {
+export class Resize extends React.PureComponent<Props, State> {
   componentDidMount() {
     try {
       window.addEventListener('resize', this.resize);
@@ -52,4 +52,3 @@ class Resize extends React.PureComponent<Props, State> {
     );
   }
 }
-export default Resize;

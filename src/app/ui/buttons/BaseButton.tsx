@@ -53,8 +53,7 @@ type Props = {
 type State = {
 };
 
-class BaseButton extends React.PureComponent<Props, State> {
-
+export class BaseButton extends React.PureComponent<Props, State> {
   render() {
     const { icon, text } = this.props;
     return (
@@ -65,4 +64,3 @@ class BaseButton extends React.PureComponent<Props, State> {
     );
   }
 }
-export default BaseButton;

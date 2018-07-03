@@ -8,8 +8,8 @@ import { changePage } from 'core/catalog/pages/actions';
 import { changeAmountType } from 'core/settings/amountItems/actions';
 
 import { subscribeResize, unsubscribeResize } from 'components/Resize';
-import PagesBlock from './PagesBlock';
-import AmountBlock from './AmountBlock';
+import { PagesBlock } from './PagesBlock';
+import { AmountBlock } from './AmountBlock';
 
 import { flexRow } from 'ui/theme';
 import { isSmall, isInitial } from 'util/responsive';
@@ -61,9 +61,9 @@ type Props = StateProps & DispatchProps & OwnProps;
 type State = {
 };
 
-class Paging extends React.PureComponent<Props, State> {
-  componentDidMount() { subscribeResize(this, 'Paging') }
-  componentWillUnmount() { unsubscribeResize(this, 'Paging') }
+class PagingComponent extends React.PureComponent<Props, State> {
+  componentDidMount() { subscribeResize(this, 'PagingComponent') }
+  componentWillUnmount() { unsubscribeResize(this, 'PagingComponent') }
 
   render() {
     if (isInitial()) {
@@ -109,4 +109,4 @@ const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
     }
   };
 };
-export default connect<StateProps, DispatchProps>(mapStateToProps, mapDispatchToProps)(Paging);
+export const Paging = connect<StateProps, DispatchProps>(mapStateToProps, mapDispatchToProps)(PagingComponent);

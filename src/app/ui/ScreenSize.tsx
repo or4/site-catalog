@@ -14,7 +14,7 @@ export const getHeight = () => {
   try { return window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight } catch (e) { return 0 }
 };
 
-class ScreenSize extends React.PureComponent<Props, State> {
+export class ScreenSize extends React.PureComponent<Props, State> {
   componentDidMount() {
     try {
       window.addEventListener('resize', this.resize);
@@ -53,4 +53,3 @@ class ScreenSize extends React.PureComponent<Props, State> {
     );
   }
 }
-export default ScreenSize;

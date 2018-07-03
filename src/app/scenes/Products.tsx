@@ -2,7 +2,7 @@ import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { AppState } from 'store/reducers';
-import MiddleLayout from 'components/MiddleLayout';
+import { MiddleLayout } from 'components/MiddleLayout';
 import { log } from 'util/logger';
 
 type OwnProps = {
@@ -17,7 +17,7 @@ type Props = StateProps & DispatchProps & OwnProps;
 type State = {
 };
 
-class Products extends React.PureComponent<Props, State> {
+class ProductsComponent extends React.PureComponent<Props, State> {
   getStyle() {
     const container = {
     };
@@ -26,11 +26,11 @@ class Products extends React.PureComponent<Props, State> {
     };
   }
   render() {
-    log('Products render');
+    log('ProductsComponent render');
     // const style = this.getStyle();
     // const { items } = this.props;
     // {items && items.map((item: TItem) => <li key={item.id}>{item.name}</li>)}
-    // log('Products items', this.props.items);
+    // log('ProductsComponent items', this.props.items);
 
     return (
       <MiddleLayout route={'/products'}>
@@ -50,4 +50,4 @@ const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
 
   };
 };
-export default connect<StateProps, DispatchProps>(mapStateToProps, mapDispatchToProps)(Products);
+export const Products =  connect<StateProps, DispatchProps>(mapStateToProps, mapDispatchToProps)(ProductsComponent);

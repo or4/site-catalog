@@ -10,7 +10,7 @@ type Props = {
 type State = {
 };
 
-class Logo extends React.PureComponent<Props, State> {
+export class Logo extends React.PureComponent<Props, State> {
   getStyle(customStyle: any) {
     const container = {
       width: isSmall() ? '268px' : '245px', // line break
@@ -36,4 +36,3 @@ class Logo extends React.PureComponent<Props, State> {
     );
   }
 }
-export default Logo;

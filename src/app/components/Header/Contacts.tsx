@@ -9,7 +9,7 @@ type Props = {
 type State = {
 };
 
-class Contacts extends React.PureComponent<Props, State> {
+export class Contacts extends React.PureComponent<Props, State> {
   getStyle(customStyle: any) {
     const container = { };
     const caption = {};
@@ -58,4 +58,3 @@ class Contacts extends React.PureComponent<Props, State> {
     );
   }
 }
-export default Contacts;

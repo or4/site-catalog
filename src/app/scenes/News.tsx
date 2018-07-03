@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import MiddleLayout from 'components/MiddleLayout';
+import { MiddleLayout } from 'components/MiddleLayout';
 import { log } from 'util/logger';
 
 
@@ -14,13 +14,13 @@ type Props = StateProps & DispatchProps;
 type State = {
 };
 
-class News extends React.PureComponent<Props, State> {
+class NewsComponent extends React.PureComponent<Props, State> {
   render() {
-    log('News render');
+    log('NewsComponent render');
     return (
       <MiddleLayout route={'/news'}>
         <div>
-          News
+          NewsComponent
         </div>
       </MiddleLayout>
     );
@@ -35,4 +35,4 @@ const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
     }
   };
 };
-export default connect<StateProps, DispatchProps>(mapStateToProps, mapDispatchToProps)(News);
+export const News = connect<StateProps, DispatchProps>(mapStateToProps, mapDispatchToProps)(NewsComponent);

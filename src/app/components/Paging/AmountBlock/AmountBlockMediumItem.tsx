@@ -1,7 +1,7 @@
 import React from 'react';
 import { flexRow } from 'ui/theme';
 import { join } from 'util/helpers';
-import AmountBlockMediumItemBase from './AmountBlockMediumItemBase';
+import { AmountBlockMediumItemBase } from './AmountBlockMediumItemBase';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
@@ -27,7 +27,7 @@ type Props = {
 type State = {
 };
 
-class AmountBlockMediumItem extends React.PureComponent<Props, State> {
+export class AmountBlockMediumItem extends React.PureComponent<Props, State> {
   render() {
     const { className, onClick } = this.props;
     return (
@@ -37,4 +37,3 @@ class AmountBlockMediumItem extends React.PureComponent<Props, State> {
     );
   }
 }
-export default AmountBlockMediumItem;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { flexRow } from 'ui/theme';
 import { amountItemsKeys, AmountItemsType, amountItems } from 'core/settings/amountItems/common';
-import AmountBlockMediumItem from './AmountBlockMediumItem';
+import { AmountBlockMediumItem } from './AmountBlockMediumItem';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
@@ -40,7 +40,7 @@ type Props = {
 type State = {
 };
 
-class AmountBlockMedium extends React.PureComponent<Props, State> {
+export class AmountBlockMedium extends React.PureComponent<Props, State> {
   content: Array<any>;
   componentDidMount() {
 
@@ -72,4 +72,3 @@ class AmountBlockMedium extends React.PureComponent<Props, State> {
     );
   }
 }
-export default AmountBlockMedium;

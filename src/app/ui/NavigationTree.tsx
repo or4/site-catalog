@@ -36,15 +36,15 @@ const getClasses = () => ({
 
 const { classes } = jss.createStyleSheet(getClasses()).attach();
 
-class NavigationTree extends React.PureComponent<Props, State> {
+class NavigationTreeComponent extends React.PureComponent<Props, State> {
   onClick = (itemId: string) => {
     const route = `/catalog/${itemId}`;
-    console.log('NavigationTree goToRoute', route);
+    console.log('NavigationTreeComponent goToRoute', route);
     browserHistory.push(route);
   }
 
   render() {
-    log('NavigationTree render');
+    log('NavigationTreeComponent render');
 
     if (!this.props.categories) {
       return null;
@@ -66,4 +66,4 @@ const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
   return {
   };
 };
-export default connect<StateProps, DispatchProps>(mapStateToProps, mapDispatchToProps)(NavigationTree);
+export const NavigationTree = connect<StateProps, DispatchProps>(mapStateToProps, mapDispatchToProps)(NavigationTreeComponent);
