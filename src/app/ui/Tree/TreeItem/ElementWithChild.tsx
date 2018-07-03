@@ -49,7 +49,7 @@ class ElementWithChild extends React.PureComponent<Props, State> {
     const subItems = item.items;
 
     return (
-      <li key={item.id} className={classes.container}>
+      <li key={item.idKey} className={classes.container}>
 
         <div className={classes.captionContainer}>
           <TreeIconSign className={classes.icon} item={item} isShow={isShow} />
@@ -61,7 +61,7 @@ class ElementWithChild extends React.PureComponent<Props, State> {
         <ul className={join(classes.subItemsContainer, isShow ? classes.subItemsShow : '')}>
           {subItems.map((item, index, arr) =>
             <TreeItem
-              key={item.id}
+              key={item.idKey}
               item={item}
               itemsState={itemsState}
               position={getPosition(index, arr.length - 1)}

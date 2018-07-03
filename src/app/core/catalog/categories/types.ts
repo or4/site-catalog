@@ -13,7 +13,7 @@ export type TCategoryServer = {
 
 export type TCategory = {
   id: string;
-  idVirtual: number;
+  idKey: number;
   isDefault: number;
   name: string;
   order: number;
