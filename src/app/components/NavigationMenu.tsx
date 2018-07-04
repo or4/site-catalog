@@ -2,7 +2,7 @@ import React from 'react';
 import { theme } from 'ui/theme';
 import { NavigationMenuItem } from 'ui/NavigationMenuItem';
 import { subscribeResize, unsubscribeResize } from 'ui/Resize';
-import { log, isSmall, isMedium, isLarge } from 'utils';
+import { log, pickBySize } from 'utils';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
@@ -21,7 +21,7 @@ const rawClassesSmall = {
 };
 const classesSmall = jss.createStyleSheet(rawClassesSmall).attach().classes;
 
-const rawClassesAnother = {
+const rawClassesMedium = {
   container: {
     height: '36px',
     maxHeight: '36px',
@@ -36,7 +36,7 @@ const rawClassesAnother = {
     margin: '0 auto',
   }
 };
-const classesAnother = jss.createStyleSheet(rawClassesAnother).attach().classes;
+const classesMedium = jss.createStyleSheet(rawClassesMedium).attach().classes;
 
 type Props = {
 };
@@ -49,7 +49,7 @@ export class NavigationMenu extends React.PureComponent<Props, State> {
 
   render() {
     log('NavigationMenu render');
-    const classes = isSmall() ? classesSmall : classesAnother;
+    const classes = pickBySize(classesSmall, classesMedium);
 
     return (
       <div className={classes.container}>

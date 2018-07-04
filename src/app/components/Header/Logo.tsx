@@ -1,25 +1,32 @@
 import React from 'react';
 import { theme } from 'ui/theme';
-import { isSmall, log, join } from 'utils';
+import { log, join, pickBySize } from 'utils';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
 jss.setup(preset());
 
-const rawClasses = {
+const rawClassesSmall = {
   container: {
     textAlign: 'center' as 'center',
+    width: '268px',
     ...theme.header.logo,
-  },
-  small: {
-    width: '268px'
   },
   another: {
     width: '245px'
   },
 };
+const classesSmall = jss.createStyleSheet(rawClassesSmall).attach().classes;
 
-const { classes } = jss.createStyleSheet(rawClasses).attach();
+const rawClassesMedium = {
+  container: {
+    textAlign: 'center' as 'center',
+    width: '245px',
+    ...theme.header.logo,
+  },
+};
+const classesMedium = jss.createStyleSheet(rawClassesMedium).attach().classes;
+
 
 type Props = {
   className?: any;
@@ -36,12 +43,10 @@ export class Logo extends React.PureComponent<Props, State> {
   render() {
     log('Header Logo render');
     const { className: customClassName, style: customStyle } = this.props;
+    const classes = pickBySize(classesSmall, classesMedium);
 
     return (
-      <div
-        className={join(classes.container, isSmall() ? classes.small : classes.another, customClassName)}
-        style={customStyle}
-      >
+      <div className={join(classes.container, customClassName)} style={customStyle}>
         РЕЗИНОТЕХНИКА СК
       </div>
     );
