@@ -1,5 +1,5 @@
 import React from 'react';
-import banner from 'assets/images/banners/jaroslavl-small.jpg';
+import { bannerImage } from 'assets/images';
 import { log, join } from 'utils';
 
 import jss from 'jss';
@@ -48,7 +48,7 @@ export class Banner extends React.PureComponent<Props, State> {
 
     return (
       <div className={join(classes.container, className || '')} style={customStyle} >
-        <img className={classes.banner} src={banner} alt="" />
+        <img className={classes.banner} src={bannerImage} alt="" />
       </div>
     );
   }
