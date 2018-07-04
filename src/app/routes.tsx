@@ -26,7 +26,7 @@ export const routesContent: {[key in RouteType] : Array<RouterContent>} = {
   '/products': ['tree', 'price', 'news'],
   '/news': ['tree', 'price'],
   '/contacts': ['way', 'price'],
-  '/catalog': ['tree'],
+  '/catalog': ['tree', 'price'],
 };
 
 export const routeHas =
