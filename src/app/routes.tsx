@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { IndexRoute, Route } from 'react-router';
 import { About, Contacts, News, Production, Products, Catalog } from 'scenes';
 import { MainLayout } from 'components';

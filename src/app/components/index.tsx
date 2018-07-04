@@ -1,6 +1,6 @@
 import { Header } from './Header';
-import { Navigation } from './Navigation';
+import { NavigationMenu } from './NavigationMenu';
 import { MainLayout } from './MainLayout';
 import { Vault } from './Vault';
 
-export { Header, MainLayout, Navigation, Vault };
+export { Header, MainLayout, NavigationMenu, Vault };

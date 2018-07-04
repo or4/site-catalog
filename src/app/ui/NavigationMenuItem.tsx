@@ -35,9 +35,9 @@ type Props = {
 type State = {
 };
 
-export class NavigationItem extends React.PureComponent<Props, State> {
+export class NavigationMenuItem extends React.PureComponent<Props, State> {
   render() {
-    const { to, text, } = this.props;
+    const { to, text } = this.props;
     return (
       <div className={classes.container}>
         <span className={classes.sign}>◆</span>

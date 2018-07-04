@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Header, Navigation, Vault } from 'components';
+import { Header, NavigationMenu, Vault } from 'components';
 import { ActionTypes as CategoriesActionTypes } from 'core/catalog/categories/actions';
 import { AppState } from 'store/reducers';
 import { TItem } from 'core/catalog/items/reducer';
@@ -58,7 +58,7 @@ class MainLayoutComponent extends React.Component<Props, State> {
         <Helmet {...appConfig.app} {...appConfig.app.head} />
 
         {true ? null : !isInitial() && <Header />}
-        {!isInitial() && <Navigation />}
+        {!isInitial() && <NavigationMenu />}
 
         <div>
           {this.props.children}
