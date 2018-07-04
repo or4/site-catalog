@@ -2,7 +2,31 @@ import React from 'react';
 import { Link } from 'react-router';
 import { theme } from 'ui/theme';
 
-const css = require('./NavigationItem.scss');
+import jss from 'jss';
+import preset from 'jss-preset-default';
+jss.setup(preset());
+
+const rawClasses = {
+  container: {
+    display: 'inline-block',
+    lineHeight: '36px',
+    padding: '0 5px',
+  },
+  sign: {
+    ...theme.navigation.item,
+    marginRight: '10px',
+  },
+  link: {
+    textDecoration: 'none' as 'none',
+    ...theme.navigation.item,
+
+    '&:hover': {
+      textDecoration: 'underline' as 'underline'
+    },
+  },
+};
+
+const { classes } = jss.createStyleSheet(rawClasses).attach();
 
 type Props = {
   text: string;
@@ -12,32 +36,12 @@ type State = {
 };
 
 export class NavigationItem extends React.PureComponent<Props, State> {
-  getStyle() {
-    const container = {
-      display: 'inline-block',
-      lineHeight: '36px',
-      padding: '0 5px',
-    };
-    const sign = {
-      ...theme.navigation.item,
-      marginRight: '10px',
-    };
-    const link = {
-      ...theme.navigation.item
-    };
-    return {
-      container,
-      sign,
-      link,
-    };
-  }
   render() {
-    const style = this.getStyle();
     const { to, text, } = this.props;
     return (
-      <div style={style.container}>
-        <span style={style.sign}>◆</span>
-        <Link style={style.link} className={css['navigation-item']} to={to}>{text}</Link>
+      <div className={classes.container}>
+        <span className={classes.sign}>◆</span>
+        <Link className={classes.link} to={to}>{text}</Link>
       </div>
     );
   }

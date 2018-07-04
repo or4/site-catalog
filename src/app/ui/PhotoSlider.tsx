@@ -17,8 +17,8 @@ export class PhotoSlider extends React.PureComponent<Props, State> {
       background: 'rgba(255, 255, 255, 0.3)',
       border: '1px solid rgba(0, 0, 0, 0.3)',
       borderRadius: '4px',
-      maxWidth: '223px',
-      width: '223px',
+      maxWidth: '263px',
+      width: '263px',
     };
     const item = {
       background: '#fff',
@@ -30,6 +30,7 @@ export class PhotoSlider extends React.PureComponent<Props, State> {
     };
     const img = {
       margin: '0 auto',
+      width: '240px',
     };
     const title = {
       height: '18px',

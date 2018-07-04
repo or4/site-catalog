@@ -5,7 +5,7 @@ import { Contacts } from 'components/Header/Contacts';
 import { isSmall, isLarge, isMedium } from 'util/responsive';
 import { flexColumn, flexRow } from 'ui/theme';
 import { log } from 'util/logger';
-import { subscribeResize, unsubscribeResize } from 'components/Resize';
+import { subscribeResize, unsubscribeResize } from 'ui/Resize';
 
 type Props = {
 };

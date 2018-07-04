@@ -7,7 +7,7 @@ import { AmountItemsType } from 'core/settings/amountItems/common';
 import { changePage } from 'core/catalog/pages/actions';
 import { changeAmountType } from 'core/settings/amountItems/actions';
 
-import { subscribeResize, unsubscribeResize } from 'components/Resize';
+import { subscribeResize, unsubscribeResize } from 'ui/Resize';
 import { PagesBlock } from './PagesBlock';
 import { AmountBlock } from './AmountBlock';
 

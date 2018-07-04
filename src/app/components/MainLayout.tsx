@@ -11,7 +11,7 @@ import { TItem } from 'core/catalog/items/reducer';
 import { TCategory } from 'core/catalog/categories/types';
 import { log } from 'util/logger';
 import { isInitial } from 'util/responsive';
-import { Resize } from 'components/Resize';
+import { Resize } from 'ui/Resize';
 import { ScreenSize } from 'ui/ScreenSize';
 
 type StateProps = {
@@ -59,7 +59,7 @@ class MainLayoutComponent extends React.Component<Props, State> {
         <Helmet {...appConfig.app} {...appConfig.app.head} />
 
         {true ? null : !isInitial() && <Header />}
-        {true ? null : !isInitial() && <Navigation />}
+        {!isInitial() && <Navigation />}
 
         <div>
           {this.props.children}

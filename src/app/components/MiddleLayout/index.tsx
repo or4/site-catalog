@@ -6,7 +6,7 @@ import { theme } from 'ui/theme';
 import { isLarge, isMedium, isSmall, isInitial } from 'util/responsive';
 import { log } from 'util/logger';
 import { NavigationTree } from 'ui/NavigationTree';
-import { subscribeResize, unsubscribeResize } from 'components/Resize';
+import { subscribeResize, unsubscribeResize } from 'ui/Resize';
 import { PhotoSlider } from 'ui/PhotoSlider';
 import { DownloadButton } from 'ui/buttons/DownloadButton';
 import { WayButton } from 'ui/buttons/WayButton';
