@@ -1,16 +1,22 @@
-import { contentTheme } from './blocks/content';
-import { headerTheme } from './blocks/header';
-import { navigationTheme } from './blocks/navigation';
-import { pagingTheme } from './blocks/paging';
-import { vaultTheme } from './blocks/vault';
+import { contentTheme, headerTheme, navigationTheme, pagingTheme, vaultTheme } from './blocks';
 import { flexRow, flexColumn } from './utils';
 
 export const theme = {
-  ...contentTheme,
-  ...headerTheme,
-  ...navigationTheme,
-  ...pagingTheme,
-  ...vaultTheme,
+  content: {
+    ...contentTheme,
+  },
+  header: {
+    ...headerTheme,
+  },
+  navigation: {
+    ...navigationTheme,
+  },
+  paging: {
+    ...pagingTheme,
+  },
+  vault: {
+    ...vaultTheme,
+  }
 };
 
 export { flexRow, flexColumn };

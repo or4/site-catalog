@@ -18,11 +18,11 @@ export class Vault extends React.PureComponent<Props, State> {
       marginBottom: '8px',
       textAlign: 'left' as 'left',
 
-      ...theme.footer.mainText,
+      ...theme.vault.mainText,
     };
     const subText = {
       textAlign: 'left' as 'left',
-      ...theme.footer.subText,
+      ...theme.vault.subText,
     };
     return {
       container,
