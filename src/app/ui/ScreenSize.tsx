@@ -6,11 +6,11 @@ type Props = {
 type State = {
 };
 
-export const getWidth = () => {
+const getWidth = () => {
   try { return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth } catch (e) { return 0 }
 };
 
-export const getHeight = () => {
+const getHeight = () => {
   try { return window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight } catch (e) { return 0 }
 };
 

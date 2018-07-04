@@ -2,18 +2,22 @@ import { contentTheme, headerTheme, navigationTheme, pagingTheme, vaultTheme } f
 import { flexRow, flexColumn } from './utils';
 
 export const theme = {
-  content: {
-    ...contentTheme,
-  },
   header: {
     ...headerTheme,
   },
+
   navigation: {
     ...navigationTheme,
   },
+
+  content: {
+    ...contentTheme,
+  },
+
   paging: {
     ...pagingTheme,
   },
+
   vault: {
     ...vaultTheme,
   }
