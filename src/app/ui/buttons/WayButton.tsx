@@ -1,6 +1,6 @@
 import React from 'react';
 import { BaseButton } from 'ui/buttons/BaseButton';
-import compassIcon from 'assets/images/compass.svg';
+import compassIcon from 'assets/images/buttons/compass.svg';
 
 type Props = {
 };
