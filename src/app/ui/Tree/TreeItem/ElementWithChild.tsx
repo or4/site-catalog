@@ -1,5 +1,5 @@
 import React from 'react';
-import { join } from 'util/helpers';
+import { join } from 'utils';
 import { TreeItemType, TreePosition } from '../types';
 import { getPosition, isFirst } from '../util';
 import { TreeIconLine, TreeIconSign } from '../icons';

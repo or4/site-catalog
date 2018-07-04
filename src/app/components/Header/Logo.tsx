@@ -1,7 +1,7 @@
 import React from 'react';
 import { theme } from 'ui/theme';
-import { isSmall } from 'util/responsive';
-import { log } from 'util/logger';
+import { isSmall } from 'utils';
+import { log } from 'utils';
 
 type Props = {
   className?: any;

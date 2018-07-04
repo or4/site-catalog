@@ -1,5 +1,5 @@
 import React from 'react';
-import { getScreenSize } from 'util/responsive';
+import { getScreenSize } from 'utils';
 
 type Props = {
 };

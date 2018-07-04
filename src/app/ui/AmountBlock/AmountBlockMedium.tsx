@@ -5,7 +5,7 @@ import { AmountBlockMediumItem } from './AmountBlockMediumItem';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
-import { join } from 'util/helpers';
+import { join } from 'utils';
 jss.setup(preset());
 
 const getClasses = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { join } from 'util/helpers';
+import { join } from 'utils';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';

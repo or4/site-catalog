@@ -3,7 +3,7 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { AppState } from 'store/reducers';
 import { MiddleLayout } from 'components/MiddleLayout';
-import { log } from 'util/logger';
+import { log } from 'utils';
 import { Paging } from 'components/Paging';
 import { Article } from 'components/Article';
 

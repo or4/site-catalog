@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { theme } from 'ui/theme';
 import { NavigationItem } from 'ui/NavigationItem';
-import { isSmall, isMedium, isLarge } from 'util/responsive';
-import { log } from 'util/logger';
+import { log, isSmall, isMedium, isLarge } from 'utils';
 import { subscribeResize, unsubscribeResize } from 'ui/Resize';
 
 type Props = {

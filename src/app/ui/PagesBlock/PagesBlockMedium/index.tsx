@@ -2,8 +2,7 @@ import React from 'react';
 import { PageButtonMediumNext } from './PageButtonMediumNext';
 import { PageButtonNumber } from './PageButtonNumber';
 import { PageButtonMediumPrev } from './PageButtonMediumPrev';
-import { join } from 'util/helpers';
-import { getPrevPage, getNextPage } from 'util/pages';
+import { join, getPrevPage, getNextPage } from 'utils';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';

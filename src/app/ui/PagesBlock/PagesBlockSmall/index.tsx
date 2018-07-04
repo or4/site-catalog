@@ -1,7 +1,7 @@
 import React from 'react';
 import { PageButtonSmallNext } from './PageButtonSmallNext';
 import { PageButtonSmallPrev } from './PageButtonSmallPrev';
-import { getPrevPage, getNextPage } from 'util/pages';
+import { getPrevPage, getNextPage } from 'utils';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';

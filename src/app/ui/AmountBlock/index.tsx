@@ -1,5 +1,5 @@
 import React from 'react';
-import { join } from 'util/helpers';
+import { join } from 'utils';
 import { AmountItemsType } from 'core/settings/amountItems/common';
 import { AmountBlockMedium } from './AmountBlockMedium';
 

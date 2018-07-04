@@ -2,9 +2,8 @@ import React from 'react';
 import { Logo } from 'components/Header/Logo';
 import { Banner } from 'components/Header/Banner';
 import { Contacts } from 'components/Header/Contacts';
-import { isSmall, isLarge, isMedium } from 'util/responsive';
+import { log, isSmall, isLarge, isMedium } from 'utils';
 import { flexColumn, flexRow } from 'ui/theme';
-import { log } from 'util/logger';
 import { subscribeResize, unsubscribeResize } from 'ui/Resize';
 
 type Props = {

@@ -12,8 +12,8 @@ import { PagesBlock } from 'ui/PagesBlock';
 import { AmountBlock } from 'ui/AmountBlock';
 
 import { flexRow } from 'ui/theme';
-import { isSmall, isInitial } from 'util/responsive';
-import { join } from 'util/helpers';
+import { isSmall, isInitial } from 'utils';
+import { join } from 'utils';
 
 
 import jss from 'jss';

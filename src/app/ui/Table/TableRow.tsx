@@ -4,7 +4,7 @@ import { TableCell } from 'ui/Table/TableCell';
 import { flexRow } from 'ui/theme';
 import { tableCommonClasses as common, borderBottom } from 'ui/Table/style';
 import { TreePosition } from 'ui/Tree/types';
-import { join } from 'util/helpers';
+import { join } from 'utils';
 import { isLast as checkLast } from 'ui/Tree/util';
 
 import jss from 'jss';

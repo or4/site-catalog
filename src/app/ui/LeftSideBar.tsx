@@ -1,6 +1,6 @@
 import React from 'react';
 import { theme, flexColumn } from 'ui/theme';
-import { log } from 'util/logger';
+import { log } from 'utils';
 import { CompactIcon } from 'ui/CompactIcon';
 
 type Props = {

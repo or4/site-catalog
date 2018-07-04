@@ -1,7 +1,7 @@
 import React from 'react';
 import { PagesBlockSmall } from './PagesBlockSmall';
 import { PagesBlockMedium } from './PagesBlockMedium';
-import { join } from 'util/helpers';
+import { join } from 'utils';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { treeIconBase64 } from 'ui/icons/base64';
-import { join } from 'util/helpers';
+import { join } from 'utils';
 import { TreeItemType } from 'ui/Tree/types';
 
 import jss from 'jss';

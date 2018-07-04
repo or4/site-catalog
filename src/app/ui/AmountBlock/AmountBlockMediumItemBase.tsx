@@ -1,6 +1,6 @@
 import React from 'react';
 import { theme, flexRow } from 'ui/theme';
-import { join } from 'util/helpers';
+import { join } from 'utils';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';

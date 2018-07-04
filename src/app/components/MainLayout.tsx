@@ -9,8 +9,7 @@ import { ActionTypes as CategoriesActionTypes } from 'core/catalog/categories/ac
 import { AppState } from 'store/reducers';
 import { TItem } from 'core/catalog/items/reducer';
 import { TCategory } from 'core/catalog/categories/types';
-import { log } from 'util/logger';
-import { isInitial } from 'util/responsive';
+import { log, isInitial } from 'utils';
 import { Resize } from 'ui/Resize';
 import { ScreenSize } from 'ui/ScreenSize';
 

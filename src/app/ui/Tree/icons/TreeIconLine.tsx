@@ -3,7 +3,7 @@ import { treeLineBase64 } from 'ui/icons/base64';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
-import { join } from 'util/helpers';
+import { join } from 'utils';
 jss.setup(preset());
 
 const getClasses = () => {

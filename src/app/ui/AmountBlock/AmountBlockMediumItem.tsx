@@ -1,6 +1,6 @@
 import React from 'react';
 import { flexRow } from 'ui/theme';
-import { join } from 'util/helpers';
+import { join } from 'utils';
 import { AmountBlockMediumItemBase } from './AmountBlockMediumItemBase';
 
 import jss from 'jss';

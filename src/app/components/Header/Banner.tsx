@@ -1,6 +1,22 @@
 import React from 'react';
 import banner from 'assets/images/banners/jaroslavl-small.jpg';
-import { log } from 'util/logger';
+import { log, join } from 'utils';
+
+import jss from 'jss';
+import preset from 'jss-preset-default';
+jss.setup(preset());
+
+const rawClasses = {
+  container: {
+    height: '100px',
+  },
+  banner: {
+    height: '100px',
+    width: '160px',
+  },
+};
+
+const { classes } = jss.createStyleSheet(rawClasses).attach();
 
 type Props = {
   className?: any;
@@ -29,11 +45,10 @@ export class Banner extends React.PureComponent<Props, State> {
   render() {
     log('Header Banner render');
     const { className, style: customStyle } = this.props;
-    const style = this.getStyle(customStyle);
-    const classes = className ? className : '';
+
     return (
-      <div style={style.container} className={classes}>
-        <img style={style.banner} src={banner} alt="" />
+      <div className={join(classes.container, className || '')} style={customStyle} >
+        <img className={classes.banner} src={banner} alt="" />
       </div>
     );
   }

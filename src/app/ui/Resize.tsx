@@ -1,5 +1,5 @@
 import React from 'react';
-import { log, logIntendation, IntendationType } from 'util/logger';
+import { log, logIntendation, IntendationType } from 'utils';
 
 type Props = {
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { flexRow, flexColumn } from 'ui/theme';
-import { join } from 'util/helpers';
+import { join } from 'utils';
 import { TableCell } from './TableCell';
 import { tableCommonClasses as common, borderLeftTop } from './style';
 
