@@ -8,8 +8,8 @@ import { changePage } from 'core/catalog/pages/actions';
 import { changeAmountType } from 'core/settings/amountItems/actions';
 
 import { subscribeResize, unsubscribeResize } from 'ui/Resize';
-import { PagesBlock } from './PagesBlock';
-import { AmountBlock } from './AmountBlock';
+import { PagesBlock } from 'ui/PagesBlock';
+import { AmountBlock } from 'ui/AmountBlock';
 
 import { flexRow } from 'ui/theme';
 import { isSmall, isInitial } from 'util/responsive';

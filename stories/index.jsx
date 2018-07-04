@@ -6,8 +6,8 @@ import { arrowIconBase64, treeIconBase64, treeLineBase64 } from '../src/app/ui/i
 import { DownloadButton } from '../src/app/ui/buttons/DownloadButton';
 import { WayButton } from '../src/app/ui/buttons/WayButton';
 
-import { PagesBlock } from '../src/app/components/Paging/PagesBlock';
-import { AmountBlock } from '../src/app/components/Paging/AmountBlock';
+import { PagesBlock } from '../src/app/ui/PagesBlock';
+import { AmountBlock } from '../src/app/ui/AmountBlock';
 
 import { Tree } from '../src/app/ui/Tree';
 import { testDataForTree } from './testDataForTree';
