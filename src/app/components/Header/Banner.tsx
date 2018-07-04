@@ -26,28 +26,16 @@ type State = {
 };
 
 export class Banner extends React.PureComponent<Props, State> {
-  getStyle(customStyle: any) {
-    const container = {
-      height: '100px',
-    };
-    if (customStyle) {
-      Object.assign(container, customStyle);
-    }
-    const banner = {
-      height: '100px',
-      width: '160px',
-    };
-    return {
-      container,
-      banner,
-    };
+  static defaultProps: Partial<Props> = {
+    className: '',
+    style: {},
   }
   render() {
     log('Header Banner render');
-    const { className, style: customStyle } = this.props;
+    const { className: customClassName, style: customStyle } = this.props;
 
     return (
-      <div className={join(classes.container, className || '')} style={customStyle} >
+      <div className={join(classes.container, customClassName)} style={customStyle} >
         <img className={classes.banner} src={bannerImage} alt="" />
       </div>
     );
