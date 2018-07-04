@@ -3,6 +3,7 @@ import { join } from 'util/helpers';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
+import { flexRow } from 'ui/theme';
 jss.setup(preset());
 
 const rawClasses = {
@@ -12,6 +13,8 @@ const rawClasses = {
     lineHeight: '16px',
     fontFamily: 'Verdana',
     cursor: 'default',
+
+    ...flexRow('center', 'center'),
   }
 };
 

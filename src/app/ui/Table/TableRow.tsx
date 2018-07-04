@@ -4,16 +4,19 @@ import { TableCell } from 'ui/Table/TableCell';
 import { flexRow } from 'ui/theme';
 import { tableCommonClasses as common, borderBottom } from 'ui/Table/style';
 import { TreePosition } from 'ui/Tree/types';
+import { join } from 'util/helpers';
+import { isLast as checkLast } from 'ui/Tree/util';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
-import { join } from 'util/helpers';
-import { isLast as checkLast } from 'ui/Tree/util';
 jss.setup(preset());
 
 const rawClasses = {
   container: {
-    ...flexRow('center', 'space-between'),
+    ...flexRow('normal', 'space-between'),
+  },
+  name: {
+    justifyContent: 'flex-start' as 'flex-start',
   },
   bottomRow: {
     ...borderBottom,
@@ -54,8 +57,7 @@ export class TableRow extends React.PureComponent<Props, State> {
     return (
       <div className={classes.container} style={style.container}>
         <TableCell className={join(common.id, last, isLast ? classes.borderBottomLeftRadius : '')} value={item.id} />
-
-        <TableCell className={join(common.name, last)} value={item.name} />
+        <TableCell className={join(common.name, classes.name, last)} value={item.name} />
         <TableCell className={join(common.unit, last)} value={item.unit} />
         <TableCell className={join(common.opt, last)} value={item.opt} />
         <TableCell className={join(common.roz, last)} value={item.roz} />

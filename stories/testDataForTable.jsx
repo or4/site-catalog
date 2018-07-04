@@ -16,7 +16,7 @@ export const testDataForTable: TableItemType[] = [
     opt: '1260',
     roz: '1350',
     weight: '0,142',
-    place: '25'
+    place: '500, 200, 100, 50'
   },
   {
     id: '17',

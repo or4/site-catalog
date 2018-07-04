@@ -22,7 +22,6 @@ const rawClasses = {
   },
   name: {
     background: 'rgba(101,101,101, 1)',
-    textAlign: 'center' as 'center',
   },
 
   borderTopLeftRadius: {
@@ -37,14 +36,14 @@ const rawClasses = {
     background: 'rgba(101,101,101, 0.8)',
     fontFamily: 'Verdana',
     ...flexColumn('center', 'center'),
-    minWidth: '142px',
-    maxWidth: '142px',
+    minWidth: '150px',
+    maxWidth: '150px',
     height: '54px',
   },
   customCellPrice: {
     ...borderLeftTop,
-    minWidth: '142px',
-    maxWidth: '142px',
+    minWidth: '150px',
+    maxWidth: '150px',
     height: '27px',
     textAlign: 'center' as 'center',
     ...flexRow('center', 'center'),
