@@ -1,17 +1,16 @@
-import { colors } from '../colors';
-import { fonts } from '../fonts';
+import { colorsScheme, fontFamilyScheme, fontSizeScheme, textShadowsScheme } from '../schemes';
 
 export const headerTheme = {
   logo: {
-    color: colors.grey1,
-    fontFamily: fonts.fontFamily2,
-    fontSize: fonts.size1,
-    textShadow: `${colors.black} 1px 1px 2px, ${colors.grey1} 0 0 1em`
+    color: colorsScheme.headerLogoColor,
+    fontFamily: fontFamilyScheme.headerLogo,
+    fontSize: fontSizeScheme.headerLogo,
+    textShadow: textShadowsScheme.logoTextShadow,
   },
   contacts: {
-    color: colors.darkBlue,
-    fontFamily: fonts.fontFamily2,
-    fontSize: fonts.size2,
+    color: colorsScheme.headerContactsColor,
+    fontFamily: fontFamilyScheme.headerContacts,
+    fontSize: fontSizeScheme.headerContacts,
     fontStyle: 'italic' as 'italic',
     lineHeight: '15px',
   },

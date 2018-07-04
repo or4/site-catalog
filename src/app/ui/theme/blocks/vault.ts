@@ -1,17 +1,16 @@
-import { colors } from '../colors';
-import { fonts } from '../fonts';
+import { colorsScheme, fontFamilyScheme, fontSizeScheme } from '../schemes';
 
 export const vaultTheme = {
   mainText: {
-    color: colors.grey2,
-    fontFamily: fonts.fontFamily2,
-    fontSize: fonts.size2,
+    color: colorsScheme.vaultColor,
+    fontFamily: fontFamilyScheme.vault,
+    fontSize: fontSizeScheme.vault,
     lineHeight: '15px',
   },
   subText: {
-    color: colors.grey2,
-    fontFamily: fonts.fontFamily2,
-    fontSize: fonts.size2,
+    color: colorsScheme.vaultColor,
+    fontFamily: fontFamilyScheme.vault,
+    fontSize: fontSizeScheme.vault,
     lineHeight: '15px',
   }
 };

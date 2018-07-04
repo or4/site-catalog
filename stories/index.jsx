@@ -1,6 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
+import { ColorsScheme } from './ColorsScheme';
+import { FontSizeScheme } from './FontSizeScheme';
+
 import { arrowIconBase64, treeIconBase64, treeLineBase64 } from '../src/app/ui/icons/base64';
 
 import { DownloadButton } from '../src/app/ui/buttons/DownloadButton';
@@ -15,9 +18,31 @@ import { testDataForTree } from './testDataForTree';
 import { Table } from '../src/app/ui/Table';
 import { testDataForTable } from './testDataForTable';
 
-const stories = storiesOf('UI', module);
+const schemeStories = storiesOf('Scheme', module);
 
-stories.addWithJSX(
+schemeStories.addWithJSX(
+  'ColorsScheme',
+  () => (
+    <div style={{ maxWidth: '900px', background: 'rgba(0,0,0, 0.15)', padding: '1px 20px 20px 20px' }}>
+      <h3>Colors Scheme</h3>
+      <ColorsScheme />
+    </div>
+  ),
+);
+
+schemeStories.addWithJSX(
+  'FontSizeScheme',
+  () => (
+    <div style={{ maxWidth: '900px', background: 'rgba(0,0,0, 0.15)', padding: '1px 20px 20px 20px' }}>
+      <h3>Font Size Scheme</h3>
+      <FontSizeScheme />
+    </div>
+  ),
+);
+
+const uiStories = storiesOf('UI', module);
+
+uiStories.addWithJSX(
   'Icons',
   () => (
     <div style={{ maxWidth: '900px', background: 'rgba(0,0,0, 0.15)', padding: '1px 20px 20px 20px' }}>
@@ -31,7 +56,7 @@ stories.addWithJSX(
   ),
 );
 
-stories.addWithJSX(
+uiStories.addWithJSX(
   'Buttons',
   () => (
     <div style={{ maxWidth: '900px', background: 'rgba(0,0,0, 0.15)', padding: '20px' }}>
@@ -41,7 +66,7 @@ stories.addWithJSX(
   ),
 );
 
-stories.addWithJSX(
+uiStories.addWithJSX(
   'PagesBlock',
   () => (
     <div style={{ maxWidth: '900px', background: 'rgba(0,0,0, 0.15)', padding: '20px' }}>
@@ -67,7 +92,7 @@ stories.addWithJSX(
   ),
 );
 
-stories.addWithJSX(
+uiStories.addWithJSX(
   'AmountBlock',
   () => (
     <div style={{ maxWidth: '900px', background: 'rgba(0,0,0, 0.15)', padding: '20px' }}>
@@ -89,7 +114,7 @@ stories.addWithJSX(
   ),
 );
 
-stories.addWithJSX(
+uiStories.addWithJSX(
   'Tree',
   () => (
     <div style={{ maxWidth: '900px', background: 'rgba(0,0,0, 0.15)', padding: '20px' }}>
@@ -98,7 +123,7 @@ stories.addWithJSX(
   ),
 );
 
-stories.addWithJSX(
+uiStories.addWithJSX(
   'Table',
   () => (
     <div style={{ maxWidth: '900px', background: 'rgba(0,0,0, 0.15)', padding: '20px' }}>

@@ -1,4 +1,4 @@
-import { contentTheme, headerTheme, navigationTheme, pagingTheme, vaultTheme } from './blocks';
+import { contentTheme, headerTheme, navigationMenuTheme, pagingTheme, vaultTheme } from './blocks';
 import { flexRow, flexColumn } from './utils';
 
 export const theme = {
@@ -6,8 +6,8 @@ export const theme = {
     ...headerTheme,
   },
 
-  navigation: {
-    ...navigationTheme,
+  navigationMenu: {
+    ...navigationMenuTheme,
   },
 
   content: {

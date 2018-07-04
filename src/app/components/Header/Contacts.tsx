@@ -10,13 +10,13 @@ const rawClasses = {
   container: {
     marginRight: '40px',
     width: '220px',
+
     ...theme.header.contacts,
   },
   caption: {
     fontWeight: '700' as any,
     fontStyle: 'normal' as 'normal',
     marginBottom: '6px',
-
   },
   address: {
     marginBottom: '5px'

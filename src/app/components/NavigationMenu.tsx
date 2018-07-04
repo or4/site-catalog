@@ -13,7 +13,7 @@ const rawClassesSmall = {
     height: '2px',
     maxHeight: '2px',
     minHeight: '2px',
-    ...theme.navigation.container,
+    ...theme.navigationMenu.container,
   },
   subContainer: {
     display: 'none',
@@ -25,7 +25,7 @@ const rawClassesAnother = {
   container: {
     height: '36px',
     maxHeight: '36px',
-    ...theme.navigation.container,
+    ...theme.navigationMenu.container,
   },
   subContainer: {
     alignItems: 'center' as 'center',
