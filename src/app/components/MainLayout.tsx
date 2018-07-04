@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Header, Navigation, Footer } from 'components';
+import { Header, Navigation, Vault } from 'components';
 import { ActionTypes as CategoriesActionTypes } from 'core/catalog/categories/actions';
 import { AppState } from 'store/reducers';
 import { TItem } from 'core/catalog/items/reducer';
@@ -65,7 +65,7 @@ class MainLayoutComponent extends React.Component<Props, State> {
           {this.props.children}
         </div>
 
-        <Footer />
+        <Vault />
         <Resize />
         <ScreenSize />
       </div>

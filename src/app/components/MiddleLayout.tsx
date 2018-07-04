@@ -1,6 +1,6 @@
 import React from 'react';
-import { LeftSideBar } from './LeftSideBar';
-import { RightSideBar } from './RightSideBar';
+import { LeftSideBar } from 'ui/LeftSideBar';
+import { RightSideBar } from 'ui/RightSideBar';
 import { RouteType, routeHas } from 'routes';
 import { theme } from 'ui/theme';
 import { isLarge, isMedium, isSmall, isInitial } from 'util/responsive';

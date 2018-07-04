@@ -7,7 +7,7 @@ type Props = {
 type State = {
 };
 
-export class Footer extends React.PureComponent<Props, State> {
+export class Vault extends React.PureComponent<Props, State> {
   getStyle() {
     const container = {
       padding: `0 ${theme.content.defaultMargin1} ${theme.content.defaultMargin1} ${theme.content.defaultMargin1}`,
@@ -31,7 +31,7 @@ export class Footer extends React.PureComponent<Props, State> {
     };
   }
   render() {
-    log('Footer render');
+    log('Vault render');
     const style = this.getStyle();
 
     return (

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { theme } from 'ui/theme';
-import { NavigationItem } from './NavigationItem';
+import { NavigationItem } from 'ui/NavigationItem';
 import { isSmall, isMedium, isLarge } from 'util/responsive';
 import { log } from 'util/logger';
 import { subscribeResize, unsubscribeResize } from 'ui/Resize';

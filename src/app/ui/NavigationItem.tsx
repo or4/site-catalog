@@ -13,8 +13,8 @@ const rawClasses = {
     padding: '0 5px',
   },
   sign: {
-    ...theme.navigation.item,
     marginRight: '10px',
+    ...theme.navigation.item,
   },
   link: {
     textDecoration: 'none' as 'none',
