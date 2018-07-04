@@ -2,13 +2,13 @@ import { colorsScheme, fontFamilyScheme, fontSizeScheme, textShadowsScheme } fro
 
 export const headerTheme = {
   logo: {
-    color: colorsScheme.headerLogoColor,
+    color: colorsScheme.headerLogo,
     fontFamily: fontFamilyScheme.headerLogo,
     fontSize: fontSizeScheme.headerLogo,
     textShadow: textShadowsScheme.logoTextShadow,
   },
   contacts: {
-    color: colorsScheme.headerContactsColor,
+    color: colorsScheme.headerContacts,
     fontFamily: fontFamilyScheme.headerContacts,
     fontSize: fontSizeScheme.headerContacts,
     fontStyle: 'italic' as 'italic',

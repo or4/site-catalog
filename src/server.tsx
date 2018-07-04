@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 require('@babel/register');
 import '@babel/polyfill';
-import { log, logIntendation, IntendationType } from './app/util/logger';
+import { log, logIntendation, IntendationType } from './app/utils';
 
 let regeneratorRuntime =  require('regenerator-runtime');
 

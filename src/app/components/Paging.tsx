@@ -3,23 +3,18 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { AppState } from 'store/reducers';
 import { AmountItemsType } from 'core/settings/amountItems/common';
-
 import { changePage } from 'core/catalog/pages/actions';
 import { changeAmountType } from 'core/settings/amountItems/actions';
-
 import { subscribeResize, unsubscribeResize } from 'ui/Resize';
 import { PagesBlock } from 'ui/PagesBlock';
 import { AmountBlock } from 'ui/AmountBlock';
-
 import { flexRow } from 'ui/theme';
-import { isSmall, isInitial } from 'utils';
-import { join } from 'utils';
-
+import { join, isSmall, isInitial } from 'utils';
+import { selectPage, selectTotalPages } from 'core/catalog/pages/selectors';
+import { selectAmountItems } from 'core/settings/amountItems/reducer';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
-import { selectPage, selectTotalPages } from 'core/catalog/pages/selectors';
-import { selectAmountItems } from 'core/settings/amountItems/reducer';
 jss.setup(preset());
 
 const getClasses = () => {

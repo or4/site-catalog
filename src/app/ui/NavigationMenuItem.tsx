@@ -14,11 +14,11 @@ const rawClasses = {
   },
   sign: {
     marginRight: '10px',
-    ...theme.navigation.item,
+    ...theme.navigationMenu.item,
   },
   link: {
     textDecoration: 'none' as 'none',
-    ...theme.navigation.item,
+    ...theme.navigationMenu.item,
 
     '&:hover': {
       textDecoration: 'underline' as 'underline'

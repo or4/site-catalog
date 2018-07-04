@@ -24,7 +24,6 @@ schemeStories.addWithJSX(
   'ColorsScheme',
   () => (
     <div style={{ maxWidth: '900px', background: 'rgba(0,0,0, 0.15)', padding: '1px 20px 20px 20px' }}>
-      <h3>Colors Scheme</h3>
       <ColorsScheme />
     </div>
   ),

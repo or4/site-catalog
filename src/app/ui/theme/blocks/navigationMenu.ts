@@ -1,11 +1,11 @@
-import { colorsScheme, fontFamilyScheme, fontSizeScheme } from '../schemes';
+import { colorsScheme, backgroundColorsScheme, fontFamilyScheme, fontSizeScheme } from '../schemes';
 
 export const navigationMenuTheme = {
   container: {
-    background: colorsScheme.navigationMenuBackground,
+    background: backgroundColorsScheme.navigationMenu,
   },
   item: {
-    color: colorsScheme.navigationMenuColor,
+    color: colorsScheme.navigationMenu,
     fontFamily: fontFamilyScheme.navigationMenu,
     fontSize: fontSizeScheme.navigationMenu,
   }
