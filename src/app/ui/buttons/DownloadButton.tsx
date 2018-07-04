@@ -1,5 +1,5 @@
 import React from 'react';
-import excelIcon from 'assets/tmp/excel.svg';
+import excelIcon from 'assets/images/excel.svg';
 import { BaseButton } from 'ui/buttons/BaseButton';
 
 type Props = {
