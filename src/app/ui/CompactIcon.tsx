@@ -6,6 +6,9 @@ jss.setup(preset());
 
 const getClasses = () => {
   const container = {
+    display: 'none',
+
+
     background: 'rgba(0, 0, 0, 0.2)',
     position: 'fixed' as 'fixed',
     cursor: 'pointer',
@@ -45,7 +48,10 @@ type Props = {
 type State = {
 };
 
-
+/**
+ * Button for show left, right sidebars
+ * now it not designed
+ */
 export class CompactIcon extends React.PureComponent<Props, State> {
   render() {
     //const {  } = this.props;

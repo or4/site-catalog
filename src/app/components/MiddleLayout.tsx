@@ -5,7 +5,7 @@ import { RouteType, routeHas } from 'routes';
 import { theme } from 'ui/theme';
 import { isLarge, isMedium, isSmall, isInitial } from 'util/responsive';
 import { log } from 'util/logger';
-import { NavigationTree } from 'ui/NavigationTree';
+import { NavigationTree } from 'components/NavigationTree';
 import { subscribeResize, unsubscribeResize } from 'ui/Resize';
 import { PhotoSlider } from 'ui/PhotoSlider';
 import { DownloadButton } from 'ui/buttons/DownloadButton';
