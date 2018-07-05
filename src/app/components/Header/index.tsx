@@ -2,7 +2,7 @@ import React from 'react';
 import { Logo } from 'components/Header/Logo';
 import { Banner } from 'components/Header/Banner';
 import { Contacts } from 'components/Header/Contacts';
-import { log, pickBySize } from 'utils';
+import { logs, pickBySize } from 'utils';
 import { flexColumn, flexRow } from 'ui/theme';
 import { subscribeResize, unsubscribeResize } from 'ui/Resize';
 
@@ -77,7 +77,7 @@ export class Header extends React.PureComponent<Props, State> {
   componentWillUnmount() { unsubscribeResize(this, 'Header') }
 
   render() {
-    log('Header render');
+    logs('render', 'Header');
     const classes = pickBySize(classesSmall, classesMedium, classesLarge);
 
     return (

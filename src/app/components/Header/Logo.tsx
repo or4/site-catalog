@@ -1,6 +1,6 @@
 import React from 'react';
 import { theme } from 'ui/theme';
-import { log, join, pickBySize } from 'utils';
+import { logs, join, pickBySize } from 'utils';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
@@ -41,7 +41,7 @@ export class Logo extends React.PureComponent<Props, State> {
     style: {},
   }
   render() {
-    log('Header Logo render');
+    logs('render', 'Header Logo');
     const { className: customClassName, style: customStyle } = this.props;
     const classes = pickBySize(classesSmall, classesMedium);
 

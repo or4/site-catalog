@@ -1,6 +1,6 @@
 import React from 'react';
 import { theme } from 'ui/theme';
-import { log, join } from 'utils';
+import { logs, join } from 'utils';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
@@ -40,7 +40,7 @@ export class Contacts extends React.PureComponent<Props, State> {
     style: {},
   }
   render() {
-    log('Header Contacts render');
+    logs('render', 'Header Contacts');
     const { className: customClassName, style: customStyle } = this.props;
 
     return (

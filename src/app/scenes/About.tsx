@@ -3,7 +3,7 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { MiddleLayout } from 'components/MiddleLayout';
 import { IS_DEV, IS_SHOW_ABOUT } from 'settings';
-import { log } from 'utils';
+import { logs } from 'utils';
 
 
 type StateProps = {
@@ -72,7 +72,7 @@ class AboutComponent extends React.Component<Props, State> {
   }
 
   public render() {
-    log('AboutComponent render');
+    logs('render', 'AboutComponent');
     const style = this.getStyle();
     const content = <div dangerouslySetInnerHTML={this.createMarkup()} />;
     return (

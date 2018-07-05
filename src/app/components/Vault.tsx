@@ -1,6 +1,6 @@
 import React from 'react';
 import { theme, flexColumn } from 'ui/theme';
-import { log } from 'utils';
+import { logs } from 'utils';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
@@ -33,7 +33,7 @@ type State = {
 
 export class Vault extends React.PureComponent<Props, State> {
   render() {
-    log('Vault render');
+    logs('render', 'Vault');
     return (
       <div className={classes.container}>
         <div className={classes.mainText}>

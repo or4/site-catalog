@@ -1,6 +1,6 @@
 import React from 'react';
 import { MiddleLayout } from 'components/MiddleLayout';
-import { log } from 'utils';
+import { logs } from 'utils';
 
 type Props = {
 };
@@ -9,7 +9,7 @@ type State = {
 
 export class Contacts extends React.PureComponent<Props, State> {
   render() {
-    log('Contacts render');
+    logs('render', 'Contacts');
     //const {  } = this.props;
     return (
       <MiddleLayout route={'/contacts'}>

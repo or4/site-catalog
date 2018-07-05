@@ -1,6 +1,6 @@
 import React from 'react';
 import { bannerImage } from 'assets/images';
-import { log, join } from 'utils';
+import { logs, join } from 'utils';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
@@ -31,7 +31,7 @@ export class Banner extends React.PureComponent<Props, State> {
     style: {},
   }
   render() {
-    log('Header Banner render');
+    logs('render', 'Header Banner');
     const { className: customClassName, style: customStyle } = this.props;
 
     return (

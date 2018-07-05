@@ -2,7 +2,7 @@ import React from 'react';
 import { theme } from 'ui/theme';
 import { NavigationMenuItem } from 'ui/NavigationMenuItem';
 import { subscribeResize, unsubscribeResize } from 'ui/Resize';
-import { log, pickBySize } from 'utils';
+import { logs, pickBySize } from 'utils';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
@@ -48,7 +48,7 @@ export class NavigationMenu extends React.PureComponent<Props, State> {
   componentWillUnmount() { unsubscribeResize(this, 'NavigationMenu') }
 
   render() {
-    log('NavigationMenu render');
+    logs('render', 'NavigationMenu');
     const classes = pickBySize(classesSmall, classesMedium);
 
     return (

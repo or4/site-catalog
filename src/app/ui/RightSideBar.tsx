@@ -1,6 +1,6 @@
 import React from 'react';
 import { theme, flexColumn } from 'ui/theme';
-import { log } from 'utils';
+import { logs } from 'utils';
 
 type Props = {
 };
@@ -26,7 +26,7 @@ export class RightSideBar extends React.PureComponent<Props, State> {
     };
   }
   render() {
-    log('MiddleLayout RightSideBar render');
+    logs('render', 'MiddleLayout RightSideBar');
     const style = this.getStyle();
     //const {  } = this.props;
     return (

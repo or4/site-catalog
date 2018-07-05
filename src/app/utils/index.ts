@@ -1,11 +1,11 @@
 import { join, capitalizeFirstLetter, isUndefined, pickBySize } from './helpers';
-import { log, logIntendation, IntendationType } from './logger';
+import { log, logs, logIntendation, IntendationType } from './logger';
 import { getPrevPage, getNextPage } from './pages';
 import { ScreenSize, getWidth, getHeight, isInitial, isSmall, isMedium, isLarge, getScreenSize } from './responsive';
 
 export {
   join, capitalizeFirstLetter, isUndefined, pickBySize,
-  log, logIntendation, IntendationType,
+  log, logs, logIntendation, IntendationType,
   getPrevPage, getNextPage,
   ScreenSize, getWidth, getHeight, isInitial, isSmall, isMedium, isLarge, getScreenSize,
 };

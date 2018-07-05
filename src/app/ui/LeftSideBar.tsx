@@ -1,6 +1,6 @@
 import React from 'react';
 import { theme, flexColumn } from 'ui/theme';
-import { log } from 'utils';
+import { logs } from 'utils';
 import { CompactIcon } from 'ui/CompactIcon';
 
 type Props = {
@@ -32,7 +32,7 @@ export class LeftSideBar extends React.PureComponent<Props, State> {
   }
 
   render() {
-    log('MiddleLayout LeftSideBar render');
+    logs('render', 'MiddleLayout LeftSideBar');
     const style = this.getStyle();
 
     return (

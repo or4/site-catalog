@@ -3,7 +3,7 @@ import { LeftSideBar } from 'ui/LeftSideBar';
 import { RightSideBar } from 'ui/RightSideBar';
 import { RouteType, routeHas } from 'routes';
 import { theme } from 'ui/theme';
-import { log, isLarge, isMedium, isSmall, isInitial } from 'utils';
+import { logs, isLarge, isMedium, isSmall, isInitial } from 'utils';
 import { NavigationTree } from 'components/NavigationTree';
 import { subscribeResize, unsubscribeResize } from 'ui/Resize';
 import { PhotoSlider } from 'ui/PhotoSlider';
@@ -37,7 +37,7 @@ export class MiddleLayout extends React.PureComponent<Props, State> {
     };
   }
   render() {
-    log('MiddleLayout render');
+    logs('render', 'MiddleLayout');
     const style = this.getStyle();
     const { route } = this.props;
 

@@ -3,7 +3,7 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { AppState } from 'store/reducers';
 import { MiddleLayout } from 'components/MiddleLayout';
-import { log } from 'utils';
+import { logs } from 'utils';
 
 type OwnProps = {
 };
@@ -26,7 +26,7 @@ class ProductsComponent extends React.PureComponent<Props, State> {
     };
   }
   render() {
-    log('ProductsComponent render');
+    logs('render', 'ProductsComponent');
     // const style = this.getStyle();
     // const { items } = this.props;
     // {items && items.map((item: TItem) => <li key={item.id}>{item.name}</li>)}

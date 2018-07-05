@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 require('@babel/register');
 import '@babel/polyfill';
-import { log, logIntendation, IntendationType } from './app/utils';
+import { log, logs, logIntendation, IntendationType } from './app/utils';
 
 let regeneratorRuntime =  require('regenerator-runtime');
 
@@ -110,7 +110,7 @@ app.use(function(req: any, res: any) {
               newInitialState
             )
           );
-          log('server.tsx, second render done!, data was sent');
+          logs('render', 'server.tsx, second done!, data was sent');
 
         }).catch((e: any) => {
           log('server.tsx,', e.message);
@@ -119,7 +119,7 @@ app.use(function(req: any, res: any) {
 
         // Run first render, there is call actions and next transfer to sagas
         renderToString(rootComp);
-        log('server.tsx, first render done!');
+        logs('render', 'server.tsx, first done!');
 
         // dispatch END, that says saga ready to perform,
         // and all prepared actions start perform in sagas
