@@ -1,4 +1,4 @@
-import { TItem } from 'core/catalog/items/reducer';
+import { TItem } from 'core/types';
 
 export enum ActionTypes {
   LOAD_ITEMS = '[Catalog/items] Load items',

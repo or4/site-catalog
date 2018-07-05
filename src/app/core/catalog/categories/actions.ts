@@ -1,4 +1,4 @@
-import { TCategory } from 'core/catalog/categories/types';
+import { TCategory } from 'core/types';
 
 export enum ActionTypes {
   LOAD_CATEGORIES = '[Catalog/categories] Load categories',

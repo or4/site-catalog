@@ -1,4 +1,4 @@
-import { AmountItemsType } from 'core/settings/amountItems/common';
+import { AmountItemsType } from 'core/types';
 
 export enum ActionTypes {
   CHANGE_AMOUNT_ITEMS_ON_PAGE = '[Settings/Amount items on page] Change amount items'

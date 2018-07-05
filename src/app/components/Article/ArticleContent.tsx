@@ -1,6 +1,6 @@
 import React from 'react';
 import { convertImgUrl } from 'core/common';
-import { TCategory } from 'core/catalog/categories/types';
+import { TCategory } from 'core/types';
 
 type Props = {
   category: TCategory;

@@ -1,9 +1,6 @@
 import { Reducer } from 'redux';
-
+import { AppState, AmountItemsType } from 'core/types';
 import { ActionTypes, ActionsAll } from './actions';
-import { AmountItemsType } from 'core/settings/amountItems/common';
-import { AppState } from 'store/reducers';
-
 
 type TState = AmountItemsType;
 

@@ -1,11 +1,10 @@
 import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { AppState } from 'store/reducers';
 import { browserHistory } from 'react-router';
-import { TCategory } from 'core/catalog/categories/types';
+import { AppState, TCategory } from 'core/types';
 import { logs } from 'utils';
-import { Tree } from 'ui/Tree';
+import { Tree } from 'ui';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';

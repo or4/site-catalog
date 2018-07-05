@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { AppState } from 'store/reducers';
+import { AppState } from 'core/types';
 import { MiddleLayout } from 'components/MiddleLayout';
 import { logs } from 'utils';
 import { Paging } from 'components/Paging';

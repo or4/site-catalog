@@ -1,7 +1,5 @@
-import { AppState } from 'store/reducers';
+import { AppState, TCategory } from 'core/types';
 import { capitalizeFirstLetter, isUndefined } from 'core/common';
-import { TCategory } from 'core/types';
-
 
 export const selectCategory = (state: AppState, category: string) => {
   return state.categories.indexed[category];

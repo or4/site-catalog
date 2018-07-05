@@ -1,10 +1,8 @@
 import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { AppState } from 'store/reducers';
+import { AppState, TItem, TCategory } from 'core/types';
 
-import { TItem } from 'core/catalog/items/reducer';
-import { TCategory } from 'core/catalog/categories/types';
 import { selectItemsByPage } from 'core/catalog/items/selectors';
 import { Table } from 'ui/Table';
 import { logs } from 'utils';

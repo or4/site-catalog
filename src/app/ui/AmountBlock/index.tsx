@@ -1,6 +1,6 @@
 import React from 'react';
 import { join } from 'utils';
-import { AmountItemsType } from 'core/settings/amountItems/common';
+import { AmountItemsType } from 'core/types';
 import { AmountBlockMedium } from './AmountBlockMedium';
 
 import jss from 'jss';

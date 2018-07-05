@@ -1,9 +1,8 @@
 import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { AppState } from 'store/reducers';
+import { AppState, TCategory } from 'core/types';
 
-import { TCategory } from 'core/catalog/categories/types';
 import { ArticleHeader } from 'components/Article/ArticleHeader';
 import { ArticleProducts } from 'components/Article/ArticleProducts';
 import { ArticleContent } from 'components/Article/ArticleContent';

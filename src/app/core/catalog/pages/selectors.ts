@@ -1,4 +1,4 @@
-import { AppState } from 'store/reducers';
+import { AppState } from 'core/types';
 import { selectItemsByCategory } from 'core/catalog/items/selectors';
 import { selectAmountItems } from 'core/settings/amountItems/reducer';
 import { amountItems } from 'core/settings/amountItems/common';

@@ -1,8 +1,7 @@
 import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { AppState } from 'store/reducers';
-import { AmountItemsType } from 'core/settings/amountItems/common';
+import { AppState, AmountItemsType } from 'core/types';
 import { changePage } from 'core/catalog/pages/actions';
 import { changeAmountType } from 'core/settings/amountItems/actions';
 import { subscribeResize, unsubscribeResize } from 'ui/Resize';

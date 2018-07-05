@@ -1,8 +1,7 @@
-import { AppState } from 'store/reducers';
+import { AppState, TCategory } from 'core/types';
 import { selectAmountItems } from 'core/settings/amountItems/reducer';
 import { amountItems } from 'core/settings/amountItems/common';
 import { selectPage } from 'core/catalog/pages/selectors';
-import { TCategory } from 'core/catalog/categories/types';
 import { log } from 'utils';
 
 export const selectItems = (state: AppState) => state.items.data;

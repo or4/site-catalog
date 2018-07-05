@@ -1,7 +1,7 @@
 import { Reducer } from 'redux';
 
 import { ActionTypes, ActionsAll } from './actions';
-import { TCategory } from 'core/catalog/categories/types';
+import { TCategory } from 'core/types';
 
 type TState = {
   error?: any;
