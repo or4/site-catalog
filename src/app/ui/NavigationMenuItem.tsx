@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { theme } from './theme';
+import { scheme } from 'ui/theme';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
@@ -14,11 +14,15 @@ const rawClasses = {
   },
   sign: {
     marginRight: '10px',
-    ...theme.navigationMenu.item,
+    color: scheme.colors.navigationMenu,
+    fontFamily: scheme.fontFamily.navigationMenu,
+    fontSize: scheme.fontSize.navigationMenu,
   },
   link: {
     textDecoration: 'none' as 'none',
-    ...theme.navigationMenu.item,
+    color: scheme.colors.navigationMenu,
+    fontFamily: scheme.fontFamily.navigationMenu,
+    fontSize: scheme.fontSize.navigationMenu,
 
     '&:hover': {
       textDecoration: 'underline' as 'underline'

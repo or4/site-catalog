@@ -19,3 +19,9 @@ export class ArticleContent extends React.PureComponent<Props, State> {
     );
   }
 }
+
+/*
+  minHeight: '600px',
+  defaultMargin1: '20px',
+  devBorder: '1px solid #aaa'
+*/

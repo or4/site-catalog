@@ -18,7 +18,7 @@ export const colorsScheme = {
 };
 
 
-export const backgroundColorsScheme = {
+export const backgroundScheme = {
   amountOnPage: colors.transparent,
   navigationMenu: colors.greyLight,
   pages: colors.transparent,

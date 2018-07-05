@@ -1,4 +1,4 @@
 
 export const borderRadiusScheme = {
-  default: '3px',
+  default: '4px',
 };

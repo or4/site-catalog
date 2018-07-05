@@ -1,5 +1,5 @@
 import React from 'react';
-import { theme, flexRow } from 'ui/theme';
+import { scheme, flexRow } from 'ui/theme';
 import { join } from 'utils';
 
 import jss from 'jss';
@@ -8,12 +8,17 @@ jss.setup(preset());
 
 const rawClasses = {
   container: {
+    background: scheme.background.amountOnPage,
+    color: scheme.colors.amountOnPage,
     cursor: 'pointer',
+    fontFamily: scheme.fontFamily.amountOnPage,
+    fontSize: scheme.fontSize.amountOnPage,
     height: '28px',
+    lineHeight: '28px',
     textDecoration: 'none' as 'none',
     transition: '.1s ease-out',
 
-    ...theme.amountOnPage.text,
+
     ...flexRow('center', 'center'),
 
     '&:hover': {

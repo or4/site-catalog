@@ -1,5 +1,5 @@
 import React from 'react';
-import { theme } from 'ui';
+import { theme, scheme } from 'ui';
 import { logs, join } from 'utils';
 
 import jss from 'jss';
@@ -8,10 +8,13 @@ jss.setup(preset());
 
 const rawClasses = {
   container: {
+    color: scheme.colors.headerContacts,
+    fontFamily: scheme.fontFamily.headerContacts,
+    fontSize: scheme.fontSize.headerContacts,
+    fontStyle: 'italic' as 'italic',
+    lineHeight: '15px',
     marginRight: '40px',
     width: '220px',
-
-    ...theme.header.contacts,
   },
   caption: {
     fontWeight: '700' as any,

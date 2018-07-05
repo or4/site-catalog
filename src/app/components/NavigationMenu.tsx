@@ -1,5 +1,5 @@
 import React from 'react';
-import { theme, subscribeResize, unsubscribeResize, NavigationMenuItem } from 'ui';
+import { subscribeResize, unsubscribeResize, NavigationMenuItem, scheme } from 'ui';
 import { logs, pickBySize } from 'utils';
 
 import jss from 'jss';
@@ -11,7 +11,7 @@ const rawClassesSmall = {
     height: '2px',
     maxHeight: '2px',
     minHeight: '2px',
-    ...theme.navigationMenu.container,
+    background: scheme.background.navigationMenu,
   },
   subContainer: {
     display: 'none',
@@ -23,7 +23,7 @@ const rawClassesMedium = {
   container: {
     height: '36px',
     maxHeight: '36px',
-    ...theme.navigationMenu.container,
+    background: scheme.background.navigationMenu,
   },
   subContainer: {
     alignItems: 'center' as 'center',
