@@ -1,4 +1,4 @@
-import { IS_DEV, DEV_LOG_RENDER, DEV_LOG_CATEGORIES, DEV_LOG_ITEMS } from 'settings';
+import { IS_DEV, DEV_LOG_RENDER, DEV_LOG_CATEGORIES, DEV_LOG_ITEMS, DEV_LOG_ACTIONS } from 'settings';
 
 export const log = function(...rest: any[]) {
   const date = new Date();
@@ -24,11 +24,12 @@ export const logIntendation = function(type: IntendationType, ...rest: any[]) {
   console.log.apply(null, [`${type === IntendationType.start ? '\n\n\n' : ''}${minutes}:${seconds}.${ms}: `, ...rest, type === IntendationType.end ? '\n\n\n' : '']);
 };
 
-type LogsType = 'render' | 'categories' | 'items';
+type LogsType = 'actions' | 'render' | 'categories' | 'items';
 
 export const logs = function(type: LogsType, ...rest: any[]) {
 
-  const needlog = type === 'render' && IS_DEV && DEV_LOG_RENDER
+  const needlog = type === 'actions' && IS_DEV && DEV_LOG_ACTIONS
+    || type === 'render' && IS_DEV && DEV_LOG_RENDER
     || type === 'categories' && IS_DEV && DEV_LOG_CATEGORIES
     || type === 'items' && IS_DEV && DEV_LOG_ITEMS;
 

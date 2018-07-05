@@ -1,17 +1,13 @@
-const appConfig = require('../../../config/main');
-import { Dispatch } from 'redux';
-import { connect } from 'react-redux';
-
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { Dispatch } from 'redux';
+import { connect } from 'react-redux';
+import { AppState, TItem, TCategory, CategoriesActionTypes } from 'core/types';
 import { Header, NavigationMenu, Vault } from 'components';
-import { ActionTypes as CategoriesActionTypes } from 'core/catalog/categories/actions';
-import { AppState } from 'store/reducers';
-import { TItem } from 'core/catalog/items/reducer';
-import { TCategory } from 'core/catalog/categories/types';
+import { Resize, ScreenSize } from 'ui';
 import { log, logs, isInitial } from 'utils';
-import { Resize } from 'ui/Resize';
-import { ScreenSize } from 'ui/ScreenSize';
+
+const appConfig = require('../../../config/main');
 
 type StateProps = {
   categories: TCategory[];
@@ -24,37 +20,33 @@ type Props = StateProps & DispatchProps;
 
 type State = {
 };
+
 let first = true;
 class MainLayoutComponent extends React.Component<Props, State> {
   state = {};
+  rawStyle = {
+    container: {
+      maxWidth: '100%',
+      overflow: 'hidden' as 'hidden',
+    },
+  }
+
   static getDerivedStateFromProps({ loadCategories, categories, /* loadItems, items,*/ }: Props) {
     if (first && categories.length === 0) {
-      log('******** CategoriesPage componentDidMount load action');
+      logs('actions', '******** CategoriesPage componentDidMount load action');
       loadCategories();
       first = false;
     }
     return {};
   }
 
-  getStyle = () => {
-    const container = {
-      maxWidth: '100%',
-      overflow: 'hidden' as 'hidden',
-    };
-
-    return {
-      container,
-    };
-  }
   public render() {
     logs('render', 'MainLayoutComponent');
-    const style = this.getStyle();
-
     logs('categories', `render this.props.categories.length`, this.props.categories.length);
     logs('items', `render this.props.items.length`, this.props.items.length);
 
     return (
-      <div style={style.container}>
+      <div style={this.rawStyle.container}>
         <Helmet {...appConfig.app} {...appConfig.app.head} />
 
         {true ? null : !isInitial() && <Header />}
@@ -80,9 +72,7 @@ const mapStateToProps = (state: AppState) => ({
 const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
   return {
     loadCategories: () => {
-      log(`pre dispatch loadCategories`);
       dispatch({ type: CategoriesActionTypes.LOAD_CATEGORIES });
-      log(`after dispatch loadCategories`);
     },
   };
 };
