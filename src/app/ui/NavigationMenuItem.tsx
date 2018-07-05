@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { theme } from 'ui';
+import { theme } from './theme';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';

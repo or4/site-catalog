@@ -1,7 +1,7 @@
 import { contentTheme, headerTheme, navigationMenuTheme, pagingTheme, vaultTheme } from './blocks';
 import { flexRow, flexColumn } from './utils';
 
-export const theme = {
+const theme = {
   header: {
     ...headerTheme,
   },
@@ -23,4 +23,4 @@ export const theme = {
   }
 };
 
-export { flexRow, flexColumn };
+export { theme, flexRow, flexColumn };

@@ -2,7 +2,7 @@ import { Resize, subscribeResize, unsubscribeResize } from './Resize';
 import { ScreenSize } from './ScreenSize';
 import { Tree } from './Tree';
 import { Table } from './Table';
-import { theme, flexRow, flexColumn } from './theme';
+import { theme, flexRow, flexColumn } from 'ui/theme';
 import { LeftSideBar } from './LeftSideBar';
 import { RightSideBar } from './RightSideBar';
 import { PhotoSlider } from './PhotoSlider';
