@@ -1,5 +1,5 @@
 import React from 'react';
-import { theme } from 'ui/theme';
+import { theme } from 'ui';
 import { logs, join, pickBySize } from 'utils';
 
 import jss from 'jss';

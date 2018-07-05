@@ -1,14 +1,12 @@
 import React from 'react';
-import { LeftSideBar } from 'ui/LeftSideBar';
-import { RightSideBar } from 'ui/RightSideBar';
 import { RouteType, routeHas } from 'routes';
-import { theme } from 'ui/theme';
+import {
+  theme, subscribeResize, unsubscribeResize,
+  LeftSideBar, RightSideBar, PhotoSlider, DownloadButton, WayButton
+} from 'ui';
 import { logs, isLarge, isMedium, isSmall, isInitial } from 'utils';
-import { NavigationTree } from 'components/NavigationTree';
-import { subscribeResize, unsubscribeResize } from 'ui/Resize';
-import { PhotoSlider } from 'ui/PhotoSlider';
-import { DownloadButton } from 'ui/buttons/DownloadButton';
-import { WayButton } from 'ui/buttons/WayButton';
+
+import { NavigationTree } from './NavigationTree';
 
 type Props = {
   children: any;

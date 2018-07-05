@@ -2,11 +2,11 @@ import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { AppState, TCategory } from 'core/types';
+import { selectCategory, selectCategoryCaption } from 'core/selectors';
 
-import { ArticleHeader } from 'components/Article/ArticleHeader';
-import { ArticleProducts } from 'components/Article/ArticleProducts';
-import { ArticleContent } from 'components/Article/ArticleContent';
-import { selectCategory, getCategoryCaption } from 'core/catalog/categories/selectors';
+import { ArticleHeader } from './ArticleHeader';
+import { ArticleProducts } from './ArticleProducts';
+import { ArticleContent } from './ArticleContent';
 
 type OwnProps = {
   routeParams?: any;
@@ -39,7 +39,7 @@ const mapStateToProps = (state: AppState, props: OwnProps) => {
   const category = selectCategory(state, props.routeParams.category);
   return {
     category,
-    categoryCaption: getCategoryCaption(state, category),
+    categoryCaption: selectCategoryCaption(state, category),
   };
 };
 

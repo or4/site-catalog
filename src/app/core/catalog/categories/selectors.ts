@@ -1,5 +1,5 @@
 import { AppState, TCategory } from 'core/types';
-import { capitalizeFirstLetter, isUndefined } from 'core/common';
+import { capitalizeFirstLetter, isUndefined } from 'utils';
 
 export const selectCategory = (state: AppState, category: string) => {
   return state.categories.indexed[category];
@@ -14,7 +14,7 @@ type CategoryCaptionAccumulator = {
 /**
  * Return Caption as Parent, Child level 1, Child level 2..
  */
-export const getCategoryCaption = (state: AppState, category: TCategory) => {
+export const selectCategoryCaption = (state: AppState, category: TCategory) => {
   if (!category) { return '' }
   if (category.id === null) {
     return 'Все товары';

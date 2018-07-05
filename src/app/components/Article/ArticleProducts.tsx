@@ -1,10 +1,10 @@
 import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import { AppState, TItem, TCategory } from 'core/types';
 
-import { selectItemsByPage } from 'core/catalog/items/selectors';
-import { Table } from 'ui/Table';
+import { AppState, TItem, TCategory } from 'core/types';
+import { selectItemsByPage } from 'core/selectors';
+import { Table } from 'ui';
 import { logs } from 'utils';
 
 type OwnProps = {

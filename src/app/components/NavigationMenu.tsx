@@ -1,7 +1,5 @@
 import React from 'react';
-import { theme } from 'ui/theme';
-import { NavigationMenuItem } from 'ui/NavigationMenuItem';
-import { subscribeResize, unsubscribeResize } from 'ui/Resize';
+import { theme, subscribeResize, unsubscribeResize, NavigationMenuItem } from 'ui';
 import { logs, pickBySize } from 'utils';
 
 import jss from 'jss';

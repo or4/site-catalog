@@ -2,15 +2,10 @@ import React from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { AppState, AmountItemsType } from 'core/types';
-import { changePage } from 'core/catalog/pages/actions';
-import { changeAmountType } from 'core/settings/amountItems/actions';
-import { subscribeResize, unsubscribeResize } from 'ui/Resize';
-import { PagesBlock } from 'ui/PagesBlock';
-import { AmountBlock } from 'ui/AmountBlock';
-import { flexRow } from 'ui/theme';
+import { selectPage, selectTotalPages, selectAmountItems } from 'core/selectors';
+import { changePage, changeAmountType } from 'core/actions';
+import { subscribeResize, unsubscribeResize, PagesBlock, AmountBlock, flexRow } from 'ui';
 import { join, isSmall, isInitial } from 'utils';
-import { selectPage, selectTotalPages } from 'core/catalog/pages/selectors';
-import { selectAmountItems } from 'core/settings/amountItems/reducer';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';

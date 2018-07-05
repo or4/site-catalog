@@ -1,10 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
-import { combineUrl } from 'core/common';
-import { flexRow } from 'ui/theme';
-// import 'slick-carousel/slick/slick-theme.css';
-// import 'slick-carousel/slick/slick.css';
-// import { theme } from 'ui/theme';
+import { combineUrl } from 'utils';
+import { flexRow } from 'ui';
 
 type Props = {
 };

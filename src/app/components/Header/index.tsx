@@ -1,10 +1,10 @@
 import React from 'react';
-import { Logo } from 'components/Header/Logo';
-import { Banner } from 'components/Header/Banner';
-import { Contacts } from 'components/Header/Contacts';
+import { subscribeResize, unsubscribeResize, flexColumn, flexRow } from 'ui';
 import { logs, pickBySize } from 'utils';
-import { flexColumn, flexRow } from 'ui/theme';
-import { subscribeResize, unsubscribeResize } from 'ui/Resize';
+
+import { Logo } from './Logo';
+import { Banner } from './Banner';
+import { Contacts } from './Contacts';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
@@ -26,7 +26,6 @@ const rawClassesSmall = {
   },
 };
 const classesSmall = jss.createStyleSheet(rawClassesSmall).attach().classes;
-
 
 const rawClassesMedium = {
   container: {
