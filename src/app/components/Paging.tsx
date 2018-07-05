@@ -11,24 +11,19 @@ import jss from 'jss';
 import preset from 'jss-preset-default';
 jss.setup(preset());
 
-const getClasses = () => {
-  const container = {
+const rawClasses = {
+  container: {
     ...flexRow()
-  };
-  const pagesContainer = {
+  },
+  pagesContainer: {
     margin: '0 auto 0 0'
-  };
-  const amountContainer = {
+  },
+  amountContainer: {
     margin: '0 0 0 auto'
-  };
-  return {
-    container,
-    pagesContainer,
-    amountContainer,
-  };
+  },
 };
 
-const sheet = jss.createStyleSheet(getClasses()).attach();
+const sheet = jss.createStyleSheet(rawClasses).attach();
 const { classes } = sheet;
 
 

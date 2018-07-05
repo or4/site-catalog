@@ -7,22 +7,17 @@ import jss from 'jss';
 import preset from 'jss-preset-default';
 jss.setup(preset());
 
-const getClasses = () => {
-  const container = {
+const rawClasses = {
+  container: {
     padding: '0 10px',
-  };
-  const image = {
+  },
+  image: {
     transform: 'rotate(270deg)',
     marginBottom: '1px',
-  };
-
-  return {
-    container,
-    image,
-  };
+  },
 };
 
-const sheet = jss.createStyleSheet(getClasses()).attach();
+const sheet = jss.createStyleSheet(rawClasses).attach();
 const { classes } = sheet;
 
 type Props = {

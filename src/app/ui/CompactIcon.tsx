@@ -4,11 +4,9 @@ import jss from 'jss';
 import preset from 'jss-preset-default';
 jss.setup(preset());
 
-const getClasses = () => {
-  const container = {
+const rawClasses = {
+  container: {
     display: 'none',
-
-
     background: 'rgba(0, 0, 0, 0.2)',
     position: 'fixed' as 'fixed',
     cursor: 'pointer',
@@ -32,13 +30,10 @@ const getClasses = () => {
     '&:hover': {
       background: 'rgba(0, 0, 0, 0.4)',
     }
-  };
-  return {
-    container,
-  };
+  },
 };
 
-const sheet = jss.createStyleSheet(getClasses()).attach();
+const sheet = jss.createStyleSheet(rawClasses).attach();
 const { classes } = sheet;
 
 

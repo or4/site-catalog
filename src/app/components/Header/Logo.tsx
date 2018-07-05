@@ -42,11 +42,11 @@ export class Logo extends React.PureComponent<Props, State> {
   }
   render() {
     logs('render', 'Header Logo');
-    const { className: customClassName, style: customStyle } = this.props;
+    const { className, style } = this.props;
     const classes = pickBySize(classesSmall, classesMedium);
 
     return (
-      <div className={join(classes.container, customClassName)} style={customStyle}>
+      <div className={join(classes.container, className)} style={style}>
         РЕЗИНОТЕХНИКА СК
       </div>
     );

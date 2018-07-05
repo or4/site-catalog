@@ -5,8 +5,8 @@ import jss from 'jss';
 import preset from 'jss-preset-default';
 jss.setup(preset());
 
-const getClasses = () => {
-  const container = {
+const rawClasses = {
+  container: {
     background: 'transparent' as 'transparent',
     border: '1px solid rgba(0, 0, 0, 0.2)',
     boxSizing: 'border-box' as 'border-box',
@@ -21,15 +21,10 @@ const getClasses = () => {
     '&:hover': {
       border: '1px solid rgba(0, 0, 0, 0.4)',
     }
-  };
-  const active = {
+  },
+  active: {
     border: '1px solid rgba(0, 0, 0, 0.4)',
-  };
-
-  return {
-    container,
-    active,
-  };
+  },
 };
 
 
@@ -59,7 +54,7 @@ type Props = {
 type State = {
 };
 
-const sheet = jss.createStyleSheet(getClasses()).attach();
+const sheet = jss.createStyleSheet(rawClasses).attach();
 const { classes } = sheet;
 const borderClasses = jss.createStyleSheet(getBorderClasses()).attach().classes;
 

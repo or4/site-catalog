@@ -7,16 +7,13 @@ import jss from 'jss';
 import preset from 'jss-preset-default';
 jss.setup(preset());
 
-const getClasses = () => {
-  const container = {
+const rawClasses = {
+  container: {
     display: 'flex',
-  };
-  return {
-    container,
-  };
+  }
 };
 
-const sheet = jss.createStyleSheet(getClasses()).attach();
+const sheet = jss.createStyleSheet(rawClasses).attach();
 const { classes } = sheet;
 
 type Props = {
@@ -24,15 +21,21 @@ type Props = {
   className?: string;
   isSmall: boolean;
   onClick: (amountItems: AmountItemsType) => void;
+  style?: any;
 };
 type State = {
 };
 
 export class AmountBlock extends React.PureComponent<Props, State> {
+  static defaultProps: Partial<Props> = {
+    className: '',
+    style: {},
+  }
+
   render() {
-    const { amountItems, className, isSmall, onClick } = this.props;
+    const { amountItems, className, onClick, style } = this.props;
     return (
-      <div className={join(classes.container, className)}>
+      <div style={style} className={join(classes.container, className)}>
         <AmountBlockMedium amountItems={amountItems} onClick={onClick} />
       </div>
     );

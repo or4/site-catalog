@@ -6,8 +6,8 @@ import jss from 'jss';
 import preset from 'jss-preset-default';
 jss.setup(preset());
 
-const getClasses = () => {
-  const container = {
+const rawClasses = {
+  container: {
     background: 'transparent' as 'transparent',
     textDecoration: 'none' as 'none',
     cursor: 'pointer',
@@ -20,11 +20,7 @@ const getClasses = () => {
     '&:hover': {
       textDecoration: 'underline' as 'underline',
     }
-  };
-
-  return {
-    container,
-  };
+  },
 };
 
 type Props = {
@@ -34,7 +30,7 @@ type Props = {
 type State = {
 };
 
-const sheet = jss.createStyleSheet(getClasses()).attach();
+const sheet = jss.createStyleSheet(rawClasses).attach();
 const { classes } = sheet;
 
 export class AmountBlockMediumItemBase extends React.PureComponent<Props, State> {

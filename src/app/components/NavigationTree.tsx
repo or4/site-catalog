@@ -22,7 +22,7 @@ type Props = StateProps & DispatchProps & OwnProps;
 type State = {
 };
 
-const getClasses = () => ({
+const rawClasses = {
   container: {
     background: 'rgba(255, 255, 255, 0.5)',
     border: '1px solid rgba(0, 0, 0, 0.3)',
@@ -30,9 +30,9 @@ const getClasses = () => ({
     padding: '10px 10px 10px 18px',
     margin: '0 10px',
   }
-});
+};
 
-const { classes } = jss.createStyleSheet(getClasses()).attach();
+const { classes } = jss.createStyleSheet(rawClasses).attach();
 
 class NavigationTreeComponent extends React.PureComponent<Props, State> {
   onClick = (itemId: string) => {

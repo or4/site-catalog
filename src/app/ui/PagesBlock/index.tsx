@@ -7,24 +7,19 @@ import jss from 'jss';
 import preset from 'jss-preset-default';
 jss.setup(preset());
 
-const getClasses = () => {
-  const container = {
+const rawClasses = {
+  container: {
     display: 'flex',
-  };
-  const next = {
+  },
+  next: {
     marginRight: '13px',
-  };
-  const prev = {
+  },
+  prev: {
     marginLeft: '13px',
-  };
-  return {
-    container,
-    next,
-    prev,
-  };
+  },
 };
 
-const sheet = jss.createStyleSheet(getClasses()).attach();
+const sheet = jss.createStyleSheet(rawClasses).attach();
 const { classes } = sheet;
 
 type Props = {

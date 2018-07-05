@@ -32,10 +32,10 @@ export class Banner extends React.PureComponent<Props, State> {
   }
   render() {
     logs('render', 'Header Banner');
-    const { className: customClassName, style: customStyle } = this.props;
+    const { className, style } = this.props;
 
     return (
-      <div className={join(classes.container, customClassName)} style={customStyle} >
+      <div className={join(classes.container, className)} style={style} >
         <img className={classes.banner} src={bannerImage} alt="" />
       </div>
     );

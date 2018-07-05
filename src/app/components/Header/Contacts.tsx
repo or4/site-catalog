@@ -41,10 +41,10 @@ export class Contacts extends React.PureComponent<Props, State> {
   }
   render() {
     logs('render', 'Header Contacts');
-    const { className: customClassName, style: customStyle } = this.props;
+    const { className, style } = this.props;
 
     return (
-      <div style={customStyle} className={join(classes.container, customClassName)}>
+      <div style={style} className={join(classes.container, className)}>
         <div className={classes.caption}><b>КОНТАКТНАЯ ИНФОРМАЦИЯ</b></div>
         <div className={classes.address}>
           <b>Адрес:</b> 150000, г. Петропавловск,<br />
