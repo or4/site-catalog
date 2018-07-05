@@ -31,7 +31,6 @@ type Props = {
 };
 type State = {
 };
-const pagesItems = ['prev', 'next', 'item1', 'item2', 'item3', 'item4', 'item5`'];
 
 export class PagesBlockMedium extends React.PureComponent<Props, State> {
   onPrevClick = () => { this.props.onClick(getPrevPage(this.props.page, 1)) }
@@ -44,11 +43,6 @@ export class PagesBlockMedium extends React.PureComponent<Props, State> {
   onItem5Click = () => { this.props.onClick(getNextPage(this.props.page, 2, this.props.totalPages)) }
   onNextClick = () => { this.props.onClick(getNextPage(this.props.page, 1, this.props.totalPages)) }
 
-  // getRadiusType = (index: number, page: number, total: number) => {
-  //   isExist(index, page)
-
-  // }
-  // isExist =
   exists = (index: number, page: number, total: number) => {
     const newPage = page + index;
     if (newPage >= 1 && newPage <= total) {
@@ -67,15 +61,10 @@ export class PagesBlockMedium extends React.PureComponent<Props, State> {
     const prevExists = this.exists(index - 1, page, total);
     const nextExists = this.exists(index + 1, page, total);
 
-    if (!prevExists && !nextExists) {
-      return 'full';
-    } else if (!prevExists || index === -2) {
-      return 'left';
-    } else if (!nextExists || index === 2) {
-      return 'right';
-    } else {
-      return 'none';
-    }
+    if (!prevExists && !nextExists) { return 'full' }
+    else if (!prevExists || index === -2) { return 'left' }
+    else if (!nextExists || index === 2) { return 'right' }
+    else { return 'none' }
   }
 
   render() {

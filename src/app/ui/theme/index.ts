@@ -1,5 +1,6 @@
-import { contentTheme, headerTheme, navigationMenuTheme, pagingTheme, vaultTheme } from './blocks';
+import { contentTheme, headerTheme, navigationMenuTheme, pagesTheme, vaultTheme, amountOnPage, buttonBase } from './blocks';
 import { flexRow, flexColumn } from './utils';
+import { borderRadiusScheme } from './schemes';
 
 const theme = {
   header: {
@@ -14,8 +15,16 @@ const theme = {
     ...contentTheme,
   },
 
-  paging: {
-    ...pagingTheme,
+  pages: {
+    ...pagesTheme,
+  },
+
+  amountOnPage: {
+    ...amountOnPage,
+  },
+
+  buttonBase: {
+    ...buttonBase,
   },
 
   vault: {
@@ -23,4 +32,4 @@ const theme = {
   }
 };
 
-export { theme, flexRow, flexColumn };
+export { theme, flexRow, flexColumn, borderRadiusScheme };

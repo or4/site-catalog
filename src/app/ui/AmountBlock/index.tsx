@@ -18,9 +18,9 @@ const { classes } = sheet;
 
 type Props = {
   amountItems: AmountItemsType;
-  className?: string;
   isSmall: boolean;
   onClick: (amountItems: AmountItemsType) => void;
+  className?: string;
   style?: any;
 };
 type State = {

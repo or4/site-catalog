@@ -8,13 +8,12 @@ jss.setup(preset());
 
 const rawClasses = {
   container: {
-    background: 'transparent' as 'transparent',
-    textDecoration: 'none' as 'none',
     cursor: 'pointer',
     height: '28px',
+    textDecoration: 'none' as 'none',
     transition: '.1s ease-out',
 
-    ...theme.paging.text,
+    ...theme.amountOnPage.text,
     ...flexRow('center', 'center'),
 
     '&:hover': {

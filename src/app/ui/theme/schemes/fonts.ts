@@ -4,10 +4,11 @@ const fontFamilies = {
 };
 
 export const fontFamilyScheme = {
-  headerLogo: fontFamilies.primary,
+  amountOnPage: fontFamilies.secondary,
   headerContacts: fontFamilies.secondary,
+  headerLogo: fontFamilies.primary,
   navigationMenu: fontFamilies.secondary,
-  paging: fontFamilies.secondary,
+  pages: fontFamilies.secondary,
   vault: fontFamilies.secondary,
 };
 
@@ -19,9 +20,10 @@ const fontSizes = {
 };
 
 export const fontSizeScheme = {
-  headerLogo: fontSizes.size1,
+  amountOnPage: fontSizes.size2,
   headerContacts: fontSizes.size2,
+  headerLogo: fontSizes.size1,
   navigationMenu: fontSizes.size3,
-  paging: fontSizes.size2,
+  pages: fontSizes.size2,
   vault: fontSizes.size2,
 };

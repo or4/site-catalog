@@ -1,5 +1,11 @@
-import { colorsScheme, backgroundColorsScheme } from '../schemes/colors';
+import { backgroundColorsScheme, bordersScheme, colorsScheme } from '../schemes/colors';
 import { fontFamilyScheme, fontSizeScheme } from '../schemes/fonts';
 import { textShadowsScheme } from '../schemes/shadows';
+import { borderRadiusScheme } from 'ui/theme/schemes/radius';
 
-export { colorsScheme, backgroundColorsScheme, fontFamilyScheme, fontSizeScheme, textShadowsScheme };
+export {
+  backgroundColorsScheme, bordersScheme, colorsScheme,
+  fontFamilyScheme, fontSizeScheme,
+  textShadowsScheme,
+  borderRadiusScheme,
+};

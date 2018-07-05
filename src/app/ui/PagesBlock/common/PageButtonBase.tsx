@@ -1,5 +1,6 @@
 import React from 'react';
-import { theme, flexRow } from 'ui/theme';
+import { theme, flexRow, borderRadiusScheme } from 'ui/theme';
+
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
@@ -7,23 +8,20 @@ jss.setup(preset());
 
 const rawClasses = {
   container: {
-    background: 'transparent' as 'transparent',
-    border: '1px solid rgba(0, 0, 0, 0.2)',
     boxSizing: 'border-box' as 'border-box',
-    // borderRadius: '3px',
     cursor: 'pointer',
     height: '28px',
     transition: '.1s ease-out',
 
-    ...theme.paging.text,
+    ...theme.pages.text,
     ...flexRow('center', 'center'),
 
     '&:hover': {
-      border: '1px solid rgba(0, 0, 0, 0.4)',
+      ...theme.pages.textHover,
     }
   },
   active: {
-    border: '1px solid rgba(0, 0, 0, 0.4)',
+    ...theme.pages.textActive,
   },
 };
 
@@ -32,14 +30,16 @@ const getBorderClasses = () => {
   return {
     none: { },
     right: {
-      borderTopRightRadius: '3px',
-      borderBottomRightRadius: '3px',
+      borderTopRightRadius: borderRadiusScheme.default,
+      borderBottomRightRadius: borderRadiusScheme.default,
     },
     left: {
-      borderTopLeftRadius: '3px',
-      borderBottomLeftRadius: '3px',
+      borderTopLeftRadius: borderRadiusScheme.default,
+      borderBottomLeftRadius: borderRadiusScheme.default,
     },
-    full: { borderRadius: '3px', },
+    full: {
+      borderRadius: borderRadiusScheme.default,
+    },
   };
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { flexRow } from 'ui/theme';
+import { theme, flexRow, borderRadiusScheme } from 'ui/theme';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
@@ -7,19 +7,18 @@ jss.setup(preset());
 
 const rawClasses = {
   container: {
-    background: 'rgba(255, 255, 255, 0.5)',
-    borderRadius: '4px',
-    border: '1px solid rgba(0, 0, 0, 0.3)',
+    borderRadius: borderRadiusScheme.default,
     cursor: 'pointer',
     height: '50px',
     marginBottom: '8px',
     position: 'relative' as 'relative',
     width: '263px',
 
+    ...theme.buttonBase.container,
     ...flexRow('center'),
 
     '&:hover': {
-      background: 'rgba(255, 255, 255, 0.1)',
+      ...theme.buttonBase.containerHover,
     }
   },
   img: {
