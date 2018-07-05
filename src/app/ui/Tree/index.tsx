@@ -3,7 +3,7 @@ import * as R from 'ramda';
 
 import { TreeItemType } from './types';
 import { TreeItem } from './TreeItem';
-import { getPosition } from './util';
+import { getPosition } from 'utils';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';

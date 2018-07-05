@@ -39,7 +39,6 @@ const { classes } = jss.createStyleSheet(getClasses()).attach();
 class NavigationTreeComponent extends React.PureComponent<Props, State> {
   onClick = (itemId: string) => {
     const route = `/catalog/${itemId}`;
-    console.log('NavigationTreeComponent goToRoute', route);
     browserHistory.push(route);
   }
 
@@ -49,7 +48,7 @@ class NavigationTreeComponent extends React.PureComponent<Props, State> {
     if (!this.props.categories) {
       return null;
     }
-    console.log('this.props.categories', this.props.categories);
+    logs('categories', this.props.categories);
 
     return (
       <div className={classes.container}>

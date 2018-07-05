@@ -1,9 +1,9 @@
 import React from 'react';
 import { treeLineBase64 } from 'ui/icons/base64';
+import { join } from 'utils';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
-import { join } from 'utils';
 jss.setup(preset());
 
 const getClasses = () => {

@@ -1,7 +1,6 @@
 import React from 'react';
-import { join } from 'utils';
-import { TreeItemType, TreePosition } from '../types';
-import { getPosition, isFirst } from '../util';
+import { TreeItemType } from '../types';
+import { join, getPosition, isFirst, PositionType } from 'utils';
 import { TreeIconLine, TreeIconSign } from '../icons';
 import { ElementCaption } from './ElementCaption';
 import { TreeItem } from './index';
@@ -38,7 +37,7 @@ type Props = {
   item: TreeItemType;
   isShow: boolean;
   itemsState: any;
-  position: TreePosition;
+  position: PositionType;
 };
 type State = {
 };

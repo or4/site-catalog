@@ -1,7 +1,8 @@
 import React from 'react';
-import { TreeItemType, TreePosition } from '../types';
+import { TreeItemType } from '../types';
 import { TreeIconCorner, TreeIconHyphen, TreeIconLine } from '../icons';
 import { ElementCaption } from './ElementCaption';
+import { PositionType } from 'utils';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
@@ -18,7 +19,7 @@ const { classes } = jss.createStyleSheet(rawClasses).attach();
 
 type Props = {
   item: TreeItemType;
-  position: TreePosition;
+  position: PositionType;
 };
 type State = {
 };

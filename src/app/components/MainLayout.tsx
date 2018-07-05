@@ -12,7 +12,6 @@ import { TCategory } from 'core/catalog/categories/types';
 import { log, logs, isInitial } from 'utils';
 import { Resize } from 'ui/Resize';
 import { ScreenSize } from 'ui/ScreenSize';
-import { IS_DEV, DEV_LOG_ITEMS, DEV_LOG_CATEGORIES, DEV_LOG_RENDER } from 'settings';
 
 type StateProps = {
   categories: TCategory[];
@@ -51,8 +50,8 @@ class MainLayoutComponent extends React.Component<Props, State> {
     logs('render', 'MainLayoutComponent');
     const style = this.getStyle();
 
-    IS_DEV && DEV_LOG_CATEGORIES && log(`render this.props.categories.length`, this.props.categories.length);
-    IS_DEV && DEV_LOG_ITEMS && log(`render this.props.items.length`, this.props.items.length);
+    logs('categories', `render this.props.categories.length`, this.props.categories.length);
+    logs('items', `render this.props.items.length`, this.props.items.length);
 
     return (
       <div style={style.container}>

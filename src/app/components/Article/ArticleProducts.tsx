@@ -7,6 +7,7 @@ import { TItem } from 'core/catalog/items/reducer';
 import { TCategory } from 'core/catalog/categories/types';
 import { selectItemsByPage } from 'core/catalog/items/selectors';
 import { Table } from 'ui/Table';
+import { logs } from 'utils';
 
 type OwnProps = {
   category: TCategory;
@@ -25,7 +26,7 @@ type State = {
 class ArticleProductsComponent extends React.PureComponent<Props, State> {
   render() {
     const { items } = this.props;
-    console.log('items', items);
+    logs('items', items);
     return (
       <div>
         <Table items={items as any} />

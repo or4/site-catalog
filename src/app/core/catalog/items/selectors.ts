@@ -3,6 +3,7 @@ import { selectAmountItems } from 'core/settings/amountItems/reducer';
 import { amountItems } from 'core/settings/amountItems/common';
 import { selectPage } from 'core/catalog/pages/selectors';
 import { TCategory } from 'core/catalog/categories/types';
+import { log } from 'utils';
 
 export const selectItems = (state: AppState) => state.items.data;
 
@@ -17,7 +18,7 @@ export const selectItemsByCategory = (state: AppState, category: string) => {
 export const selectItemsByPage = (state: AppState, category: TCategory) => {
   if (!category) { return [] }
 
-  console.log('category.id', category.id);
+  log('category.id', category.id);
   const items = selectItemsByCategory(state, category.id);
   const page = selectPage(state);
 

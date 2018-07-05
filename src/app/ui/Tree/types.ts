@@ -5,5 +5,3 @@ export type TreeItemType = {
   name: string;
   items?: TreeItemType[];
 };
-
-export type TreePosition = 'first' |'middle' |'last';
