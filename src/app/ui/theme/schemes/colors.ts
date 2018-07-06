@@ -20,6 +20,8 @@ export const colorsScheme = {
   navigationMenu: colors.white,
   pages: colors.greyLight,
   vault: colors.greyLight,
+
+  tableHeader: colors.white,
 } as {[key in SubjectType]: string};
 
 
@@ -29,6 +31,9 @@ export const backgroundScheme = {
   navigationMenu: colors.greyLight,
   pages: colors.transparent,
   buttonBase: 'rgba(255, 255, 255, 0.5)',
+  tableCell: 'rgba(255, 255, 255, 0.5)',
+  tableHeader: 'rgba(101,101,101, 0.8)',
+  tableHeaderName: 'rgba(101,101,101, 1)',
 } as {[key in SubjectType]: string};
 
 
@@ -38,5 +43,7 @@ export const bordersScheme = {
   pages: '1px solid rgba(0, 0, 0, 0.2)',
   pagesHover: '1px solid rgba(0, 0, 0, 0.4)',
   pagesActive: '1px solid rgba(0, 0, 0, 0.4)',
+
+  tableBorders: '1px solid rgba(0,0,0,0.2)',
 } as {[key in SubjectType]: string};
 

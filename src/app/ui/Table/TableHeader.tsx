@@ -1,5 +1,5 @@
 import React from 'react';
-import { flexRow, flexColumn } from 'ui/theme';
+import { flexRow, flexColumn, theming, borderTopLeftRadius, borderTopRightRadius } from 'ui/theme';
 import { join } from 'utils';
 import { TableCell } from './TableCell';
 import { tableCommonClasses as common, borderLeftTop } from './style';
@@ -14,38 +14,36 @@ const rawClasses = {
     ...flexRow('center', 'space-between'),
   },
   cell: {
-    color: '#fff',
-    background: 'rgba(101,101,101, 0.8)',
-    fontFamily: 'Verdana',
     height: '54px',
+    ...theming('tableHeader'),
     ...flexRow('center', 'center'),
   },
   name: {
-    background: 'rgba(101,101,101, 1)',
+    ...theming('tableHeaderName'),
   },
 
   borderTopLeftRadius: {
-    borderTopLeftRadius: '4px',
+    ...borderTopLeftRadius(),
   },
   borderTopRightRadius: {
-    borderTopRightRadius: '4px',
+    ...borderTopRightRadius(),
   },
 
   customCell: {
-    color: '#fff',
-    background: 'rgba(101,101,101, 0.8)',
-    fontFamily: 'Verdana',
-    ...flexColumn('center', 'center'),
+    height: '54px',
     minWidth: '150px',
     maxWidth: '150px',
-    height: '54px',
+
+    ...theming('tableHeader'),
+    ...flexColumn('center', 'center'),
   },
   customCellPrice: {
-    ...borderLeftTop,
     minWidth: '150px',
     maxWidth: '150px',
     height: '27px',
     textAlign: 'center' as 'center',
+
+    ...borderLeftTop,
     ...flexRow('center', 'center'),
   },
   customCellPriceContainer: {

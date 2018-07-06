@@ -9,7 +9,13 @@ export type SubjectType = 'title'
 | 'pagesActive'
 | 'vault'
 | 'buttonBase'
-| 'buttonBaseHover';
+| 'buttonBaseHover'
+| 'table'
+| 'tableHeader'
+| 'tableHeaderName'
+| 'tableRow'
+| 'tableCell'
+| 'tableBorders';
 
 export type FontFamilyType = 'primary' | 'secondary';
 export type FontSizeType = 'title' | 'size1' | 'size2';

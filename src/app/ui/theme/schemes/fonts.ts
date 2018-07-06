@@ -11,6 +11,8 @@ export const fontFamilies = {
 
 export const fontFamilyScheme = {
   buttonBase: fontFamilies.buttonBase,
+  tableCell: 'Verdana',
+  tableHeader: 'Verdana',
 
   title: fontFamilies.primary,
   headerLogo: fontFamilies.primary,
@@ -33,6 +35,7 @@ const fontSizes = {
 export const fontSizeScheme = {
   headerLogo: fontSizes.size1,
   navigationMenu: fontSizes.title,
+  tableCell: '11px',
 
   amountOnPage: fontSizes.size2,
   headerContacts: fontSizes.size2,

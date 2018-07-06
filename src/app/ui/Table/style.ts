@@ -1,20 +1,22 @@
+import { scheme } from 'ui/theme';
+
 import jss from 'jss';
 import preset from 'jss-preset-default';
 jss.setup(preset());
 
 export const borderLeftTop = {
-  borderLeft: '1px solid rgba(0,0,0,0.2)',
-  borderTop: '1px solid rgba(0,0,0,0.2)',
+  borderLeft: scheme.borders.tableBorders,
+  borderTop: scheme.borders.tableBorders,
   boxSizing: 'border-box' as 'border-box',
 };
 
 export const borderBottom = {
-  borderBottom: '1px solid rgba(0,0,0,0.2)',
+  borderBottom: scheme.borders.tableBorders,
   boxSizing: 'border-box' as 'border-box',
 };
 
 const borderRight = {
-  borderRight: '1px solid rgba(0,0,0,0.2)',
+  borderRight: scheme.borders.tableBorders,
   boxSizing: 'border-box' as 'border-box',
 };
 

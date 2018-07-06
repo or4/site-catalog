@@ -1,7 +1,7 @@
 import React from 'react';
 import { TableItemType } from './types';
 import { TableCell } from 'ui/Table/TableCell';
-import { flexRow } from 'ui/theme';
+import { flexRow, borderBottomRightRadius, borderBottomLeftRadius } from 'ui/theme';
 import { tableCommonClasses as common, borderBottom } from 'ui/Table/style';
 import { join, PositionType, isLast as checkLast } from 'utils';
 
@@ -18,14 +18,14 @@ const rawClasses = {
   },
   bottomRow: {
     ...borderBottom,
-    borderRadiusRightBottom: '4px',
+    ...borderBottomRightRadius(),
   },
 
   borderBottomLeftRadius: {
-    borderBottomLeftRadius: '4px',
+    ...borderBottomLeftRadius(),
   },
   borderBottomRightRadius: {
-    borderBottomRightRadius: '4px',
+    ...borderBottomRightRadius(),
   },
 };
 

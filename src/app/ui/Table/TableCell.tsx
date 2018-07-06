@@ -1,19 +1,17 @@
 import React from 'react';
 import { join } from 'utils';
+import { flexRow, theming } from 'ui/theme';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
-import { flexRow } from 'ui/theme';
 jss.setup(preset());
 
 const rawClasses = {
   container: {
-    background: 'rgba(255, 255, 255, 0.5)',
-    fontSize: '11px',
-    lineHeight: '16px',
-    fontFamily: 'Verdana',
     cursor: 'default',
+    lineHeight: '16px',
 
+    ...theming('tableCell'),
     ...flexRow('center', 'center'),
   }
 };
