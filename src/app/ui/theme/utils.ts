@@ -3,7 +3,7 @@ import { SubjectType } from './schemes/types';
 import { isUndefined } from 'utils';
 
 type TAlignItems = 'normal' | 'center';
-type TJustifyContent = 'center' | 'space-between' | 'flex-start';
+type TJustifyContent = 'center' | 'space-between' | 'flex-start' | 'space-evenly';
 
 export const flexRow = (alignItems?: TAlignItems, justifyContent?: TJustifyContent) => {
   const style = {
@@ -25,9 +25,8 @@ export const flexColumn = (alignItems?: TAlignItems, justifyContent?: TJustifyCo
   return style;
 };
 
-export const fontPrimary = (subject: SubjectType, lineHeight?: string) => {
+export const theming = (subject: SubjectType) => {
   const font = { };
-  !isUndefined(lineHeight) && Object.assign(font, { lineHeight, });
 
   !isUndefined(scheme.background[subject]) && Object.assign(font, { background: scheme.background[subject], });
   !isUndefined(scheme.borders[subject]) && Object.assign(font, { border: scheme.borders[subject], });

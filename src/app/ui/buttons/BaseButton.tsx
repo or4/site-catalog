@@ -1,5 +1,5 @@
 import React from 'react';
-import { flexRow, scheme, fontPrimary } from 'ui/theme';
+import { flexRow, scheme, theming } from 'ui/theme';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
@@ -15,10 +15,10 @@ const rawClasses = {
     width: '263px',
 
     ...flexRow('center'),
-    ...fontPrimary('buttonBase'),
+    ...theming('buttonBase'),
 
     '&:hover': {
-      ...fontPrimary('buttonBaseHover'),
+      ...theming('buttonBaseHover'),
     }
   },
   img: {
@@ -31,7 +31,7 @@ const rawClasses = {
     fontSize: '13px',
     fontWeight: '600' as 'bold',
 
-    ...fontPrimary('buttonBase'),
+    ...theming('buttonBase'),
   },
 };
 

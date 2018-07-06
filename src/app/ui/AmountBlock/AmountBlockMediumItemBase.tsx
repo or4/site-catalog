@@ -1,5 +1,5 @@
 import React from 'react';
-import { flexRow, fontPrimary } from 'ui/theme';
+import { flexRow, theming } from 'ui/theme';
 import { join } from 'utils';
 
 import jss from 'jss';
@@ -10,10 +10,11 @@ const rawClasses = {
   container: {
     cursor: 'pointer',
     height: '28px',
+    lineHeight: '28px',
     textDecoration: 'none' as 'none',
     transition: '.1s ease-out',
 
-    ...fontPrimary('amountOnPage', '28px'),
+    ...theming('amountOnPage'),
     ...flexRow('center', 'center'),
 
     '&:hover': {

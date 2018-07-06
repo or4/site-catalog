@@ -1,5 +1,5 @@
 import React from 'react';
-import { fontPrimary } from 'ui';
+import { theming } from 'ui';
 import { logs, join, pickBySize } from 'utils';
 
 import jss from 'jss';
@@ -8,20 +8,22 @@ jss.setup(preset());
 
 const rawClassesSmall = {
   container: {
+    lineHeight: '15px',
     textAlign: 'center' as 'center',
     width: '268px',
 
-    ...fontPrimary('headerLogo', '15px')
+    ...theming('headerLogo'),
   },
 };
 const classesSmall = jss.createStyleSheet(rawClassesSmall).attach().classes;
 
 const rawClassesMedium = {
   container: {
+    lineHeight: '15px',
     textAlign: 'center' as 'center',
     width: '245px',
 
-    ...fontPrimary('headerLogo', '15px')
+    ...theming('headerLogo'),
   },
 };
 const classesMedium = jss.createStyleSheet(rawClassesMedium).attach().classes;

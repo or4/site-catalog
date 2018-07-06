@@ -1,5 +1,5 @@
 import React from 'react';
-import { scheme, flexColumn, fontPrimary } from 'ui/theme';
+import { scheme, flexColumn, theming } from 'ui/theme';
 import { logs } from 'utils';
 
 import jss from 'jss';
@@ -13,16 +13,17 @@ const rawClasses = {
   },
   mainText: {
     fontWeight: '700' as 'bold',
+    lineHeight: '15px',
     marginBottom: '8px',
     textAlign: 'left' as 'left',
 
-    ...fontPrimary('vault', '15px')
+    ...theming('vault'),
   },
   subText: {
     lineHeight: '15px',
     textAlign: 'left' as 'left',
 
-    ...fontPrimary('vault', '15px')
+    ...theming('vault'),
   },
 };
 
