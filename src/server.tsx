@@ -22,11 +22,7 @@ import { store } from 'store';
 import root from 'core/sagas';
 const path = require('path');
 
-// simple return store
-// const store = configureStore();
-
 const config = require('../config/webpack/prod');
-
 const compression = require('compression');
 
 let app = express();
@@ -46,9 +42,12 @@ const layout = (body: any, initialState: any) => (`
   <!DOCTYPE html>
   <html style="background: #ddd;">
   <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width,maximum-scale=1,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
     <title>Redux-saga real-world universal example</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Резинотехника оптом и в розницу Северо-Казахстанской области">
+    <link rel="canonical" href="/">
   </head>
   <body style="margin: 0; background: #ddd; background: repeat url(http://rti-ck.kz/content/bg/1.png);">
     <div id="root"><div>${body}</div></div>

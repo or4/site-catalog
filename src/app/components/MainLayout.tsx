@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { AppState, TItem, TCategory, CategoriesActionTypes } from 'core/types';
 import { Header, NavigationMenu, Vault } from 'components';
 import { Resize, ScreenSize } from 'ui';
-import { log, logs, isInitial } from 'utils';
+import { logs, isInitial } from 'utils';
 
 const appConfig = require('../../../config/main');
 

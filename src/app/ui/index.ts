@@ -1,4 +1,4 @@
-import { scheme, flexRow, flexColumn } from 'ui/theme';
+import { scheme, flexRow, flexColumn, fontPrimary } from 'ui/theme';
 import { Resize, subscribeResize, unsubscribeResize } from './Resize';
 import { ScreenSize } from './ScreenSize';
 import { Tree } from './Tree';
@@ -14,7 +14,7 @@ import { AmountBlock } from './AmountBlock';
 
 export {
   scheme,
-  flexRow, flexColumn,
+  flexRow, flexColumn, fontPrimary,
   Resize, subscribeResize, unsubscribeResize,
   ScreenSize,
   Tree,

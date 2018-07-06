@@ -1,5 +1,5 @@
 import React from 'react';
-import { flexRow, scheme } from 'ui/theme';
+import { flexRow, scheme, fontPrimary } from 'ui/theme';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
@@ -14,12 +14,11 @@ const rawClasses = {
     position: 'relative' as 'relative',
     width: '263px',
 
-    background: scheme.background.buttonBase,
-    border: scheme.borders.buttonBase,
     ...flexRow('center'),
+    ...fontPrimary('buttonBase'),
 
     '&:hover': {
-      background: scheme.background.buttonBaseHover,
+      ...fontPrimary('buttonBaseHover'),
     }
   },
   img: {
@@ -27,11 +26,12 @@ const rawClasses = {
     margin: '0 10px 0 13px',
   },
   text: {
-    color: scheme.colors.buttonBase,
     fontFamily: 'Tahoma',
     letterSpacing: '2px',
     fontSize: '13px',
     fontWeight: '600' as 'bold',
+
+    ...fontPrimary('buttonBase'),
   },
 };
 

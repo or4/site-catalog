@@ -1,5 +1,5 @@
 import React from 'react';
-import { theme, flexColumn } from 'ui/theme';
+import { scheme, flexColumn } from 'ui/theme';
 import { logs } from 'utils';
 import { CompactIcon } from 'ui/CompactIcon';
 
@@ -14,7 +14,7 @@ export class LeftSideBar extends React.PureComponent<Props, State> {
     const container = {};
 
     Object.assign(container, {
-      minHeight: theme.content.minHeight,
+      minHeight: scheme.general.minHeight,
       maxWidth: '285px',
       minWidth: '285px',
       padding: '8px 0',

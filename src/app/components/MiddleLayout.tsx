@@ -1,7 +1,7 @@
 import React from 'react';
 import { RouteType, routeHas } from 'routes';
 import {
-  theme, subscribeResize, unsubscribeResize,
+  scheme, subscribeResize, unsubscribeResize,
   LeftSideBar, RightSideBar, PhotoSlider, DownloadButton, WayButton
 } from 'ui';
 import { logs, isLarge, isMedium, isSmall, isInitial } from 'utils';
@@ -23,10 +23,10 @@ export class MiddleLayout extends React.PureComponent<Props, State> {
   getStyle() {
     const container = {
       display: 'flex',
-      minHeight: theme.content.minHeight,
+      minHeight: scheme.general.minHeight,
     };
     const sceneContainer = {
-      margin: theme.content.defaultMargin1,
+      margin: scheme.general.defaultMargin1,
       width: 'calc(100% - 40px)',
     };
     return {

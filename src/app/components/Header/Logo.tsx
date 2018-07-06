@@ -1,5 +1,5 @@
 import React from 'react';
-import { scheme } from 'ui';
+import { fontPrimary } from 'ui';
 import { logs, join, pickBySize } from 'utils';
 
 import jss from 'jss';
@@ -9,11 +9,9 @@ jss.setup(preset());
 const rawClassesSmall = {
   container: {
     textAlign: 'center' as 'center',
-    color: scheme.colors.headerLogo,
-    fontFamily: scheme.fontFamily.headerLogo,
-    fontSize: scheme.fontSize.headerLogo,
-    textShadow: scheme.textShadows.logoTextShadow,
     width: '268px',
+
+    ...fontPrimary('headerLogo', '15px')
   },
 };
 const classesSmall = jss.createStyleSheet(rawClassesSmall).attach().classes;
@@ -21,11 +19,9 @@ const classesSmall = jss.createStyleSheet(rawClassesSmall).attach().classes;
 const rawClassesMedium = {
   container: {
     textAlign: 'center' as 'center',
-    color: scheme.colors.headerLogo,
-    fontFamily: scheme.fontFamily.headerLogo,
-    fontSize: scheme.fontSize.headerLogo,
-    textShadow: scheme.textShadows.logoTextShadow,
     width: '245px',
+
+    ...fontPrimary('headerLogo', '15px')
   },
 };
 const classesMedium = jss.createStyleSheet(rawClassesMedium).attach().classes;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { theme, flexColumn, scheme } from 'ui/theme';
+import { scheme, flexColumn, fontPrimary } from 'ui/theme';
 import { logs } from 'utils';
 
 import jss from 'jss';
@@ -8,24 +8,21 @@ jss.setup(preset());
 
 const rawClasses = {
   container: {
-    padding: `0 ${theme.content.defaultMargin1} ${theme.content.defaultMargin1} ${theme.content.defaultMargin1}`,
+    padding: `0 ${scheme.general.defaultMargin1} ${scheme.general.defaultMargin1} ${scheme.general.defaultMargin1}`,
     ...flexColumn('center', 'center'),
   },
   mainText: {
-    color: scheme.colors.vault,
-    fontFamily: scheme.fontFamily.vault,
-    fontSize: scheme.fontSize.vault,
     fontWeight: '700' as 'bold',
     marginBottom: '8px',
-    lineHeight: '15px',
     textAlign: 'left' as 'left',
+
+    ...fontPrimary('vault', '15px')
   },
   subText: {
-    color: scheme.colors.vault,
-    fontFamily: scheme.fontFamily.vault,
-    fontSize: scheme.fontSize.vault,
     lineHeight: '15px',
     textAlign: 'left' as 'left',
+
+    ...fontPrimary('vault', '15px')
   },
 };
 
