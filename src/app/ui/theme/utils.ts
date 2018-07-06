@@ -37,3 +37,8 @@ export const theming = (subject: SubjectType) => {
 
   return font;
 };
+
+export const borderTopLeftRadius = () => ({ borderTopLeftRadius: scheme.borderRadius.default });
+export const borderTopRightRadius = () => ({ borderTopRightRadius: scheme.borderRadius.default });
+export const borderBottomLeftRadius = () => ({ borderBottomLeftRadius: scheme.borderRadius.default });
+export const borderBottomRightRadius = () => ({ borderBottomRightRadius: scheme.borderRadius.default });

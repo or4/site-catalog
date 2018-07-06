@@ -1,6 +1,8 @@
 import React from 'react';
-import { scheme, flexRow } from 'ui/theme';
-
+import {
+  scheme, flexRow, theming,
+  borderTopLeftRadius, borderTopRightRadius, borderBottomRightRadius, borderBottomLeftRadius
+} from 'ui/theme';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
@@ -8,25 +10,21 @@ jss.setup(preset());
 
 const rawClasses = {
   container: {
-    background: scheme.background.pages,
-    border: scheme.borders.pages,
     boxSizing: 'border-box' as 'border-box',
-    color: scheme.colors.pages,
     cursor: 'pointer',
-    fontFamily: scheme.fontFamily.pages,
-    fontSize: scheme.fontSize.pages,
+    lineHeight: '28px',
     height: '28px',
     transition: '.1s ease-out',
 
-    lineHeight: '28px',
     ...flexRow('center', 'center'),
+    ...theming('pages'),
 
     '&:hover': {
-      border: scheme.borders.pagesHover,
+      ...theming('pagesHover'),
     }
   },
   active: {
-    border: scheme.borders.pagesActive,
+    ...theming('pagesActive'),
   },
 };
 
@@ -35,12 +33,12 @@ const getBorderClasses = () => {
   return {
     none: { },
     right: {
-      borderTopRightRadius: scheme.borderRadius.default,
-      borderBottomRightRadius: scheme.borderRadius.default,
+      ...borderTopRightRadius(),
+      ...borderBottomRightRadius(),
     },
     left: {
-      borderTopLeftRadius: scheme.borderRadius.default,
-      borderBottomLeftRadius: scheme.borderRadius.default,
+      ...borderTopLeftRadius(),
+      ...borderBottomLeftRadius(),
     },
     full: {
       borderRadius: scheme.borderRadius.default,
