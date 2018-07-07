@@ -26,12 +26,10 @@ const rawClasses = {
     margin: '0 10px 0 13px',
   },
   text: {
-    fontFamily: 'Tahoma',
     letterSpacing: '2px',
-    fontSize: '13px',
     fontWeight: '600' as 'bold',
 
-    ...theming('buttonBase'),
+    ...theming('buttonBaseText'),
   },
 };
 

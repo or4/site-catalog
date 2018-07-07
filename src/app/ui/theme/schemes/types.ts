@@ -1,6 +1,5 @@
 
-export type SubjectType = 'title'
-| 'amountOnPage'
+export type SubjectType = 'amountOnPage'
 | 'headerContacts'
 | 'headerLogo'
 | 'navigationMenu'
@@ -10,6 +9,7 @@ export type SubjectType = 'title'
 | 'vault'
 | 'buttonBase'
 | 'buttonBaseHover'
+| 'buttonBaseText'
 | 'table'
 | 'tableHeader'
 | 'tableHeaderName'
@@ -18,7 +18,9 @@ export type SubjectType = 'title'
 | 'tableBorders'
 | 'navigationTree'
 | 'navigationTreeItem'
-| 'navigationTreeItemCaption';
+| 'navigationTreeItemCaption'
+| 'articleTitle'
+| 'contactsTitle';
 
 export type FontFamilyType = 'primary' | 'secondary';
-export type FontSizeType = 'title' | 'size1' | 'size2';
+export type FontSizeType = 'size15' | 'size13' | 'size11' | 'size25';

@@ -20,24 +20,21 @@ const { classes } = jss.createStyleSheet(rawClasses).attach();
 
 type Props = {
   className?: string;
+  style?: any;
   value?: string;
 };
 type State = {
 };
 
 export class TableCell extends React.PureComponent<Props, State> {
-  getStyle() {
-    const container = {
-    };
-    return {
-      container,
-    };
+  static defaultProps: Partial<Props> = {
+    className: '',
+    style: {},
   }
   render() {
-    const style = this.getStyle();
-    const { className, value } = this.props;
+    const { className, style, value } = this.props;
     return (
-      <div className={join(classes.container, className || '')} style={style.container}>
+      <div className={join(classes.container, className || '')} style={style}>
         {value || this.props.children}
       </div>
     );

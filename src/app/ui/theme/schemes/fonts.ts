@@ -10,12 +10,12 @@ export const fontFamilies = {
 };
 
 export const fontFamilyScheme = {
-  buttonBase: fontFamilies.buttonBase,
+  buttonBaseText: fontFamilies.buttonBase,
   tableCell: 'Verdana',
   tableHeader: 'Verdana',
   navigationTreeItemCaption: fontFamilies.primary,
 
-  title: fontFamilies.primary,
+  articleTitle: fontFamilies.primary,
   headerLogo: fontFamilies.primary,
 
   amountOnPage: fontFamilies.secondary,
@@ -27,20 +27,25 @@ export const fontFamilyScheme = {
 
 
 const fontSizes = {
-  title: '16px', // title of article, title of screen contacts
+  size15: '15px', // title of article, title of screen contacts
 
-  size1: '25px', // logo
-  size2: '13px', // header__contacts, footer__text
+  size25: '25px', // logo
+  size13: '13px', // header__contacts, footer__text
+  size11: '11px',
 } as {[key in FontSizeType]: string};
 
 export const fontSizeScheme = {
-  headerLogo: fontSizes.size1,
-  navigationMenu: fontSizes.title,
-  tableCell: '11px',
+  headerLogo: fontSizes.size25,
 
-  amountOnPage: fontSizes.size2,
-  headerContacts: fontSizes.size2,
-  pages: fontSizes.size2,
-  vault: fontSizes.size2,
-  navigationTreeItemCaption: '12px',
+  articleTitle: fontSizes.size15,
+  contactsTitle: fontSizes.size15,
+  navigationMenu: fontSizes.size15,
+  tableCell: fontSizes.size11,
+  buttonBaseText: fontSizes.size13,
+
+  amountOnPage: fontSizes.size13,
+  headerContacts: fontSizes.size13,
+  pages: fontSizes.size13,
+  vault: fontSizes.size13,
+  navigationTreeItemCaption: fontSizes.size11,
 } as {[key in SubjectType]: string};

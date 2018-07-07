@@ -8,7 +8,7 @@ jss.setup(preset());
 
 const rawClassesSmall = {
   container: {
-    lineHeight: '15px',
+    lineHeight: '26px',
     textAlign: 'center' as 'center',
     width: '268px',
 

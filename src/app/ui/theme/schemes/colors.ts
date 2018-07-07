@@ -12,7 +12,7 @@ export const colors = {
 };
 
 export const colorsScheme = {
-  title: colors.blue,
+  articleTitle: colors.blue,
   amountOnPage: colors.greyLight,
   buttonBase: 'rgba(0, 0, 0, 0.7)',
   headerContacts: colors.darkBlue,
