@@ -32,7 +32,10 @@ export const colorsScheme = {
   'sidebar-sliderTitle': 'rgba(0,0,0,0.7)',
   'sidebar-sliderItem': 'rgba(0, 0, 0, 0.8)',
 
+  'scene-about-text': colors.greyLight,
+
   'scene-products-title': colors.blue,
+  'scene-products-description': colors.greyLight,
   'scene-products-pages': colors.greyLight,
   // 'scene-products-pagesHover': ,
   // 'scene-products-pagesActive': ,
@@ -69,11 +72,14 @@ export const backgroundScheme = {
   'sidebar-tree': 'rgba(255, 255, 255, 0.5)',
   // 'sidebar-treeItem': ,
   // 'sidebar-treeItemCaption': ,
-  'sidebar-slider': 'rgba(255, 255, 255, 0.3)',
+  'sidebar-slider': 'rgba(255, 255, 255, 0.5)',
   // 'sidebar-sliderTitle': ,
-  'sidebar-sliderItem': '#fff',
+  'sidebar-sliderItem': '#ffffff',
+
+  // 'scene-about-text': ,
 
   // 'scene-products-title': ,
+  //'scene-products-description': ,
   'scene-products-pages': colors.transparent,
   // 'scene-products-pagesHover': ,
   // 'scene-products-pagesActive': ,
@@ -114,7 +120,10 @@ export const bordersScheme = {
   // 'sidebar-sliderTitle': ,
   // 'sidebar-sliderItem': ,
 
+  // 'scene-about-text': ,
+
   // 'scene-products-title': ,
+  //'scene-products-description': ,
   'scene-products-pages': '1px solid rgba(0, 0, 0, 0.2)',
   'scene-products-pagesHover': '1px solid rgba(0, 0, 0, 0.4)',
   'scene-products-pagesActive': '1px solid rgba(0, 0, 0, 0.4)',
@@ -154,7 +163,10 @@ export const fontSizeScheme = {
   'sidebar-sliderTitle': fontSizes.size12,
   'sidebar-sliderItem': fontSizes.size12,
 
+  'scene-about-text': fontSizes.size11,
+
   'scene-products-title': fontSizes.size15,
+  'scene-products-description': fontSizes.size11,
   'scene-products-pages': fontSizes.size13,
   // 'scene-products-pagesHover': ,
   // 'scene-products-pagesActive': ,

@@ -16,7 +16,10 @@ export type SubjectType =
 | 'sidebar-sliderTitle'
 | 'sidebar-sliderItem'
 
+| 'scene-about-text'
+
 | 'scene-products-title'
+| 'scene-products-description'
 | 'scene-products-pages'
 | 'scene-products-pagesHover'
 | 'scene-products-pagesActive'
@@ -27,6 +30,7 @@ export type SubjectType =
 | 'scene-products-tableRow'
 | 'scene-products-tableCell'
 | 'scene-products-tableBorders'
+
 | 'scene-contacts-title'
 | 'scene-contacts-text'
 
