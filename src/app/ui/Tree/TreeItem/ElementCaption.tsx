@@ -1,5 +1,6 @@
 import React from 'react';
 import { TreeItemType } from 'ui/Tree/types';
+import { theming } from 'ui/theme';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
@@ -8,7 +9,9 @@ jss.setup(preset());
 const rawClasses = {
   container: {
     cursor: 'pointer',
-    fontSize: '12px',
+
+    ...theming('navigationTreeItemCaption'),
+
     '&:hover': {
       textDecoration: 'underline'
     }

@@ -13,6 +13,7 @@ export const fontFamilyScheme = {
   buttonBase: fontFamilies.buttonBase,
   tableCell: 'Verdana',
   tableHeader: 'Verdana',
+  navigationTreeItemCaption: fontFamilies.primary,
 
   title: fontFamilies.primary,
   headerLogo: fontFamilies.primary,
@@ -41,4 +42,5 @@ export const fontSizeScheme = {
   headerContacts: fontSizes.size2,
   pages: fontSizes.size2,
   vault: fontSizes.size2,
+  navigationTreeItemCaption: '12px',
 } as {[key in SubjectType]: string};

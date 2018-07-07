@@ -7,26 +7,25 @@ jss.setup(preset());
 
 const rawClasses = {
   container: {
-    lineHeight: '16px',
-    marginRight: '2px',
-    width: '16px',
-    minWidth: '16px',
-    height: '16px',
-    display: 'inline-block',
-    verticalAlign: 'middle',
-    border: '0 none',
     cursor: 'pointer',
-    outline: 'none',
     backgroundColor: 'transparent',
     backgroundRepeat: 'no-repeat',
     backgroundAttachment: 'scroll',
     backgroundImage: `url(${treeIconBase64})`,
     backgroundPosition: '-56px -38px',
+    border: '0 none',
+    display: 'inline-block',
+    height: '16px',
+    lineHeight: '16px',
+    marginRight: '2px',
+    minWidth: '16px',
+    outline: 'none',
+    verticalAlign: 'middle',
+    width: '16px',
   },
 };
 
 const { classes } = jss.createStyleSheet(rawClasses).attach();
-
 
 type Props = {
 };

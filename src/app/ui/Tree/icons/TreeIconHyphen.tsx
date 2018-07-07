@@ -7,23 +7,23 @@ jss.setup(preset());
 
 const rawClasses = {
   container: {
-    lineHeight: '16px',
-    marginRight: '2px',
-    height: '16px',
-    display: 'inline-block',
-    verticalAlign: 'middle',
-    border: '0 none',
-    cursor: 'pointer',
-    outline: 'none',
     backgroundColor: 'transparent',
     backgroundRepeat: 'no-repeat',
     backgroundAttachment: 'scroll',
     backgroundImage: `url(${treeIconBase64})`,
     backgroundPosition: '-66px -21px',
-    width: '6px',
+    border: '0 none',
+    cursor: 'pointer',
+    display: 'inline-block',
+    height: '16px',
+    lineHeight: '16px',
+    marginRight: '2px',
+    marginLeft: '10px',
     maxWidth: '6px',
     minWidth: '6px',
-    marginLeft: '10px',
+    outline: 'none',
+    verticalAlign: 'middle',
+    width: '6px',
   },
 };
 

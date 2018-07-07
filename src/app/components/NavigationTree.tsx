@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import { AppState, TCategory } from 'core/types';
 import { logs } from 'utils';
-import { Tree } from 'ui';
+import { Tree, theming } from 'ui';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
@@ -24,11 +24,11 @@ type State = {
 
 const rawClasses = {
   container: {
-    background: 'rgba(255, 255, 255, 0.5)',
-    border: '1px solid rgba(0, 0, 0, 0.3)',
     borderRadius: '4px',
     padding: '10px 10px 10px 18px',
     margin: '0 10px',
+
+    ...theming('navigationTree'),
   }
 };
 
