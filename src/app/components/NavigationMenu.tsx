@@ -56,7 +56,6 @@ export class NavigationMenu extends React.PureComponent<Props, State> {
           <NavigationMenuItem to="/about" text="О&nbsp;нас" />
           <NavigationMenuItem to="/production" text="Производство" />
           <NavigationMenuItem to="/products" text="Продукция" />
-          <NavigationMenuItem to="/news" text="Новости" />
           <NavigationMenuItem to="/contacts" text="Контакты" />
         </div>
       </div>

@@ -20,11 +20,11 @@ const rawClasses = {
     ...theming('pages'),
 
     '&:hover': {
-      ...theming('pagesHover'),
+      ...theming('content-pagesHover'),
     }
   },
   active: {
-    ...theming('pagesActive'),
+    ...theming('content-pagesActive'),
   },
 };
 

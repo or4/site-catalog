@@ -13,7 +13,7 @@ const rawClasses = {
     marginRight: '40px',
     width: '220px',
 
-    ...theming('headerContacts'),
+    ...theming('header-contacts'),
   },
   caption: {
     fontWeight: '700' as any,

@@ -15,7 +15,7 @@ const rawClasses = {
     width: '263px',
 
     ...flexRow('center'),
-    ...theming('buttonBase'),
+    ...theming('sidebar-button'),
 
     '&:hover': {
       ...theming('buttonBaseHover'),

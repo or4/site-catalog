@@ -12,18 +12,18 @@ const rawClassesSmall = {
     textAlign: 'center' as 'center',
     width: '268px',
 
-    ...theming('headerLogo'),
+    ...theming(header-logo),
   },
 };
 const classesSmall = jss.createStyleSheet(rawClassesSmall).attach().classes;
 
 const rawClassesMedium = {
   container: {
-    lineHeight: '15px',
+    lineHeight: '26px',
     textAlign: 'center' as 'center',
     width: '245px',
 
-    ...theming('headerLogo'),
+    ...theming(header-logo),
   },
 };
 const classesMedium = jss.createStyleSheet(rawClassesMedium).attach().classes;

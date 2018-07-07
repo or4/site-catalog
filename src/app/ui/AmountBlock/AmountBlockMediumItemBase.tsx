@@ -14,7 +14,7 @@ const rawClasses = {
     textDecoration: 'none' as 'none',
     transition: '.1s ease-out',
 
-    ...theming('amountOnPage'),
+    ...theming('content-amountOnPage'),
     ...flexRow('center', 'center'),
 
     '&:hover': {

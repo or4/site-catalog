@@ -15,11 +15,11 @@ const rawClasses = {
   },
   cell: {
     height: '54px',
-    ...theming('tableHeader'),
+    ...theming('content-tableHeader'),
     ...flexRow('center', 'center'),
   },
   name: {
-    ...theming('tableHeaderName'),
+    ...theming('content-tableHeaderName'),
   },
 
   borderTopLeftRadius: {
@@ -34,7 +34,7 @@ const rawClasses = {
     minWidth: '150px',
     maxWidth: '150px',
 
-    ...theming('tableHeader'),
+    ...theming('content-tableHeader'),
     ...flexColumn('center', 'center'),
   },
   customCellPrice: {
