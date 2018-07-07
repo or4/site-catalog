@@ -16,7 +16,7 @@ export class PhotoSlider extends React.PureComponent<Props, State> {
       maxWidth: '263px',
       width: '263px',
 
-      ...theming('sliderContainer'),
+      ...theming('sidebar-slider'),
     };
     const title = {
       cursor: 'default',
@@ -24,7 +24,7 @@ export class PhotoSlider extends React.PureComponent<Props, State> {
       height: '50px',
       letterSpacing: '2px',
 
-      ...theming('sliderTitle'),
+      ...theming('sidebar-sliderTitle'),
       ...flexRow('center', 'center'),
     };
 
@@ -34,7 +34,7 @@ export class PhotoSlider extends React.PureComponent<Props, State> {
       margin: '6px 0 4px 0',
       textAlign: 'center' as 'center',
 
-      ...theming('sliderItem'),
+      ...theming('sidebar-sliderItem'),
     };
     const img = {
       margin: '0 auto',

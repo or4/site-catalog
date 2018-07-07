@@ -1,37 +1,74 @@
 
 export type SubjectType =
-| 'header-contacts'
 | 'header-logo'
+| 'header-banner'
+| 'header-contacts'
 
-| 'navigationMenu'
-| 'vault'
+| 'navigation'
 
-| 'content-pages'
-| 'content-pagesHover'
-| 'content-pagesActive'
-
-| 'content-amountOnPage'
-| 'content-table'
-| 'content-tableHeader'
-| 'content-tableHeaderName'
-| 'content-tableRow'
-| 'content-tableCell'
-| 'content-tableBorders'
-
-
-| 'scene-articleTitle'
-| 'scene-contactsTitle'
-| 'scene-contactsTitleText'
-
-| 'sidebar-buttonBase'
-| 'sidebar-buttonBaseHover'
-| 'sidebar-buttonBaseText'
-| 'sidebar-navigationTree'
-| 'sidebar-navigationTreeItem'
-| 'sidebar-navigationTreeItemCaption'
-| 'sidebar-sliderContainer'
+| 'sidebar-button'
+| 'sidebar-buttonHover'
+| 'sidebar-buttonText'
+| 'sidebar-tree'
+| 'sidebar-treeItem'
+| 'sidebar-treeItemCaption'
+| 'sidebar-slider'
 | 'sidebar-sliderTitle'
-| 'sidebar-sliderItem';
+| 'sidebar-sliderItem'
+
+| 'scene-products-title'
+| 'scene-products-pages'
+| 'scene-products-pagesHover'
+| 'scene-products-pagesActive'
+| 'scene-products-amountOnPage'
+| 'scene-products-table'
+| 'scene-products-tableHeader'
+| 'scene-products-tableHeaderName'
+| 'scene-products-tableRow'
+| 'scene-products-tableCell'
+| 'scene-products-tableBorders'
+| 'scene-contacts-title'
+| 'scene-contacts-text'
+
+| 'vault';
+
 
 export type FontFamilyType = 'primary' | 'secondary';
-export type FontSizeType = 'size15' | 'size13' | 'size11' | 'size25';
+export type FontSizeType =  'size11' | 'size12' | 'size13' | 'size14' | 'size15' | 'size25';
+
+/*
+
+  'header-logo': ,
+  'header-banner': ,
+  'header-contacts': ,
+
+  'navigation': ,
+
+  'sidebar-button': ,
+  'sidebar-buttonHover': ,
+  'sidebar-buttonText': ,
+  'sidebar-tree': ,
+  'sidebar-treeItem': ,
+  'sidebar-treeItemCaption': ,
+  'sidebar-slider': ,
+  'sidebar-sliderTitle': ,
+  'sidebar-sliderItem': ,
+
+  'scene-products-title': ,
+  'scene-products-pages': ,
+  'scene-products-pagesHover': ,
+  'scene-products-pagesActive': ,
+  'scene-products-amountOnPage': ,
+  'scene-products-table': ,
+  'scene-products-tableHeader': ,
+  'scene-products-tableHeaderName': ,
+  'scene-products-tableRow': ,
+  'scene-products-tableCell': ,
+  'scene-products-tableBorders': ,
+
+  'scene-contacts-title': ,
+  'scene-contacts-text': ,
+
+  'vault': ,
+
+*/

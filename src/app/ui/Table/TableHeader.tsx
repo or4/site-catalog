@@ -14,12 +14,13 @@ const rawClasses = {
     ...flexRow('center', 'space-between'),
   },
   cell: {
+    fontWeight: '700' as 'bold',
     height: '54px',
-    ...theming('content-tableHeader'),
+    ...theming('scene-products-tableHeader'),
     ...flexRow('center', 'center'),
   },
   name: {
-    ...theming('content-tableHeaderName'),
+    ...theming('scene-products-tableHeaderName'),
   },
 
   borderTopLeftRadius: {
@@ -30,11 +31,12 @@ const rawClasses = {
   },
 
   customCell: {
+    fontWeight: '700' as 'bold',
     height: '54px',
     minWidth: '150px',
     maxWidth: '150px',
 
-    ...theming('content-tableHeader'),
+    ...theming('scene-products-tableHeader'),
     ...flexColumn('center', 'center'),
   },
   customCellPrice: {

@@ -28,7 +28,7 @@ const rawClasses = {
     padding: '10px 10px 10px 18px',
     margin: '0 10px',
 
-    ...theming('navigationTree'),
+    ...theming('sidebar-tree'),
   }
 };
 

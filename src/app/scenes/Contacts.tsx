@@ -11,7 +11,7 @@ jss.setup(preset());
 const rawClasses = {
   title: {
     fontWeight: '700' as 'bold',
-    ...theming('contactsTitle'),
+    ...theming('scene-contacts-title'),
   },
   marginBottom15: {
     marginBottom: '15px',
@@ -23,7 +23,7 @@ const rawClasses = {
     marginBottom: '5px',
   },
   textBlock: {
-
+    ...theming('scene-contacts-text'),
   }
 };
 
