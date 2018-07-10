@@ -1,4 +1,4 @@
-import { SubjectType, FontFamilyType, FontSizeType } from 'ui/theme/schemes/types';
+import { FontSizeType } from 'ui/theme/schemes/types';
 
 export const fontFamilies = {
   primary: 'Verdana, Helvetica, sans-serif',
