@@ -5,7 +5,6 @@ import { theming } from 'ui';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
-import { wayImage } from 'assets/images';
 jss.setup(preset());
 
 const rawClasses = {
@@ -77,7 +76,6 @@ export class Contacts extends React.PureComponent<Props, State> {
           <div style={joinObjects({}, rawClasses.title, rawClasses.marginBottom50)}>
             e-mail: RTI-CK@mail.ru
           </div>
-          <img src={wayImage} alt="" />
         </div>
       </MiddleLayout>
     );

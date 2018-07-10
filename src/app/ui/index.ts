@@ -11,6 +11,7 @@ import { WayButton } from './buttons/WayButton';
 import { NavigationMenuItem } from './NavigationMenuItem';
 import { PagesBlock } from './PagesBlock';
 import { AmountBlock } from './AmountBlock';
+import { WayPoint } from 'ui/WayPoint';
 
 export {
   scheme,
@@ -27,4 +28,5 @@ export {
   NavigationMenuItem,
   PagesBlock,
   AmountBlock,
+  WayPoint,
 };
