@@ -60,15 +60,15 @@ export class MiddleLayout extends React.PureComponent<Props, State> {
 
     if (routeHas(route, 'tree') && !isInitial()) {
       if (isSmall()) {
-        contentLeftBar.push(<NavigationTree key={'key-NavigationTree'} />);
+        contentLeftBar.push(<NavigationTree route={route} key={'key-NavigationTree'} />);
         isCompact = true;
       }
       else if (isMedium()) {
-        contentLeftBar.push(<NavigationTree key={'key-NavigationTree'} />);
+        contentLeftBar.push(<NavigationTree route={route} key={'key-NavigationTree'} />);
         isCompact = true;
       }
       else if (isLarge()) {
-        contentLeftBar.push(<NavigationTree key={'key-NavigationTree'} />);
+        contentLeftBar.push(<NavigationTree route={route} key={'key-NavigationTree'} />);
       }
     }
 

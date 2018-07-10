@@ -4,11 +4,13 @@ import { connect } from 'react-redux';
 import { AppState } from 'core/types';
 import { MiddleLayout } from 'components/MiddleLayout';
 import { logs } from 'utils';
+import { Article } from 'components/Article';
+
 
 type OwnProps = {
+  routeParams: any;
 };
 type StateProps = {
-  // items: TItem[];
 };
 type DispatchProps = {
 };
@@ -18,36 +20,25 @@ type State = {
 };
 
 class ProductsComponent extends React.PureComponent<Props, State> {
-  getStyle() {
-    const container = {
-    };
-    return {
-      container,
-    };
-  }
-  render() {
-    logs('render', 'ProductsComponent');
-    // const style = this.getStyle();
-    // const { items } = this.props;
-    // {items && items.map((item: TItem) => <li key={item.id}>{item.name}</li>)}
-    // log('ProductsComponent items', this.props.items);
 
+  render() {
+    logs('render', 'Products');
     return (
       <MiddleLayout route={'/products'}>
-        <ul>
-          {null}
-        </ul>
+        <Article categoryId={this.props.routeParams.category || '0'} />
       </MiddleLayout>
     );
   }
 }
-const mapStateToProps = (state: AppState) => ({
-  // items: state.items.data
-});
+
+
+const mapStateToProps = (state: AppState, props: OwnProps) => {
+  return {
+  };
+};
 
 const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
   return {
-
   };
 };
-export const Products =  connect<StateProps, DispatchProps>(mapStateToProps, mapDispatchToProps)(ProductsComponent);
+export const Products = connect<StateProps, DispatchProps>(mapStateToProps, mapDispatchToProps)(ProductsComponent);

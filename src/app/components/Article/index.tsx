@@ -10,7 +10,7 @@ import { ArticleProducts } from './ArticleProducts';
 import { ArticleContent } from './ArticleContent';
 
 type OwnProps = {
-  routeParams?: any;
+  categoryId?: any;
 };
 type StateProps = {
   category: TCategory;
@@ -29,7 +29,7 @@ class ArticleComponent extends React.PureComponent<Props, State> {
     return (
       <div>
         <ArticleHeader category={category} categoryCaption={categoryCaption} />
-        <Paging routeParams={this.props.routeParams} />
+        <Paging categoryId={this.props.categoryId} />
         <ArticleProducts category={category} />
         <ArticleContent category={category} />
       </div>
@@ -38,7 +38,7 @@ class ArticleComponent extends React.PureComponent<Props, State> {
 }
 
 const mapStateToProps = (state: AppState, props: OwnProps) => {
-  const category = selectCategory(state, props.routeParams.category);
+  const category = selectCategory(state, props.categoryId);
   return {
     category,
     categoryCaption: selectCategoryCaption(state, category),

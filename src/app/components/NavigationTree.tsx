@@ -11,6 +11,7 @@ import preset from 'jss-preset-default';
 jss.setup(preset());
 
 type OwnProps = {
+  route?: string;
 };
 type StateProps = {
   categories: TCategory[];
@@ -36,7 +37,7 @@ const { classes } = jss.createStyleSheet(rawClasses).attach();
 
 class NavigationTreeComponent extends React.PureComponent<Props, State> {
   onClick = (itemId: string) => {
-    const route = `/catalog/${itemId}`;
+    const route = `/products/${itemId}`;
     browserHistory.push(route);
   }
 
@@ -55,9 +56,22 @@ class NavigationTreeComponent extends React.PureComponent<Props, State> {
     );
   }
 }
-const mapStateToProps = (state: AppState) => ({
-  categories: state.categories.separated
-});
+const mapStateToProps = (state: AppState, props: OwnProps) => {
+  if (props.route === '/production') {
+    try {
+      return {
+        categories: state.categories.separated.filter(item => item.id === '1')[0].items
+      };
+    } catch (err) {
+      return {
+        categories: []
+      };
+    }
+  }
+  return {
+    categories: state.categories.separated
+  };
+};
 
 const mapDispatchToProps = (dispatch: Dispatch<DispatchProps>) => {
   return {

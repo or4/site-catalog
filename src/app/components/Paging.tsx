@@ -30,7 +30,7 @@ const { classes } = sheet;
 
 
 type OwnProps = {
-  routeParams: any;
+  categoryId?: any;
   className?: string;
 };
 type StateProps = {
@@ -80,7 +80,7 @@ const mapStateToProps = (state: AppState, props: OwnProps) => {
   return {
     page: selectPage(state),
     // TODO Use reselector
-    totalPages: selectTotalPages(state, props.routeParams.category),
+    totalPages: selectTotalPages(state, props.categoryId),
     amountItems: selectAmountItems(state),
   };
 };

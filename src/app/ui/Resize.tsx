@@ -7,16 +7,17 @@ type State = {
 };
 
 const componentsToResize = [] as Array<any>;
+const logThis = false;
 
 export const subscribeResize = (component: any, key: string) => {
   componentsToResize.push(component);
-  log('key subscribed resize', key);
+  logThis && log('key subscribed resize', key);
 };
 export const unsubscribeResize = (component: any, key: string) => {
   const index = componentsToResize.indexOf(component);
   if (index >= 0) {
     delete componentsToResize[index];
-    log('key unsubscribed resize', key);
+    logThis && log('key unsubscribed resize', key);
   }
 };
 
@@ -33,15 +34,15 @@ export class Resize extends React.PureComponent<Props, State> {
     } catch (error) { }
   }
   resize = () => {
-    logIntendation(IntendationType.start, 'window resize start');
+    logThis && logIntendation(IntendationType.start, 'window resize start');
     componentsToResize.forEach((item: any) => {
       try {
         item.forceUpdate && item.forceUpdate();
       } catch (e) {
-        log('Resize forceUpdate', item, e);
+        logThis && log('Resize forceUpdate', item, e);
       }
     });
-    logIntendation(IntendationType.end, 'window resized done');
+    logThis && logIntendation(IntendationType.end, 'window resized done');
   }
 
   render() {

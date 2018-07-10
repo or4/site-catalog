@@ -1,6 +1,6 @@
 import React from 'react';
 import { IndexRoute, Route } from 'react-router';
-import { About, Contacts, Production, Products, Catalog } from 'scenes';
+import { About, Contacts, Production, Products } from 'scenes';
 import { MainLayout } from 'components';
 
 export default (
@@ -11,20 +11,18 @@ export default (
     <Route path="/contacts" component={Contacts} />
     <Route path="/production" component={Production} />
     <Route path="/products" component={Products} />
-    <Route path="/catalog" component={Catalog} />
-    <Route path="/catalog/:category" component={Catalog} />
+    <Route path="/products/:category" component={Products} />
   </Route>
 );
 
-export type RouteType =   '/about' | '/contacts' | '/production' | '/products' | '/catalog';
+export type RouteType =   '/about' | '/contacts' | '/production' | '/products';
 export type RouterContent = 'tree' | 'photo' | 'price' | 'news' | 'way';
 
 export const routesContent: {[key in RouteType] : Array<RouterContent>} = {
   '/about': ['photo', 'price', 'news'],
   '/production': ['tree', 'price', 'news'],
-  '/products': ['tree', 'price', 'news'],
   '/contacts': ['way', 'price'],
-  '/catalog': ['tree', 'price'],
+  '/products': ['tree', 'price'],
 };
 
 export const routeHas =
