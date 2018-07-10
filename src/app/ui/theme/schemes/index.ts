@@ -16,30 +16,30 @@ const general = {
  */
 export const colorsScheme = {
 
-  'header-logo': colors.greyDark,
+  'header-logo': colors.greyVeryDark,
   // 'header-banner': ,
-  'header-contacts': colors.darkBlue,
+  'header-contacts': colors.blueLight,
 
   'navigation': colors.white,
 
-  'sidebar-button': colors.grey,
+  'sidebar-button': colors.greyDark,
   // 'sidebar-buttonHover': ,
   // 'sidebar-buttonText': ,
   // 'sidebar-tree': ,
   // 'sidebar-treeItem': ,
   // 'sidebar-treeItemCaption': ,
   // 'sidebar-slider': ,
-  'sidebar-sliderTitle': colors.grey,
-  'sidebar-sliderItem': colors.greyDark,
+  'sidebar-sliderTitle': colors.greyDark,
+  'sidebar-sliderItem': colors.greyVeryDark,
 
-  'scene-about-text': colors.greyLight,
+  'scene-about-text': colors.grey,
 
-  'scene-products-title': colors.blue,
-  'scene-products-description': colors.greyLight,
-  'scene-products-pages': colors.greyLight,
+  'scene-products-title': colors.blueDark,
+  'scene-products-description': colors.grey,
+  'scene-products-pages': colors.grey,
   // 'scene-products-pagesHover': ,
   // 'scene-products-pagesActive': ,
-  'scene-products-amountOnPage': colors.greyLight,
+  'scene-products-amountOnPage': colors.grey,
   // 'scene-products-table': ,
   'scene-products-tableHeader': colors.white,
   // 'scene-products-tableHeaderName': ,
@@ -47,10 +47,10 @@ export const colorsScheme = {
   // 'scene-products-tableCell': ,
   // 'scene-products-tableBorders': ,
 
-  'scene-contacts-title': colors.blue,
-  'scene-contacts-text': colors.greyLight,
+  'scene-contacts-title': colors.blueDark,
+  'scene-contacts-text': colors.grey,
 
-  'vault': colors.greyLight,
+  'vault': colors.grey,
 
 } as { [key in SubjectType]?: string };
 
@@ -64,7 +64,7 @@ export const backgroundScheme = {
   // 'header-banner': ,
   // 'header-contacts': ,
 
-  'navigation': colors.greyLight,
+  'navigation': colors.grey,
 
   'sidebar-button': colors.white5,
   'sidebar-buttonHover': colors.white1,
@@ -85,8 +85,8 @@ export const backgroundScheme = {
   // 'scene-products-pagesActive': ,
   'scene-products-amountOnPage': colors.transparent,
   // 'scene-products-table': ,
-  'scene-products-tableHeader': colors.greyLigthTableHeader,
-  'scene-products-tableHeaderName': colors.greyLigthTableHeaderName,
+  'scene-products-tableHeader': colors.greyLightTableHeader,
+  'scene-products-tableHeaderName': colors.greyLightTableHeaderName,
   // 'scene-products-tableRow': ,
   'scene-products-tableCell': colors.white5,
   // 'scene-products-tableBorders': ,
@@ -110,13 +110,13 @@ export const bordersScheme = {
 
   // 'navigation': ,
 
-  'sidebar-button': `1px solid ${colors.greyLight}`,
+  'sidebar-button': `1px solid ${colors.greyVeryLight}`,
   // 'sidebar-buttonHover': ,
   // 'sidebar-buttonText': ,
-  'sidebar-tree': `1px solid ${colors.greyLight}`,
+  'sidebar-tree': `1px solid ${colors.greyVeryLight}`,
   // 'sidebar-treeItem': ,
   // 'sidebar-treeItemCaption': ,
-  'sidebar-slider': `1px solid ${colors.greyLight}`,
+  'sidebar-slider': `1px solid ${colors.greyVeryLight}`,
   // 'sidebar-sliderTitle': ,
   // 'sidebar-sliderItem': ,
 
@@ -124,16 +124,16 @@ export const bordersScheme = {
 
   // 'scene-products-title': ,
   //'scene-products-description': ,
-  'scene-products-pages': `1px solid ${colors.greyLight}`,
-  'scene-products-pagesHover': `1px solid ${colors.greyDark}`,
-  'scene-products-pagesActive': `1px solid ${colors.greyDark}`,
+  'scene-products-pages': `1px solid ${colors.greyVeryLight}`,
+  'scene-products-pagesHover': `1px solid ${colors.greyLight}`,
+  'scene-products-pagesActive': `1px solid ${colors.greyLight}`,
   // 'scene-products-amountOnPage': ,
   // 'scene-products-table': ,
   // 'scene-products-tableHeader': ,
   // 'scene-products-tableHeaderName': ,
   // 'scene-products-tableRow': ,
   // 'scene-products-tableCell': ,
-  'scene-products-tableBorders': `1px solid ${colors.greyLight}`,
+  'scene-products-tableBorders': `1px solid ${colors.greyVeryLight}`,
   // 'scene-contacts-title': ,
   // 'scene-contacts-text': ,
 
