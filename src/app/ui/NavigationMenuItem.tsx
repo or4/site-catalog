@@ -14,15 +14,15 @@ const rawClasses = {
   },
   sign: {
     marginRight: '10px',
-    color: scheme.colors.navigationMenu,
-    fontFamily: scheme.fontFamily.navigationMenu,
-    fontSize: scheme.fontSize.navigationMenu,
+    color: scheme.colors.navigation,
+    fontFamily: scheme.fontFamily.navigation,
+    fontSize: scheme.fontSize.navigation,
   },
   link: {
     textDecoration: 'none' as 'none',
-    color: scheme.colors.navigationMenu,
-    fontFamily: scheme.fontFamily.navigationMenu,
-    fontSize: scheme.fontSize.navigationMenu,
+    color: scheme.colors.navigation,
+    fontFamily: scheme.fontFamily.navigation,
+    fontSize: scheme.fontSize.navigation,
 
     '&:hover': {
       textDecoration: 'underline' as 'underline'

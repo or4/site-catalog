@@ -5,6 +5,7 @@ import { AppState, TCategory } from 'core/types';
 import { selectCategory, selectCategoryCaption } from 'core/selectors';
 
 import { ArticleHeader } from './ArticleHeader';
+import { Paging } from 'components/Paging';
 import { ArticleProducts } from './ArticleProducts';
 import { ArticleContent } from './ArticleContent';
 
@@ -28,6 +29,7 @@ class ArticleComponent extends React.PureComponent<Props, State> {
     return (
       <div>
         <ArticleHeader category={category} categoryCaption={categoryCaption} />
+        <Paging routeParams={this.props.routeParams} />
         <ArticleProducts category={category} />
         <ArticleContent category={category} />
       </div>

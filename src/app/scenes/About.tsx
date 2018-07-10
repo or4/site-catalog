@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { MiddleLayout } from 'components/MiddleLayout';
 import { IS_DEV, IS_SHOW_ABOUT } from 'settings';
 import { logs } from 'utils';
+import { theming } from 'ui';
 
 
 type StateProps = {
@@ -23,6 +24,7 @@ class AboutComponent extends React.Component<Props, State> {
   // }
   getStyle = () => {
     const container = {
+      ...theming('scene-about-text'),
     };
     return {
       container,

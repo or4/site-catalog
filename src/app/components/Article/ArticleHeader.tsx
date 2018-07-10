@@ -8,7 +8,7 @@ jss.setup(preset());
 
 const rawClasses = {
   container: {
-    ...theming('articleTitle'),
+    ...theming('scene-products-title'),
   },
 };
 

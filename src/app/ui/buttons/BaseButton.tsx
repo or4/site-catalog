@@ -15,10 +15,10 @@ const rawClasses = {
     width: '263px',
 
     ...flexRow('center'),
-    ...theming('buttonBase'),
+    ...theming('sidebar-button'),
 
     '&:hover': {
-      ...theming('buttonBaseHover'),
+      ...theming('sidebar-buttonHover'),
     }
   },
   img: {
@@ -29,7 +29,7 @@ const rawClasses = {
     letterSpacing: '2px',
     fontWeight: '600' as 'bold',
 
-    ...theming('buttonBaseText'),
+    ...theming('sidebar-buttonText'),
   },
 };
 

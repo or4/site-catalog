@@ -11,9 +11,9 @@ const rawClasses = {
     fontStyle: 'italic' as 'italic',
     lineHeight: '15px',
     marginRight: '40px',
-    width: '220px',
+    width: '240px',
 
-    ...theming('headerContacts'),
+    ...theming('header-contacts'),
   },
   caption: {
     fontWeight: '700' as any,

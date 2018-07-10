@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { AppState } from 'core/types';
 import { MiddleLayout } from 'components/MiddleLayout';
 import { logs } from 'utils';
-import { Paging } from 'components/Paging';
 import { Article } from 'components/Article';
 
 
@@ -26,7 +25,6 @@ class CatalogComponent extends React.PureComponent<Props, State> {
     logs('render', 'Catalog');
     return (
       <MiddleLayout route={'/catalog'}>
-        <Paging routeParams={this.props.routeParams} />
         <Article routeParams={this.props.routeParams} />
       </MiddleLayout>
     );

@@ -11,7 +11,7 @@ const rawClasses = {
     cursor: 'default',
     lineHeight: '16px',
 
-    ...theming('tableCell'),
+    ...theming('scene-products-tableCell'),
     ...flexRow('center', 'center'),
   }
 };

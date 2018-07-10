@@ -10,7 +10,7 @@ const rawClasses = {
   container: {
     cursor: 'pointer',
 
-    ...theming('navigationTreeItemCaption'),
+    ...theming('sidebar-treeItemCaption'),
 
     '&:hover': {
       textDecoration: 'underline'

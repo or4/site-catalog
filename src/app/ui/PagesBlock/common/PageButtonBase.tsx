@@ -17,14 +17,14 @@ const rawClasses = {
     transition: '.1s ease-out',
 
     ...flexRow('center', 'center'),
-    ...theming('pages'),
+    ...theming('scene-products-pages'),
 
     '&:hover': {
-      ...theming('pagesHover'),
+      ...theming('scene-products-pagesHover'),
     }
   },
   active: {
-    ...theming('pagesActive'),
+    ...theming('scene-products-pagesActive'),
   },
 };
 

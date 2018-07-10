@@ -13,6 +13,8 @@ jss.setup(preset());
 
 const rawClasses = {
   container: {
+    margin: '10px 0',
+
     ...flexRow()
   },
   pagesContainer: {

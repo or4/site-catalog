@@ -12,7 +12,7 @@ const rawClassesSmall = {
     maxHeight: '2px',
     minHeight: '2px',
 
-    ...theming('navigationMenu'),
+    ...theming('navigation'),
   },
   subContainer: {
     display: 'none',
@@ -25,11 +25,12 @@ const rawClassesMedium = {
     height: '36px',
     maxHeight: '36px',
 
-    ...theming('navigationMenu'),
+    ...theming('navigation'),
   },
   subContainer: {
     height: '36px',
-    maxWidth: '650px',
+    maxWidth: '520px', // 4 items
+    // maxWidth: '650px', // 5 items
     margin: '0 auto',
 
     ...flexRow('center', 'space-evenly'),
@@ -56,7 +57,6 @@ export class NavigationMenu extends React.PureComponent<Props, State> {
           <NavigationMenuItem to="/about" text="О&nbsp;нас" />
           <NavigationMenuItem to="/production" text="Производство" />
           <NavigationMenuItem to="/products" text="Продукция" />
-          <NavigationMenuItem to="/news" text="Новости" />
           <NavigationMenuItem to="/contacts" text="Контакты" />
         </div>
       </div>

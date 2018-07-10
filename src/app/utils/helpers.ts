@@ -10,6 +10,7 @@ export const convertImgUrl = (url: string) => (url ? url.replace(/src=\"/g, 'src
 export const isUndefined = (value: any) => typeof value === 'undefined';
 
 export const join = (...rest: string[]) => rest.join(' ');
+export const joinObjects = (...rest: any[]) => Object.assign.apply(null, rest);
 
 export const pickBySize = (small: any, medium: any, large?: any, initial: any = '') => {
   if (isInitial()) {

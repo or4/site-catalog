@@ -2,8 +2,10 @@ import React from 'react';
 import { RouteType, routeHas } from 'routes';
 import {
   scheme, subscribeResize, unsubscribeResize,
-  LeftSideBar, RightSideBar, PhotoSlider, DownloadButton, WayButton
+  LeftSideBar, RightSideBar, PhotoSlider, DownloadButton, WayButton,
+  WayPoint,
 } from 'ui';
+
 import { logs, isLarge, isMedium, isSmall, isInitial } from 'utils';
 
 import { NavigationTree } from './NavigationTree';
@@ -83,6 +85,17 @@ export class MiddleLayout extends React.PureComponent<Props, State> {
     }
 
 
+    if (routeHas(route, 'way') && !isInitial()) {
+      if (isSmall()) {
+        // empty
+      }
+      else if (isMedium()) {
+        contentLeftBar.push(<WayPoint key={'key-WayPoint'} />);
+      }
+      else if (isLarge()) {
+        contentLeftBar.push(<WayPoint key={'key-WayPoint'} />);
+      }
+    }
 
     return (
       <div style={style.container}>

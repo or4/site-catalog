@@ -21,7 +21,7 @@ const isSize = (size: ScreenSize) => getWidth() <= screenSizeDimesions[size];
 
 export const isInitial = () => {
   const is = isSize('initial');
-  is && log('isInitial', is);
+  // is && log('isInitial', is);
   return is;
 };
 export const isSmall = () => {
