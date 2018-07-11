@@ -49,7 +49,7 @@ const layout = (body: any, initialState: any) => (`
     <meta name="description" content="Резинотехника оптом и в розницу Северо-Казахстанской области">
     <link rel="canonical" href="/">
   </head>
-  <body style="margin: 0; background: #ddd; background: repeat url(http://rti-ck.kz/content/bg/1.png);">
+  <body style="margin: 0; min-width:1310px; background: #ddd; background: repeat url(http://rti-ck.kz/content/bg/1.png);">
     <div id="root"><div>${body}</div></div>
     <script type="text/javascript" charset="utf-8">
       window.__INITIAL_STATE__ = ${initialState};
