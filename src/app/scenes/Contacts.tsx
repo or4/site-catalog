@@ -8,6 +8,9 @@ import { theming } from 'ui';
 // jss.setup(preset());
 
 const rawClasses = {
+  firstTitle: {
+    marginTop: '12px',
+  },
   title: {
     fontWeight: '700' as 'bold',
     ...theming('scene-contacts-title'),
@@ -41,7 +44,7 @@ export class Contacts extends React.PureComponent<Props, State> {
     return (
       <MiddleLayout route={'/contacts'}>
         <div>
-          <div style={joinObjects({}, rawClasses.title, rawClasses.marginBottom15)}>
+          <div style={joinObjects({}, rawClasses.title, rawClasses.firstTitle, rawClasses.marginBottom15)}>
             Контактная информация
           </div>
 

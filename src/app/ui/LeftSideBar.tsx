@@ -17,8 +17,11 @@ export class LeftSideBar extends React.PureComponent<Props, State> {
       minHeight: scheme.general.minHeight,
       maxWidth: '285px',
       minWidth: '285px',
+      marginLeft: '0',
       padding: '8px 0',
       width: '285px',
+      // position: 'absolute' as 'absolute',
+      // left: '0',
 
       ...flexColumn('center', 'flex-start'),
     });

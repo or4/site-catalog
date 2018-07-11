@@ -9,6 +9,7 @@ import {
 import { logs, isLarge, isMedium, isSmall, isInitial } from 'utils';
 
 import { NavigationTree } from './NavigationTree';
+// import { isMoreThan1594 } from 'utils/responsive';
 
 type Props = {
   children: any;
@@ -29,7 +30,10 @@ export class MiddleLayout extends React.PureComponent<Props, State> {
     };
     const sceneContainer = {
       margin: scheme.general.defaultMargin1,
+      maxWidth: '1024px',
       width: 'calc(100% - 40px)',
+      // marginLeft: isMoreThan1594() ? 'auto' : '285px',
+      // marginRight: isMoreThan1594() ? 'auto' : '0',
     };
     return {
       container,
@@ -60,7 +64,6 @@ export class MiddleLayout extends React.PureComponent<Props, State> {
 
     if (routeHas(route, 'tree') && !isInitial()) {
       if (isSmall()) {
-        contentLeftBar.push(<NavigationTree route={route} key={'key-NavigationTree'} />);
         isCompact = true;
       }
       else if (isMedium()) {

@@ -26,8 +26,9 @@ class MainLayoutComponent extends React.Component<Props, State> {
   state = {};
   rawStyle = {
     container: {
-      maxWidth: '100%',
-      overflow: 'hidden' as 'hidden',
+      minWidth: '1310px', // 1024 + 285 (middle + sidebar)
+      // maxWidth: '100%',
+      // overflow: 'hidden' as 'hidden',
     },
   }
 

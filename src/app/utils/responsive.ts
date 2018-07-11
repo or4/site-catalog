@@ -25,9 +25,10 @@ export const isInitial = () => {
   return is;
 };
 export const isSmall = () => {
-  const is = isSize('small');
-  is && log('isSmall', is);
-  return is;
+  return false;
+  // const is = isSize('small');
+  // is && log('isSmall', is);
+  // return is;
 };
 export const isMedium = () => {
   const is = isSize('medium');
@@ -39,5 +40,9 @@ export const isLarge = () => {
   is && log('isLarge', is);
   return is;
 };
+
+// export const isMoreThan1594 = () => { // 1024 + 285 + 285 (one middle and two sidebar)
+//   return getWidth() >= 1594;
+// };
 
 export const getScreenSize = (): ScreenSize => (isInitial() ? 'initial' : isSmall() ? 'small' : isMedium() ? 'medium' : 'large');

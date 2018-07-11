@@ -8,6 +8,7 @@ jss.setup(preset());
 
 const rawClasses = {
   container: {
+    margin: '12px 0',
     ...theming('scene-products-title'),
   },
 };

@@ -5,18 +5,18 @@ import preset from 'jss-preset-default';
 jss.setup(preset());
 
 export const borderLeftTop = {
-  borderLeft: scheme.borders.tableBorders,
-  borderTop: scheme.borders.tableBorders,
+  borderLeft: scheme.borders['scene-products-tableBorders'],
+  borderTop: scheme.borders['scene-products-tableBorders'],
   boxSizing: 'border-box' as 'border-box',
 };
 
 export const borderBottom = {
-  borderBottom: scheme.borders.tableBorders,
+  borderBottom: scheme.borders['scene-products-tableBorders'],
   boxSizing: 'border-box' as 'border-box',
 };
 
 const borderRight = {
-  borderRight: scheme.borders.tableBorders,
+  borderRight: scheme.borders['scene-products-tableBorders'],
   boxSizing: 'border-box' as 'border-box',
 };
 
@@ -30,7 +30,7 @@ const rawClasses = {
   },
   name: {
     ...borderLeftTop,
-    minWidth: '145px',
+    minWidth: '325px',
     paddingLeft: '5px',
     width: '100%',
   },
