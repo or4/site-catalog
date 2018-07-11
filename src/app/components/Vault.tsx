@@ -9,6 +9,8 @@ jss.setup(preset());
 const rawClasses = {
   container: {
     padding: `0 ${scheme.general.defaultMargin1} ${scheme.general.defaultMargin1} ${scheme.general.defaultMargin1}`,
+    margin: '0 auto',
+    width: '550px',
     ...flexColumn('center', 'center'),
   },
   mainText: {
@@ -16,12 +18,15 @@ const rawClasses = {
     lineHeight: '15px',
     marginBottom: '8px',
     textAlign: 'left' as 'left',
+    width: '550px',
 
     ...theming('vault'),
   },
   subText: {
     lineHeight: '15px',
+    marginBottom: '8px',
     textAlign: 'left' as 'left',
+    width: '550px',
 
     ...theming('vault'),
   },
@@ -44,6 +49,8 @@ export class Vault extends React.PureComponent<Props, State> {
         </div>
         <div className={classes.subText}>
           Информация, представленная на сайте, не является публичной офертой.
+        </div>
+        <div className={classes.subText}>
           Полное или частичное использование материалов сайта возможно только с письменного разрешения Фирмы &quot;Резинотехника&quot;.
         </div>
       </div>
