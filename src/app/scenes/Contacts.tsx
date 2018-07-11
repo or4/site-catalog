@@ -3,9 +3,9 @@ import { MiddleLayout } from 'components/MiddleLayout';
 import { logs, join, joinObjects } from 'utils';
 import { theming } from 'ui';
 
-import jss from 'jss';
-import preset from 'jss-preset-default';
-jss.setup(preset());
+// import jss from 'jss';
+// import preset from 'jss-preset-default';
+// jss.setup(preset());
 
 const rawClasses = {
   title: {
@@ -26,7 +26,7 @@ const rawClasses = {
   }
 };
 
-const { classes } = jss.createStyleSheet(rawClasses).attach();
+// const { classes } = jss.createStyleSheet(rawClasses).attach();
 
 
 type Props = {

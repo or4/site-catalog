@@ -34,7 +34,11 @@ export type SubjectType =
 | 'scene-contacts-title'
 | 'scene-contacts-text'
 
-| 'vault';
+| 'vault'
+
+| 'ui-overlay'
+| 'ui-overlay-image-container'
+| 'ui-overlay-image-container-hover';
 
 
 export type FontFamilyType = 'primary' | 'secondary';

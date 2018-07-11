@@ -51,6 +51,9 @@ export const colorsScheme = {
   'scene-contacts-text': colors.grey,
 
   'vault': colors.grey,
+  //'ui-overlay': ,
+  //'ui-overlay-image-container': ,
+  //'ui-overlay-image-container-hover': ,
 
 } as { [key in SubjectType]?: string };
 
@@ -94,6 +97,9 @@ export const backgroundScheme = {
   // 'scene-contacts-text': ,
 
   // 'vault': ,
+  'ui-overlay': colors.greyLight,
+  'ui-overlay-image-container': colors.white5,
+  // 'ui-overlay-image-container-hover': colors.white1,
 
 } as { [key in SubjectType]: string };
 
@@ -138,6 +144,9 @@ export const bordersScheme = {
   // 'scene-contacts-text': ,
 
   // 'vault': ,
+  //'ui-overlay': ,
+  //'ui-overlay-image-container': ,
+  //'ui-overlay-image-container-hover': ,
 
 } as { [key in SubjectType]: string };
 
@@ -181,6 +190,9 @@ export const fontSizeScheme = {
   'scene-contacts-text': fontSizes.size11,
 
   'vault': fontSizes.size13,
+  //'ui-overlay': ,
+  //'ui-overlay-image-container': ,
+  //'ui-overlay-image-container-hover': ,
 
 } as {[key in SubjectType]: string};
 
@@ -190,24 +202,6 @@ export const fontSizeScheme = {
  *  Font Family
  */
 export const fontFamilyScheme = {
-  // sliderTitle: fontFamilies.primary,
-  // buttonBaseText: fontFamilies.secondary,
-
-
-  // tableCell: 'Verdana',
-  // content-tableHeader: 'Verdana',
-  // navigationTreeItemCaption: fontFamilies.primary,
-
-  // articleTitle: fontFamilies.primary,
-  // contactsTitle: fontFamilies.primary,
-  // contactsTitleText: fontFamilies.primary,
-  // header-logo: fontFamilies.primary,
-
-  // content-amountOnPage: fontFamilies.secondary,
-  // 'header-contacts': fontFamilies.secondary,
-  // navigation: fontFamilies.secondary,
-  // pages: fontFamilies.secondary,
-  // vault: fontFamilies.secondary,
 } as {[key in SubjectType]: string};
 
 

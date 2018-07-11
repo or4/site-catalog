@@ -34,6 +34,9 @@ export const colors = {
   // just white for background slider item
   white: '#ffffff',
 
+  // overlay
+  white8: 'rgba(255, 255, 255, 0.8)',
+
   // for background slider, buttons..
   white5: 'rgba(255, 255, 255, 0.5)',
 

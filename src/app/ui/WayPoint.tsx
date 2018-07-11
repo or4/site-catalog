@@ -4,6 +4,7 @@ import { flexRow, theming, scheme } from 'ui/theme';
 
 import jss from 'jss';
 import preset from 'jss-preset-default';
+import { OverlayImage } from 'ui/OverlayImage';
 jss.setup(preset());
 
 const rawClasses = {
@@ -32,13 +33,24 @@ const { classes } = jss.createStyleSheet(rawClasses).attach();
 type Props = {
 };
 type State = {
+  overlay: boolean;
 };
 
 export class WayPoint extends React.PureComponent<Props, State> {
+  state = { overlay: false }
+  onClick = () => {
+    this.setState({
+      overlay: !this.state.overlay
+    });
+  }
   render() {
     return (
-      <div className={classes.container}>
-        <img className={classes.image} src={wayImage} alt="" />
+      <div>
+        <div className={classes.container} onClick={this.onClick}>
+          <img className={classes.image} src={wayImage} alt="" />
+        </div>
+
+        <OverlayImage overlay={this.state.overlay} imageSrc={wayImage} onClose={this.onClick} />
       </div>
     );
   }
