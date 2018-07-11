@@ -151,7 +151,7 @@ export const fontSizeScheme = {
   // 'header-banner': ,
   'header-contacts': fontSizes.size13,
 
-  'navigation': fontSizes.size15,
+  'navigation': fontSizes.size14,
 
   'sidebar-button': fontSizes.size12,
   // 'sidebar-buttonHover': ,

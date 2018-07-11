@@ -28,6 +28,7 @@ const rawClasses = {
     borderRadius: '4px',
     padding: '10px 10px 10px 18px',
     margin: '0 10px',
+    minWidth: '235px',
 
     ...theming('sidebar-tree'),
   }
@@ -37,7 +38,12 @@ const { classes } = jss.createStyleSheet(rawClasses).attach();
 
 class NavigationTreeComponent extends React.PureComponent<Props, State> {
   onClick = (itemId: string) => {
-    const route = `/products/${itemId}`;
+    let route;
+    if (this.props.route === '/production') {
+      route = `/production/${itemId}`;
+    } else {
+      route = `/products/${itemId}`;
+    }
     browserHistory.push(route);
   }
 
@@ -48,10 +54,12 @@ class NavigationTreeComponent extends React.PureComponent<Props, State> {
       return null;
     }
     logs('categories', this.props.categories);
+    const { route } = this.props;
+    const isExpandTree = route === '/production';
 
     return (
       <div className={classes.container}>
-        <Tree data={this.props.categories as any} onClick={this.onClick} />
+        <Tree data={this.props.categories as any} onClick={this.onClick} isExpand={isExpandTree} />
       </div>
     );
   }
@@ -60,7 +68,7 @@ const mapStateToProps = (state: AppState, props: OwnProps) => {
   if (props.route === '/production') {
     try {
       return {
-        categories: state.categories.separated.filter(item => item.id === '1')[0].items
+        categories: state.categories.separated.filter(item => item.id === '1')
       };
     } catch (err) {
       return {

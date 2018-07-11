@@ -25,7 +25,7 @@ class ProductionComponent extends React.PureComponent<Props, State> {
     logs('render', 'Production');
     return (
       <MiddleLayout route={'/production'}>
-        <Article categoryId={'1'} />
+        <Article categoryId={this.props.routeParams.category || '1'} />
       </MiddleLayout>
     );
   }

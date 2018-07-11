@@ -26,13 +26,26 @@ const { classes } = jss.createStyleSheet(rawClassess).attach();
 type Props = {
   data: TreeItemType[];
   onClick: (id: string) => void;
+  isExpand?: boolean;
 };
 type State = {
   itemsState: {[key: string]: boolean};
+  isExpand?: boolean;
 };
 
 class Tree extends React.PureComponent<Props, State> {
   state = { itemsState: {} as {[key: string]: boolean} }
+
+  static getDerivedStateFromProps(props: Props, prevState: State) {
+    if (props.isExpand !== prevState.isExpand) {
+      if (props.isExpand) {
+        return { isExpand: props.isExpand, itemsState: { 1: true }};
+      }
+      return { isExpand: props.isExpand };
+    }
+    return null;
+  }
+
 
   onTreeClick = (event: any) => {
     try {
@@ -40,6 +53,7 @@ class Tree extends React.PureComponent<Props, State> {
       if (type === 'tree-caption') {
         this.props.onClick(id);
       } else if (type === 'tree-icon') {
+        console.log('id', id);
         this.setState(R.assocPath(['itemsState', id], !this.state.itemsState[id], this.state));
       }
     } catch (e) {

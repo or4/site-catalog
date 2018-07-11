@@ -10,6 +10,7 @@ export default (
     <Route path="/about" component={About} />
     <Route path="/contacts" component={Contacts} />
     <Route path="/production" component={Production} />
+    <Route path="/production/:category" component={Production} />
     <Route path="/products" component={Products} />
     <Route path="/products/:category" component={Products} />
   </Route>
