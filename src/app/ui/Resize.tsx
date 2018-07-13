@@ -22,28 +22,28 @@ export const unsubscribeResize = (component: any, key: string) => {
 };
 
 export class Resize extends React.PureComponent<Props, State> {
-  componentDidMount() {
-    try {
-      window.addEventListener('resize', this.resize);
-    } catch (error) { }
-  }
+  // componentDidMount() {
+  //   try {
+  //     window.addEventListener('resize', this.resize);
+  //   } catch (error) { }
+  // }
 
-  componentWillUnmount() {
-    try {
-      window.removeEventListener('resize', this.resize);
-    } catch (error) { }
-  }
-  resize = () => {
-    logThis && logIntendation(IntendationType.start, 'window resize start');
-    componentsToResize.forEach((item: any) => {
-      try {
-        item.forceUpdate && item.forceUpdate();
-      } catch (e) {
-        logThis && log('Resize forceUpdate', item, e);
-      }
-    });
-    logThis && logIntendation(IntendationType.end, 'window resized done');
-  }
+  // componentWillUnmount() {
+  //   try {
+  //     window.removeEventListener('resize', this.resize);
+  //   } catch (error) { }
+  // }
+  // resize = () => {
+  //   logThis && logIntendation(IntendationType.start, 'window resize start');
+  //   componentsToResize.forEach((item: any) => {
+  //     try {
+  //       item.forceUpdate && item.forceUpdate();
+  //     } catch (e) {
+  //       logThis && log('Resize forceUpdate', item, e);
+  //     }
+  //   });
+  //   logThis && logIntendation(IntendationType.end, 'window resized done');
+  // }
 
   render() {
     return (

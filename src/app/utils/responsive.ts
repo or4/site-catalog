@@ -20,9 +20,10 @@ export const getHeight = () => {
 const isSize = (size: ScreenSize) => getWidth() <= screenSizeDimesions[size];
 
 export const isInitial = () => {
-  const is = isSize('initial');
-  // is && log('isInitial', is);
-  return is;
+  return false;
+  // const is = isSize('initial');
+  // // is && log('isInitial', is);
+  // return is;
 };
 export const isSmall = () => {
   return false;
@@ -31,14 +32,16 @@ export const isSmall = () => {
   // return is;
 };
 export const isMedium = () => {
-  const is = isSize('medium');
-  is && log('isMedium', is);
-  return is;
+  return false;
+  // const is = isSize('medium');
+  // is && log('isMedium', is);
+  // return is;
 };
 export const isLarge = () => {
-  const is = isSize('large');
-  is && log('isLarge', is);
-  return is;
+  return true;
+  // const is = isSize('large');
+  // is && log('isLarge', is);
+  // return is;
 };
 
 // export const isMoreThan1594 = () => { // 1024 + 285 + 285 (one middle and two sidebar)

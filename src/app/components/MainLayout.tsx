@@ -59,7 +59,7 @@ class MainLayoutComponent extends React.Component<Props, State> {
 
         <Vault />
         <Resize />
-        <ScreenSize />
+        {false && <ScreenSize />}
       </div>
     );
   }
