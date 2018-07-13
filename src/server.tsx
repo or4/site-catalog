@@ -38,7 +38,7 @@ let compiler = webpack(config);
 // app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
 // app.use(webpackHotMiddleware(compiler));
 // <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-const layout = (body: any, initialState: any) => (`<!DOCTYPE html><html lang="ru" dir="ltr">
+const layout = (body: any, initialState: any) => (`<!DOCTYPE html><html lang="ru" dir="ltr" style="background: #ddd;">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="robots" content="noindex">
