@@ -38,9 +38,7 @@ let compiler = webpack(config);
 // app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
 // app.use(webpackHotMiddleware(compiler));
 
-const layout = (body: any, initialState: any) => (`
-  <!DOCTYPE html>
-  <html style="background: #ddd;">
+const layout = (body: any, initialState: any) => (`<!DOCTYPE html><html lang="ru" dir="ltr">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="robots" content="noindex">
