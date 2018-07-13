@@ -43,6 +43,7 @@ const layout = (body: any, initialState: any) => (`
   <html style="background: #ddd;">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
     <title>Redux-saga real-world universal example</title>
     <meta charset="utf-8">
