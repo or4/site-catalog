@@ -37,12 +37,11 @@ let port = 9000;
 let compiler = webpack(config);
 // app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
 // app.use(webpackHotMiddleware(compiler));
-
+// <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 const layout = (body: any, initialState: any) => (`<!DOCTYPE html><html lang="ru" dir="ltr">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="robots" content="noindex">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
     <title>Redux-saga real-world universal example</title>
     <meta charset="utf-8">
     <meta name="description" content="Резинотехника оптом и в розницу Северо-Казахстанской области">
